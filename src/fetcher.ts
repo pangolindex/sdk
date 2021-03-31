@@ -1,6 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
 import { getNetwork } from '@ethersproject/networks'
-import { getDefaultProvider } from '@ethersproject/providers'
+import { Provider, getDefaultProvider } from '@ethersproject/providers'
 import { TokenAmount } from './entities/fractions/tokenAmount'
 import { Pair } from './entities/pair'
 import IPangolinPair from '@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/PangolinPair.sol/PangolinPair.json'
@@ -33,7 +33,7 @@ export abstract class Fetcher {
   public static async fetchTokenData(
     chainId: ChainId,
     address: string,
-    provider = getDefaultProvider(getNetwork(chainId)),
+    provider: Provider = getDefaultProvider(getNetwork(chainId)),
     symbol?: string,
     name?: string
   ): Promise<Token> {
@@ -62,7 +62,7 @@ export abstract class Fetcher {
   public static async fetchPairData(
     tokenA: Token,
     tokenB: Token,
-    provider = getDefaultProvider(getNetwork(tokenA.chainId))
+    provider: Provider = getDefaultProvider(getNetwork(tokenA.chainId))
   ): Promise<Pair> {
     invariant(tokenA.chainId === tokenB.chainId, 'CHAIN_ID')
     const address = Pair.getAddress(tokenA, tokenB, tokenA.chainId)
