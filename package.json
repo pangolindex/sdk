@@ -22,7 +22,6 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@openzeppelin/cli": "^2.8.2",
     "@pangolindex/exchange-contracts": "^1.0.1",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
