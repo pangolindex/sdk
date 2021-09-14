@@ -31,10 +31,10 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: ZERO_ADDRESS,
   [ChainId.AVALANCHE]: '0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106',
-  [ChainId.POLYGON]: '0x9b2AEF2F0A66600A159EBaA3660778cEFB83caC2'
+  [ChainId.POLYGON]: '0x60913758635b54e6C9685f92201A5704eEe74748'
 }
 
-export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
+export const INIT_CODE_HASH = '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c'
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
 
