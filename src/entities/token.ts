@@ -56,8 +56,9 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WAVAX = {
-  [ChainId.FUJI]: new Token(ChainId.FUJI,'0xd00ae08403B9bbb9124bB305C09058E32C39A48c',18,'WAVAX','Wrapped AVAX'),
-  [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE,'0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',18,'WAVAX','Wrapped AVAX'),
-  [ChainId.POLYGON]: new Token(ChainId.POLYGON,'0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',18,'WMATIC','Wrapped MATIC')
+export const WETH = {
+  [ChainId.FUJI]: new Token(ChainId.FUJI,'0xd00ae08403B9bbb9124bB305C09058E32C39A48c',18,'WETH','Wrapped ETH'),
+  [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE,'0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',18,'WETH','Wrapped ETH'),
+  [ChainId.POLYGON]: new Token(ChainId.POLYGON,'0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',18,'WMATIC','Wrapped MATIC'),
+  [ChainId.AURORA]: new Token(ChainId.AURORA,'0x0b20972b45ffb8e5d4d37af4024e1bf0b03f15ae',18,'ETH','Wrapped ETH')
 }

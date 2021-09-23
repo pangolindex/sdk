@@ -37,7 +37,12 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.AURORA]: '0x1b6A3d5B5DCdF7a37CFE35CeBC0C4bD28eA7e946'
 }
 
-export const INIT_CODE_HASH = '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c'
+export const INIT_CODE_HASH: { [chainId in ChainId]: string } = {
+  [ChainId.FUJI]: '',
+  [ChainId.AVALANCHE]: '',
+  [ChainId.POLYGON]: '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c',
+  [ChainId.AURORA]: '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c'
+}
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
 
