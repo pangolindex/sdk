@@ -22,6 +22,8 @@ export enum Rounding {
 }
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
+export const ZERO_INIT_CODE = '0x0000000000000000000000000000000000000000000000000000000000000000'
+
 
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0xE4A575550C2b460d2307b82dCd7aFe84AD1484dd',
@@ -38,8 +40,8 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const INIT_CODE_HASH: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: '',
-  [ChainId.AVALANCHE]: '',
+  [ChainId.FUJI]: ZERO_INIT_CODE,
+  [ChainId.AVALANCHE]: ZERO_INIT_CODE,
   [ChainId.POLYGON]: '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c',
   [ChainId.AURORA]: '0x4a697f690d1f46e0f1a897a8662acae31ced3039b00c052392ed0bc179f9f28c'
 }
