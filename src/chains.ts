@@ -36,7 +36,8 @@ export interface Chain {
 }
 
 export const ETHEREUM_MAINNET: Chain = {
-  id: 1,
+  id: 'ethereum_mainnet',
+  chain_id: 1,
   name: 'Ethereum',
   symbol: 'ETH',
   mainnet: true,
@@ -47,7 +48,8 @@ export const ETHEREUM_MAINNET: Chain = {
 }
 
 export const ARBITRUM_MAINNET: Chain = {
-  id: 42161,
+  id: 'arbitrum_mainnet',
+  chain_id: 42161,
   name: 'Arbitrum',
   symbol: 'ARB',
   mainnet: true,
@@ -58,7 +60,8 @@ export const ARBITRUM_MAINNET: Chain = {
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
-  id: 421611,
+  id: 'arbitrum_rinkeby',
+  chain_id: 421611,
   name: 'Arbitrum',
   symbol: 'ARB',
   mainnet: false,
@@ -69,7 +72,8 @@ export const ARBITRUM_RINKEBY: Chain = {
 }
 
 export const AURORA_MAINNET: Chain = {
-  id: 1313161554,
+  id: 'aurora_mainnet',
+  chain_id: 1313161554,
   name: 'Aurora',
   symbol: 'AURORA',
   mainnet: true,
@@ -80,7 +84,8 @@ export const AURORA_MAINNET: Chain = {
 }
 
 export const AURORA_TESTNET: Chain = {
-  id: 1313161555,
+  id: 'aurora_testnet',
+  chain_id: 1313161555,
   name: 'Aurora',
   symbol: 'AURORA',
   mainnet: false,
@@ -91,7 +96,8 @@ export const AURORA_TESTNET: Chain = {
 }
 
 export const AVALANCHE_MAINNET: Chain = {
-  id: 43114,
+  id: 'avalanche_mainnet',
+  chain_id: 43114,
   name: 'Avalanche',
   symbol: 'AVAX',
   png_symbol: 'PNG',
@@ -124,7 +130,8 @@ export const AVALANCHE_MAINNET: Chain = {
 }
 
 export const AVALANCHE_FUJI: Chain = {
-  id: 43113,
+  id: 'avalanche_fuji',
+  chain_id: 43113,
   name: 'Avalanche',
   symbol: 'AVAX',
   png_symbol: 'PNG',
@@ -142,7 +149,8 @@ export const AVALANCHE_FUJI: Chain = {
 }
 
 export const BOBA_MAINNET: Chain = {
-  id: 288,
+  id: 'boba_mainnet',
+  chain_id: 288,
   name: 'Boba',
   symbol: 'BOBA',
   mainnet: true,
@@ -153,7 +161,8 @@ export const BOBA_MAINNET: Chain = {
 }
 
 export const BITTORRENT_MAINNET: Chain = {
-  id: 1029,
+  id: 'bittorrent_mainnet',
+  chain_id: 1029,
   name: 'BitTorrent',
   symbol: 'BTT',
   mainnet: true,
@@ -164,7 +173,8 @@ export const BITTORRENT_MAINNET: Chain = {
 }
 
 export const BSC_MAINNET: Chain = {
-  id: 56,
+  id: 'bsc_mainnet',
+  chain_id: 56,
   name: 'Binance',
   symbol: 'BSC',
   mainnet: true,
@@ -175,7 +185,8 @@ export const BSC_MAINNET: Chain = {
 }
 
 export const BSC_TESTNET: Chain = {
-  id: 97,
+  id: 'bsc_testnet',
+  chain_id: 97,
   name: 'Binance',
   symbol: 'BSC',
   mainnet: false,
@@ -186,7 +197,8 @@ export const BSC_TESTNET: Chain = {
 }
 
 export const CELO_MAINNET: Chain = {
-  id: 42220,
+  id: 'celo_mainnet',
+  chain_id: 42220,
   name: 'Celo',
   symbol: 'CELO',
   mainnet: true,
@@ -197,7 +209,8 @@ export const CELO_MAINNET: Chain = {
 }
 
 export const CRONOS_MAINNET: Chain = {
-  id: 25,
+  id: 'cronos_mainnet',
+  chain_id: 25,
   name: 'Cronos',
   symbol: 'CRO',
   mainnet: true,
@@ -208,7 +221,8 @@ export const CRONOS_MAINNET: Chain = {
 }
 
 export const CRONOS_TESTNET: Chain = {
-  id: 338,
+  id: 'cronos_testnet',
+  chain_id: 338,
   name: 'Cronos',
   symbol: 'CRO',
   mainnet: false,
@@ -219,7 +233,8 @@ export const CRONOS_TESTNET: Chain = {
 }
 
 export const FANTOM_MAINNET: Chain = {
-  id: 250,
+  id: 'fantom_mainnet',
+  chain_id: 250,
   name: 'Fantom',
   symbol: 'FTM',
   mainnet: true,
@@ -230,7 +245,8 @@ export const FANTOM_MAINNET: Chain = {
 }
 
 export const FANTOM_TESTNET: Chain = {
-  id: 0xfa2,
+  id: 'fantom_testnet',
+  chain_id: 0xfa2,
   name: 'Fantom',
   symbol: 'FTM',
   mainnet: false,
@@ -241,7 +257,8 @@ export const FANTOM_TESTNET: Chain = {
 }
 
 export const FUSE_MAINNET: Chain = {
-  id: 0x7a,
+  id: 'fuse_mainnet',
+  chain_id: 0x7a,
   name: 'Fuse',
   symbol: 'FUSE',
   mainnet: true,
@@ -251,7 +268,8 @@ export const FUSE_MAINNET: Chain = {
 }
 
 export const HARMONY_MAINNET: Chain = {
-  id: 1666600000,
+  id: 'harmony_mainnet',
+  chain_id: 1666600000,
   name: 'Harmony',
   symbol: 'ONE',
   mainnet: true,
@@ -261,7 +279,8 @@ export const HARMONY_MAINNET: Chain = {
 }
 
 export const HARMONY_TESTNET: Chain = {
-  id: 1666700000,
+  id: 'harmony_testnet',
+  chain_id: 1666700000,
   name: 'Harmony',
   symbol: 'ONE',
   mainnet: false,
@@ -271,7 +290,8 @@ export const HARMONY_TESTNET: Chain = {
 }
 
 export const HECO_MAINNET: Chain = {
-  id: 128,
+  id: 'heco_mainnet',
+  chain_id: 128,
   name: 'Heco',
   symbol: 'HECO',
   mainnet: true,
@@ -282,7 +302,8 @@ export const HECO_MAINNET: Chain = {
 }
 
 export const KLAYTN_MAINNET: Chain = {
-  id: 8217,
+  id: 'klaytn_mainnet',
+  chain_id: 8217,
   name: 'Klaytn',
   symbol: 'KLAY',
   mainnet: true,
@@ -292,7 +313,8 @@ export const KLAYTN_MAINNET: Chain = {
 }
 
 export const METIS_MAINNET: Chain = {
-  id: 1088,
+  id: 'metis_mainnet',
+  chain_id: 1088,
   name: 'Metis',
   symbol: 'METIS',
   mainnet: true,
@@ -303,7 +325,8 @@ export const METIS_MAINNET: Chain = {
 }
 
 export const MOONRIVER_MAINNET: Chain = {
-  id: 1285,
+  id: 'moonriver_mainnet',
+  chain_id: 1285,
   name: 'Moonriver',
   symbol: 'MOVR',
   mainnet: true,
@@ -314,7 +337,8 @@ export const MOONRIVER_MAINNET: Chain = {
 }
 
 export const MOONBEAM_MAINNET: Chain = {
-  id: 1284,
+  id: 'moonbeam_mainnet',
+  chain_id: 1284,
   name: 'Moonbeam',
   symbol: 'MOBM',
   mainnet: true,
@@ -325,7 +349,8 @@ export const MOONBEAM_MAINNET: Chain = {
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
-  id: 1287,
+  id: 'moonbeam_moonbase',
+  chain_id: 1287,
   name: 'Moonbase',
   symbol: 'MOONBASE',
   mainnet: false,
@@ -336,7 +361,8 @@ export const MOONBEAM_MOONBASE: Chain = {
 }
 
 export const OEC_MAINNET: Chain = {
-  id: 66,
+  id: 'oec_mainnet',
+  chain_id: 66,
   name: 'OEC',
   symbol: 'OKT',
   mainnet: true,
@@ -347,7 +373,8 @@ export const OEC_MAINNET: Chain = {
 }
 
 export const OP_MAINNET: Chain = {
-  id: 10,
+  id: 'op_mainnet',
+  chain_id: 10,
   name: 'Optimism',
   symbol: 'OP',
   mainnet: true,
@@ -358,7 +385,8 @@ export const OP_MAINNET: Chain = {
 }
 
 export const POLYGON_MAINNET: Chain = {
-  id: 137,
+  id: 'polygon_mainnet',
+  chain_id: 137,
   name: 'Polygon',
   symbol: 'MATIC',
   mainnet: true,
@@ -369,7 +397,8 @@ export const POLYGON_MAINNET: Chain = {
 }
 
 export const POLYGON_MUMBAI: Chain = {
-  id: 80001,
+  id: 'polygon_mumbai',
+  chain_id: 80001,
   name: 'Polygon',
   symbol: 'MATIC',
   mainnet: false,
@@ -380,7 +409,8 @@ export const POLYGON_MUMBAI: Chain = {
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
-  id: 11111,
+  id: 'wagmi_fuji_subnet',
+  chain_id: 11111,
   name: 'Wagmi',
   symbol: 'WGMI',
   mainnet: true,
@@ -390,7 +420,8 @@ export const WAGMI_FUJI_SUBNET: Chain = {
 }
 
 export const XDAI_MAINNET: Chain = {
-  id: 100,
+  id: 'xdai_mainnet',
+  chain_id: 100,
   name: 'Gnosis',
   symbol: 'XDAI',
   mainnet: true,
