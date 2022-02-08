@@ -5,8 +5,8 @@ interface StakingContract {
 }
 
 export interface Chain {
-  id: number;
-  name: string;
+  id: string;
+  chain_id: number;
   mainnet: boolean;
   pangolin_is_live: boolean;
   tracked_by_debank: boolean;
