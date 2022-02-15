@@ -1,5 +1,5 @@
 import JSBI from 'jsbi'
-
+import { ChainId } from '..'
 import { SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
 
@@ -16,7 +16,14 @@ export class Currency {
   /**
    * The only instance of the base class `Currency`.
    */
-  public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
+
+  //$ public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
+
+  public static readonly CURRENCY = {
+    [ChainId.FUJI]: new Currency(18, 'AVAX', 'Avalanche'),
+    [ChainId.AVALANCHE]: new Currency(18, 'AVAX', 'Avalanche'),
+    [ChainId.WAGMI]: new Currency(18, 'WGM', 'Wagmi'),
+  }
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
@@ -33,5 +40,6 @@ export class Currency {
   }
 }
 
-const CAVAX = Currency.CAVAX
+//$ const CAVAX = Currency.CAVAX
+const CAVAX = Currency.CURRENCY
 export { CAVAX }

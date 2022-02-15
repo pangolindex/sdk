@@ -5,7 +5,8 @@ export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
   FUJI = 43113,
-  AVALANCHE = 43114
+  AVALANCHE = 43114,
+  WAGMI = 11111
 }
 
 export enum TradeType {
@@ -21,7 +22,8 @@ export enum Rounding {
 
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0xE4A575550C2b460d2307b82dCd7aFe84AD1484dd',
-  [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88'
+  [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88',
+  [ChainId.WAGMI]: '0xA4f6c278B0A9D036eb63B3f410846135895Bb080'
 }
 
 export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
