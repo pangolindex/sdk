@@ -11,6 +11,7 @@ export interface Chain {
   mainnet: boolean;
   pangolin_is_live: boolean;
   tracked_by_debank: boolean;
+  supported_by_gelato: boolean;
   rpc_uri: string;
   symbol: string;
   png_symbol?: string;
@@ -45,6 +46,7 @@ export const ETHEREUM_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/eth/42ba589cd077e7bdd97db6480b0ff61d.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
 }
 
@@ -57,6 +59,7 @@ export const ARBITRUM_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/arb/f6d1b236259654d531a1459b2bccaf64.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
 }
 
@@ -69,6 +72,7 @@ export const ARBITRUM_RINKEBY: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/arb/f6d1b236259654d531a1459b2bccaf64.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: true,
   rpc_uri: 'https://rinkeby.arbitrum.io/rpc',
 }
 
@@ -81,6 +85,7 @@ export const AURORA_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/aurora/c7590fd2defb8e7d7dc071166838c33a.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://mainnet.aurora.dev',
 }
 
@@ -93,6 +98,7 @@ export const AURORA_TESTNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/aurora/c7590fd2defb8e7d7dc071166838c33a.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://testnet.aurora.dev/',
 }
 
@@ -106,6 +112,7 @@ export const AVALANCHE_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/avax/4d1649e8a0c7dec9de3491b81807d402.png',
   pangolin_is_live: true,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   contracts: {
     png: '0x60781C2586D68229fde47564546784ab3fACA982',
@@ -140,6 +147,7 @@ export const AVALANCHE_FUJI: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/eth/42ba589cd077e7bdd97db6480b0ff61d.png',
   pangolin_is_live: true,
   tracked_by_debank: false,
+  supported_by_gelato: true,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   contracts: {
     png: '0x83080D4b5fC60e22dFFA8d14AD3BB41Dde48F199',
@@ -158,6 +166,7 @@ export const BOBA_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/boba/e43d79cd8088ceb3ea3e4a240a75728f.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://mainnet.boba.network',
 }
 
@@ -170,6 +179,7 @@ export const BITTORRENT_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/btt/2130a8d57ff2a0f3d50a4ec9432897c6.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://pre-rpc.bt.io/',
 }
 
@@ -182,6 +192,7 @@ export const BSC_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/bsc/7c87af7b52853145f6aa790d893763f1.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://bsc-dataseed.binance.org/',
 }
 
@@ -194,6 +205,7 @@ export const BSC_TESTNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/bsc/7c87af7b52853145f6aa790d893763f1.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: true,
   rpc_uri: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
 }
 
@@ -206,6 +218,7 @@ export const CELO_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/celo/41da5c1d3c0945ae822a1f85f02c76cf.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://forno.celo.org/',
 }
 
@@ -218,6 +231,7 @@ export const CRONOS_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/cro/44f784a1f4c0ea7d26d00acabfdf0028.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://evm-cronos.crypto.org/',
 }
 
@@ -230,6 +244,7 @@ export const CRONOS_TESTNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/cro/44f784a1f4c0ea7d26d00acabfdf0028.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://cronos-testnet-3.crypto.org:8545/',
 }
 
@@ -242,6 +257,7 @@ export const FANTOM_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/ftm/700fca32e0ee6811686d72b99cc67713.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://rpc.ftm.tools/',
 }
 
@@ -254,6 +270,7 @@ export const FANTOM_TESTNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/ftm/700fca32e0ee6811686d72b99cc67713.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: true,
   rpc_uri: 'https://rpc.testnet.fantom.network/',
 }
 
@@ -265,6 +282,7 @@ export const FUSE_MAINNET: Chain = {
   mainnet: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.fuse.io',
 }
 
@@ -276,6 +294,7 @@ export const HARMONY_MAINNET: Chain = {
   mainnet: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://api.harmony.one',
 }
 
@@ -287,6 +306,7 @@ export const HARMONY_TESTNET: Chain = {
   mainnet: false,
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://api.s0.b.hmny.io',
 }
 
@@ -299,6 +319,7 @@ export const HECO_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/heco/db5152613c669e0cc8624d466d6c94ea.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://http-mainnet.hecochain.com',
 }
 
@@ -310,6 +331,7 @@ export const KLAYTN_MAINNET: Chain = {
   mainnet: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://kaikas.cypress.klaytn.net:8651',
 }
 
@@ -322,6 +344,7 @@ export const METIS_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/metis/b289da32db4d860ebf6fb46a6e41dcfc.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://andromeda.metis.io/?owner=1088',
 }
 
@@ -334,6 +357,7 @@ export const MOONRIVER_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/movr/4b0de5a711b437f187c0d0f15cc0398b.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
 }
 
@@ -346,6 +370,7 @@ export const MOONBEAM_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/mobm/a8442077d76b258297181c3e6eb8c9cc.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbeam.network',
 }
 
@@ -358,6 +383,7 @@ export const MOONBEAM_MOONBASE: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/mobm/a8442077d76b258297181c3e6eb8c9cc.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbase.moonbeam.network',
 }
 
@@ -370,6 +396,7 @@ export const OEC_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/okt/1228cd92320b3d33769bd08eecfb5391.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://exchainrpc.okex.org',
 }
 
@@ -382,6 +409,7 @@ export const OP_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/op/01ae734fe781c9c2ae6a4cc7e9244056.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://mainnet.optimism.io',
 }
 
@@ -394,6 +422,7 @@ export const POLYGON_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/matic/d3d807aff1a13e9ba51a14ff153d6807.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: true,
   rpc_uri: 'https://polygon-rpc.com/ ',
 }
 
@@ -406,6 +435,7 @@ export const POLYGON_MUMBAI: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/matic/d3d807aff1a13e9ba51a14ff153d6807.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: true,
   rpc_uri: 'https://rpc-mumbai.maticvigil.com/',
 }
 
@@ -417,6 +447,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   mainnet: false,
   pangolin_is_live: true,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
   contracts: {
     png: '0x424731d6FFFAD6BF4afBB1EEc60387E523747FC1',
@@ -450,6 +481,7 @@ export const XDAI_MAINNET: Chain = {
   logo: 'https://static.debank.com/image/chain/logo_url/xdai/8b5320523b30bd57a388d1bcc775acd5.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.xdaichain.com/',
 }
 
