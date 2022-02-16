@@ -415,6 +415,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   name: 'Wagmi',
   symbol: 'WGMI',
   mainnet: false,
+  logo: 'https://raw.githubusercontent.com/antiyro/WagmiTokenList/master/wagmi.png',
   pangolin_is_live: true,
   tracked_by_debank: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
