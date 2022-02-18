@@ -420,23 +420,23 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   tracked_by_debank: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
   contracts: {
-    png: '0x424731d6FFFAD6BF4afBB1EEc60387E523747FC1',
-    factory: '0xA4f6c278B0A9D036eb63B3f410846135895Bb080',
-    router: '0x45A4c0e431C283ee1f150765f4a3318017FaC9F9',
+    png: '0xe0D49586C415fa477122C364e330931959865873',
+    factory: '0xBDD1e5CD043cb10f10164C50cf591702AdFDe531',
+    router: '0x20DB5C9993F6A077688bcb5d9E9BDc878379dBd8',
     wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
     local_multisig: '0x0000000000000000000000000000000000000000',
-    community_treasury: '0x63E9539D5fCA628c8b151E2308F3Bb168f85dB26',
+    community_treasury: '0x1FE10d37083f0045777EC6157c1dABEaEfCb439c',
     treasury_vester: '0x7a0998422E10003b0920df24E82450D266434a02',
-    mini_chef: '0x4Ed025E075d777F43571e32F5af0cD0003ba1C1d',
-    airdrop: '0xabe9E0384f265DA621afc86e82c875b80b5c8563',
+    mini_chef: '0xcB41a6BE83981e3d747EAffEFAF71A1AB04c095a',
+    airdrop: '0x0082D8E8eAEF17686f96ADbB13e2429a08a2c7c5',
     timelock: '0xBBA93670076B0AdA497d6a20ee502444681B9dCd',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
     staking: [
       {
-        address: '0x254dCA251954942949f20887de3ee6D8Dd4629D1',
+        address: '0xC9C94E3df4cfdc82fa07168288b240D054f7B788',
         active: true,
-        reward_token: '0x424731d6FFFAD6BF4afBB1EEc60387E523747FC1',
+        reward_token: '0xe0D49586C415fa477122C364e330931959865873',
       }
     ]
   }
