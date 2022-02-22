@@ -445,28 +445,29 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   name: 'Wagmi',
   symbol: 'WGMI',
   mainnet: false,
+  logo: 'https://raw.githubusercontent.com/antiyro/WagmiTokenList/master/wagmi.png',
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
   contracts: {
-    png: '0x424731d6FFFAD6BF4afBB1EEc60387E523747FC1',
-    factory: '0xA4f6c278B0A9D036eb63B3f410846135895Bb080',
-    router: '0x45A4c0e431C283ee1f150765f4a3318017FaC9F9',
+    png: '0xC0C04Ac55280556cd2a1D21e537C2103c180873C',
+    factory: '0xD5E68130a239Ee3eFDf8879DC1f0B26Bfe159A9c',
+    router: '0xccb2ec40C7C2A58702B47Dd050f1c52A7Fa56F2A',
     wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
     local_multisig: '0x0000000000000000000000000000000000000000',
-    community_treasury: '0x63E9539D5fCA628c8b151E2308F3Bb168f85dB26',
-    treasury_vester: '0x7a0998422E10003b0920df24E82450D266434a02',
-    mini_chef: '0x4Ed025E075d777F43571e32F5af0cD0003ba1C1d',
-    airdrop: '0xabe9E0384f265DA621afc86e82c875b80b5c8563',
-    timelock: '0xBBA93670076B0AdA497d6a20ee502444681B9dCd',
+    community_treasury: '0x60B4dF72FDa8a6C3d8289CF393Af1D6bF0b2E9dC',
+    treasury_vester: '0x71FA14fCceaB3bc4989F45e7849eAC874a40D053',
+    mini_chef: '0x9bCF3D7f26Ed6c832d9BDdE77F54312D0CDD9D47',
+    airdrop: '0x62F0C60b3Ff23303B026495b37fCE7417da36AC4',
+    timelock: '0x4bb2378D2eE46042142811b62cbFb7A4CBA3594c',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
     staking: [
       {
-        address: '0x254dCA251954942949f20887de3ee6D8Dd4629D1',
+        address: '0x57624f2C48821A290175EF02EbE7f0495a6714fF',
         active: true,
-        reward_token: '0x424731d6FFFAD6BF4afBB1EEc60387E523747FC1',
+        reward_token: '0xC0C04Ac55280556cd2a1D21e537C2103c180873C',
       }
     ]
   }
@@ -517,3 +518,6 @@ export const CHAINS: Chain[] = [
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
 ]
+
+if (CHAINS[i].chain_id === chainId)
+CHAINS[i].tracked 
