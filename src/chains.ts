@@ -233,6 +233,18 @@ export const CRONOS_TESTNET: Chain = {
   rpc_uri: 'https://cronos-testnet-3.crypto.org:8545/',
 }
 
+export const COSTON_TESTNET: Chain = {
+  id: 'coston_testnet',
+  chain_id: 16,
+  name: 'Coston',
+  symbol: 'cFLR',
+  mainnet: false,
+  logo: '',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
+}
+
 export const FANTOM_MAINNET: Chain = {
   id: 'fantom_mainnet',
   chain_id: 250,
@@ -407,6 +419,18 @@ export const POLYGON_MUMBAI: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc-mumbai.maticvigil.com/',
+}
+
+export const SONGBIRD_MAINNET: Chain = {
+  id: 'songbird_mainnet',
+  chain_id: 19,
+  name: 'Songbird',
+  symbol: 'SGB',
+  mainnet: true,
+  logo: '',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
