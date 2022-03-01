@@ -15,6 +15,8 @@ export interface Chain {
   symbol: string;
   png_symbol?: string;
   logo?: string;
+  coingecko_id?: string;
+  debank_pangolin_id?: string;
   contracts?: {
     png: string;
     factory: string;
@@ -46,6 +48,7 @@ export const ETHEREUM_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+  coingecko_id: 'ethereum',
 }
 
 export const ARBITRUM_MAINNET: Chain = {
@@ -58,6 +61,7 @@ export const ARBITRUM_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
+  coingecko_id: 'arbitrum-one',
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
@@ -82,6 +86,7 @@ export const AURORA_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://mainnet.aurora.dev',
+  coingecko_id: 'aurora',
 }
 
 export const AURORA_TESTNET: Chain = {
@@ -107,6 +112,8 @@ export const AVALANCHE_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
+  coingecko_id: 'avalanche',
+  debank_pangolin_id: 'avax_pangolin',
   contracts: {
     png: '0x60781C2586D68229fde47564546784ab3fACA982',
     factory: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88',
@@ -159,11 +166,12 @@ export const BOBA_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.boba.network',
+  coingecko_id: 'boba',
 }
 
 export const BITTORRENT_MAINNET: Chain = {
   id: 'bittorrent_mainnet',
-  chain_id: 1029,
+  chain_id: 199,
   name: 'BitTorrent',
   symbol: 'BTT',
   mainnet: true,
@@ -183,6 +191,7 @@ export const BSC_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://bsc-dataseed.binance.org/',
+  coingecko_id: 'binance-smart-chain',
 }
 
 export const BSC_TESTNET: Chain = {
@@ -207,6 +216,7 @@ export const CELO_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://forno.celo.org/',
+  coingecko_id: 'celo',
 }
 
 export const CRONOS_MAINNET: Chain = {
@@ -219,6 +229,7 @@ export const CRONOS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://evm-cronos.crypto.org/',
+  coingecko_id: 'cronos',
 }
 
 export const CRONOS_TESTNET: Chain = {
@@ -279,6 +290,7 @@ export const FANTOM_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.ftm.tools/',
+  coingecko_id: 'fantom',
 }
 
 export const FANTOM_TESTNET: Chain = {
@@ -302,6 +314,7 @@ export const FUSE_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.fuse.io',
+  coingecko_id: 'fuse',
 }
 
 export const HARMONY_MAINNET: Chain = {
@@ -336,6 +349,7 @@ export const HECO_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://http-mainnet.hecochain.com',
+  coingecko_id: 'huobi-token',
 }
 
 export const KLAYTN_MAINNET: Chain = {
@@ -359,6 +373,7 @@ export const METIS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://andromeda.metis.io/?owner=1088',
+  coingecko_id: 'metis-andromeda',
 }
 
 export const MOONRIVER_MAINNET: Chain = {
@@ -371,6 +386,7 @@ export const MOONRIVER_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
+  coingecko_id: 'moonriver',
 }
 
 export const MOONBEAM_MAINNET: Chain = {
@@ -383,6 +399,7 @@ export const MOONBEAM_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.api.moonbeam.network',
+  coingecko_id: 'moonbeam',
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
@@ -407,6 +424,7 @@ export const OEC_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://exchainrpc.okex.org',
+  coingecko_id: 'okex-chain',
 }
 
 export const OP_MAINNET: Chain = {
@@ -419,6 +437,7 @@ export const OP_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.optimism.io',
+  coingecko_id: 'optimistic-ethereum',
 }
 
 export const POLYGON_MAINNET: Chain = {
@@ -431,6 +450,7 @@ export const POLYGON_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://polygon-rpc.com/ ',
+  coingecko_id: 'polygon-pos',
 }
 
 export const POLYGON_MUMBAI: Chain = {
@@ -478,9 +498,10 @@ export const XDAI_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.xdaichain.com/',
+  coingecko_id: 'xdai',
 }
 
-export const CHAINS: Chain[] = [
+export const CHAINS_LIST: Chain[] = [
   ETHEREUM_MAINNET,
   ARBITRUM_MAINNET,
   ARBITRUM_RINKEBY,
@@ -516,3 +537,24 @@ export const CHAINS: Chain[] = [
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
 ]
+
+export const CHAINS = {
+  43114: AVALANCHE_MAINNET,
+  1: ETHEREUM_MAINNET,
+  56: BSC_MAINNET,
+  100: XDAI_MAINNET,
+  137: POLYGON_MAINNET,
+  250: FANTOM_MAINNET,
+  66: OEC_MAINNET,
+  128: HECO_MAINNET,
+  10: OP_MAINNET,
+  42161: ARBITRUM_MAINNET,
+  42220: CELO_MAINNET,
+  1285: MOONRIVER_MAINNET,
+  25: CRONOS_MAINNET,
+  288: BOBA_MAINNET,
+  1088: METIS_MAINNET,
+  199: BITTORRENT_MAINNET,
+  1313161554: AURORA_MAINNET,
+  1284: MOONBEAM_MAINNET
+}
