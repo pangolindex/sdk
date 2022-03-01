@@ -451,23 +451,23 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
   contracts: {
-    png: '0xC0C04Ac55280556cd2a1D21e537C2103c180873C',
-    factory: '0xD5E68130a239Ee3eFDf8879DC1f0B26Bfe159A9c',
-    router: '0xccb2ec40C7C2A58702B47Dd050f1c52A7Fa56F2A',
+    png: '0x25dbCAb8709E6222d74a56bD0184fc41439806CE',
+    factory: '0xAf94E75C94B44f21A65c4FDA09970aD6897172dB',
+    router: '0x2F99E88888ee24cbf1623FB7af7FD2e508123eb3',
     wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
     local_multisig: '0x0000000000000000000000000000000000000000',
-    community_treasury: '0x60B4dF72FDa8a6C3d8289CF393Af1D6bF0b2E9dC',
-    treasury_vester: '0x71FA14fCceaB3bc4989F45e7849eAC874a40D053',
-    mini_chef: '0x9bCF3D7f26Ed6c832d9BDdE77F54312D0CDD9D47',
-    airdrop: '0x62F0C60b3Ff23303B026495b37fCE7417da36AC4',
-    timelock: '0x4bb2378D2eE46042142811b62cbFb7A4CBA3594c',
+    community_treasury: '0xd58Be8F6C782D6a50B8D7D8cc238735cA47fa5Cd',
+    treasury_vester: '0xE9c17Fd079F008146871cEECF77100527B26005b',
+    mini_chef: '0x08B7fAC01886858CE741bfA7573D281F05730bF1',
+    airdrop: '0xFf3A1Fbc721C9c1E92835b551e9A795FCdBa83e8',
+    timelock: '0x0A4731C721237C698e988e28de3f629b2367B8Ea',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
     staking: [
       {
-        address: '0x57624f2C48821A290175EF02EbE7f0495a6714fF',
+        address: '0x7101f9e7A21cF6b94859A27077F582B4002771e0',
         active: true,
-        reward_token: '0xC0C04Ac55280556cd2a1D21e537C2103c180873C',
+        reward_token: '0x25dbCAb8709E6222d74a56bD0184fc41439806CE',
       }
     ]
   }
@@ -518,6 +518,3 @@ export const CHAINS: Chain[] = [
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
 ]
-
-if (CHAINS[i].chain_id === chainId)
-CHAINS[i].tracked 
