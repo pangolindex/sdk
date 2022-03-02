@@ -7,10 +7,10 @@ import { Currency } from './currency'
  * Represents an ERC20 token with a unique address and some metadata.
  */
 export class Token extends Currency {
-  public readonly chainId: ChainId
+  public readonly chainId: ChainId = ChainId.AVALANCHE
   public readonly address: string
 
-  public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
+  public constructor(chainId: ChainId = ChainId.AVALANCHE, address: string, decimals: number, symbol?: string, name?: string) {
     super(decimals, symbol, name)
     this.chainId = chainId
     this.address = validateAndParseAddress(address)

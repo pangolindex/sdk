@@ -87,13 +87,13 @@ export interface BestTradeOptions {
  * In other words, if the currency is ETHER, returns the WETH token amount for the given chain. Otherwise, returns
  * the input currency amount.
  */
-function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
+function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
   if (currencyAmount.currency === CAVAX[chainId]) return new TokenAmount(WAVAX[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
 }
 
-function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
+function wrappedCurrency(currency: Currency, chainId: ChainId = ChainId.AVALANCHE): Token {
   if (currency instanceof Token) return currency
   if (currency === CAVAX[chainId]) return WAVAX[chainId]
   invariant(false, 'CURRENCY')
@@ -133,14 +133,14 @@ export class Trade {
    */
   public readonly priceImpact: Percent
 
-  public readonly chainId: ChainId
+  public readonly chainId: ChainId = ChainId.AVALANCHE
 
   /**
    * Constructs an exact in trade with the given amount in and route
    * @param route route of the exact in trade
    * @param amountIn the amount being passed in
    */
-  public static exactIn(route: Route, amountIn: CurrencyAmount, chainId: ChainId): Trade {
+  public static exactIn(route: Route, amountIn: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): Trade {
     return new Trade(route, amountIn, TradeType.EXACT_INPUT, chainId)
   }
 
@@ -149,11 +149,11 @@ export class Trade {
    * @param route route of the exact out trade
    * @param amountOut the amount returned by the trade
    */
-  public static exactOut(route: Route, amountOut: CurrencyAmount, chainId: ChainId): Trade {
+  public static exactOut(route: Route, amountOut: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): Trade {
     return new Trade(route, amountOut, TradeType.EXACT_OUTPUT, chainId)
   }
 
-  public constructor(route: Route, amount: CurrencyAmount, tradeType: TradeType, chainId: ChainId) {
+  public constructor(route: Route, amount: CurrencyAmount, tradeType: TradeType, chainId: ChainId = ChainId.AVALANCHE) {
     const amounts: TokenAmount[] = new Array(route.path.length)
     const nextPairs: Pair[] = new Array(route.pairs.length)
     if (tradeType === TradeType.EXACT_INPUT) {
