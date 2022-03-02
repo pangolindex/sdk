@@ -27,7 +27,7 @@ export class Pair {
   public readonly liquidityToken: Token
   private readonly tokenAmounts: [TokenAmount, TokenAmount]
 
-  public static getAddress(tokenA: Token, tokenB: Token, chainId: ChainId): string {
+  public static getAddress(tokenA: Token, tokenB: Token, chainId: ChainId = ChainId.AVALANCHE): string {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
     if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address] === undefined) {
@@ -47,7 +47,7 @@ export class Pair {
     return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address]
   }
 
-  public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount, chainId: ChainId) {
+  public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount, chainId: ChainId = ChainId.AVALANCHE) {
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
@@ -120,7 +120,7 @@ export class Pair {
     return token.equals(this.token0) ? this.reserve0 : this.reserve1
   }
 
-  public getOutputAmount(inputAmount: TokenAmount, chainId: ChainId): [TokenAmount, Pair] {
+  public getOutputAmount(inputAmount: TokenAmount, chainId: ChainId = ChainId.AVALANCHE): [TokenAmount, Pair] {
     invariant(this.involvesToken(inputAmount.token), 'TOKEN')
     if (JSBI.equal(this.reserve0.raw, ZERO) || JSBI.equal(this.reserve1.raw, ZERO)) {
       throw new InsufficientReservesError()
@@ -140,7 +140,7 @@ export class Pair {
     return [outputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), chainId)]
   }
 
-  public getInputAmount(outputAmount: TokenAmount, chainId: ChainId): [TokenAmount, Pair] {
+  public getInputAmount(outputAmount: TokenAmount, chainId: ChainId = ChainId.AVALANCHE): [TokenAmount, Pair] {
     invariant(this.involvesToken(outputAmount.token), 'TOKEN')
     if (
       JSBI.equal(this.reserve0.raw, ZERO) ||

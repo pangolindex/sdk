@@ -31,7 +31,7 @@ export abstract class Fetcher {
    * @param name optional name of the token
    */
   public static async fetchTokenData(
-    chainId: ChainId,
+    chainId: ChainId = ChainId.AVALANCHE,
     address: string,
     provider = getDefaultProvider(getNetwork(chainId)),
     symbol?: string,
