@@ -74,7 +74,7 @@ export abstract class Router {
    * @param trade to produce call parameters for
    * @param options options for the call parameters
    */
-  public static swapCallParameters(trade: Trade, options: TradeOptions | TradeOptionsDeadline, chainId: ChainId): SwapParameters {
+  public static swapCallParameters(trade: Trade, options: TradeOptions | TradeOptionsDeadline, chainId: ChainId = ChainId.AVALANCHE): SwapParameters {
     const etherIn = trade.inputAmount.currency === CAVAX[chainId]
     const etherOut = trade.outputAmount.currency === CAVAX[chainId]
     // the router does not support both ether in and out
