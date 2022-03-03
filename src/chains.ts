@@ -257,6 +257,7 @@ export const COSTON_TESTNET: Chain = {
   logo: '',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
 }
 
@@ -460,6 +461,7 @@ export const SONGBIRD_MAINNET: Chain = {
   logo: '',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
 }
 
