@@ -1,14 +1,11 @@
 name: npm
 env:
   CI: true
-
 on:
   push:
     branches:
       - master
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +17,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
