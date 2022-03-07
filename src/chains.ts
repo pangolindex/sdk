@@ -245,6 +245,30 @@ export const COSTON_TESTNET: Chain = {
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
 }
 
+export const EVMOS_TESTNET: Chain = {
+  id: 'evmos_testnet',
+  chain_id: 0,
+  name: 'EVMOS Testnet',
+  symbol: 'EVMOS',
+  mainnet: false,
+  logo: '',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: '',
+}
+
+export const EVMOS_MAINNET: Chain = {
+  id: 'evmos_mainnet',
+  chain_id: 9001,
+  name: 'EVMOS',
+  symbol: 'EVMOS',
+  mainnet: true,
+  logo: '',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: 'https://ethereum.rpc.evmos.dev',
+}
+
 export const FANTOM_MAINNET: Chain = {
   id: 'fantom_mainnet',
   chain_id: 250,
@@ -468,8 +492,11 @@ export const CHAINS: Chain[] = [
   BITTORRENT_MAINNET,
   BSC_MAINNET,
   BSC_TESTNET,
+  COSTON_TESTNET,
   CRONOS_MAINNET,
   CRONOS_TESTNET,
+  EVMOS_MAINNET,
+  EVMOS_TESTNET,
   FANTOM_MAINNET,
   FANTOM_TESTNET,
   FUSE_MAINNET,
@@ -485,6 +512,7 @@ export const CHAINS: Chain[] = [
   OP_MAINNET,
   POLYGON_MAINNET,
   POLYGON_MUMBAI,
+  SONGBIRD_MAINNET,
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
 ]
