@@ -463,9 +463,30 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   name: 'Wagmi',
   symbol: 'WGMI',
   mainnet: true,
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
+  contracts: {
+    png: '0x68e3D48a023524d2641710B5dE70200627a0447f',
+    factory: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
+    router: '0x2a496ec9e9bE22e66C61d4Eb9d316beaEE31A77b',
+    wrapped_native_token: '0x25dbCAb8709E6222d74a56bD0184fc41439806CE',
+    local_multisig: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
+    community_treasury: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
+    treasury_vester: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
+    mini_chef: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
+    airdrop: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
+    timelock: '0x86Ed0a92E38a176b193C8c1bd43e5b34Fa160840',
+    revenue_distributor: "0x1fa76B9c58A7c06fA21BaAfc311B33C600B120e5",
+    fee_collector: "0xF3861Acb8061A70499DC85c4a6aA9E934C83049f",
+    staking: [
+      {
+        address: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
+        active: true,
+        reward_token: '0x68e3D48a023524d2641710B5dE70200627a0447f',
+      }
+    ]
+  }
 }
 
 export const XDAI_MAINNET: Chain = {
