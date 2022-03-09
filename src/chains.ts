@@ -13,6 +13,12 @@ export interface Chain {
   tracked_by_debank: boolean;
   rpc_uri: string;
   symbol: string;
+  nativeCurrency: {
+    name: string;
+    symbol: string;
+    decimals: number;
+  }
+  blockExplorerUrls: string[]
   png_symbol?: string;
   logo?: string;
   coingecko_id?: string;
@@ -49,6 +55,12 @@ export const ETHEREUM_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
   coingecko_id: 'ethereum',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://etherscan.io/'],
 }
 
 export const ARBITRUM_MAINNET: Chain = {
@@ -62,18 +74,30 @@ export const ARBITRUM_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
   coingecko_id: 'arbitrum-one',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://etherscan.io/'],
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
   id: 'arbitrum_rinkeby',
   chain_id: 421611,
-  name: 'Arbitrum',
+  name: 'Arbitrum Rinkbey',
   symbol: 'ARB',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/arb.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rinkeby.arbitrum.io/rpc',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io/'],
 }
 
 export const AURORA_MAINNET: Chain = {
@@ -87,18 +111,30 @@ export const AURORA_MAINNET: Chain = {
   tracked_by_debank: false,
   rpc_uri: 'https://mainnet.aurora.dev',
   coingecko_id: 'aurora',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://aurorascan.dev/'],
 }
 
 export const AURORA_TESTNET: Chain = {
   id: 'aurora_testnet',
   chain_id: 1313161555,
-  name: 'Aurora',
+  name: 'Aurora Testnet',
   symbol: 'AURORA',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/aurora.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://testnet.aurora.dev/',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.aurorascan.dev/'],
 }
 
 export const AVALANCHE_MAINNET: Chain = {
@@ -134,13 +170,19 @@ export const AVALANCHE_MAINNET: Chain = {
         reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
       }
     ]
-  }
+  },
+  nativeCurrency:{
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://snowtrace.io/'],
 }
 
 export const AVALANCHE_FUJI: Chain = {
   id: 'avalanche_fuji',
   chain_id: 43113,
-  name: 'Avalanche',
+  name: 'Avalanche Fuji',
   symbol: 'AVAX',
   png_symbol: 'PNG',
   mainnet: false,
@@ -153,7 +195,13 @@ export const AVALANCHE_FUJI: Chain = {
     factory: '0xE4A575550C2b460d2307b82dCd7aFe84AD1484dd',
     router: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
-  }
+  },
+  nativeCurrency:{
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.snowtrace.io/'],
 }
 
 export const BOBA_MAINNET: Chain = {
@@ -167,6 +215,12 @@ export const BOBA_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.boba.network',
   coingecko_id: 'boba',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://blockexplorer.boba.network/'],
 }
 
 export const BITTORRENT_MAINNET: Chain = {
@@ -179,18 +233,30 @@ export const BITTORRENT_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.bt.io/',
+  nativeCurrency:{
+    name: 'BitTorrent',
+    symbol: 'BTT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://scan.bt.io/'],
 }
 
 export const BITTORRENT_TESTNET: Chain = {
   id: 'bittorrent_testnet',
   chain_id: 1028,
-  name: 'BitTorrent',
+  name: 'BitTorrent Testnet',
   symbol: 'BTT',
   mainnet: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/btt.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://test-rpc.bittorrentchain.io/',
+  nativeCurrency:{
+    name: 'BitTorrent',
+    symbol: 'BTT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://scan.bittorrentchain.io/'],
 }
 
 export const BSC_MAINNET: Chain = {
@@ -204,18 +270,30 @@ export const BSC_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://bsc-dataseed.binance.org/',
   coingecko_id: 'binance-smart-chain',
+  nativeCurrency:{
+    name: 'Binance Coin',
+    symbol: 'BNB',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://bscscan.com/'],
 }
 
 export const BSC_TESTNET: Chain = {
   id: 'bsc_testnet',
   chain_id: 97,
-  name: 'Binance',
+  name: 'Binance Testnet',
   symbol: 'BSC',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/bsc.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  nativeCurrency:{
+    name: 'Binance Coin',
+    symbol: 'BNB',
+    decimals: 18,
+  },
+  blockExplorerUrls: [''],
 }
 
 export const CELO_MAINNET: Chain = {
@@ -229,6 +307,12 @@ export const CELO_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://forno.celo.org/',
   coingecko_id: 'celo',
+  nativeCurrency:{
+    name: 'Celo',
+    symbol: 'CELO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://explorer.celo.org'],
 }
 
 export const CELO_ALFAJORES_TESTNET: Chain = {
@@ -241,6 +325,12 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://alfajores-forno.celo-testnet.org',
+  nativeCurrency:{
+    name: 'Celo',
+    symbol: 'CELO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org'],
 }
 
 export const CELO_BAKLAVA_TESTNET: Chain = {
@@ -253,6 +343,12 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://baklava-forno.celo-testnet.org',
+  nativeCurrency:{
+    name: 'Celo',
+    symbol: 'CELO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org'],
 }
 
 export const CRONOS_MAINNET: Chain = {
@@ -266,6 +362,12 @@ export const CRONOS_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://evm-cronos.crypto.org/',
   coingecko_id: 'cronos',
+  nativeCurrency:{
+    name: 'Cronos',
+    symbol: 'CRO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://cronos.org/explorer/'],
 }
 
 export const CRONOS_TESTNET: Chain = {
@@ -278,6 +380,12 @@ export const CRONOS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://cronos-testnet-3.crypto.org:8545/',
+  nativeCurrency:{
+    name: 'Cronos',
+    symbol: 'CRO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://cronos.org/explorer/testnet3'],
 }
 
 export const COSTON_TESTNET: Chain = {
@@ -290,6 +398,12 @@ export const COSTON_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
+  nativeCurrency:{
+    name: 'CostonFlare',
+    symbol: 'CFLR',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://coston-explorer.flare.network/'],
 }
 
 export const EVMOS_TESTNET: Chain = {
@@ -302,6 +416,12 @@ export const EVMOS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  nativeCurrency:{
+    name: 'EVMOS',
+    symbol: 'EVMOS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://evm.evmos.dev/'],
 }
 
 export const EVMOS_MAINNET: Chain = {
@@ -314,6 +434,12 @@ export const EVMOS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
+  nativeCurrency:{
+    name: 'EVMOS',
+    symbol: 'EVMOS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://evm.evmos.org/'],
 }
 
 export const FANTOM_MAINNET: Chain = {
@@ -327,11 +453,17 @@ export const FANTOM_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.ftm.tools/',
   coingecko_id: 'fantom',
+  nativeCurrency:{
+    name: 'Fantom',
+    symbol: 'FTM',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://ftmscan.com/'],
 }
 
 export const FANTOM_TESTNET: Chain = {
   id: 'fantom_testnet',
-  chain_id: 0xfa2,
+  chain_id: 4002,
   name: 'Fantom',
   symbol: 'FTM',
   mainnet: false,
@@ -339,11 +471,17 @@ export const FANTOM_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.testnet.fantom.network/',
+  nativeCurrency:{
+    name: 'Fantom',
+    symbol: 'FTM',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.ftmscan.com/'],
 }
 
 export const FUSE_MAINNET: Chain = {
   id: 'fuse_mainnet',
-  chain_id: 0x7a,
+  chain_id: 122,
   name: 'Fuse',
   symbol: 'FUSE',
   mainnet: true,
@@ -352,6 +490,12 @@ export const FUSE_MAINNET: Chain = {
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.fuse.io',
   coingecko_id: 'fuse',
+  nativeCurrency:{
+    name: 'Fuse',
+    symbol: 'FUSE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['http://explorer.fuse.io/'],
 }
 
 export const FUSE_TESTNET: Chain = {
@@ -364,6 +508,12 @@ export const FUSE_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.fusespark.io/',
+  nativeCurrency:{
+    name: 'Fuse',
+    symbol: 'FUSE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://explorer.fusespark.io/'],
 }
 
 export const HARMONY_MAINNET: Chain = {
@@ -376,18 +526,31 @@ export const HARMONY_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://api.harmony.one',
+  coingecko_id: 'harmony-shard-0',
+  nativeCurrency:{
+    name: 'Harmony',
+    symbol: 'ONE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://explorer.harmony.one/'],
 }
 
 export const HARMONY_TESTNET: Chain = {
   id: 'harmony_testnet',
   chain_id: 1666700000,
-  name: 'Harmony',
+  name: 'Harmony Testnet',
   symbol: 'ONE',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/one.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://api.s0.b.hmny.io',
+  nativeCurrency:{
+    name: 'Harmony',
+    symbol: 'ONE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://explorer.pops.one/'],
 }
 
 export const HECO_MAINNET: Chain = {
@@ -401,6 +564,12 @@ export const HECO_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://http-mainnet.hecochain.com',
   coingecko_id: 'huobi-token',
+  nativeCurrency:{
+    name: 'Heco',
+    symbol: 'HECO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://hecoinfo.com'],
 }
 
 export const HECO_TESTNET: Chain = {
@@ -413,6 +582,12 @@ export const HECO_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://http-testnet.hecochain.com',
+  nativeCurrency:{
+    name: 'Heco',
+    symbol: 'HECO',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://scan-testnet.hecochain.com'],
 }
 
 export const KLAYTN_MAINNET: Chain = {
@@ -425,6 +600,31 @@ export const KLAYTN_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://kaikas.cypress.klaytn.net:8651',
+  coingecko_id: 'klay-token',
+  nativeCurrency:{
+    name: 'Klaytn',
+    symbol: 'KLAY',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://scope.klaytn.com/'],
+}
+
+export const KLAYTN_BAOBAB: Chain = {
+  id: 'klaytn_baobab',
+  chain_id: 1001,
+  name: 'Klaytn Baobab',
+  symbol: 'KLAY',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/klay.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: 'https://api.baobab.klaytn.net:8651/',
+  nativeCurrency:{
+    name: 'Klaytn',
+    symbol: 'KLAY',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://baobab.scope.klaytn.com/'],
 }
 
 export const METIS_MAINNET: Chain = {
@@ -438,6 +638,30 @@ export const METIS_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://andromeda.metis.io/?owner=1088',
   coingecko_id: 'metis-andromeda',
+  nativeCurrency:{
+    name: 'Metis',
+    symbol: 'METIS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://andromeda-explorer.metis.io/'],
+}
+
+export const METIS_RINKEBY: Chain = {
+  id: 'metis_rinkeby',
+  chain_id: 588,
+  name: 'Metis Rinkeby',
+  symbol: 'METIS',
+  mainnet: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/metis.png',
+  pangolin_is_live: false,
+  tracked_by_debank: true,
+  rpc_uri: 'https://stardust.metis.io/?owner=588',
+  nativeCurrency:{
+    name: 'Metis',
+    symbol: 'tMETIS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://stardust-explorer.metis.io/'],
 }
 
 export const MOONRIVER_MAINNET: Chain = {
@@ -451,6 +675,12 @@ export const MOONRIVER_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
   coingecko_id: 'moonriver',
+  nativeCurrency:{
+    name: 'Moonriver',
+    symbol: 'MOVR',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://moonriver.moonscan.io/'],
 }
 
 export const MOONBEAM_MAINNET: Chain = {
@@ -464,6 +694,12 @@ export const MOONBEAM_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.api.moonbeam.network',
   coingecko_id: 'moonbeam',
+  nativeCurrency:{
+    name: 'Moonbeam',
+    symbol: 'GLMR',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://moonscan.io'],
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
@@ -476,6 +712,12 @@ export const MOONBEAM_MOONBASE: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.api.moonbase.moonbeam.network',
+  nativeCurrency:{
+    name: 'Moonbase',
+    symbol: 'DEV',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://moonbase.moonscan.io/'],
 }
 
 export const OEC_MAINNET: Chain = {
@@ -489,6 +731,30 @@ export const OEC_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://exchainrpc.okex.org',
   coingecko_id: 'okex-chain',
+  nativeCurrency:{
+    name: 'OEC',
+    symbol: 'OKT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://www.oklink.com/okexchain/'],
+}
+
+export const OEC_TESTNET: Chain = {
+  id: 'oec_testnet',
+  chain_id: 65,
+  name: 'OEC Testnet',
+  symbol: 'OKT',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/okt.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  rpc_uri: 'https://exchaintestrpc.okex.org',
+  nativeCurrency:{
+    name: 'OEC',
+    symbol: 'OKT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://www.oklink.com/oec-test/'],
 }
 
 export const OP_MAINNET: Chain = {
@@ -502,6 +768,30 @@ export const OP_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://mainnet.optimism.io',
   coingecko_id: 'optimistic-ethereum',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://optimistic.etherscan.io/'],
+}
+
+export const OP_KOVAN: Chain = {
+  id: 'op_kovan',
+  chain_id: 69,
+  name: 'Optimism Kovan',
+  symbol: 'OP',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/op.png',
+  pangolin_is_live: false,
+  tracked_by_debank: true,
+  rpc_uri: 'https://kovan.optimism.io',
+  nativeCurrency:{
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://kovan-optimistic.etherscan.io/'],
 }
 
 export const POLYGON_MAINNET: Chain = {
@@ -515,18 +805,30 @@ export const POLYGON_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://polygon-rpc.com/ ',
   coingecko_id: 'polygon-pos',
+  nativeCurrency:{
+    name: 'Polygon',
+    symbol: 'MATIC',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://polygonscan.com/'],
 }
 
 export const POLYGON_MUMBAI: Chain = {
   id: 'polygon_mumbai',
   chain_id: 80001,
-  name: 'Polygon',
+  name: 'Polygon Mumbai',
   symbol: 'MATIC',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/matic.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc-mumbai.maticvigil.com/',
+  nativeCurrency:{
+    name: 'Polygon',
+    symbol: 'MATIC',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
 }
 
 export const SONGBIRD_MAINNET: Chain = {
@@ -539,6 +841,12 @@ export const SONGBIRD_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  nativeCurrency:{
+    name: 'Songbird',
+    symbol: 'SGB',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://songbird-explorer.flare.network/'],
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
@@ -551,6 +859,12 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://api.trywagmi.xyz/rpc',
+  nativeCurrency:{
+    name: 'Wagmi',
+    symbol: 'WGMI',
+    decimals: 18,
+  },
+  blockExplorerUrls: [''],
 }
 
 export const XDAI_MAINNET: Chain = {
@@ -564,6 +878,12 @@ export const XDAI_MAINNET: Chain = {
   tracked_by_debank: true,
   rpc_uri: 'https://rpc.xdaichain.com/',
   coingecko_id: 'xdai',
+  nativeCurrency:{
+    name: 'Gnosis',
+    symbol: 'xDAI',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://blockscout.com/xdai/mainnet/'],
 }
 
 export const EWC_MAINNET: Chain = {
@@ -576,6 +896,12 @@ export const EWC_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.energyweb.org',
+  nativeCurrency:{
+    name: 'Energy Web Token',
+    symbol: 'EWT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['http://explorer.energyweb.org'],
 }
 
 export const EWC_TESTNET: Chain = {
@@ -588,6 +914,12 @@ export const EWC_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://volta-rpc.energyweb.org',
+  nativeCurrency:{
+    name: 'Volta',
+    symbol: 'VT',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['http://volta-aexplorer.energyweb.org'],
 }
 
 export const IOTEX_MAINNET: Chain = {
@@ -600,6 +932,13 @@ export const IOTEX_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://babel-api.mainnet.iotex.io',
+  coingecko_id: 'iotex',
+  nativeCurrency:{
+    name: 'IoTex',
+    symbol: 'IOTX',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://iotexscan.io/'],
 }
 
 export const IOTEX_TESTNET: Chain = {
@@ -612,6 +951,12 @@ export const IOTEX_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://babel-api.testnet.iotex.io',
+  nativeCurrency:{
+    name: 'IoTex',
+    symbol: 'IOTX',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.iotexscan.io/'],
 }
 
 export const ASTAR_MAINNET: Chain = {
@@ -624,6 +969,12 @@ export const ASTAR_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://astar.api.onfinality.io/public',
+  nativeCurrency:{
+    name: 'Astar',
+    symbol: 'ASTL',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://blockscout.com/astar/'],
 }
 
 export const SHIDEN_TESTNET: Chain = {
@@ -636,6 +987,12 @@ export const SHIDEN_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://shiden.api.onfinality.io/public',
+  nativeCurrency:{
+    name: 'Shiden',
+    symbol: 'SDN',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://blockscout.com/shiden/'],
 }
 
 export const SHIBUYA_TESTNET: Chain = {
@@ -648,34 +1005,53 @@ export const SHIBUYA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://rpc.shibuya.astar.network:8545',
+  nativeCurrency:{
+    name: 'Shibuya',
+    symbol: 'SBY',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://blockscout.com/shibuya'],
 }
 
 export const TELOS_MAINNET: Chain = {
   id: 'telos_mainnet',
   chain_id: 40,
   name: 'Telos',
-  symbol: 'TELOS',
+  symbol: 'TLOS',
   mainnet: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/telos.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://mainnet.telos.net/evm',
+  coingecko_id: 'telos',
+  nativeCurrency:{
+    name: 'TELOS',
+    symbol: 'TLOS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://www.teloscan.io/'],
 }
 
 export const TELOS_TESTNET: Chain = {
   id: 'telos_testnet',
   chain_id: 41,
   name: 'Telos Testnet',
-  symbol: 'TELOS',
+  symbol: 'TLOS',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/telos.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://testnet.telos.net/evm',
+  nativeCurrency:{
+    name: 'TELOS',
+    symbol: 'TLOS',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.telos.net/v2/explore'],
 }
 
 export const OASIS_MAINNET: Chain = {
-  id: 'oasis_testnet',
+  id: 'oasis_mainnet',
   chain_id: 42262,
   name: 'Oasis Emerald',
   symbol: 'ROSE',
@@ -684,6 +1060,13 @@ export const OASIS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://emerald.oasis.dev',
+  coingecko_id: 'oasis',
+  nativeCurrency:{
+    name: 'Oasis Network',
+    symbol: 'ROSE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://explorer.emerald.oasis.dev/'],
 }
 
 export const OASIS_TESTNET: Chain = {
@@ -696,9 +1079,15 @@ export const OASIS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   rpc_uri: 'https://testnet.emerald.oasis.dev',
+  nativeCurrency:{
+    name: 'Oasis Network',
+    symbol: 'ROSE',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev/'],
 }
 
-export const CHAINS_LIST: Chain[] = [
+export const CHAINS: Chain[] = [
   ETHEREUM_MAINNET,
   ARBITRUM_MAINNET,
   ARBITRUM_RINKEBY,
@@ -727,12 +1116,16 @@ export const CHAINS_LIST: Chain[] = [
   HECO_MAINNET,
   HECO_TESTNET,
   KLAYTN_MAINNET,
+  KLAYTN_BAOBAB,
   METIS_MAINNET,
+  METIS_RINKEBY,
   MOONRIVER_MAINNET,
   MOONBEAM_MAINNET,
   MOONBEAM_MOONBASE,
   OEC_MAINNET,
+  OEC_TESTNET,
   OP_MAINNET,
+  OP_KOVAN,
   POLYGON_MAINNET,
   POLYGON_MUMBAI,
   SONGBIRD_MAINNET,
@@ -750,24 +1143,3 @@ export const CHAINS_LIST: Chain[] = [
   OASIS_MAINNET,
   OASIS_TESTNET,
 ]
-
-export const CHAINS = {
-  43114: AVALANCHE_MAINNET,
-  1: ETHEREUM_MAINNET,
-  56: BSC_MAINNET,
-  100: XDAI_MAINNET,
-  137: POLYGON_MAINNET,
-  250: FANTOM_MAINNET,
-  66: OEC_MAINNET,
-  128: HECO_MAINNET,
-  10: OP_MAINNET,
-  42161: ARBITRUM_MAINNET,
-  42220: CELO_MAINNET,
-  1285: MOONRIVER_MAINNET,
-  25: CRONOS_MAINNET,
-  288: BOBA_MAINNET,
-  1088: METIS_MAINNET,
-  199: BITTORRENT_MAINNET,
-  1313161554: AURORA_MAINNET,
-  1284: MOONBEAM_MAINNET
-}
