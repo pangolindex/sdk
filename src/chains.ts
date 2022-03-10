@@ -18,7 +18,7 @@ export interface Chain {
     symbol: string;
     decimals: number;
   }
-  blockExplorerUrls: string[]
+  blockExplorerUrls?: string[]
   png_symbol?: string;
   logo?: string;
   coingecko_id?: string;
@@ -864,7 +864,6 @@ export const WAGMI_FUJI_SUBNET: Chain = {
     symbol: 'WGMI',
     decimals: 18,
   },
-  blockExplorerUrls: [''],
 }
 
 export const XDAI_MAINNET: Chain = {
