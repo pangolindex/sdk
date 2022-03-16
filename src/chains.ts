@@ -35,6 +35,14 @@ export interface Chain {
     fee_collector?: string;
     staking?: StakingContract[];
   }
+  theGraph?: {
+    tokens_whitelist: string[];
+    stables_pair_AEB?: string[2];
+    stables_pair_AEB_block?: number[2];
+    stables_pair_AB?: string[2];
+    stables_pair_AB_block?: number;
+    mining_pools?: string[];
+  }
 }
 
 export const ETHEREUM_MAINNET: Chain = {
