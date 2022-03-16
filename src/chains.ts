@@ -37,6 +37,7 @@ export interface Chain {
   }
   theGraph?: {
     tokens_whitelist: string[];
+    native_price_pre_stable: string[];
     stables_pair_AEB?: string[2];
     stables_pair_AEB_block?: number[2];
     stables_pair_AB?: string[2];
