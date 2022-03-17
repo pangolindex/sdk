@@ -4,13 +4,18 @@ import { currencyEquals } from '../token'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 
-import { BigintIsh, Rounding, TEN } from '../../constants'
+import { BigintIsh, Rounding, TEN, ChainId } from '../../constants'
 import { Currency } from '../currency'
 import { Route } from '../route'
 import { Fraction } from './fraction'
 import { CurrencyAmount } from './currencyAmount'
 
+
 export class Price extends Fraction {
+  /**
+     * Produces the on-chain method name to call and the hex encoded parameters to pass as arguments for a given trade.
+     * @param chainId
+     */
   public readonly baseCurrency: Currency // input i.e. denominator
   public readonly quoteCurrency: Currency // output i.e. numerator
   public readonly scalar: Fraction // used to adjust the raw fraction w/r/t the decimals of the {base,quote}Token
@@ -58,12 +63,12 @@ export class Price extends Fraction {
   }
 
   // performs floor division on overflow
-  public quote(currencyAmount: CurrencyAmount): CurrencyAmount {
+  public quote(currencyAmount: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): CurrencyAmount {
     invariant(currencyEquals(currencyAmount.currency, this.baseCurrency), 'TOKEN')
     if (this.quoteCurrency instanceof Token) {
       return new TokenAmount(this.quoteCurrency, super.multiply(currencyAmount.raw).quotient)
     }
-    return CurrencyAmount.ether(super.multiply(currencyAmount.raw).quotient)
+    return CurrencyAmount.ether(super.multiply(currencyAmount.raw).quotient, chainId)
   }
 
   public toSignificant(significantDigits: number = 6, format?: object, rounding?: Rounding): string {
