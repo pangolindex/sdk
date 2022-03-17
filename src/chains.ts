@@ -260,6 +260,7 @@ export const BITTORRENT_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/btt.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://test-rpc.bittorrentchain.io',
   nativeCurrency:{
     name: 'BitTorrent',
@@ -338,6 +339,7 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/celo.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://alfajores-forno.celo-testnet.org',
   nativeCurrency:{
     name: 'Celo',
@@ -356,6 +358,7 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/celo.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://baklava-forno.celo-testnet.org',
   nativeCurrency:{
     name: 'Celo',
@@ -530,6 +533,7 @@ export const FUSE_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/fuse.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.fusespark.io',
   nativeCurrency:{
     name: 'Fuse',
@@ -607,6 +611,7 @@ export const HECO_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/heco.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://http-testnet.hecochain.com',
   nativeCurrency:{
     name: 'Heco',
@@ -645,6 +650,7 @@ export const KLAYTN_BAOBAB: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/klay.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://api.baobab.klaytn.net:8651',
   nativeCurrency:{
     name: 'Klaytn',
@@ -683,6 +689,7 @@ export const METIS_RINKEBY: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/metis.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://stardust.metis.io/?owner=588',
   nativeCurrency:{
     name: 'Metis',
@@ -780,6 +787,7 @@ export const OEC_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/okt.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://exchaintestrpc.okex.org',
   nativeCurrency:{
     name: 'OEC',
@@ -818,6 +826,7 @@ export const OP_KOVAN: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/op.png',
   pangolin_is_live: false,
   tracked_by_debank: true,
+  supported_by_gelato: false,
   rpc_uri: 'https://kovan.optimism.io',
   nativeCurrency:{
     name: 'Ether',
@@ -953,6 +962,7 @@ export const EWC_MAINNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/ewc.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.energyweb.org',
   nativeCurrency:{
     name: 'Energy Web Token',
@@ -971,6 +981,7 @@ export const EWC_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/ewc.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://volta-rpc.energyweb.org',
   nativeCurrency:{
     name: 'Volta',
@@ -989,6 +1000,7 @@ export const IOTEX_MAINNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/iotx.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://babel-api.mainnet.iotex.io',
   coingecko_id: 'iotex',
   nativeCurrency:{
@@ -1008,6 +1020,7 @@ export const IOTEX_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/iotx.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://babel-api.testnet.iotex.io',
   nativeCurrency:{
     name: 'IoTex',
@@ -1026,6 +1039,7 @@ export const ASTAR_MAINNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/astr.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://astar.api.onfinality.io/public',
   nativeCurrency:{
     name: 'Astar',
@@ -1044,6 +1058,7 @@ export const SHIDEN_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/astr.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://shiden.api.onfinality.io/public',
   nativeCurrency:{
     name: 'Shiden',
@@ -1062,6 +1077,7 @@ export const SHIBUYA_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/astr.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://rpc.shibuya.astar.network:8545',
   nativeCurrency:{
     name: 'Shibuya',
@@ -1080,6 +1096,7 @@ export const TELOS_MAINNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/telos.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://mainnet.telos.net/evm',
   coingecko_id: 'telos',
   nativeCurrency:{
@@ -1099,6 +1116,7 @@ export const TELOS_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/telos.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://testnet.telos.net/evm',
   nativeCurrency:{
     name: 'TELOS',
@@ -1117,6 +1135,7 @@ export const OASIS_MAINNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/oasis.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://emerald.oasis.dev',
   coingecko_id: 'oasis',
   nativeCurrency:{
@@ -1136,6 +1155,7 @@ export const OASIS_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/oasis.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
+  supported_by_gelato: false,
   rpc_uri: 'https://testnet.emerald.oasis.dev',
   nativeCurrency:{
     name: 'Oasis Network',
