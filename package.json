@@ -1,7 +1,7 @@
 {
   "name": "@pangolindex/sdk",
   "license": "MIT",
-  "version": "2.0.0-rc.4",
+  "version": "2.0.1-rc.4",
   "description": "🛠 An SDK for building applications on top of Pangolin.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
