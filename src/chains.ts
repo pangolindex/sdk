@@ -904,7 +904,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: 'https://api-wagmi.avax-test.network/rpc',
+  rpc_uri: 'https://subnets.avax.network/wagmi/wagmi-chain-testnet/rpc',
   contracts: {
     png: '0x25dbCAb8709E6222d74a56bD0184fc41439806CE',
     factory: '0xAf94E75C94B44f21A65c4FDA09970aD6897172dB',
