@@ -22,9 +22,12 @@ jobs:
         run: |
           git config --global user.name 'iam-robi'
           git config --global user.email 'robins07@me.com'
-      - uses: actions/setup-node@v2.1.4
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.node_version }}
+          registry-url: 'https://registry.npmjs.org/'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn --frozen-lockfile
         env:
           CI: true
@@ -41,5 +44,4 @@ jobs:
           tags: true
       - run: npm publish
         env:
-          CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
