@@ -20,8 +20,8 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Configure Git
         run: |
-          git config --global user.name 'iam-robi'
-          git config --global user.email 'robins07@me.com'
+          git config --global user.name 'Pangolin'
+          git config --global user.email 'pangolindex@users.noreply.github.com'
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.node_version }}
