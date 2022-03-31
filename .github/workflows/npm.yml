@@ -18,10 +18,10 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-#      - name: Configure Git
-#        run: |
-#          git config --global user.name 'Pangolin'
-#          git config --global user.email 'pangolindex@users.noreply.github.com'
+      - name: Configure Git
+        run: |
+          git config --global user.name 'iam-robi'
+          git config --global user.email 'robins07@me.com'
       - uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ env.node_version }}
