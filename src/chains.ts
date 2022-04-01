@@ -1,3 +1,5 @@
+import { ChainId } from "./constants";
+
 interface StakingContract {
   address: string;
   active: boolean;
@@ -1164,8 +1166,13 @@ export const OASIS_TESTNET: Chain = {
   },
   blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
 }
+export const CHAINS: { [chainId in ChainId ]: Chain } = {
+  [ChainId.FUJI]: AVALANCHE_FUJI,
+  [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
+  [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
+}
 
-export const CHAINS: Chain[] = [
+export const ALL_CHAINS: Chain[] = [
   ETHEREUM_MAINNET,
   ARBITRUM_MAINNET,
   ARBITRUM_RINKEBY,
