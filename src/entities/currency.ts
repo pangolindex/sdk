@@ -2,6 +2,7 @@ import JSBI from 'jsbi'
 import { ChainId } from '..'
 import { SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
+import { CHAINS } from '../chains'
 
 /**
  * A currency is any fungible financial instrument on Ethereum, including Ether and all ERC20 tokens.
@@ -20,9 +21,9 @@ export class Currency {
   //$ public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
 
   public static readonly CURRENCY = {
-    [ChainId.FUJI]: new Currency(18, 'AVAX', 'Avalanche'),
-    [ChainId.AVALANCHE]: new Currency(18, 'AVAX', 'Avalanche'),
-    [ChainId.WAGMI]: new Currency(18, 'WGM', 'Wagmi'),
+    [ChainId.FUJI]: new Currency(18, CHAINS[ChainId.FUJI].symbol, CHAINS[ChainId.FUJI].name),
+    [ChainId.AVALANCHE]: new Currency(18, CHAINS[ChainId.AVALANCHE].symbol, CHAINS[ChainId.AVALANCHE].name),
+    [ChainId.WAGMI]: new Currency(18, CHAINS[ChainId.WAGMI].symbol, CHAINS[ChainId.WAGMI].name),
   }
 
   /**
