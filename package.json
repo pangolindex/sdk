@@ -1,7 +1,7 @@
 {
-  "name": "@antiyro/sdk",
+  "name": "@pangolindex/sdk",
   "license": "MIT",
-  "version": "10.0.9",
+  "version": "2.0.0-rc.6",
   "description": "🛠 An SDK for building applications on top of Pangolin.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
