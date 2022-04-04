@@ -932,7 +932,8 @@ export const WAGMI_FUJI_SUBNET: Chain = {
     name: 'Wagmi',
     symbol: 'WGMI',
     decimals: 18,
-  }
+  },
+  blockExplorerUrls: ['https://subnets.avax.network/wagmi/wagmi-chain-testnet/explorer'],
 }
 
 export const XDAI_MAINNET: Chain = {
