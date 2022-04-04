@@ -1167,6 +1167,7 @@ export const OASIS_TESTNET: Chain = {
   },
   blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
 }
+
 export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,

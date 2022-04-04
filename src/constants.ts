@@ -1,5 +1,5 @@
 import JSBI from 'jsbi'
-import { CHAINS } from 'chains'
+import { CHAINS } from './chains'
 
 // exports for external consumption
 export type BigintIsh = JSBI | bigint | string
