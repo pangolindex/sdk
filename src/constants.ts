@@ -1,4 +1,5 @@
 import JSBI from 'jsbi'
+import { CHAINS } from 'chains'
 
 // exports for external consumption
 export type BigintIsh = JSBI | bigint | string
@@ -21,9 +22,9 @@ export enum Rounding {
 }
 
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: '0xE4A575550C2b460d2307b82dCd7aFe84AD1484dd',
-  [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88',
-  [ChainId.WAGMI]: '0xf7D180bE35be07fA5B2EC584aB7bF2B701e6EB45'
+  [ChainId.FUJI]: CHAINS[ChainId.FUJI].contracts!.factory,
+  [ChainId.AVALANCHE]: CHAINS[ChainId.AVALANCHE].contracts!.factory,
+  [ChainId.WAGMI]: CHAINS[ChainId.WAGMI].contracts!.factory
 }
 
 export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
