@@ -1,4 +1,8 @@
-import { ChainId } from "./constants";
+enum ChainId {
+  FUJI = 43113,
+  AVALANCHE = 43114,
+  WAGMI = 11111
+}
 
 interface StakingContract {
   address: string;
