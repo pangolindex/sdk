@@ -1,7 +1,8 @@
 enum ChainId {
   FUJI = 43113,
   AVALANCHE = 43114,
-  WAGMI = 11111
+  WAGMI = 11111,
+  COSTON = 16
 }
 
 interface StakingContract {
@@ -419,18 +420,42 @@ export const COSTON_TESTNET: Chain = {
   chain_id: 16,
   name: 'Coston',
   symbol: 'cFLR',
+  png_symbol: 'PNG',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
+  coingecko_id: 'avalanche',
+  debank_pangolin_id: 'avax_pangolin',
+  contracts: {
+    png: '0x478be475E1CBf4dE6021B535eFC96d753E6c2601',
+    factory: '0xA3bB1F5a35B912aCc1f512b173905081dC7F861C',
+    router: '0x6A92F886D663B4Cb8C596C2417f72B789c76AecE',
+    wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
+    local_multisig: '0x66c048d27aFB5EE59E4C07101A483654246A4eda',
+    community_treasury: '0xFeAF5878591855ea2Da7A01A4BC7D40b3DED59B9',
+    treasury_vester: '0x5ca1eb3Fc7d9A676855217576056364f68F2Da6b',
+    mini_chef: '0xbD184c71d8271E4b27F8A885EDc043c2Ec590E65',
+    airdrop: '0x1BF267cBE8d63C4Ff95028Ebe8705F8f2DcBbEf6',
+    timelock: '0x373FBe534755A5DB6953cC9a18016B6892c9d2A5',
+    governor: '',
+    migrator: '',
+    staking: [
+      {
+        address: '0xDE35180C26570b067c74aaB1Dc4406fa1404A25e',
+        active: true,
+        reward_token: '0x478be475E1CBf4dE6021B535eFC96d753E6c2601',
+      }
+    ]
+  },
   nativeCurrency:{
     name: 'CostonFlare',
     symbol: 'CFLR',
     decimals: 18,
   },
-  blockExplorerUrls: ['https://coston-explorer.flare.network'],
+  blockExplorerUrls: ['https://coston-explorer.flare.network']
 }
 
 export const EVMOS_TESTNET: Chain = {
@@ -1176,6 +1201,7 @@ export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
+  [ChainId.COSTON]: COSTON_TESTNET,
 }
 
 export const ALL_CHAINS: Chain[] = [
