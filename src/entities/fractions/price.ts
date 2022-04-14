@@ -4,11 +4,12 @@ import { currencyEquals } from '../token'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 
-import { BigintIsh, Rounding, TEN, ChainId } from '../../constants'
+import { BigintIsh, Rounding, TEN } from '../../constants'
 import { Currency } from '../currency'
 import { Route } from '../route'
 import { Fraction } from './fraction'
 import { CurrencyAmount } from './currencyAmount'
+import { ChainId } from '../../chains'
 
 
 export class Price extends Fraction {

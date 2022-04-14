@@ -4,9 +4,10 @@ import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
 import toFormat from 'toformat'
-import { BigintIsh, Rounding, TEN, SolidityType, ChainId } from '../../constants'
+import { BigintIsh, Rounding, TEN, SolidityType } from '../../constants'
 import { parseBigintIsh, validateSolidityTypeInstance } from '../../utils'
 import { Fraction } from './fraction'
+import { ChainId } from '../../chains'
 
 const Big = toFormat(_Big)
 

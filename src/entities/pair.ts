@@ -14,9 +14,9 @@ import {
   ONE,
   FIVE,
   _997,
-  _1000,
-  ChainId
+  _1000
 } from '../constants'
+import { ChainId } from '../chains'
 import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 import { Token } from './token'

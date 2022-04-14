@@ -1,15 +1,8 @@
 import JSBI from 'jsbi'
-import { CHAINS } from './chains'
+import { ChainId, CHAINS } from './chains'
 
 // exports for external consumption
 export type BigintIsh = JSBI | bigint | string
-
-export enum ChainId {
-  FUJI = 43113,
-  AVALANCHE = 43114,
-  WAGMI = 11111,
-  COSTON = 16
-}
 
 export enum TradeType {
   EXACT_INPUT,
