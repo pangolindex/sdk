@@ -1,7 +1,8 @@
 import invariant from 'tiny-invariant'
-import { ChainId } from '../constants'
+import { ChainId } from '../chains'
 import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
+import { CHAINS } from '../chains'
 
 /**
  * Represents an ERC20 token with a unique address and some metadata.
@@ -57,7 +58,8 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 }
 
 export const WAVAX = {
-  [ChainId.FUJI]: new Token(ChainId.FUJI,'0xd00ae08403B9bbb9124bB305C09058E32C39A48c',18,'WAVAX','Wrapped AVAX'),
-  [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE,'0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',18,'WAVAX','Wrapped AVAX'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI,'0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',18,'wWAGMI','Wrapped WAGMI')
+  [ChainId.FUJI]: new Token(ChainId.FUJI, CHAINS[ChainId.FUJI].contracts!.wrapped_native_token,18,'WAVAX','Wrapped AVAX'),
+  [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, CHAINS[ChainId.AVALANCHE].contracts!.wrapped_native_token,18,'WAVAX','Wrapped AVAX'),
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, CHAINS[ChainId.WAGMI].contracts!.wrapped_native_token,18,'wWAGMI','Wrapped WAGMI'),
+  [ChainId.COSTON]: new Token(ChainId.COSTON, CHAINS[ChainId.COSTON].contracts!.wrapped_native_token,18,'wWAGMI','Wrapped WAGMI')
 }
