@@ -935,23 +935,23 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://subnets.avax.network/wagmi/wagmi-chain-testnet/rpc',
   contracts: {
-    png: '0xd5BC230345fF192C3D00D90E73B7c90A4CddA795',
-    factory: '0xAd008b3EAA6C0eb2F1DED4B0250fb2bBe211e478',
-    router: '0x19c396b20E2CC6a0e2B8DB64E03c0d750BE176CB',
+    png: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
+    factory: '0xee2162F7A04f3abA4925BfdC2e262533bd6Be516',
+    router: '0x924ec1B00109D355Bb2Aa045fAC3b08ceB70Fa3d',
     wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
     local_multisig: '0x0000000000000000000000000000000000000000',
-    community_treasury: '0xD26f3fff55765eBa67e5d9FC7FF04b37116428bb',
-    treasury_vester: '0x9130415f3a51D6CD0aD3e756EbDda9623FD2C290',
-    mini_chef: '0x49bC20913e3F83db8790c9631F3b50c384A8cCe5',
-    airdrop: '0xe5c95B141DbF868c79Fe622897fE9B786a775fda',
-    timelock: '0xb1C8C10FBcCaa9De8aaC6c4Cb60d00a5482fa9E3',
+    community_treasury: '0x2CE6B673aDB3032A1694daC7c1F07c345F18Ae2d',
+    treasury_vester: '0x9DB06A311B3c06D0841782BA0D5004CDEA96e21A',
+    mini_chef: '0x3014526b462ceef5734d9AaAe24321769E59269a',
+    airdrop: '0x0BD8b5D5FF2d4FCcDf7782Af15368FcAFE040Bd1',
+    timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
     staking: [
       {
-        address: '0x4bD808Bc6C165c9c75a3C0e8B21aeFFFB1b6Da76',
+        address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
         active: true,
-        reward_token: '0xd5BC230345fF192C3D00D90E73B7c90A4CddA795',
+        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
       }
     ]
   },
