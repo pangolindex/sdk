@@ -1195,6 +1195,44 @@ export const OASIS_TESTNET: Chain = {
   blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
 }
 
+export const GODWOKEN_MAINNET: Chain = {
+  id: 'godwoken_mainnet',
+  chain_id: 71394,
+  name: 'Godwoken Testnet',
+  symbol: 'CKB',
+  mainnet: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/godwoken.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://mainnet.godwoken.io/rpc',
+  nativeCurrency:{
+    name: 'Nervos Network',
+    symbol: 'CKB',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://layerview.io'],
+}
+
+export const GODWOKEN_TESTNET: Chain = {
+  id: 'godwoken_mainnet',
+  chain_id: 71393,
+  name: 'Godwoken Testnet',
+  symbol: 'CKB',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/godwoken.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://godwoken-testnet-web3-rpc.ckbapp.dev',
+  nativeCurrency:{
+    name: 'Nervos Network',
+    symbol: 'CKB',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://aggron.layerview.io'],
+}
+
 export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
@@ -1256,5 +1294,7 @@ export const ALL_CHAINS: Chain[] = [
   TELOS_MAINNET,
   TELOS_TESTNET,
   OASIS_MAINNET,
-  OASIS_TESTNET
+  OASIS_TESTNET,
+  GODWOKEN_MAINNET,
+  GODWOKEN_TESTNET
 ]
