@@ -198,7 +198,7 @@ export const AVALANCHE_FUJI: Chain = {
   chain_id: 43113,
   name: 'Avalanche Fuji',
   symbol: 'AVAX',
-  png_symbol: 'PNG',
+  png_symbol: 'fujiPNG',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/avax.png',
   pangolin_is_live: true,
@@ -206,10 +206,24 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   contracts: {
-    png: '0x83080D4b5fC60e22dFFA8d14AD3BB41Dde48F199',
-    factory: '0xE4A575550C2b460d2307b82dCd7aFe84AD1484dd',
-    router: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
+    png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
+    factory: '0x2a496ec9e9bE22e66C61d4Eb9d316beaEE31A77b',
+    router: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
+    timelock: "0xf4C589029be33cc4e4056B125794B35A2dF23136",
+    mini_chef: "0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3",
+    community_treasury: "0x3a6e244678f392638876A92DAAa3C56e02dC1080",
+    airdrop: "0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65",
+    treasury_vester: "0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1",
+    revenue_distributor: "0xF3861Acb8061A70499DC85c4a6aA9E934C83049f",
+    fee_collector: "0x0609ce4F16388c440BF9a84b5E8df1b0438F714A",
+    staking: [
+      {
+        address: "0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23",
+        active: true,
+        reward_token: "0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9"
+      }
+    ]
   },
   nativeCurrency:{
     name: 'Avalanche',
