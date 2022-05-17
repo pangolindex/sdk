@@ -28,6 +28,8 @@ export interface Chain {
   }
   blockExplorerUrls?: string[]
   png_symbol?: string;
+  png_logo?: string;
+  default_tokenlist?: string;
   logo?: string;
   coingecko_id?: string;
   debank_pangolin_id?: string;
@@ -157,6 +159,8 @@ export const AVALANCHE_MAINNET: Chain = {
   symbol: 'AVAX',
   png_symbol: 'PNG',
   mainnet: true,
+  png_logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/png_logos/avax_png.png',
+  default_tokenlist: 'https://raw.githubusercontent.com/pangolindex/tokenlists/main/pangolin.tokenlist.json',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/avax.png',
   pangolin_is_live: true,
   tracked_by_debank: true,
@@ -930,6 +934,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   symbol: 'WGMI',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/wgmi.png',
+  default_tokenlist: 'https://raw.githubusercontent.com/pangolindex/tokenlists/main/wgm.tokenlist.json',
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
