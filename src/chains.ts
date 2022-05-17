@@ -1205,13 +1205,13 @@ export const GODWOKEN_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: 'https://mainnet.godwoken.io/rpc',
+  rpc_uri: 'https://mainnet.godwoken.io/rpc/eth-wallet',
   nativeCurrency:{
     name: 'Nervos Network',
     symbol: 'CKB',
     decimals: 18,
   },
-  blockExplorerUrls: ['https://layerview.io'],
+  blockExplorerUrls: ['https://gwscan.com'],
 }
 
 export const GODWOKEN_TESTNET: Chain = {
@@ -1224,13 +1224,13 @@ export const GODWOKEN_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: 'https://godwoken-testnet-web3-rpc.ckbapp.dev',
+  rpc_uri: 'https://godwoken-testnet-web3-v1-rpc.ckbapp.dev/',
   nativeCurrency:{
     name: 'Nervos Network',
     symbol: 'CKB',
     decimals: 18,
   },
-  blockExplorerUrls: ['https://aggron.layerview.io'],
+  blockExplorerUrls: ['https://aggron.gwscan.com/en-US'],
 }
 
 export const CHAINS: { [chainId in ChainId ]: Chain } = {
