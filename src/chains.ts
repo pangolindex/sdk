@@ -20,6 +20,9 @@ export interface Chain {
   tracked_by_debank: boolean;
   supported_by_gelato: boolean;
   rpc_uri: string;
+  subgraph?: {
+    exchange?: string;
+  }
   symbol: string;
   nativeCurrency: {
     name: string;
@@ -162,6 +165,9 @@ export const AVALANCHE_MAINNET: Chain = {
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
+  subgraph: {
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
+  },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
   contracts: {
