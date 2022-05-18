@@ -21,7 +21,7 @@ export interface Chain {
   supported_by_gelato: boolean;
   rpc_uri: string;
   subgraph?: {
-    exchange?: string;
+    exchange: string;
   }
   symbol: string;
   nativeCurrency: {
