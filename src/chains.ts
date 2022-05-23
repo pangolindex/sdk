@@ -1099,7 +1099,7 @@ export const ASTAR_MAINNET: Chain = {
   blockExplorerUrls: ['https://blockscout.com/astar'],
 }
 
-export const SHIDEN_TESTNET: Chain = {
+export const SHIDEN_MAINNET: Chain = {
   id: 'astar_shiden_testnet',
   chain_id: 336,
   name: 'Shiden Network',
@@ -1309,7 +1309,7 @@ export const ALL_CHAINS: Chain[] = [
   IOTEX_MAINNET,
   IOTEX_TESTNET,
   ASTAR_MAINNET,
-  SHIDEN_TESTNET,
+  SHIDEN_MAINNET,
   SHIBUYA_TESTNET,
   TELOS_MAINNET,
   TELOS_TESTNET,
