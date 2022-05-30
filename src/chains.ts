@@ -912,10 +912,33 @@ export const POLYGON_MUMBAI: Chain = {
   symbol: 'MATIC',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/matic.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: true,
-  rpc_uri: 'https://rpc-mumbai.maticvigil.com',
+  rpc_uri: 'https://matic-mumbai.chainstacklabs.com',
+  contracts: {
+    png: '0x4828a3D98E428e73184374845f23C40eB76bA695',
+    factory: '0xf7b351C98B5585b7aDa089F3fFD0fED785fB6cff',
+    router: '0x680ad00c72B8d55436E2812Df0f5a9Df7675e054',
+    wrapped_native_token: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
+    local_multisig: '0x2412CF7162500001035B34a4aC4Cf4876B9a6f4b',
+    foundation_multisig: '0x9284868361460C0Ca3dfcDcf035e90F0ea3A72A0',
+    joint_multisig: '0x38F6d835FAF60a891016b2FC5692E76D2c6eEcbF',
+    community_treasury: '0x791d828FA611D5cD086e8047EAa8d7276c8d943E',
+    treasury_vester: '0xFeC5354eF11981D5dAF92F6CA61e618c5AdF4FD5',
+    mini_chef: '0xa34Ad412652267FB3b1261D7d4F351a678B01Bf8',
+    airdrop: '0x34338ad5D7fd49B24D07D1D8e8d38Fc64F42f94A',
+    timelock: '0xE6ec3b8AD6ad20210a2698d89016DDF6965E5fBC',
+    revenue_distributor: '0x780A51831dc1cE3AAD2879479dBE9419e834744c',
+    fee_collector: '0xB2FcD54680150e3033A878cf1F689e1256d51fc5',
+    staking: [
+      {
+        address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
+        active: true,
+        reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695',
+      }
+    ]
+  },
   nativeCurrency:{
     name: 'Polygon',
     symbol: 'MATIC',
