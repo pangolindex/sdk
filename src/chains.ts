@@ -915,7 +915,7 @@ export const POLYGON_MUMBAI: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: true,
-  rpc_uri: 'https://rpc-mumbai.maticvigil.com',
+  rpc_uri: 'https://matic-mumbai.chainstacklabs.com',
   nativeCurrency:{
     name: 'Polygon',
     symbol: 'MATIC',
