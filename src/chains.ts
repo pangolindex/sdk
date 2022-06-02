@@ -845,7 +845,7 @@ export const MOONBEAM_MOONBASE: Chain = {
 
 export const NEAR_MAINNET: Chain = {
   id: 'near_mainnet',
-  chain_id: 111, // NEAR acutally doesn't have this concept. So may need to change the Interface to make this optional
+  chain_id: 329847900, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`, 
   mainnet: true,
@@ -863,7 +863,7 @@ export const NEAR_MAINNET: Chain = {
 
 export const NEAR_TESTNET: Chain = {
   id: 'near_testnet',
-  chain_id: 111, // NEAR acutally doesn't have this concept. So may need to change the Interface to make this optional
+  chain_id: 329847901, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`, 
   mainnet: false,
