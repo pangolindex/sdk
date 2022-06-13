@@ -2,7 +2,9 @@ export enum ChainId {
   FUJI = 43113,
   AVALANCHE = 43114,
   WAGMI = 11111,
-  COSTON = 16
+  COSTON = 16,
+  NEAR_MAINNET = 329847900,
+  NEAR_TESTNET = 329847901
 }
 
 interface StakingContract {
@@ -1375,6 +1377,8 @@ export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
   [ChainId.COSTON]: COSTON_TESTNET,
+  [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
+  [ChainId.NEAR_TESTNET]: NEAR_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
