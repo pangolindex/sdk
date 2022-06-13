@@ -15,13 +15,13 @@ export enum Rounding {
   ROUND_UP
 }
 
-export const FACTORY_ADDRESS: { [chainId in ChainId]?: string } = {
+export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: CHAINS[ChainId.FUJI].contracts!.factory,
   [ChainId.AVALANCHE]: CHAINS[ChainId.AVALANCHE].contracts!.factory,
   [ChainId.WAGMI]: CHAINS[ChainId.WAGMI].contracts!.factory,
   [ChainId.COSTON]: CHAINS[ChainId.COSTON].contracts!.factory,
-  [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
-  [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory
+  [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts?.factory as string,
+  [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts?.factory as string
 }
 
 export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
