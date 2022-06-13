@@ -61,5 +61,7 @@ export const WAVAX = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, CHAINS[ChainId.FUJI].contracts!.wrapped_native_token,18,'WAVAX','Wrapped AVAX'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, CHAINS[ChainId.AVALANCHE].contracts!.wrapped_native_token,18,'WAVAX','Wrapped AVAX'),
   [ChainId.WAGMI]: new Token(ChainId.WAGMI, CHAINS[ChainId.WAGMI].contracts!.wrapped_native_token,18,'wWAGMI','Wrapped WAGMI'),
-  [ChainId.COSTON]: new Token(ChainId.COSTON, CHAINS[ChainId.COSTON].contracts!.wrapped_native_token,18,'wWAGMI','Wrapped WAGMI')
+  [ChainId.COSTON]: new Token(ChainId.COSTON, CHAINS[ChainId.COSTON].contracts!.wrapped_native_token,18,'wWAGMI','Wrapped WAGMI'),
+  [ChainId.NEAR_MAINNET]: new Token(ChainId.NEAR_MAINNET, CHAINS[ChainId.NEAR_MAINNET].contracts!.wrapped_native_token, 18, 'wNEAR', 'Wrapped NEAR'),
+  [ChainId.NEAR_TESTNET]: new Token(ChainId.NEAR_TESTNET, CHAINS[ChainId.NEAR_TESTNET].contracts!.wrapped_native_token, 18, 'wNEAR', 'Wrapped NEAR')
 }
