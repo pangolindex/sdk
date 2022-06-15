@@ -14,7 +14,10 @@ export class Token extends Currency {
   public constructor(chainId: ChainId = ChainId.AVALANCHE, address: string, decimals: number, symbol?: string, name?: string) {
     super(decimals, symbol, name)
     this.chainId = chainId
-    this.address = validateAndParseAddress(address)
+
+     // only validate address for evm chains
+    const shouldValidateAddress = !!CHAINS[chainId].evm
+    this.address = shouldValidateAddress ? validateAndParseAddress(address) : address
   }
 
   /**
