@@ -858,7 +858,7 @@ export const NEAR_MAINNET: Chain = {
   rpc_uri: 'https://rpc.mainnet.near.org',
   png_symbol: "PNR",
   contracts: {
-    png: 'example1.near',
+    png: 'png-token-v1.testnet',
     factory: 'example2.near',
     router: 'example3.near',
     wrapped_native_token: 'wrap.near',
@@ -892,7 +892,7 @@ export const NEAR_TESTNET: Chain = {
   rpc_uri: 'https://rpc.testnet.near.org',
   png_symbol: "PNR",
   contracts: {
-    png: 'example1.near',
+    png: 'png-token-v1.testnet',
     factory: 'example2.near',
     router: 'example3.near',
     wrapped_native_token: 'wrap.testnet',
