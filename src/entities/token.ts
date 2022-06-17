@@ -16,7 +16,7 @@ export class Token extends Currency {
     this.chainId = chainId
 
      // only validate address for evm chains
-    const shouldValidateAddress = !!CHAINS[chainId].evm
+    const shouldValidateAddress = !!CHAINS[chainId]?.evm
     this.address = shouldValidateAddress ? validateAndParseAddress(address) : address
   }
 
