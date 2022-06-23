@@ -16,7 +16,7 @@ import {
   _997,
   _1000
 } from '../constants'
-import { ChainId } from '../chains'
+import { ChainId, CHAINS } from '../chains'
 import { sqrt, parseBigintIsh } from '../utils'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 import { Token } from './token'
@@ -30,16 +30,23 @@ export class Pair {
   public static getAddress(tokenA: Token, tokenB: Token, chainId: ChainId = ChainId.AVALANCHE): string {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
+    // we create custom lp address here
+    // for evm we have method to create lp address
+    // but for non-evm we dont have that method, so for now we are going to concatinate both token addresses
+    const lpAddress = !!CHAINS[chainId]?.evm
+      ? getCreate2Address(
+          FACTORY_ADDRESS[chainId],
+          keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
+          INIT_CODE_HASH
+        )
+      : `${tokens[0].address}-${tokens[1].address}`
+
     if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address] === undefined) {
       PAIR_ADDRESS_CACHE = {
         ...PAIR_ADDRESS_CACHE,
         [tokens[0].address]: {
           ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
-          [tokens[1].address]: getCreate2Address(
-            FACTORY_ADDRESS[chainId],
-            keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            INIT_CODE_HASH
-          )
+          [tokens[1].address]: lpAddress
         }
       }
     }
