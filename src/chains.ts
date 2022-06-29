@@ -2,7 +2,9 @@ export enum ChainId {
   FUJI = 43113,
   AVALANCHE = 43114,
   WAGMI = 11111,
-  COSTON = 16
+  COSTON = 16,
+  NEAR_MAINNET = 329847900,
+  NEAR_TESTNET = 329847901
 }
 
 interface StakingContract {
@@ -854,11 +856,27 @@ export const NEAR_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.mainnet.near.org',
+  png_symbol: "PNR",
+  contracts: {
+    png: 'png-token-v1.testnet',
+    factory: 'example2.near',
+    router: 'example3.near',
+    wrapped_native_token: 'wrap.near',
+    local_multisig: 'example5.near',
+    community_treasury: 'example6.near',
+    treasury_vester: 'example7.near',
+    mini_chef: 'example8.near',
+    airdrop: 'example9.near',
+    timelock: 'example10.near',
+    governor: 'example11.near',
+    migrator: 'example12.near',
+  },
   nativeCurrency: {
     name: 'Near',
     symbol: "NEAR",
     decimals: 18,
-  }
+  },
+  blockExplorerUrls: ["https://explorer.near.org"],
 }
 
 export const NEAR_TESTNET: Chain = {
@@ -872,11 +890,27 @@ export const NEAR_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.testnet.near.org',
+  png_symbol: "PNR",
+  contracts: {
+    png: 'png-token-v1.testnet',
+    factory: 'example2.near',
+    router: 'example3.near',
+    wrapped_native_token: 'wrap.testnet',
+    local_multisig: 'example5.near',
+    community_treasury: 'example6.near',
+    treasury_vester: 'example7.near',
+    mini_chef: 'example8.near',
+    airdrop: 'example9.near',
+    timelock: 'example10.near',
+    governor: 'example11.near',
+    migrator: 'example12.near',
+  },
   nativeCurrency: {
     name: 'Near',
     symbol: "NEAR",
     decimals: 18,
-  }
+  },
+  blockExplorerUrls: ["https://explorer.testnet.near.org"],
 }
 
 export const OEC_MAINNET: Chain = {
@@ -1375,6 +1409,8 @@ export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
   [ChainId.COSTON]: COSTON_TESTNET,
+  [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
+  [ChainId.NEAR_TESTNET]: NEAR_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [

@@ -1,5 +1,6 @@
 {
   "include": ["src", "test"],
+  "exclude": ["**/*.test.ts"],
   "compilerOptions": {
     "target": "es2018",
     "module": "esnext",
