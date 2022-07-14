@@ -63,8 +63,8 @@ export class Pair {
       tokenAmounts[0].token.chainId,
       Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, chainId),
       18,
-      'AXP',
-      'avaXwap'
+      'PGL',
+      'Pangolin Liquidity'
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }
