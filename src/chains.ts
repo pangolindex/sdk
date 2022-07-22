@@ -1086,6 +1086,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   chain_id: 11111,
   name: 'Wagmi',
   symbol: 'WGMI',
+  png_symbol: 'wagmiPNG',
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/wgmi.png',
