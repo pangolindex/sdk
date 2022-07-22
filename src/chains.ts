@@ -857,6 +857,7 @@ export const NEAR_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.mainnet.near.org',
   png_symbol: "PNR",
+  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg",
   contracts: {
     png: 'png-token-v1.testnet',
     factory: 'example2.near',
@@ -891,6 +892,7 @@ export const NEAR_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.testnet.near.org',
   png_symbol: "PNR",
+  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg",
   contracts: {
     png: 'png-token-v1.testnet',
     factory: 'example2.near',
