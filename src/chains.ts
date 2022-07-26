@@ -41,6 +41,7 @@ export interface Chain {
     png: string;
     factory: string;
     router: string;
+    router_daas?: string;
     wrapped_native_token: string;
     local_multisig?: string;
     community_treasury?: string;
@@ -183,6 +184,7 @@ export const AVALANCHE_MAINNET: Chain = {
     png: '0x60781C2586D68229fde47564546784ab3fACA982',
     factory: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88',
     router: '0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106',
+    router_daas: '0x1fA02b2d6A771842690194Cf62D91bdd92BfE28d',
     wrapped_native_token: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
     local_multisig: '0x66c048d27aFB5EE59E4C07101A483654246A4eda',
     community_treasury: '0x650f5865541f6D68BdDFE977dB933C293EA72358',

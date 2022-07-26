@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 import { ChainId } from '..'
 
-import { ONE, TradeType, ZERO } from '../constants'
+import { ONE, TradeType, ZERO, ZERO_ADDRESS } from '../constants'
 import { sortedInsert } from '../utils'
 import { Currency, CAVAX } from './currency'
 import { CurrencyAmount } from './fractions/currencyAmount'
@@ -12,6 +12,8 @@ import { TokenAmount } from './fractions/tokenAmount'
 import { Pair } from './pair'
 import { Route } from './route'
 import { currencyEquals, Token, WAVAX } from './token'
+
+const ZERO_PERCENT = new Percent(ZERO)
 
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.
@@ -83,6 +85,11 @@ export interface BestTradeOptions {
   maxHops?: number
 }
 
+export interface DaasOptions {
+  fee: Percent
+  feeTo: string
+}
+
 /**
  * Given a currency amount and a chain ID, returns the equivalent representation as the token amount.
  * In other words, if the currency is ETHER, returns the WETH token amount for the given chain. Otherwise, returns
@@ -136,45 +143,67 @@ export class Trade {
 
   public readonly chainId: ChainId = ChainId.AVALANCHE
 
+  public readonly fee: Percent = new Percent(ZERO)
+
+  public readonly feeTo: string = ZERO_ADDRESS
+
   /**
    * Constructs an exact in trade with the given amount in and route
    * @param route route of the exact in trade
    * @param amountIn the amount being passed in
+   * @param chainId chain id
+   * @param daasOptions fee information possibly imposed via DEX as a service
    */
-  public static exactIn(route: Route, amountIn: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): Trade {
-    return new Trade(route, amountIn, TradeType.EXACT_INPUT, chainId)
+  public static exactIn(route: Route, amountIn: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE, daasOptions?: DaasOptions): Trade {
+    return new Trade(route, amountIn, TradeType.EXACT_INPUT, chainId, daasOptions)
   }
 
   /**
    * Constructs an exact out trade with the given amount out and route
    * @param route route of the exact out trade
    * @param amountOut the amount returned by the trade
+   * @param chainId chain id
+   * @param daasOptions fee information possibly imposed via DEX as a service
    */
-  public static exactOut(route: Route, amountOut: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE): Trade {
-    return new Trade(route, amountOut, TradeType.EXACT_OUTPUT, chainId)
+  public static exactOut(route: Route, amountOut: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE, daasOptions?: DaasOptions): Trade {
+    return new Trade(route, amountOut, TradeType.EXACT_OUTPUT, chainId, daasOptions)
   }
 
-  public constructor(route: Route, amount: CurrencyAmount, tradeType: TradeType, chainId: ChainId = ChainId.AVALANCHE) {
+  public constructor(
+    route: Route,
+    amount: CurrencyAmount,
+    tradeType: TradeType,
+    chainId: ChainId = ChainId.AVALANCHE,
+    { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
+  ) {
     const amounts: TokenAmount[] = new Array(route.path.length)
     const nextPairs: Pair[] = new Array(route.pairs.length)
+    let fullOutputAmount: TokenAmount
     if (tradeType === TradeType.EXACT_INPUT) {
       invariant(currencyEquals(amount.currency, route.input), 'INPUT')
       amounts[0] = wrappedAmount(amount, route.chainId)
       for (let i = 0; i < route.path.length - 1; i++) {
         const pair = route.pairs[i]
-        const [outputAmount, nextPair] = pair.getOutputAmount(amounts[i], chainId)
+        const [outputAmount, nextPair] = pair.getOutputAmount(amounts[i])
         amounts[i + 1] = outputAmount
         nextPairs[i] = nextPair
       }
+      fullOutputAmount = amounts[amounts.length - 1]
+      const userReceivedAmountOut = new Fraction(ONE).subtract(fee).multiply(fullOutputAmount.raw).quotient
+      amounts[amounts.length - 1] = new TokenAmount(fullOutputAmount.token, userReceivedAmountOut)
     } else {
       invariant(currencyEquals(amount.currency, route.output), 'OUTPUT')
-      amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId)
+      const userReceivedAmountOut = wrappedAmount(amount, route.chainId)
+      const fullOutputQuantity = new Fraction(ONE).add(fee).multiply(userReceivedAmountOut.raw).quotient
+      fullOutputAmount = new TokenAmount(userReceivedAmountOut.token, fullOutputQuantity)
+      amounts[amounts.length - 1] = fullOutputAmount
       for (let i = route.path.length - 1; i > 0; i--) {
         const pair = route.pairs[i - 1]
-        const [inputAmount, nextPair] = pair.getInputAmount(amounts[i], chainId)
+        const [inputAmount, nextPair] = pair.getInputAmount(amounts[i])
         amounts[i - 1] = inputAmount
         nextPairs[i - 1] = nextPair
       }
+      amounts[amounts.length - 1] = userReceivedAmountOut
     }
 
     this.route = route
@@ -198,15 +227,17 @@ export class Trade {
       this.outputAmount.raw
     )
     this.nextMidPrice = Price.fromRoute(new Route(nextPairs, route.input))
-    this.priceImpact = computePriceImpact(route.midPrice, this.inputAmount, this.outputAmount)
+    this.priceImpact = computePriceImpact(route.midPrice, this.inputAmount, fullOutputAmount)
     this.chainId = chainId
+    this.fee = fee
+    this.feeTo = feeTo
   }
 
   /**
    * Get the minimum amount that must be received from this trade for the given slippage tolerance
    * @param slippageTolerance tolerance of unfavorable slippage from the execution price of this trade
    */
-  public minimumAmountOut(slippageTolerance: Percent, chainId: ChainId = ChainId.AVALANCHE): CurrencyAmount {
+  public minimumAmountOut(slippageTolerance: Percent): CurrencyAmount {
     invariant(!slippageTolerance.lessThan(ZERO), 'SLIPPAGE_TOLERANCE')
     if (this.tradeType === TradeType.EXACT_OUTPUT) {
       return this.outputAmount
@@ -217,7 +248,7 @@ export class Trade {
         .multiply(this.outputAmount.raw).quotient
       return this.outputAmount instanceof TokenAmount
         ? new TokenAmount(this.outputAmount.token, slippageAdjustedAmountOut)
-        : CurrencyAmount.ether(slippageAdjustedAmountOut, chainId)
+        : CurrencyAmount.ether(slippageAdjustedAmountOut, this.chainId)
     }
   }
 
@@ -225,7 +256,7 @@ export class Trade {
    * Get the maximum amount in that can be spent via this trade for the given slippage tolerance
    * @param slippageTolerance tolerance of unfavorable slippage from the execution price of this trade
    */
-  public maximumAmountIn(slippageTolerance: Percent, chainId: ChainId = ChainId.AVALANCHE): CurrencyAmount {
+  public maximumAmountIn(slippageTolerance: Percent): CurrencyAmount {
     invariant(!slippageTolerance.lessThan(ZERO), 'SLIPPAGE_TOLERANCE')
     if (this.tradeType === TradeType.EXACT_INPUT) {
       return this.inputAmount
@@ -233,7 +264,7 @@ export class Trade {
       const slippageAdjustedAmountIn = new Fraction(ONE).add(slippageTolerance).multiply(this.inputAmount.raw).quotient
       return this.inputAmount instanceof TokenAmount
         ? new TokenAmount(this.inputAmount.token, slippageAdjustedAmountIn)
-        : CurrencyAmount.ether(slippageAdjustedAmountIn, chainId)
+        : CurrencyAmount.ether(slippageAdjustedAmountIn, this.chainId)
     }
   }
 
@@ -247,6 +278,8 @@ export class Trade {
    * @param currencyOut the desired currency out
    * @param maxNumResults maximum number of results to return
    * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pair
+   * @param fee total fee possibly imposed via DEX as a service
+   * @param feeTo possible DEX as a service partner
    * @param currentPairs used in recursion; the current list of pairs
    * @param originalAmountIn used in recursion; the original value of the currencyAmountIn parameter
    * @param bestTrades used in recursion; the current list of best trades
@@ -256,6 +289,7 @@ export class Trade {
     currencyAmountIn: CurrencyAmount,
     currencyOut: Currency,
     { maxNumResults = 3, maxHops = 3 }: BestTradeOptions = {},
+    { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
     // used in recursion.
     currentPairs: Pair[] = [],
     originalAmountIn: CurrencyAmount = currencyAmountIn,
@@ -282,7 +316,7 @@ export class Trade {
 
       let amountOut: TokenAmount
       try {
-        ;[amountOut] = pair.getOutputAmount(amountIn, chainId)
+        ;[amountOut] = pair.getOutputAmount(amountIn)
       } catch (error) {
         // input too low
         if (error.isInsufficientInputAmountError) {
@@ -298,7 +332,8 @@ export class Trade {
             new Route([...currentPairs, pair], originalAmountIn.currency, currencyOut),
             originalAmountIn,
             TradeType.EXACT_INPUT,
-            chainId
+            chainId,
+            { fee, feeTo },
           ),
           maxNumResults,
           tradeComparator
@@ -315,6 +350,7 @@ export class Trade {
             maxNumResults,
             maxHops: maxHops - 1
           },
+          { fee, feeTo },
           [...currentPairs, pair],
           originalAmountIn,
           bestTrades
@@ -336,6 +372,8 @@ export class Trade {
    * @param currencyAmountOut the exact amount of currency out
    * @param maxNumResults maximum number of results to return
    * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pair
+   * @param fee total fee possibly imposed via DEX as a service
+   * @param feeTo possible DEX as a service partner
    * @param currentPairs used in recursion; the current list of pairs
    * @param originalAmountOut used in recursion; the original value of the currencyAmountOut parameter
    * @param bestTrades used in recursion; the current list of best trades
@@ -345,6 +383,7 @@ export class Trade {
     currencyIn: Currency,
     currencyAmountOut: CurrencyAmount,
     { maxNumResults = 3, maxHops = 3 }: BestTradeOptions = {},
+    { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
     // used in recursion.
     currentPairs: Pair[] = [],
     originalAmountOut: CurrencyAmount = currencyAmountOut,
@@ -371,7 +410,7 @@ export class Trade {
 
       let amountIn: TokenAmount
       try {
-        ;[amountIn] = pair.getInputAmount(amountOut, chainId)
+        ;[amountIn] = pair.getInputAmount(amountOut)
       } catch (error) {
         // not enough liquidity in this pair
         if (error.isInsufficientReservesError) {
@@ -387,7 +426,8 @@ export class Trade {
             new Route([pair, ...currentPairs], currencyIn, originalAmountOut.currency),
             originalAmountOut,
             TradeType.EXACT_OUTPUT,
-            chainId
+            chainId,
+            { fee, feeTo },
           ),
           maxNumResults,
           tradeComparator
@@ -404,6 +444,7 @@ export class Trade {
             maxNumResults,
             maxHops: maxHops - 1
           },
+          { fee, feeTo },
           [pair, ...currentPairs],
           originalAmountOut,
           bestTrades
