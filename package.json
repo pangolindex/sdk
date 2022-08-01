@@ -25,7 +25,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@pangolindex/exchange-contracts": "^1.0.1",
+    "@pangolindex/exchange-contracts": "2.1.2",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
     "jsbi": "^3.1.1",
