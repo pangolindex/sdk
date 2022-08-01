@@ -8,54 +8,54 @@ export enum ChainId {
 }
 
 interface StakingContract {
-  address: string;
-  active: boolean;
-  reward_token: string;
+  address: string
+  active: boolean
+  reward_token: string
 }
 
 export interface Chain {
-  id: string;
-  name: string;
-  chain_id?: number;
-  mainnet: boolean;
-  evm: boolean;
-  pangolin_is_live: boolean;
-  tracked_by_debank: boolean;
-  supported_by_gelato: boolean;
-  rpc_uri: string;
+  id: string
+  name: string
+  chain_id?: number
+  mainnet: boolean
+  evm: boolean
+  pangolin_is_live: boolean
+  tracked_by_debank: boolean
+  supported_by_gelato: boolean
+  rpc_uri: string
   subgraph?: {
-    exchange: string;
+    exchange: string
   }
-  symbol: string;
+  symbol: string
   nativeCurrency: {
-    name: string;
-    symbol: string;
-    decimals: number;
+    name: string
+    symbol: string
+    decimals: number
   }
   blockExplorerUrls?: string[]
-  png_symbol?: string;
-  logo?: string;
-  coingecko_id?: string;
-  debank_pangolin_id?: string;
+  png_symbol?: string
+  logo?: string
+  coingecko_id?: string
+  debank_pangolin_id?: string
   contracts?: {
-    png: string;
-    factory: string;
-    router: string;
-    router_daas?: string;
-    wrapped_native_token: string;
-    local_multisig?: string;
-    community_treasury?: string;
-    treasury_vester?: string;
-    mini_chef?: string;
-    timelock?: string;
-    migrator?: string;
-    airdrop?: string;
-    foundation_multisig?: string;
-    joint_multisig?: string;
-    revenue_distributor?: string;
-    governor?: string;
-    fee_collector?: string;
-    staking?: StakingContract[];
+    png: string
+    factory: string
+    router: string
+    router_daas?: string
+    wrapped_native_token: string
+    local_multisig?: string
+    community_treasury?: string
+    treasury_vester?: string
+    mini_chef?: string
+    timelock?: string
+    migrator?: string
+    airdrop?: string
+    foundation_multisig?: string
+    joint_multisig?: string
+    revenue_distributor?: string
+    governor?: string
+    fee_collector?: string
+    staking?: StakingContract[]
   }
 }
 
@@ -72,12 +72,12 @@ export const ETHEREUM_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
   coingecko_id: 'ethereum',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://etherscan.io'],
+  blockExplorerUrls: ['https://etherscan.io']
 }
 
 export const ARBITRUM_MAINNET: Chain = {
@@ -93,12 +93,12 @@ export const ARBITRUM_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
   coingecko_id: 'arbitrum-one',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://arbiscan.io'],
+  blockExplorerUrls: ['https://arbiscan.io']
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
@@ -113,12 +113,12 @@ export const ARBITRUM_RINKEBY: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: true,
   rpc_uri: 'https://rinkeby.arbitrum.io/rpc',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io'],
+  blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io']
 }
 
 export const AURORA_MAINNET: Chain = {
@@ -134,12 +134,12 @@ export const AURORA_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.aurora.dev',
   coingecko_id: 'aurora',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://aurorascan.dev'],
+  blockExplorerUrls: ['https://aurorascan.dev']
 }
 
 export const AURORA_TESTNET: Chain = {
@@ -154,12 +154,12 @@ export const AURORA_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://testnet.aurora.dev',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.aurorascan.dev'],
+  blockExplorerUrls: ['https://testnet.aurorascan.dev']
 }
 
 export const AVALANCHE_MAINNET: Chain = {
@@ -176,7 +176,7 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -198,16 +198,16 @@ export const AVALANCHE_MAINNET: Chain = {
       {
         address: '0x88afdaE1a9F58Da3E68584421937E5F564A0135b',
         active: true,
-        reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
+        reward_token: '0x60781C2586D68229fde47564546784ab3fACA982'
       }
     ]
   },
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Avalanche',
     symbol: 'AVAX',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://snowtrace.io'],
+  blockExplorerUrls: ['https://snowtrace.io']
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -229,27 +229,27 @@ export const AVALANCHE_FUJI: Chain = {
     router: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
     router_daas: '0xFE97f59B72eEE0F29F93e12195C6F35DCdAB6899',
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
-    timelock: "0xf4C589029be33cc4e4056B125794B35A2dF23136",
-    mini_chef: "0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3",
-    community_treasury: "0x3a6e244678f392638876A92DAAa3C56e02dC1080",
-    airdrop: "0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65",
-    treasury_vester: "0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1",
-    revenue_distributor: "0xF3861Acb8061A70499DC85c4a6aA9E934C83049f",
-    fee_collector: "0x0609ce4F16388c440BF9a84b5E8df1b0438F714A",
+    timelock: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
+    mini_chef: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
+    community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
+    airdrop: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
+    treasury_vester: '0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1',
+    revenue_distributor: '0xF3861Acb8061A70499DC85c4a6aA9E934C83049f',
+    fee_collector: '0x0609ce4F16388c440BF9a84b5E8df1b0438F714A',
     staking: [
       {
-        address: "0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23",
+        address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
         active: true,
-        reward_token: "0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9"
+        reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9'
       }
     ]
   },
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Avalanche',
     symbol: 'AVAX',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.snowtrace.io'],
+  blockExplorerUrls: ['https://testnet.snowtrace.io']
 }
 
 export const BOBA_MAINNET: Chain = {
@@ -265,12 +265,12 @@ export const BOBA_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.boba.network',
   coingecko_id: 'boba',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://blockexplorer.boba.network'],
+  blockExplorerUrls: ['https://blockexplorer.boba.network']
 }
 
 export const BITTORRENT_MAINNET: Chain = {
@@ -285,12 +285,12 @@ export const BITTORRENT_MAINNET: Chain = {
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.bt.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'BitTorrent',
     symbol: 'BTT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://scan.bt.io'],
+  blockExplorerUrls: ['https://scan.bt.io']
 }
 
 export const BITTORRENT_TESTNET: Chain = {
@@ -305,12 +305,12 @@ export const BITTORRENT_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://test-rpc.bittorrentchain.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'BitTorrent',
     symbol: 'BTT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://scan.bittorrentchain.io'],
+  blockExplorerUrls: ['https://scan.bittorrentchain.io']
 }
 
 export const BSC_MAINNET: Chain = {
@@ -326,13 +326,12 @@ export const BSC_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://bsc-dataseed.binance.org',
   coingecko_id: 'binance-smart-chain',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Binance Coin',
     symbol: 'BNB',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://bscscan.com'],
-
+  blockExplorerUrls: ['https://bscscan.com']
 }
 
 export const BSC_TESTNET: Chain = {
@@ -347,12 +346,12 @@ export const BSC_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: true,
   rpc_uri: 'https://data-seed-prebsc-1-s1.binance.org:8545',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Binance Coin',
     symbol: 'BNB',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.bscscan.com'],
+  blockExplorerUrls: ['https://testnet.bscscan.com']
 }
 
 export const CELO_MAINNET: Chain = {
@@ -368,12 +367,12 @@ export const CELO_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://forno.celo.org',
   coingecko_id: 'celo',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.celo.org'],
+  blockExplorerUrls: ['https://explorer.celo.org']
 }
 
 export const CELO_ALFAJORES_TESTNET: Chain = {
@@ -388,12 +387,12 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://alfajores-forno.celo-testnet.org',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org'],
+  blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org']
 }
 
 export const CELO_BAKLAVA_TESTNET: Chain = {
@@ -408,12 +407,12 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://baklava-forno.celo-testnet.org',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org'],
+  blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org']
 }
 
 export const CRONOS_MAINNET: Chain = {
@@ -429,12 +428,12 @@ export const CRONOS_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://evm-cronos.crypto.org',
   coingecko_id: 'cronos',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Cronos',
     symbol: 'CRO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://cronos.org/explorer'],
+  blockExplorerUrls: ['https://cronos.org/explorer']
 }
 
 export const CRONOS_TESTNET: Chain = {
@@ -449,13 +448,12 @@ export const CRONOS_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://cronos-testnet-3.crypto.org:8545',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Cronos',
     symbol: 'CRO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://cronos.org/explorer/testnet3'],
-
+  blockExplorerUrls: ['https://cronos.org/explorer/testnet3']
 }
 
 export const COSTON_TESTNET: Chain = {
@@ -488,14 +486,14 @@ export const COSTON_TESTNET: Chain = {
       {
         address: '0xF029EE27Ca64cc9F8AB8a9EcBcB8e8B7C6448eAB',
         active: true,
-        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
+        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229'
       }
     ]
   },
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'CostonFlare',
     symbol: 'CFLR',
-    decimals: 18,
+    decimals: 18
   },
   blockExplorerUrls: ['https://coston-explorer.flare.network']
 }
@@ -512,12 +510,12 @@ export const EVMOS_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://evm.evmos.dev'],
+  blockExplorerUrls: ['https://evm.evmos.dev']
 }
 
 export const EVMOS_MAINNET: Chain = {
@@ -532,12 +530,12 @@ export const EVMOS_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://evm.evmos.org'],
+  blockExplorerUrls: ['https://evm.evmos.org']
 }
 
 export const FANTOM_MAINNET: Chain = {
@@ -553,12 +551,12 @@ export const FANTOM_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://rpc.ftm.tools',
   coingecko_id: 'fantom',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Fantom',
     symbol: 'FTM',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://ftmscan.com'],
+  blockExplorerUrls: ['https://ftmscan.com']
 }
 
 export const FANTOM_TESTNET: Chain = {
@@ -573,12 +571,12 @@ export const FANTOM_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: true,
   rpc_uri: 'https://rpc.testnet.fantom.network',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Fantom',
     symbol: 'FTM',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.ftmscan.com'],
+  blockExplorerUrls: ['https://testnet.ftmscan.com']
 }
 
 export const FUSE_MAINNET: Chain = {
@@ -594,12 +592,12 @@ export const FUSE_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.fuse.io',
   coingecko_id: 'fuse',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Fuse',
     symbol: 'FUSE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['http://explorer.fuse.io'],
+  blockExplorerUrls: ['http://explorer.fuse.io']
 }
 
 export const FUSE_TESTNET: Chain = {
@@ -614,12 +612,12 @@ export const FUSE_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.fusespark.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Fuse',
     symbol: 'FUSE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.fusespark.io'],
+  blockExplorerUrls: ['https://explorer.fusespark.io']
 }
 
 export const HARMONY_MAINNET: Chain = {
@@ -635,12 +633,12 @@ export const HARMONY_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://api.harmony.one',
   coingecko_id: 'harmony-shard-0',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Harmony',
     symbol: 'ONE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.harmony.one'],
+  blockExplorerUrls: ['https://explorer.harmony.one']
 }
 
 export const HARMONY_TESTNET: Chain = {
@@ -655,12 +653,12 @@ export const HARMONY_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://api.s0.b.hmny.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Harmony',
     symbol: 'ONE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.pops.one'],
+  blockExplorerUrls: ['https://explorer.pops.one']
 }
 
 export const HECO_MAINNET: Chain = {
@@ -676,12 +674,12 @@ export const HECO_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://http-mainnet.hecochain.com',
   coingecko_id: 'huobi-token',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Heco',
     symbol: 'HECO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://hecoinfo.com'],
+  blockExplorerUrls: ['https://hecoinfo.com']
 }
 
 export const HECO_TESTNET: Chain = {
@@ -696,12 +694,12 @@ export const HECO_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://http-testnet.hecochain.com',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Heco',
     symbol: 'HECO',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://scan-testnet.hecochain.com'],
+  blockExplorerUrls: ['https://scan-testnet.hecochain.com']
 }
 
 export const KLAYTN_MAINNET: Chain = {
@@ -717,12 +715,12 @@ export const KLAYTN_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://kaikas.cypress.klaytn.net:8651',
   coingecko_id: 'klay-token',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Klaytn',
     symbol: 'KLAY',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://scope.klaytn.com'],
+  blockExplorerUrls: ['https://scope.klaytn.com']
 }
 
 export const KLAYTN_BAOBAB: Chain = {
@@ -737,12 +735,12 @@ export const KLAYTN_BAOBAB: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://api.baobab.klaytn.net:8651',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Klaytn',
     symbol: 'KLAY',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://baobab.scope.klaytn.com'],
+  blockExplorerUrls: ['https://baobab.scope.klaytn.com']
 }
 
 export const METIS_MAINNET: Chain = {
@@ -758,12 +756,12 @@ export const METIS_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://andromeda.metis.io/?owner=1088',
   coingecko_id: 'metis-andromeda',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Metis',
     symbol: 'METIS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://andromeda-explorer.metis.io'],
+  blockExplorerUrls: ['https://andromeda-explorer.metis.io']
 }
 
 export const METIS_RINKEBY: Chain = {
@@ -778,12 +776,12 @@ export const METIS_RINKEBY: Chain = {
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://stardust.metis.io/?owner=588',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Metis',
     symbol: 'tMETIS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://stardust-explorer.metis.io'],
+  blockExplorerUrls: ['https://stardust-explorer.metis.io']
 }
 
 export const MOONRIVER_MAINNET: Chain = {
@@ -799,12 +797,12 @@ export const MOONRIVER_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
   coingecko_id: 'moonriver',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Moonriver',
     symbol: 'MOVR',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://moonriver.moonscan.io'],
+  blockExplorerUrls: ['https://moonriver.moonscan.io']
 }
 
 export const MOONBEAM_MAINNET: Chain = {
@@ -820,12 +818,12 @@ export const MOONBEAM_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbeam.network',
   coingecko_id: 'moonbeam',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Moonbeam',
     symbol: 'GLMR',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://moonscan.io'],
+  blockExplorerUrls: ['https://moonscan.io']
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
@@ -840,27 +838,27 @@ export const MOONBEAM_MOONBASE: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbase.moonbeam.network',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Moonbase',
     symbol: 'DEV',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://moonbase.moonscan.io'],
+  blockExplorerUrls: ['https://moonbase.moonscan.io']
 }
 
 export const NEAR_MAINNET: Chain = {
   id: 'near_mainnet',
   chain_id: 329847900, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
-  symbol: `NEAR`, 
+  symbol: `NEAR`,
   mainnet: true,
   evm: false,
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.mainnet.near.org',
-  png_symbol: "PNR",
-  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg",
+  png_symbol: 'PNR',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: 'png-token-v1.testnet',
     factory: 'example2.near',
@@ -873,29 +871,29 @@ export const NEAR_MAINNET: Chain = {
     airdrop: 'example9.near',
     timelock: 'example10.near',
     governor: 'example11.near',
-    migrator: 'example12.near',
+    migrator: 'example12.near'
   },
   nativeCurrency: {
     name: 'Near',
-    symbol: "NEAR",
-    decimals: 18,
+    symbol: 'NEAR',
+    decimals: 18
   },
-  blockExplorerUrls: ["https://explorer.near.org"],
+  blockExplorerUrls: ['https://explorer.near.org']
 }
 
 export const NEAR_TESTNET: Chain = {
   id: 'near_testnet',
   chain_id: 329847901, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
-  symbol: `NEAR`, 
+  symbol: `NEAR`,
   mainnet: false,
   evm: false,
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.testnet.near.org',
-  png_symbol: "PNR",
-  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg",
+  png_symbol: 'PNR',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: 'png-token-v1.testnet',
     factory: 'example2.near',
@@ -908,14 +906,14 @@ export const NEAR_TESTNET: Chain = {
     airdrop: 'example9.near',
     timelock: 'example10.near',
     governor: 'example11.near',
-    migrator: 'example12.near',
+    migrator: 'example12.near'
   },
   nativeCurrency: {
     name: 'Near',
-    symbol: "NEAR",
-    decimals: 18,
+    symbol: 'NEAR',
+    decimals: 18
   },
-  blockExplorerUrls: ["https://explorer.testnet.near.org"],
+  blockExplorerUrls: ['https://explorer.testnet.near.org']
 }
 
 export const OEC_MAINNET: Chain = {
@@ -931,12 +929,12 @@ export const OEC_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://exchainrpc.okex.org',
   coingecko_id: 'okex-chain',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'OEC',
     symbol: 'OKT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://www.oklink.com/okexchain'],
+  blockExplorerUrls: ['https://www.oklink.com/okexchain']
 }
 
 export const OEC_TESTNET: Chain = {
@@ -951,12 +949,12 @@ export const OEC_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://exchaintestrpc.okex.org',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'OEC',
     symbol: 'OKT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://www.oklink.com/oec-test'],
+  blockExplorerUrls: ['https://www.oklink.com/oec-test']
 }
 
 export const OP_MAINNET: Chain = {
@@ -972,12 +970,12 @@ export const OP_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.optimism.io',
   coingecko_id: 'optimistic-ethereum',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://optimistic.etherscan.io'],
+  blockExplorerUrls: ['https://optimistic.etherscan.io']
 }
 
 export const OP_KOVAN: Chain = {
@@ -992,12 +990,12 @@ export const OP_KOVAN: Chain = {
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://kovan.optimism.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://kovan-optimistic.etherscan.io'],
+  blockExplorerUrls: ['https://kovan-optimistic.etherscan.io']
 }
 
 export const POLYGON_MAINNET: Chain = {
@@ -1013,12 +1011,12 @@ export const POLYGON_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://polygon-rpc.com',
   coingecko_id: 'polygon-pos',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Polygon',
     symbol: 'MATIC',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://polygonscan.com'],
+  blockExplorerUrls: ['https://polygonscan.com']
 }
 
 export const POLYGON_MUMBAI: Chain = {
@@ -1052,16 +1050,16 @@ export const POLYGON_MUMBAI: Chain = {
       {
         address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
         active: true,
-        reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695',
+        reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695'
       }
     ]
   },
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Polygon',
     symbol: 'MATIC',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://mumbai.polygonscan.com'],
+  blockExplorerUrls: ['https://mumbai.polygonscan.com']
 }
 
 export const SONGBIRD_MAINNET: Chain = {
@@ -1076,12 +1074,12 @@ export const SONGBIRD_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Songbird',
     symbol: 'SGB',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://songbird-explorer.flare.network'],
+  blockExplorerUrls: ['https://songbird-explorer.flare.network']
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
@@ -1114,16 +1112,16 @@ export const WAGMI_FUJI_SUBNET: Chain = {
       {
         address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
         active: true,
-        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
+        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5'
       }
     ]
   },
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Wagmi',
     symbol: 'WGMI',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://subnets.avax.network/wagmi/wagmi-chain-testnet/explorer'],
+  blockExplorerUrls: ['https://subnets.avax.network/wagmi/wagmi-chain-testnet/explorer']
 }
 
 export const XDAI_MAINNET: Chain = {
@@ -1139,12 +1137,12 @@ export const XDAI_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.xdaichain.com',
   coingecko_id: 'xdai',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Gnosis',
     symbol: 'xDAI',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
+  blockExplorerUrls: ['https://blockscout.com/xdai/mainnet']
 }
 
 export const EWC_MAINNET: Chain = {
@@ -1159,12 +1157,12 @@ export const EWC_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.energyweb.org',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Energy Web Token',
     symbol: 'EWT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['http://explorer.energyweb.org'],
+  blockExplorerUrls: ['http://explorer.energyweb.org']
 }
 
 export const EWC_TESTNET: Chain = {
@@ -1179,12 +1177,12 @@ export const EWC_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://volta-rpc.energyweb.org',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Volta',
     symbol: 'VT',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['http://volta-aexplorer.energyweb.org'],
+  blockExplorerUrls: ['http://volta-aexplorer.energyweb.org']
 }
 
 export const IOTEX_MAINNET: Chain = {
@@ -1200,12 +1198,12 @@ export const IOTEX_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://babel-api.mainnet.iotex.io',
   coingecko_id: 'iotex',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'IoTex',
     symbol: 'IOTX',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://iotexscan.io'],
+  blockExplorerUrls: ['https://iotexscan.io']
 }
 
 export const IOTEX_TESTNET: Chain = {
@@ -1220,12 +1218,12 @@ export const IOTEX_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://babel-api.testnet.iotex.io',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'IoTex',
     symbol: 'IOTX',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.iotexscan.io'],
+  blockExplorerUrls: ['https://testnet.iotexscan.io']
 }
 
 export const ASTAR_MAINNET: Chain = {
@@ -1240,12 +1238,12 @@ export const ASTAR_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://astar.api.onfinality.io/public',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Astar',
     symbol: 'ASTL',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://blockscout.com/astar'],
+  blockExplorerUrls: ['https://blockscout.com/astar']
 }
 
 export const SHIDEN_MAINNET: Chain = {
@@ -1260,12 +1258,12 @@ export const SHIDEN_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://shiden.api.onfinality.io/public',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Shiden',
     symbol: 'SDN',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://blockscout.com/shiden'],
+  blockExplorerUrls: ['https://blockscout.com/shiden']
 }
 
 export const SHIBUYA_TESTNET: Chain = {
@@ -1280,12 +1278,12 @@ export const SHIBUYA_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.shibuya.astar.network:8545',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Shibuya',
     symbol: 'SBY',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://blockscout.com/shibuya'],
+  blockExplorerUrls: ['https://blockscout.com/shibuya']
 }
 
 export const TELOS_MAINNET: Chain = {
@@ -1301,12 +1299,12 @@ export const TELOS_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.telos.net/evm',
   coingecko_id: 'telos',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'TELOS',
     symbol: 'TLOS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://www.teloscan.io'],
+  blockExplorerUrls: ['https://www.teloscan.io']
 }
 
 export const TELOS_TESTNET: Chain = {
@@ -1321,12 +1319,12 @@ export const TELOS_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://testnet.telos.net/evm',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'TELOS',
     symbol: 'TLOS',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.telos.net/v2/explore'],
+  blockExplorerUrls: ['https://testnet.telos.net/v2/explore']
 }
 
 export const OASIS_MAINNET: Chain = {
@@ -1342,12 +1340,12 @@ export const OASIS_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://emerald.oasis.dev',
   coingecko_id: 'oasis',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Oasis Network',
     symbol: 'ROSE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.emerald.oasis.dev'],
+  blockExplorerUrls: ['https://explorer.emerald.oasis.dev']
 }
 
 export const OASIS_TESTNET: Chain = {
@@ -1362,12 +1360,12 @@ export const OASIS_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://testnet.emerald.oasis.dev',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Oasis Network',
     symbol: 'ROSE',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
+  blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev']
 }
 
 export const GODWOKEN_MAINNET: Chain = {
@@ -1382,12 +1380,12 @@ export const GODWOKEN_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.godwoken.io/rpc/eth-wallet',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Nervos Network',
     symbol: 'CKB',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://gwscan.com'],
+  blockExplorerUrls: ['https://gwscan.com']
 }
 
 export const GODWOKEN_TESTNET: Chain = {
@@ -1402,15 +1400,15 @@ export const GODWOKEN_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://godwoken-testnet-web3-v1-rpc.ckbapp.dev/',
-  nativeCurrency:{
+  nativeCurrency: {
     name: 'Nervos Network',
     symbol: 'CKB',
-    decimals: 18,
+    decimals: 18
   },
-  blockExplorerUrls: ['https://aggron.gwscan.com/en-US'],
+  blockExplorerUrls: ['https://aggron.gwscan.com/en-US']
 }
 
-export const CHAINS: { [chainId in ChainId ]: Chain } = {
+export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,

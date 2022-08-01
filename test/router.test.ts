@@ -13,9 +13,17 @@ describe('Router', () => {
   const token0 = new Token(ChainId.AVALANCHE, '0x0000000000000000000000000000000000000001', 18, 't0')
   const token1 = new Token(ChainId.AVALANCHE, '0x0000000000000000000000000000000000000002', 18, 't1')
 
-  const pair_0_1 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token1, JSBI.BigInt(1000)), ChainId.AVALANCHE)
+  const pair_0_1 = new Pair(
+    new TokenAmount(token0, JSBI.BigInt(1000)),
+    new TokenAmount(token1, JSBI.BigInt(1000)),
+    ChainId.AVALANCHE
+  )
 
-  const pair_weth_0 = new Pair(new TokenAmount(WAVAX[ChainId.AVALANCHE], '1000'), new TokenAmount(token0, '1000'), ChainId.AVALANCHE)
+  const pair_weth_0 = new Pair(
+    new TokenAmount(WAVAX[ChainId.AVALANCHE], '1000'),
+    new TokenAmount(token0, '1000'),
+    ChainId.AVALANCHE
+  )
 
   describe('#swapCallParameters', () => {
     describe('exact in', () => {

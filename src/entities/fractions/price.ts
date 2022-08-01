@@ -11,12 +11,11 @@ import { Fraction } from './fraction'
 import { CurrencyAmount } from './currencyAmount'
 import { ChainId } from '../../chains'
 
-
 export class Price extends Fraction {
   /**
-     * Produces the on-chain method name to call and the hex encoded parameters to pass as arguments for a given trade.
-     * @param chainId
-     */
+   * Produces the on-chain method name to call and the hex encoded parameters to pass as arguments for a given trade.
+   * @param chainId
+   */
   public readonly baseCurrency: Currency // input i.e. denominator
   public readonly quoteCurrency: Currency // output i.e. numerator
   public readonly scalar: Fraction // used to adjust the raw fraction w/r/t the decimals of the {base,quote}Token

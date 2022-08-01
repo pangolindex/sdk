@@ -154,7 +154,12 @@ export class Trade {
    * @param chainId chain id
    * @param daasOptions fee information possibly imposed via DEX as a service
    */
-  public static exactIn(route: Route, amountIn: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE, daasOptions?: DaasOptions): Trade {
+  public static exactIn(
+    route: Route,
+    amountIn: CurrencyAmount,
+    chainId: ChainId = ChainId.AVALANCHE,
+    daasOptions?: DaasOptions
+  ): Trade {
     return new Trade(route, amountIn, TradeType.EXACT_INPUT, chainId, daasOptions)
   }
 
@@ -165,7 +170,12 @@ export class Trade {
    * @param chainId chain id
    * @param daasOptions fee information possibly imposed via DEX as a service
    */
-  public static exactOut(route: Route, amountOut: CurrencyAmount, chainId: ChainId = ChainId.AVALANCHE, daasOptions?: DaasOptions): Trade {
+  public static exactOut(
+    route: Route,
+    amountOut: CurrencyAmount,
+    chainId: ChainId = ChainId.AVALANCHE,
+    daasOptions?: DaasOptions
+  ): Trade {
     return new Trade(route, amountOut, TradeType.EXACT_OUTPUT, chainId, daasOptions)
   }
 
@@ -174,7 +184,7 @@ export class Trade {
     amount: CurrencyAmount,
     tradeType: TradeType,
     chainId: ChainId = ChainId.AVALANCHE,
-    { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
+    { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS }
   ) {
     const amounts: TokenAmount[] = new Array(route.path.length)
     const nextPairs: Pair[] = new Array(route.pairs.length)
@@ -293,7 +303,7 @@ export class Trade {
     // used in recursion.
     currentPairs: Pair[] = [],
     originalAmountIn: CurrencyAmount = currencyAmountIn,
-    bestTrades: Trade[] = [],
+    bestTrades: Trade[] = []
   ): Trade[] {
     invariant(pairs.length > 0, 'PAIRS')
     invariant(maxHops > 0, 'MAX_HOPS')
@@ -333,7 +343,7 @@ export class Trade {
             originalAmountIn,
             TradeType.EXACT_INPUT,
             chainId,
-            { fee, feeTo },
+            { fee, feeTo }
           ),
           maxNumResults,
           tradeComparator
@@ -427,7 +437,7 @@ export class Trade {
             originalAmountOut,
             TradeType.EXACT_OUTPUT,
             chainId,
-            { fee, feeTo },
+            { fee, feeTo }
           ),
           maxNumResults,
           tradeComparator
