@@ -1,15 +1,14 @@
 import { ChainId, Token, Pair, TokenAmount, WAVAX, Price } from '../src'
 
 describe('Pair', () => {
-
-  const DAS = new Token(ChainId.FUJI, '0x75aF0F9CD8831050812706B81316127D30271DCf', 18, 'DAS', 'Das Coin');
-  const CON = new Token(ChainId.FUJI, '0x7dA7F13653436345756D93c45A09066bf664FbB3', 18, 'CON', 'Connor Coin');
+  const DAS = new Token(ChainId.FUJI, '0x75aF0F9CD8831050812706B81316127D30271DCf', 18, 'DAS', 'Das Coin')
+  const CON = new Token(ChainId.FUJI, '0x7dA7F13653436345756D93c45A09066bf664FbB3', 18, 'CON', 'Connor Coin')
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
-      expect(() => new Pair(new TokenAmount(DAS, '100'), new TokenAmount(WAVAX[ChainId.FUJI], '100'), ChainId.FUJI)).toThrow(
-        'CHAIN_IDS'
-      )
+      expect(
+        () => new Pair(new TokenAmount(DAS, '100'), new TokenAmount(WAVAX[ChainId.FUJI], '100'), ChainId.FUJI)
+      ).toThrow('CHAIN_IDS')
     })
   })
 
@@ -106,15 +105,25 @@ describe('Pair', () => {
 
   describe('#chainId', () => {
     it('returns the token0 chainId', () => {
-      expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).chainId).toEqual(ChainId.FUJI)
-      expect(new Pair(new TokenAmount(CON, '100'), new TokenAmount(DAS, '100'), ChainId.FUJI).chainId).toEqual(ChainId.FUJI)
+      expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).chainId).toEqual(
+        ChainId.FUJI
+      )
+      expect(new Pair(new TokenAmount(CON, '100'), new TokenAmount(DAS, '100'), ChainId.FUJI).chainId).toEqual(
+        ChainId.FUJI
+      )
     })
   })
   describe('#involvesToken', () => {
-    expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(DAS)).toEqual(true)
-    expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(CON)).toEqual(true)
+    expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(DAS)).toEqual(
+      true
+    )
+    expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(CON)).toEqual(
+      true
+    )
     expect(
-      new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(WAVAX[ChainId.FUJI])
+      new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.FUJI).involvesToken(
+        WAVAX[ChainId.FUJI]
+      )
     ).toEqual(false)
   })
 })
