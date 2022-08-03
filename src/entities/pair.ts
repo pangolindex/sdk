@@ -24,6 +24,15 @@ import { Token } from './token'
 
 let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
 
+const PAIR_DECIMALS = {
+  [ChainId.FUJI]: 18,
+  [ChainId.AVALANCHE]: 18,
+  [ChainId.WAGMI]: 18,
+  [ChainId.COSTON]: 18,
+  [ChainId.NEAR_MAINNET]: 24,
+  [ChainId.NEAR_TESTNET]: 24
+}
+
 export class Pair {
   public readonly liquidityToken: Token
   private readonly tokenAmounts: [TokenAmount, TokenAmount]
@@ -62,7 +71,7 @@ export class Pair {
     this.liquidityToken = new Token(
       tokenAmounts[0].token.chainId,
       Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, chainId),
-      18,
+      PAIR_DECIMALS[chainId],
       'PGL',
       'Pangolin Liquidity'
     )
