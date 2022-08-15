@@ -11,6 +11,7 @@ interface StakingContract {
   address: string
   active: boolean
   reward_token: string
+  isSar: boolean
 }
 
 export interface Chain {
@@ -198,7 +199,8 @@ export const AVALANCHE_MAINNET: Chain = {
       {
         address: '0x88afdaE1a9F58Da3E68584421937E5F564A0135b',
         active: true,
-        reward_token: '0x60781C2586D68229fde47564546784ab3fACA982'
+        reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
+        isSar: false
       }
     ]
   },
@@ -240,7 +242,8 @@ export const AVALANCHE_FUJI: Chain = {
       {
         address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
         active: true,
-        reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9'
+        reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
+        isSar: false
       }
     ]
   },
@@ -486,7 +489,8 @@ export const COSTON_TESTNET: Chain = {
       {
         address: '0xF029EE27Ca64cc9F8AB8a9EcBcB8e8B7C6448eAB',
         active: true,
-        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229'
+        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
+        isSar: false,
       }
     ]
   },
@@ -1050,7 +1054,8 @@ export const POLYGON_MUMBAI: Chain = {
       {
         address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
         active: true,
-        reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695'
+        reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695',
+        isSar: false,
       }
     ]
   },
@@ -1112,7 +1117,14 @@ export const WAGMI_FUJI_SUBNET: Chain = {
       {
         address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
         active: true,
-        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5'
+        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
+        isSar: false,
+      },
+      {
+        address: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
+        active: true,
+        reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
+        isSar: true,
       }
     ]
   },
