@@ -2,50 +2,59 @@ import { ChainId } from '../chains'
 import invariant from 'tiny-invariant'
 import { Currency, CAVAX } from './currency'
 import { Token, WAVAX } from './token'
-import { Pair } from './pair'
+import { Pool } from './pools/pool'
 import { Price } from './fractions/price'
 
 export class Route {
-  public readonly pairs: Pair[]
+  public readonly pools: Pool[]
   public readonly path: Token[]
   public readonly input: Currency
   public readonly output: Currency
   public readonly midPrice: Price
 
-  public constructor(pairs: Pair[], input: Currency, output?: Currency) {
-    invariant(pairs.length > 0, 'PAIRS')
+  public constructor(pools: Pool[], input: Currency, output: Currency, hops: Token[] = []) {
+    invariant(pools.length > 0, 'PAIRS')
+    invariant(pools.length === 2 || hops.length === pools.length - 1, 'HOPS')
+    const chainId = pools[0].chainId
     invariant(
-      pairs.every(pair => pair.chainId === pairs[0].chainId),
+      pools.every(pool => pool.chainId === chainId),
       'CHAIN_IDS'
     )
-    invariant(
-      (input instanceof Token && pairs[0].involvesToken(input)) ||
-        (input === CAVAX[pairs[0].chainId] && pairs[0].involvesToken(WAVAX[pairs[0].chainId])),
-      'INPUT'
-    )
-    invariant(
-      typeof output === 'undefined' ||
-        (output instanceof Token && pairs[pairs.length - 1].involvesToken(output)) ||
-        (output === CAVAX[pairs[0].chainId] && pairs[pairs.length - 1].involvesToken(WAVAX[pairs[0].chainId])),
-      'OUTPUT'
-    )
-
-    const path: Token[] = [input instanceof Token ? input : WAVAX[pairs[0].chainId]]
-    for (const [i, pair] of pairs.entries()) {
-      const currentInput = path[i]
-      invariant(currentInput.equals(pair.token0) || currentInput.equals(pair.token1), 'PATH')
-      const output = currentInput.equals(pair.token0) ? pair.token1 : pair.token0
-      path.push(output)
+    if (input === CAVAX[chainId]) {
+      invariant(pools[0].involvesToken(WAVAX[chainId]), 'INPUT')
+    }
+    if (output === CAVAX[chainId]) {
+      invariant(pools[pools.length - 1].involvesToken(WAVAX[chainId]), 'OUTPUT')
     }
 
-    this.pairs = pairs
+    const wrappedInput: Token = input instanceof Token ? input : WAVAX[chainId]
+    const wrappedOutput: Token = output instanceof Token ? output : WAVAX[chainId]
+
+    const path: Token[] = [wrappedInput]
+
+    for (const [i, pool] of pools.entries()) {
+      const inputToken = path[i]
+      invariant(pool.involvesToken(inputToken), 'PATH')
+      let outputToken: Token
+      if (pool.tokenCount === 2) {
+        outputToken = inputToken.equals(pool.token(0)) ? pool.token(1) : pool.token(0)
+      } else {
+        // When a pool has 3+ tokens we need `hops` to guarantee a deterministic path
+        outputToken = i === pools.length ? wrappedOutput : hops[i]
+        invariant(!inputToken.equals(outputToken), 'DUPLICATE')
+        invariant(pool.involvesToken(outputToken), 'PATH')
+      }
+      path.push(outputToken)
+    }
+
+    this.pools = pools
     this.path = path
     this.midPrice = Price.fromRoute(this)
     this.input = input
-    this.output = output ?? path[path.length - 1]
+    this.output = output
   }
 
   public get chainId(): ChainId {
-    return this.pairs[0].chainId
+    return this.pools[0].chainId
   }
 }

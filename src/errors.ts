@@ -28,3 +28,16 @@ export class InsufficientInputAmountError extends Error {
     if (CAN_SET_PROTOTYPE) Object.setPrototypeOf(this, new.target.prototype)
   }
 }
+
+/**
+ * Indicates that the pool method is not supported for the particular implementation
+ */
+export class MethodNotSupported extends Error {
+  public readonly isMethodNotSupportedError: true = true
+
+  public constructor() {
+    super()
+    this.name = this.constructor.name
+    if (CAN_SET_PROTOTYPE) Object.setPrototypeOf(this, new.target.prototype)
+  }
+}

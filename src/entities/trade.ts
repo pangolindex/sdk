@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId } from '..'
+import { ChainId, InsufficientReservesError } from '..'
 
 import { ONE, TradeType, ZERO, ZERO_ADDRESS } from '../constants'
 import { sortedInsert } from '../utils'
@@ -9,7 +9,7 @@ import { Fraction } from './fractions/fraction'
 import { Percent } from './fractions/percent'
 import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
-import { Pair } from './pair'
+import { Pool } from './pools'
 import { Route } from './route'
 import { currencyEquals, Token, WAVAX } from './token'
 
@@ -108,12 +108,12 @@ function wrappedCurrency(currency: Currency, chainId: ChainId = ChainId.AVALANCH
 }
 
 /**
- * Represents a trade executed against a list of pairs.
+ * Represents a trade executed against a list of pools.
  * Does not account for slippage, i.e. trades that front run this trade and move the price.
  */
 export class Trade {
   /**
-   * The route of the trade, i.e. which pairs the trade goes through.
+   * The route of the trade, i.e. which pools the trade goes through.
    */
   public readonly route: Route
   /**
@@ -187,16 +187,16 @@ export class Trade {
     { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS }
   ) {
     const amounts: TokenAmount[] = new Array(route.path.length)
-    const nextPairs: Pair[] = new Array(route.pairs.length)
+    const nextPools: Pool[] = new Array(route.pools.length)
     let fullOutputAmount: TokenAmount
     if (tradeType === TradeType.EXACT_INPUT) {
       invariant(currencyEquals(amount.currency, route.input), 'INPUT')
       amounts[0] = wrappedAmount(amount, route.chainId)
       for (let i = 0; i < route.path.length - 1; i++) {
-        const pair = route.pairs[i]
-        const [outputAmount, nextPair] = pair.getOutputAmount(amounts[i])
+        const pool = route.pools[i]
+        const [outputAmount, nextPool] = pool.getOutputAmount(amounts[i], route.path[i + 1])
         amounts[i + 1] = outputAmount
-        nextPairs[i] = nextPair
+        nextPools[i] = nextPool
       }
       fullOutputAmount = amounts[amounts.length - 1]
       const userReceivedAmountOut = new Fraction(ONE).subtract(fee).multiply(fullOutputAmount.raw).quotient
@@ -208,10 +208,10 @@ export class Trade {
       fullOutputAmount = new TokenAmount(userReceivedAmountOut.token, fullOutputQuantity)
       amounts[amounts.length - 1] = fullOutputAmount
       for (let i = route.path.length - 1; i > 0; i--) {
-        const pair = route.pairs[i - 1]
-        const [inputAmount, nextPair] = pair.getInputAmount(amounts[i])
+        const pool = route.pools[i - 1]
+        const [inputAmount, nextPool] = pool.getInputAmount(amounts[i], route.path[i - 1])
         amounts[i - 1] = inputAmount
-        nextPairs[i - 1] = nextPair
+        nextPools[i - 1] = nextPool
       }
       amounts[amounts.length - 1] = userReceivedAmountOut
     }
@@ -236,7 +236,7 @@ export class Trade {
       this.inputAmount.raw,
       this.outputAmount.raw
     )
-    this.nextMidPrice = Price.fromRoute(new Route(nextPairs, route.input))
+    this.nextMidPrice = Price.fromRoute(new Route(nextPools, route.input, route.output))
     this.priceImpact = computePriceImpact(route.midPrice, this.inputAmount, fullOutputAmount)
     this.chainId = chainId
     this.fee = fee
@@ -279,35 +279,37 @@ export class Trade {
   }
 
   /**
-   * Given a list of pairs, and a fixed amount in, returns the top `maxNumResults` trades that go from an input token
+   * Given a list of pools, and a fixed amount in, returns the top `maxNumResults` trades that go from an input token
    * amount to an output token, making at most `maxHops` hops.
    * Note this does not consider aggregation, as routes are linear. It's possible a better route exists by splitting
    * the amount in among multiple routes.
-   * @param pairs the pairs to consider in finding the best trade
+   * @param pools the pools to consider in finding the best trade
    * @param currencyAmountIn exact amount of input currency to spend
    * @param currencyOut the desired currency out
    * @param maxNumResults maximum number of results to return
-   * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pair
+   * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pool
    * @param fee total fee possibly imposed via DEX as a service
    * @param feeTo possible DEX as a service partner
-   * @param currentPairs used in recursion; the current list of pairs
+   * @param currentPools used in recursion; the current list of pools
+   * @param currentHops used in recursion; the current list of intermediate hops for pools with 3+ assets
    * @param originalAmountIn used in recursion; the original value of the currencyAmountIn parameter
    * @param bestTrades used in recursion; the current list of best trades
    */
   public static bestTradeExactIn(
-    pairs: Pair[],
+    pools: Pool[],
     currencyAmountIn: CurrencyAmount,
     currencyOut: Currency,
     { maxNumResults = 3, maxHops = 3 }: BestTradeOptions = {},
     { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
     // used in recursion.
-    currentPairs: Pair[] = [],
+    currentPools: Pool[] = [],
+    currentHops: Token[] = [],
     originalAmountIn: CurrencyAmount = currencyAmountIn,
     bestTrades: Trade[] = []
   ): Trade[] {
-    invariant(pairs.length > 0, 'PAIRS')
+    invariant(pools.length > 0, 'POOLS')
     invariant(maxHops > 0, 'MAX_HOPS')
-    invariant(originalAmountIn === currencyAmountIn || currentPairs.length > 0, 'INVALID_RECURSION')
+    invariant(originalAmountIn === currencyAmountIn || currentPools.length > 0, 'INVALID_RECURSION')
     const chainId: ChainId | undefined =
       currencyAmountIn instanceof TokenAmount
         ? currencyAmountIn.token.chainId
@@ -317,54 +319,69 @@ export class Trade {
     invariant(chainId !== undefined, 'CHAIN_ID')
 
     const amountIn = wrappedAmount(currencyAmountIn, chainId)
+    const tokenIn = amountIn.token
     const tokenOut = wrappedCurrency(currencyOut, chainId)
-    for (let i = 0; i < pairs.length; i++) {
-      const pair = pairs[i]
-      // pair irrelevant
-      if (!pair.token0.equals(amountIn.token) && !pair.token1.equals(amountIn.token)) continue
-      if (pair.reserve0.equalTo(ZERO) || pair.reserve1.equalTo(ZERO)) continue
 
-      let amountOut: TokenAmount
-      try {
-        ;[amountOut] = pair.getOutputAmount(amountIn)
-      } catch (error) {
-        // input too low
-        if (error.isInsufficientInputAmountError) {
-          continue
-        }
-        throw error
+    for (let i = 0; i < pools.length; i++) {
+      const pool = pools[i]
+
+      if (pool.reserves.some((reserve: TokenAmount) => reserve.equalTo(ZERO))) {
+        // Remove this pool from future routing consideration
+        pools = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
+        i--
+        continue
       }
-      // we have arrived at the output token, so this is the final trade of one of the paths
-      if (amountOut.token.equals(tokenOut)) {
-        sortedInsert(
-          bestTrades,
-          new Trade(
-            new Route([...currentPairs, pair], originalAmountIn.currency, currencyOut),
-            originalAmountIn,
-            TradeType.EXACT_INPUT,
-            chainId,
-            { fee, feeTo }
-          ),
-          maxNumResults,
-          tradeComparator
-        )
-      } else if (maxHops > 1 && pairs.length > 1) {
-        const pairsExcludingThisPair = pairs.slice(0, i).concat(pairs.slice(i + 1, pairs.length))
+      if (!pool.involvesToken(tokenIn)) continue
 
-        // otherwise, consider all the other paths that lead from this token as long as we have not exceeded maxHops
-        Trade.bestTradeExactIn(
-          pairsExcludingThisPair,
-          amountOut,
-          currencyOut,
-          {
+      // Avoid repeatedly calling tokenAmounts.map (nested in pool.tokens) during the subsequent for loop
+      const poolTokens: Token[] = pool.tokens
+
+      for (const tokenHop of poolTokens) {
+        if (tokenHop.equals(tokenIn)) continue
+
+        let amountOut: TokenAmount
+        try {
+          ;[amountOut] = pool.getOutputAmount(amountIn, tokenHop)
+        } catch (error) {
+          if (error instanceof InsufficientReservesError) {
+            continue
+          }
+          throw error
+        }
+
+        // we have arrived at the output token, so this is the final trade of one of the paths
+        if (amountOut.token.equals(tokenOut)) {
+          sortedInsert(
+            bestTrades,
+            new Trade(
+              new Route([...currentPools, pool], originalAmountIn.currency, currencyOut, currentHops),
+              originalAmountIn,
+              TradeType.EXACT_INPUT,
+              chainId,
+              { fee, feeTo }
+            ),
             maxNumResults,
-            maxHops: maxHops - 1
-          },
-          { fee, feeTo },
-          [...currentPairs, pair],
-          originalAmountIn,
-          bestTrades
-        )
+            tradeComparator
+          )
+        } else if (maxHops > 1 && pools.length > 1) {
+          const poolsExcludingThisPool = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
+
+          // otherwise, consider all the other paths that lead from this token as long as we have not exceeded maxHops
+          Trade.bestTradeExactIn(
+            poolsExcludingThisPool,
+            amountOut,
+            currencyOut,
+            {
+              maxNumResults,
+              maxHops: maxHops - 1
+            },
+            { fee, feeTo },
+            [...currentPools, pool],
+            [...currentHops, tokenHop],
+            originalAmountIn,
+            bestTrades
+          )
+        }
       }
     }
 
@@ -373,35 +390,37 @@ export class Trade {
 
   /**
    * similar to the above method but instead targets a fixed output amount
-   * given a list of pairs, and a fixed amount out, returns the top `maxNumResults` trades that go from an input token
+   * given a list of pools, and a fixed amount out, returns the top `maxNumResults` trades that go from an input token
    * to an output token amount, making at most `maxHops` hops
    * note this does not consider aggregation, as routes are linear. it's possible a better route exists by splitting
    * the amount in among multiple routes.
-   * @param pairs the pairs to consider in finding the best trade
+   * @param pools the pools to consider in finding the best trade
    * @param currencyIn the currency to spend
    * @param currencyAmountOut the exact amount of currency out
    * @param maxNumResults maximum number of results to return
-   * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pair
+   * @param maxHops maximum number of hops a returned trade can make, e.g. 1 hop goes through a single pool
    * @param fee total fee possibly imposed via DEX as a service
    * @param feeTo possible DEX as a service partner
-   * @param currentPairs used in recursion; the current list of pairs
+   * @param currentPools used in recursion; the current list of pools
+   * @param currentHops used in recursion; the current list of intermediate hops for pools with 3+ assets
    * @param originalAmountOut used in recursion; the original value of the currencyAmountOut parameter
    * @param bestTrades used in recursion; the current list of best trades
    */
   public static bestTradeExactOut(
-    pairs: Pair[],
+    pools: Pool[],
     currencyIn: Currency,
     currencyAmountOut: CurrencyAmount,
     { maxNumResults = 3, maxHops = 3 }: BestTradeOptions = {},
     { fee, feeTo }: DaasOptions = { fee: ZERO_PERCENT, feeTo: ZERO_ADDRESS },
     // used in recursion.
-    currentPairs: Pair[] = [],
+    currentPools: Pool[] = [],
+    currentHops: Token[] = [],
     originalAmountOut: CurrencyAmount = currencyAmountOut,
     bestTrades: Trade[] = []
   ): Trade[] {
-    invariant(pairs.length > 0, 'PAIRS')
+    invariant(pools.length > 0, 'POOLS')
     invariant(maxHops > 0, 'MAX_HOPS')
-    invariant(originalAmountOut === currencyAmountOut || currentPairs.length > 0, 'INVALID_RECURSION')
+    invariant(originalAmountOut === currencyAmountOut || currentPools.length > 0, 'INVALID_RECURSION')
     const chainId: ChainId | undefined =
       currencyAmountOut instanceof TokenAmount
         ? currencyAmountOut.token.chainId
@@ -412,53 +431,68 @@ export class Trade {
 
     const amountOut = wrappedAmount(currencyAmountOut, chainId)
     const tokenIn = wrappedCurrency(currencyIn, chainId)
-    for (let i = 0; i < pairs.length; i++) {
-      const pair = pairs[i]
-      // pair irrelevant
-      if (!pair.token0.equals(amountOut.token) && !pair.token1.equals(amountOut.token)) continue
-      if (pair.reserve0.equalTo(ZERO) || pair.reserve1.equalTo(ZERO)) continue
+    const tokenOut = amountOut.token
 
-      let amountIn: TokenAmount
-      try {
-        ;[amountIn] = pair.getInputAmount(amountOut)
-      } catch (error) {
-        // not enough liquidity in this pair
-        if (error.isInsufficientReservesError) {
-          continue
-        }
-        throw error
+    for (let i = 0; i < pools.length; i++) {
+      const pool = pools[i]
+
+      if (pool.reserves.some((reserve: TokenAmount) => reserve.equalTo(ZERO))) {
+        // Remove this pool from future routing consideration
+        pools = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
+        i--
+        continue
       }
-      // we have arrived at the input token, so this is the first trade of one of the paths
-      if (amountIn.token.equals(tokenIn)) {
-        sortedInsert(
-          bestTrades,
-          new Trade(
-            new Route([pair, ...currentPairs], currencyIn, originalAmountOut.currency),
-            originalAmountOut,
-            TradeType.EXACT_OUTPUT,
-            chainId,
-            { fee, feeTo }
-          ),
-          maxNumResults,
-          tradeComparator
-        )
-      } else if (maxHops > 1 && pairs.length > 1) {
-        const pairsExcludingThisPair = pairs.slice(0, i).concat(pairs.slice(i + 1, pairs.length))
+      if (!pool.involvesToken(tokenOut)) continue
 
-        // otherwise, consider all the other paths that arrive at this token as long as we have not exceeded maxHops
-        Trade.bestTradeExactOut(
-          pairsExcludingThisPair,
-          currencyIn,
-          amountIn,
-          {
+      // Avoid repeatedly calling tokenAmounts.map (nested in pool.tokens) during the subsequent for loop
+      const poolTokens: Token[] = pool.tokens
+
+      for (const tokenHop of poolTokens) {
+        if (tokenHop.equals(tokenOut)) continue
+
+        let amountIn: TokenAmount
+        try {
+          ;[amountIn] = pool.getInputAmount(amountOut, tokenHop)
+        } catch (error) {
+          if (error instanceof InsufficientReservesError) {
+            continue
+          }
+          throw error
+        }
+
+        // we have arrived at the input token, so this is the first trade of one of the paths
+        if (amountIn.token.equals(tokenIn)) {
+          sortedInsert(
+            bestTrades,
+            new Trade(
+              new Route([pool, ...currentPools], currencyIn, originalAmountOut.currency, currentHops),
+              originalAmountOut,
+              TradeType.EXACT_OUTPUT,
+              chainId,
+              { fee, feeTo }
+            ),
             maxNumResults,
-            maxHops: maxHops - 1
-          },
-          { fee, feeTo },
-          [pair, ...currentPairs],
-          originalAmountOut,
-          bestTrades
-        )
+            tradeComparator
+          )
+        } else if (maxHops > 1 && pools.length > 1) {
+          const poolsExcludingThisPool = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
+
+          // otherwise, consider all the other paths that arrive at this token as long as we have not exceeded maxHops
+          Trade.bestTradeExactOut(
+            poolsExcludingThisPool,
+            currencyIn,
+            amountIn,
+            {
+              maxNumResults,
+              maxHops: maxHops - 1
+            },
+            { fee, feeTo },
+            [pool, ...currentPools],
+            [tokenHop, ...currentHops],
+            originalAmountOut,
+            bestTrades
+          )
+        }
       }
     }
 
