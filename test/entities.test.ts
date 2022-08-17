@@ -54,8 +54,8 @@ describe('entities', () => {
 
       let route: Route
       it('Route', () => {
-        route = new Route(pairs, tokens[0])
-        expect(route.pairs).toEqual(pairs)
+        route = new Route(pairs, tokens[0], WETH)
+        expect(route.pools).toEqual(pairs)
         expect(route.path).toEqual(tokens.concat([WETH]))
         expect(route.input).toEqual(tokens[0])
         expect(route.output).toEqual(WETH)
@@ -111,7 +111,8 @@ describe('entities', () => {
                 CHAIN_ID
               )
             ],
-            tokens[1]
+            tokens[1],
+            WETH
           )
           const inputAmount = new TokenAmount(tokens[1], decimalize(1, tokens[1].decimals))
           const expectedOutputAmount = new TokenAmount(WETH, '1662497915624478906')
@@ -166,7 +167,8 @@ describe('entities', () => {
                   CHAIN_ID
                 )
               ],
-              tokens[1]
+              tokens[1],
+              WETH
             )
             const outputAmount = new TokenAmount(tokens[1], '1')
             const trade = new Trade(route, outputAmount, TradeType.EXACT_INPUT)
