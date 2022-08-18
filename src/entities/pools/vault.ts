@@ -72,14 +72,14 @@ export class Vault extends Pool {
    * Where (1 - (x/DIVISOR)) of each swap belongs to the LPs
    */
   public get swapFeeCoefficient(): JSBI {
-    switch (super.chainId) {
+    switch (this.chainId) {
       default:
         return JSBI.BigInt(9980) // 0.2%
     }
   }
 
   public get swapFeeDivisor(): JSBI {
-    switch (super.chainId) {
+    switch (this.chainId) {
       default:
         return JSBI.BigInt(10000)
     }
@@ -112,7 +112,7 @@ export class Vault extends Pool {
       throw new InsufficientInputAmountError()
     }
 
-    const newTokenAmounts = super.tokenAmounts
+    const newTokenAmounts = this.tokenAmounts
     newTokenAmounts[in_token_i] = newTokenAmounts[in_token_i].add(inputAmount)
     newTokenAmounts[out_token_i] = newTokenAmounts[out_token_i].subtract(
       new TokenAmount(
@@ -121,7 +121,7 @@ export class Vault extends Pool {
       )
     )
 
-    return [new TokenAmount(outputToken, outputAmountWithFee), new Vault(newTokenAmounts, this.amp, super.chainId)]
+    return [new TokenAmount(outputToken, outputAmountWithFee), new Vault(newTokenAmounts, this.amp, this.chainId)]
   }
 
   public getInputAmount(_outputToken: TokenAmount, _inputToken: Token): [TokenAmount, Vault] {
@@ -130,14 +130,14 @@ export class Vault extends Pool {
 
   // Depositing X tokens for ? liquidity shares
   public getLiquidityMinted(totalSupply: TokenAmount, depositTokenAmounts: TokenAmount[]): TokenAmount {
-    invariant(totalSupply.token.equals(super.liquidityToken), 'LIQUIDITY')
+    invariant(totalSupply.token.equals(this.liquidityToken), 'LIQUIDITY')
     const deposit_c_amounts = depositTokenAmounts.map(amount =>
       Vault.amount_to_c_amount(amount.raw, amount.token.decimals)
     )
 
     if (JSBI.equal(totalSupply.raw, ZERO)) {
       const d_0 = this.calc_d(this.amp, deposit_c_amounts)
-      return new TokenAmount(super.liquidityToken, d_0)
+      return new TokenAmount(this.liquidityToken, d_0)
     }
 
     const n = this.c_amounts.length
@@ -163,13 +163,13 @@ export class Vault extends Pool {
 
     const mint_shares = JSBI.divide(JSBI.multiply(totalSupply.raw, JSBI.subtract(d_2, d_0)), d_0)
 
-    return new TokenAmount(super.liquidityToken, mint_shares)
+    return new TokenAmount(this.liquidityToken, mint_shares)
   }
 
   // Redeeming X liquidity shares for ? (all) tokens
   public getLiquidityValues(totalSupply: TokenAmount, shares: TokenAmount): TokenAmount[] {
-    invariant(totalSupply.token.equals(super.liquidityToken), 'TOTAL_SUPPLY')
-    invariant(shares.token.equals(super.liquidityToken), 'LIQUIDITY')
+    invariant(totalSupply.token.equals(this.liquidityToken), 'TOTAL_SUPPLY')
+    invariant(shares.token.equals(this.liquidityToken), 'LIQUIDITY')
     invariant(JSBI.lessThanOrEqual(shares.raw, totalSupply.raw), 'LIQUIDITY')
 
     const liquidityTokenValues = []
@@ -177,8 +177,8 @@ export class Vault extends Pool {
     for (let i = 0; i < this.c_amounts.length; i++) {
       const amount = JSBI.equal(totalSupply.raw, ZERO)
         ? ZERO
-        : JSBI.divide(JSBI.multiply(super.tokenAmounts[i].raw, shares.raw), totalSupply.raw)
-      liquidityTokenValues[i] = new TokenAmount(super.tokenAmounts[i].token, amount)
+        : JSBI.divide(JSBI.multiply(this.tokenAmounts[i].raw, shares.raw), totalSupply.raw)
+      liquidityTokenValues[i] = new TokenAmount(this.tokenAmounts[i].token, amount)
     }
 
     return liquidityTokenValues
@@ -186,7 +186,7 @@ export class Vault extends Pool {
 
   // Withdrawing X tokens in exchange for ? liquidity shares
   public getLiquidityValuesByTokens(totalSupply: TokenAmount, withdrawTokenAmounts: TokenAmount[]): TokenAmount {
-    invariant(totalSupply.token.equals(super.liquidityToken), 'LIQUIDITY')
+    invariant(totalSupply.token.equals(this.liquidityToken), 'LIQUIDITY')
 
     const removed_c_amounts = withdrawTokenAmounts.map(amount =>
       Vault.amount_to_c_amount(amount.raw, amount.token.decimals)
@@ -213,7 +213,7 @@ export class Vault extends Pool {
     if (d_1 >= d_0) throw new Error(`D1 need less then or equal to D0.`)
     const burn_shares = JSBI.divide(JSBI.multiply(pool_token_supply.raw, JSBI.subtract(d_0, d_2)), d_0)
 
-    return new TokenAmount(super.liquidityToken, burn_shares)
+    return new TokenAmount(this.liquidityToken, burn_shares)
   }
 
   private calc_y(amp: JSBI, x_c_amount: JSBI, c_amounts: JSBI[], in_token_i: number, out_token_i: number): JSBI {

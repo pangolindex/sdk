@@ -65,31 +65,31 @@ export class Pair extends Pool {
   }
 
   public get token0(): Token {
-    return super.tokenAmounts[0].token
+    return this.tokenAmounts[0].token
   }
 
   public get token1(): Token {
-    return super.tokenAmounts[1].token
+    return this.tokenAmounts[1].token
   }
 
   public get token0Price(): Price {
-    return super.priceOf(this.token0, this.token1)
+    return this.priceOf(this.token0, this.token1)
   }
 
   public get token1Price(): Price {
-    return super.priceOf(this.token1, this.token0)
+    return this.priceOf(this.token1, this.token0)
   }
 
   public get reserve0(): TokenAmount {
-    return super.tokenAmounts[0]
+    return this.tokenAmounts[0]
   }
 
   public get reserve1(): TokenAmount {
-    return super.tokenAmounts[1]
+    return this.tokenAmounts[1]
   }
 
   public get swapFeeCoefficient(): JSBI {
-    switch (super.chainId) {
+    switch (this.chainId) {
       case ChainId.NEAR_MAINNET:
       case ChainId.NEAR_TESTNET:
         return _998 // 0.2%
@@ -99,19 +99,19 @@ export class Pair extends Pool {
   }
 
   public get swapFeeDivisor(): JSBI {
-    switch (super.chainId) {
+    switch (this.chainId) {
       default:
         return _1000
     }
   }
 
   public getOutputAmount(inputAmount: TokenAmount, outputToken: Token): [TokenAmount, Pair] {
-    invariant(super.involvesToken(inputAmount.token) && super.involvesToken(outputToken), 'TOKEN')
+    invariant(this.involvesToken(inputAmount.token) && this.involvesToken(outputToken), 'TOKEN')
     if (JSBI.equal(this.reserve0.raw, ZERO) || JSBI.equal(this.reserve1.raw, ZERO)) {
       throw new InsufficientReservesError()
     }
-    const inputReserve = super.reserveOfToken(inputAmount.token)
-    const outputReserve = super.reserveOfToken(inputAmount.token.equals(this.token0) ? this.token1 : this.token0)
+    const inputReserve = this.reserveOfToken(inputAmount.token)
+    const outputReserve = this.reserveOfToken(inputAmount.token.equals(this.token0) ? this.token1 : this.token0)
     const inputAmountWithFee = JSBI.multiply(inputAmount.raw, this.swapFeeCoefficient)
     const numerator = JSBI.multiply(inputAmountWithFee, outputReserve.raw)
     const denominator = JSBI.add(JSBI.multiply(inputReserve.raw, this.swapFeeDivisor), inputAmountWithFee)
@@ -122,32 +122,32 @@ export class Pair extends Pool {
     if (JSBI.equal(outputAmount.raw, ZERO)) {
       throw new InsufficientInputAmountError()
     }
-    return [outputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), super.chainId)]
+    return [outputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), this.chainId)]
   }
 
   public getInputAmount(outputAmount: TokenAmount, inputToken: Token): [TokenAmount, Pair] {
-    invariant(super.involvesToken(outputAmount.token) && super.involvesToken(inputToken), 'TOKEN')
+    invariant(this.involvesToken(outputAmount.token) && this.involvesToken(inputToken), 'TOKEN')
     if (
       JSBI.equal(this.reserve0.raw, ZERO) ||
       JSBI.equal(this.reserve1.raw, ZERO) ||
-      JSBI.greaterThanOrEqual(outputAmount.raw, super.reserveOfToken(outputAmount.token).raw)
+      JSBI.greaterThanOrEqual(outputAmount.raw, this.reserveOfToken(outputAmount.token).raw)
     ) {
       throw new InsufficientReservesError()
     }
 
-    const outputReserve = super.reserveOfToken(outputAmount.token)
-    const inputReserve = super.reserveOfToken(outputAmount.token.equals(this.token0) ? this.token1 : this.token0)
+    const outputReserve = this.reserveOfToken(outputAmount.token)
+    const inputReserve = this.reserveOfToken(outputAmount.token.equals(this.token0) ? this.token1 : this.token0)
     const numerator = JSBI.multiply(JSBI.multiply(inputReserve.raw, outputAmount.raw), this.swapFeeDivisor)
     const denominator = JSBI.multiply(JSBI.subtract(outputReserve.raw, outputAmount.raw), this.swapFeeCoefficient)
     const inputAmount = new TokenAmount(
       outputAmount.token.equals(this.token0) ? this.token1 : this.token0,
       JSBI.add(JSBI.divide(numerator, denominator), ONE)
     )
-    return [inputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), super.chainId)]
+    return [inputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), this.chainId)]
   }
 
   public getLiquidityMinted(totalSupply: TokenAmount, depositTokenAmounts: TokenAmount[]): TokenAmount {
-    invariant(totalSupply.token.equals(super.liquidityToken), 'LIQUIDITY')
+    invariant(totalSupply.token.equals(this.liquidityToken), 'LIQUIDITY')
     invariant(depositTokenAmounts.length === 2, 'LIQUIDITY_TOKENS')
     const tokenAmounts = depositTokenAmounts[0].token.sortsBefore(depositTokenAmounts[1].token) // does safety checks
       ? [depositTokenAmounts[0], depositTokenAmounts[1]]
@@ -165,7 +165,7 @@ export class Pair extends Pool {
     if (!JSBI.greaterThan(liquidity, ZERO)) {
       throw new InsufficientInputAmountError()
     }
-    return new TokenAmount(super.liquidityToken, liquidity)
+    return new TokenAmount(this.liquidityToken, liquidity)
   }
 
   public getLiquidityValues(
@@ -176,8 +176,8 @@ export class Pair extends Pool {
       kLast?: BigintIsh
     }
   ): TokenAmount[] {
-    invariant(totalSupply.token.equals(super.liquidityToken), 'TOTAL_SUPPLY')
-    invariant(liquidity.token.equals(super.liquidityToken), 'LIQUIDITY')
+    invariant(totalSupply.token.equals(this.liquidityToken), 'TOTAL_SUPPLY')
+    invariant(liquidity.token.equals(this.liquidityToken), 'LIQUIDITY')
     invariant(JSBI.lessThanOrEqual(liquidity.raw, totalSupply.raw), 'LIQUIDITY')
 
     let totalSupplyAdjusted: TokenAmount
@@ -193,7 +193,7 @@ export class Pair extends Pool {
           const numerator = JSBI.multiply(totalSupply.raw, JSBI.subtract(rootK, rootKLast))
           const denominator = JSBI.add(JSBI.multiply(rootK, FIVE), rootKLast)
           const feeLiquidity = JSBI.divide(numerator, denominator)
-          totalSupplyAdjusted = totalSupply.add(new TokenAmount(super.liquidityToken, feeLiquidity))
+          totalSupplyAdjusted = totalSupply.add(new TokenAmount(this.liquidityToken, feeLiquidity))
         } else {
           totalSupplyAdjusted = totalSupply
         }
@@ -202,7 +202,7 @@ export class Pair extends Pool {
       }
     }
 
-    return super.reserves.map(
+    return this.reserves.map(
       (reserve: TokenAmount) =>
         new TokenAmount(reserve.token, JSBI.divide(JSBI.multiply(liquidity.raw, reserve.raw), totalSupplyAdjusted.raw))
     )
