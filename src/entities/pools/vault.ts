@@ -74,7 +74,7 @@ export class Vault extends Pool {
   public get swapFeeCoefficient(): JSBI {
     switch (this.chainId) {
       default:
-        return JSBI.BigInt(9980) // 0.2%
+        return JSBI.BigInt(9995) // 0.05%
     }
   }
 
@@ -89,8 +89,8 @@ export class Vault extends Pool {
     const in_token_i = this.tokens.indexOf(inputAmount.token)
     const out_token_i = this.tokens.indexOf(outputToken)
 
-    invariant(in_token_i >= 0, 'TOKEN_IN')
-    invariant(out_token_i >= 0, 'TOKEN_OUT')
+    invariant(in_token_i >= 0 && in_token_i < this.tokenCount, 'TOKEN_IN_I')
+    invariant(out_token_i >= 0 && out_token_i < this.tokenCount, 'TOKEN_OUT_I')
 
     if (this.reserveOfToken(outputToken).equalTo(ZERO)) {
       throw new InsufficientReservesError()
