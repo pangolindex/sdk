@@ -131,9 +131,18 @@ export class Vault extends Pool {
   // Depositing X tokens for ? liquidity shares
   public getLiquidityMinted(totalSupply: TokenAmount, depositTokenAmounts: TokenAmount[]): TokenAmount {
     invariant(totalSupply.token.equals(this.liquidityToken), 'LIQUIDITY')
-    const deposit_c_amounts = depositTokenAmounts.map(amount =>
-      Vault.amount_to_c_amount(amount.raw, amount.token.decimals)
-    )
+    invariant(depositTokenAmounts.length <= this.tokenCount, 'LIQUIDITY_TOKENS')
+
+    const deposit_c_amounts: JSBI[] = []
+    for (let i = 0; i < this.tokenCount; i++) {
+      const deposit = depositTokenAmounts[i]
+      if (deposit) {
+        invariant(this.involvesToken(deposit.token), 'LIQUIDITY_TOKENS')
+        deposit_c_amounts[i] = Vault.amount_to_c_amount(deposit.raw, deposit.token.decimals)
+      } else {
+        deposit_c_amounts[i] = ZERO
+      }
+    }
 
     if (JSBI.equal(totalSupply.raw, ZERO)) {
       const d_0 = this.calc_d(this.amp, deposit_c_amounts)
@@ -187,10 +196,19 @@ export class Vault extends Pool {
   // Withdrawing X tokens in exchange for ? liquidity shares
   public getLiquidityValuesByTokens(totalSupply: TokenAmount, withdrawTokenAmounts: TokenAmount[]): TokenAmount {
     invariant(totalSupply.token.equals(this.liquidityToken), 'LIQUIDITY')
+    invariant(withdrawTokenAmounts.length <= this.tokenCount, 'LIQUIDITY_TOKENS')
 
-    const removed_c_amounts = withdrawTokenAmounts.map(amount =>
-      Vault.amount_to_c_amount(amount.raw, amount.token.decimals)
-    )
+    const removed_c_amounts: JSBI[] = []
+    for (let i = 0; i < this.tokenCount; i++) {
+      const withdrawal = withdrawTokenAmounts[i]
+      if (withdrawal) {
+        invariant(this.involvesToken(withdrawal.token), 'LIQUIDITY_TOKENS')
+        removed_c_amounts[i] = Vault.amount_to_c_amount(withdrawal.raw, withdrawal.token.decimals)
+      } else {
+        removed_c_amounts[i] = ZERO
+      }
+    }
+
     const old_c_amounts = this.c_amounts
     const pool_token_supply = totalSupply
 
