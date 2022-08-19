@@ -468,7 +468,7 @@ export const COSTON_TESTNET: Chain = {
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
