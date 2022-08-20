@@ -280,7 +280,7 @@ export const AVALANCHE_FUJI: Chain = {
     community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
     airdrop: {
       address: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
-      active: true,
+      active: false,
       type: AirdropType.LEGACY
     },
     treasury_vester: '0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1',
@@ -936,7 +936,7 @@ export const NEAR_MAINNET: Chain = {
     },
     airdrop: {
       address: 'example9.near',
-      active: true,
+      active: false,
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
@@ -979,7 +979,7 @@ export const NEAR_TESTNET: Chain = {
     },
     airdrop: {
       address: 'example9.near',
-      active: true,
+      active: false,
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
@@ -1126,7 +1126,7 @@ export const POLYGON_MUMBAI: Chain = {
     },
     airdrop: {
       address: '0x34338ad5D7fd49B24D07D1D8e8d38Fc64F42f94A',
-      active: true,
+      active: false,
       type: AirdropType.LEGACY
     },
     timelock: '0xE6ec3b8AD6ad20210a2698d89016DDF6965E5fBC',
