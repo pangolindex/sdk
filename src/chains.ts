@@ -540,9 +540,6 @@ export const COSTON_TESTNET: Chain = {
     },
     timelock: '0xDE79E161488ec2B5bC914BbCA81f69C69b67F9E7',
     fee_collector: '0x9aaD91fc17d1f9fB47e0F5Fb1C3B6ea6a89B0acB',
-    // token meta data: 0xB502587241C40F41B9dbBc7008C390c2aBfa17C3
-    // reward funding forwarder: 0x10479C9751F0bF9be180825C2e4bD9316aca022C
-    // reward funding forwarder: 0x8ae9EDF29c6dc5A5BC45587449E1002A1111EE2e
     staking: [
       {
         address: '0x4e2FF11ab0fE73914F451228cC199f67BE54b448',
@@ -1167,6 +1164,26 @@ export const SONGBIRD_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://songbird-explorer.flare.network']
+}
+
+export const FLARE_MAINNET: Chain = {
+  id: 'flare_mainnet',
+  chain_id: 14,
+  name: "Flare",
+  symbol: "FLR",
+  mainnet: true,
+  evm: true,
+  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png",
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: "https://flare-api.flare.network/ext/C/rpc",
+  nativeCurrency: {
+    name: "Flare",
+    symbol: "FLR",
+    decimals: 18
+  },
+  blockExplorerUrls: ["https://flare-explorer.flare.network"]
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
