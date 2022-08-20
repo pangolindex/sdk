@@ -8,9 +8,9 @@ export enum ChainId {
 }
 
 export enum StakingType {
-  LEGACY = 1,
-  SAR_POSITIONS = 2,
-  NEAR_STAKING = 3
+  LEGACY = 'legacy',
+  SAR_POSITIONS = 'sar_positions',
+  NEAR_STAKING = 'near_staking'
 }
 
 interface StakingContract {
@@ -21,10 +21,10 @@ interface StakingContract {
 }
 
 export enum AirdropType {
-  LEGACY = 1,
-  MERKLE = 2,
-  MERKLE_TO_STAKING = 3,
-  NEAR_AIRDROP = 4
+  LEGACY = 'legacy',
+  MERKLE = 'merkle',
+  MERKLE_TO_STAKING = 'merkle_to_staking',
+  NEAR_AIRDROP = 'near_airdrop'
 }
 
 interface AirdropContract {
@@ -34,10 +34,10 @@ interface AirdropContract {
 }
 
 export enum ChefType {
-  MINI_CHEF = 1,
-  MINI_CHEF_V2 = 2,
-  PANGO_CHEF = 3,
-  NEAR_CHEF = 4
+  MINI_CHEF = 'mini_chef',
+  MINI_CHEF_V2 = 'mini_chef_v2',
+  PANGO_CHEF = 'pango_chef',
+  NEAR_CHEF = 'near_chef'
 }
 
 interface ChefContract {
