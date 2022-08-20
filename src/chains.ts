@@ -8,9 +8,9 @@ export enum ChainId {
 }
 
 export enum StakingType {
-  LEGACY = 'legacy',
-  SAR_POSITIONS = 'sar_positions',
-  NEAR_STAKING = 'near_staking'
+  LEGACY = 'LEGACY',
+  SAR_POSITIONS = 'SAR_POSITIONS',
+  NEAR_STAKING = 'NEAR_STAKING'
 }
 
 interface StakingContract {
@@ -21,10 +21,10 @@ interface StakingContract {
 }
 
 export enum AirdropType {
-  LEGACY = 'legacy',
-  MERKLE = 'merkle',
-  MERKLE_TO_STAKING = 'merkle_to_staking',
-  NEAR_AIRDROP = 'near_airdrop'
+  LEGACY = 'LEGACY',
+  MERKLE = 'MERKLE',
+  MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
+  NEAR_AIRDROP = 'NEAR_AIRDROP'
 }
 
 interface AirdropContract {
@@ -34,10 +34,10 @@ interface AirdropContract {
 }
 
 export enum ChefType {
-  MINI_CHEF = 'mini_chef',
-  MINI_CHEF_V2 = 'mini_chef_v2',
-  PANGO_CHEF = 'pango_chef',
-  NEAR_CHEF = 'near_chef'
+  MINI_CHEF = 'MINI_CHEF',
+  MINI_CHEF_V2 = 'MINI_CHEF_V2',
+  PANGO_CHEF = 'PANGO_CHEF',
+  NEAR_CHEF = 'NEAR_CHEF'
 }
 
 interface ChefContract {
@@ -1169,21 +1169,21 @@ export const SONGBIRD_MAINNET: Chain = {
 export const FLARE_MAINNET: Chain = {
   id: 'flare_mainnet',
   chain_id: 14,
-  name: "Flare",
-  symbol: "FLR",
+  name: 'Flare',
+  symbol: 'FLR',
   mainnet: true,
   evm: true,
-  logo: "https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png",
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: "https://flare-api.flare.network/ext/C/rpc",
+  rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
   nativeCurrency: {
-    name: "Flare",
-    symbol: "FLR",
+    name: 'Flare',
+    symbol: 'FLR',
     decimals: 18
   },
-  blockExplorerUrls: ["https://flare-explorer.flare.network"]
+  blockExplorerUrls: ['https://flare-explorer.flare.network']
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
