@@ -48,9 +48,11 @@ export interface Chain {
     community_treasury?: string
     treasury_vester?: string
     mini_chef?: string
+    pango_chef?: string
     timelock?: string
     migrator?: string
     airdrop?: string
+    merkle_airdrop?: string
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
@@ -473,24 +475,28 @@ export const COSTON_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
   contracts: {
-    png: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
-    factory: '0xbC5807f597bAc0c5064985BeB74CB00Cffa2bC22',
-    router: '0x81E2032358c1b7A41226440a3C189B7cD774377C',
-    wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
-    local_multisig: '0x66c048d27aFB5EE59E4C07101A483654246A4eda',
-    community_treasury: '0xa9E2Fa60AeA2706aF59f96a86A6612AcAE2e9780',
-    treasury_vester: '0xcD0B5Cb2395EB07bf76147f0e530f1c58dd0Dc47',
-    mini_chef: '0x36A1C9f34178D8b3629B9A41CE8601659083f113',
-    airdrop: '0x186F85D59d205D884defBC41a5371CF7f6e8E321',
-    timelock: '0xFc4BF4cA7688Db3923D77197Bc31c0deCD707C85',
-    governor: '',
-    migrator: '',
+    png: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
+    factory: '0x26A500dAFcd0041C3Ebc495E1A5d432C0540983B',
+    router: '0x422c6D44e920454dD949F61202Dad3e3dd24C1fB',
+    wrapped_native_token: '0x1659941d425224408c5679eeef606666c7991a8A',
+    local_multisig: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
+    community_treasury: '0x9E961c9E4fFbf3a74b204015A21B6965D1C61Ab7',
+    treasury_vester: '0x60cf5c595F7b31528d4CD5D14F3e75411b5b9447',
+    mini_chef: '',
+    pango_chef: '0xafd36fCc70Cb7cacff3829EDf06d81EAa9DB82d5',
+    airdrop: '',
+    merkle_airdrop: '0x2D018d02D81386e351c3077982F196DECb80E61F',
+    timelock: '0xDE79E161488ec2B5bC914BbCA81f69C69b67F9E7',
+    fee_collector: '0x9aaD91fc17d1f9fB47e0F5Fb1C3B6ea6a89B0acB',
+    // token meta data: 0xB502587241C40F41B9dbBc7008C390c2aBfa17C3
+    // reward funding forwarder: 0x10479C9751F0bF9be180825C2e4bD9316aca022C
+    // reward funding forwarder: 0x8ae9EDF29c6dc5A5BC45587449E1002A1111EE2e
     staking: [
       {
-        address: '0xF029EE27Ca64cc9F8AB8a9EcBcB8e8B7C6448eAB',
+        address: '0x4e2FF11ab0fE73914F451228cC199f67BE54b448',
         active: true,
-        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
-        isSar: false,
+        reward_token: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
+        isSar: true,
       }
     ]
   },
