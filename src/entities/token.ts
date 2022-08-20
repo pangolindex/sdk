@@ -92,8 +92,8 @@ export const WAVAX = {
     ChainId.COSTON,
     CHAINS[ChainId.COSTON].contracts!.wrapped_native_token,
     18,
-    'wWAGMI',
-    'Wrapped WAGMI'
+    'WCFLR',
+    'Wrapped CostonFlare'
   ),
   [ChainId.NEAR_MAINNET]: new Token(
     ChainId.NEAR_MAINNET,

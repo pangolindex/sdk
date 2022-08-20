@@ -7,11 +7,43 @@ export enum ChainId {
   NEAR_TESTNET = 329847901
 }
 
+export enum StakingType {
+  LEGACY = 'LEGACY',
+  SAR_POSITIONS = 'SAR_POSITIONS',
+  NEAR_STAKING = 'NEAR_STAKING'
+}
+
 interface StakingContract {
   address: string
   active: boolean
   reward_token: string
-  isSar: boolean
+  type: StakingType
+}
+
+export enum AirdropType {
+  LEGACY = 'LEGACY',
+  MERKLE = 'MERKLE',
+  MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
+  NEAR_AIRDROP = 'NEAR_AIRDROP'
+}
+
+interface AirdropContract {
+  address: string
+  active: boolean
+  type: AirdropType
+}
+
+export enum ChefType {
+  MINI_CHEF = 'MINI_CHEF',
+  MINI_CHEF_V2 = 'MINI_CHEF_V2',
+  PANGO_CHEF = 'PANGO_CHEF',
+  NEAR_CHEF = 'NEAR_CHEF'
+}
+
+interface ChefContract {
+  address: string
+  active: boolean
+  type: ChefType
 }
 
 export interface Chain {
@@ -47,10 +79,10 @@ export interface Chain {
     local_multisig?: string
     community_treasury?: string
     treasury_vester?: string
-    mini_chef?: string
+    mini_chef?: ChefContract
     timelock?: string
     migrator?: string
-    airdrop?: string
+    airdrop?: AirdropContract
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
@@ -190,8 +222,16 @@ export const AVALANCHE_MAINNET: Chain = {
     local_multisig: '0x66c048d27aFB5EE59E4C07101A483654246A4eda',
     community_treasury: '0x650f5865541f6D68BdDFE977dB933C293EA72358',
     treasury_vester: '0x6747AC215dAFfeE03a42F49FebB6ab448E12acEe',
-    mini_chef: '0x1f806f7C8dED893fd3caE279191ad7Aa3798E928',
-    airdrop: '0x0C58C2041da4CfCcF5818Bbe3b66DBC23B3902d9',
+    mini_chef: {
+      address: '0x1f806f7C8dED893fd3caE279191ad7Aa3798E928',
+      active: true,
+      type: ChefType.MINI_CHEF_V2
+    },
+    airdrop: {
+      address: '0x0C58C2041da4CfCcF5818Bbe3b66DBC23B3902d9',
+      active: false,
+      type: AirdropType.LEGACY
+    },
     timelock: '0xEB5c91bE6Dbfd30cf616127C2EA823C64e4b1ff8',
     governor: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
     migrator: '0x4b23Aa72A1214d0E4fd3f2c8Da7C6ba660F7483C',
@@ -200,7 +240,7 @@ export const AVALANCHE_MAINNET: Chain = {
         address: '0x88afdaE1a9F58Da3E68584421937E5F564A0135b',
         active: true,
         reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
-        isSar: false
+        type: StakingType.LEGACY
       }
     ]
   },
@@ -232,9 +272,17 @@ export const AVALANCHE_FUJI: Chain = {
     router_daas: '0xFE97f59B72eEE0F29F93e12195C6F35DCdAB6899',
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     timelock: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
-    mini_chef: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
+    mini_chef: {
+      address: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
+      active: true,
+      type: ChefType.MINI_CHEF_V2
+    },
     community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
-    airdrop: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
+    airdrop: {
+      address: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
+      active: false,
+      type: AirdropType.LEGACY
+    },
     treasury_vester: '0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1',
     revenue_distributor: '0xF3861Acb8061A70499DC85c4a6aA9E934C83049f',
     fee_collector: '0x0609ce4F16388c440BF9a84b5E8df1b0438F714A',
@@ -243,7 +291,7 @@ export const AVALANCHE_FUJI: Chain = {
         address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
         active: true,
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
-        isSar: false
+        type: StakingType.LEGACY
       }
     ]
   },
@@ -468,29 +516,36 @@ export const COSTON_TESTNET: Chain = {
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
   contracts: {
-    png: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
-    factory: '0xbC5807f597bAc0c5064985BeB74CB00Cffa2bC22',
-    router: '0x81E2032358c1b7A41226440a3C189B7cD774377C',
-    wrapped_native_token: '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4',
-    local_multisig: '0x66c048d27aFB5EE59E4C07101A483654246A4eda',
-    community_treasury: '0xa9E2Fa60AeA2706aF59f96a86A6612AcAE2e9780',
-    treasury_vester: '0xcD0B5Cb2395EB07bf76147f0e530f1c58dd0Dc47',
-    mini_chef: '0x36A1C9f34178D8b3629B9A41CE8601659083f113',
-    airdrop: '0x186F85D59d205D884defBC41a5371CF7f6e8E321',
-    timelock: '0xFc4BF4cA7688Db3923D77197Bc31c0deCD707C85',
-    governor: '',
-    migrator: '',
+    png: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
+    factory: '0x26A500dAFcd0041C3Ebc495E1A5d432C0540983B',
+    router: '0x422c6D44e920454dD949F61202Dad3e3dd24C1fB',
+    wrapped_native_token: '0x1659941d425224408c5679eeef606666c7991a8A',
+    local_multisig: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
+    community_treasury: '0x9E961c9E4fFbf3a74b204015A21B6965D1C61Ab7',
+    treasury_vester: '0x60cf5c595F7b31528d4CD5D14F3e75411b5b9447',
+    mini_chef: {
+      address: '0xafd36fCc70Cb7cacff3829EDf06d81EAa9DB82d5',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0x2D018d02D81386e351c3077982F196DECb80E61F',
+      active: true,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0xDE79E161488ec2B5bC914BbCA81f69C69b67F9E7',
+    fee_collector: '0x9aaD91fc17d1f9fB47e0F5Fb1C3B6ea6a89B0acB',
     staking: [
       {
-        address: '0xF029EE27Ca64cc9F8AB8a9EcBcB8e8B7C6448eAB',
+        address: '0x4e2FF11ab0fE73914F451228cC199f67BE54b448',
         active: true,
-        reward_token: '0x8C0c6B6e31A8b57D6eAB31391950bFaD4f8eb229',
-        isSar: false,
+        reward_token: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
+        type: StakingType.SAR_POSITIONS
       }
     ]
   },
@@ -871,8 +926,16 @@ export const NEAR_MAINNET: Chain = {
     local_multisig: 'example5.near',
     community_treasury: 'example6.near',
     treasury_vester: 'example7.near',
-    mini_chef: 'example8.near',
-    airdrop: 'example9.near',
+    mini_chef: {
+      address: 'example8.near',
+      active: true,
+      type: ChefType.NEAR_CHEF
+    },
+    airdrop: {
+      address: 'example9.near',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
     timelock: 'example10.near',
     governor: 'example11.near',
     migrator: 'example12.near'
@@ -906,8 +969,16 @@ export const NEAR_TESTNET: Chain = {
     local_multisig: 'example5.near',
     community_treasury: 'example6.near',
     treasury_vester: 'example7.near',
-    mini_chef: 'example8.near',
-    airdrop: 'example9.near',
+    mini_chef: {
+      address: 'example8.near',
+      active: true,
+      type: ChefType.NEAR_CHEF
+    },
+    airdrop: {
+      address: 'example9.near',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
     timelock: 'example10.near',
     governor: 'example11.near',
     migrator: 'example12.near'
@@ -1045,8 +1116,16 @@ export const POLYGON_MUMBAI: Chain = {
     joint_multisig: '0x38F6d835FAF60a891016b2FC5692E76D2c6eEcbF',
     community_treasury: '0x791d828FA611D5cD086e8047EAa8d7276c8d943E',
     treasury_vester: '0xFeC5354eF11981D5dAF92F6CA61e618c5AdF4FD5',
-    mini_chef: '0xa34Ad412652267FB3b1261D7d4F351a678B01Bf8',
-    airdrop: '0x34338ad5D7fd49B24D07D1D8e8d38Fc64F42f94A',
+    mini_chef: {
+      address: '0xa34Ad412652267FB3b1261D7d4F351a678B01Bf8',
+      active: true,
+      type: ChefType.MINI_CHEF_V2
+    },
+    airdrop: {
+      address: '0x34338ad5D7fd49B24D07D1D8e8d38Fc64F42f94A',
+      active: false,
+      type: AirdropType.LEGACY
+    },
     timelock: '0xE6ec3b8AD6ad20210a2698d89016DDF6965E5fBC',
     revenue_distributor: '0x780A51831dc1cE3AAD2879479dBE9419e834744c',
     fee_collector: '0xB2FcD54680150e3033A878cf1F689e1256d51fc5',
@@ -1055,7 +1134,7 @@ export const POLYGON_MUMBAI: Chain = {
         address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
         active: true,
         reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695',
-        isSar: false,
+        type: StakingType.LEGACY
       }
     ]
   },
@@ -1087,6 +1166,26 @@ export const SONGBIRD_MAINNET: Chain = {
   blockExplorerUrls: ['https://songbird-explorer.flare.network']
 }
 
+export const FLARE_MAINNET: Chain = {
+  id: 'flare_mainnet',
+  chain_id: 14,
+  name: 'Flare',
+  symbol: 'FLR',
+  mainnet: true,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
+  nativeCurrency: {
+    name: 'Flare',
+    symbol: 'FLR',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://flare-explorer.flare.network']
+}
+
 export const WAGMI_FUJI_SUBNET: Chain = {
   id: 'wagmi_fuji_subnet',
   chain_id: 11111,
@@ -1108,8 +1207,16 @@ export const WAGMI_FUJI_SUBNET: Chain = {
     local_multisig: '0x0000000000000000000000000000000000000000',
     community_treasury: '0x2CE6B673aDB3032A1694daC7c1F07c345F18Ae2d',
     treasury_vester: '0x9DB06A311B3c06D0841782BA0D5004CDEA96e21A',
-    mini_chef: '0x3014526b462ceef5734d9AaAe24321769E59269a',
-    airdrop: '0x0BD8b5D5FF2d4FCcDf7782Af15368FcAFE040Bd1',
+    mini_chef: {
+      address: '0x3014526b462ceef5734d9AaAe24321769E59269a',
+      active: true,
+      type: ChefType.MINI_CHEF_V2
+    },
+    airdrop: {
+      address: '0x0BD8b5D5FF2d4FCcDf7782Af15368FcAFE040Bd1',
+      active: false,
+      type: AirdropType.LEGACY
+    },
     timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
@@ -1118,13 +1225,13 @@ export const WAGMI_FUJI_SUBNET: Chain = {
         address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
         active: true,
         reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
-        isSar: false,
+        type: StakingType.LEGACY
       },
       {
         address: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
         active: true,
         reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
-        isSar: true,
+        type: StakingType.SAR_POSITIONS
       }
     ]
   },
