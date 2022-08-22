@@ -9,6 +9,7 @@ import { TokenAmount } from '../fractions'
 import { abs } from '../../utils'
 
 export const TARGET_DECIMAL = JSBI.BigInt(18)
+export const MIN_RESERVE = JSBI.exponentiate(TEN, TARGET_DECIMAL)
 
 export class Vault extends Pool {
   public readonly amp: JSBI
@@ -20,6 +21,12 @@ export class Vault extends Pool {
 
   public constructor(tokenAmounts: TokenAmount[], amp: JSBI, chainId: ChainId = ChainId.NEAR_TESTNET) {
     let decimals: number = 18
+
+    invariant(JSBI.greaterThanOrEqual(amp, ONE) && JSBI.lessThanOrEqual(amp, JSBI.BigInt(1_000_000)), 'AMP_ILLEGAL')
+    invariant(
+      tokenAmounts.every(({ token }) => token.decimals >= 1 && token.decimals <= 24),
+      'DECIMAL_ILLEGAL'
+    )
 
     const liquidityToken = new Token(
       chainId,
@@ -117,6 +124,8 @@ export class Vault extends Pool {
       new TokenAmount(outputToken, outputAmountWithFee)
     )
 
+    invariant(JSBI.greaterThanOrEqual(newTokenAmounts[out_token_i].raw, MIN_RESERVE), 'MIN_RESERVE')
+
     return [new TokenAmount(outputToken, outputAmountWithFee), new Vault(newTokenAmounts, this.amp, this.chainId)]
   }
 
@@ -183,6 +192,9 @@ export class Vault extends Pool {
       const amount = JSBI.equal(totalSupply.raw, ZERO)
         ? ZERO
         : JSBI.divide(JSBI.multiply(this.tokenAmounts[i].raw, shares.raw), totalSupply.raw)
+      const amount_c = Vault.amount_to_c_amount(amount, this.tokenAmounts[i].token.decimals)
+      const remaining_amount_c = JSBI.subtract(this.c_amounts[i], amount_c)
+      invariant(JSBI.greaterThanOrEqual(remaining_amount_c, MIN_RESERVE), 'MIN_RESERVE')
       liquidityTokenValues[i] = new TokenAmount(this.tokenAmounts[i].token, amount)
     }
 
@@ -213,6 +225,7 @@ export class Vault extends Pool {
     let c_amounts = []
     for (let i = 0; i < old_c_amounts.length; i++) {
       c_amounts[i] = JSBI.subtract(old_c_amounts[i], removed_c_amounts[i])
+      invariant(JSBI.greaterThanOrEqual(c_amounts[i], MIN_RESERVE), 'MIN_RESERVE')
     }
     const d_1 = this.calc_d(this.amp, c_amounts)
     if (d_1 >= d_0) throw new Error(`D1 need less then or equal to D0.`)
