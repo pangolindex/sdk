@@ -512,7 +512,7 @@ export const COSTON_TESTNET: Chain = {
   chain_id: 16,
   name: 'Coston',
   symbol: 'cFLR',
-  png_symbol: 'costonPNG',
+  png_symbol: 'PCF',
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
@@ -534,7 +534,7 @@ export const COSTON_TESTNET: Chain = {
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0x2D018d02D81386e351c3077982F196DECb80E61F',
+      address: '0x851e530cA86fD32e885086EA89D8890A8742F98E',
       active: true,
       type: AirdropType.MERKLE_TO_STAKING
     },
@@ -1151,6 +1151,7 @@ export const SONGBIRD_MAINNET: Chain = {
   chain_id: 19,
   name: 'Songbird',
   symbol: 'SGB',
+  png_symbol: 'PSB',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/sgb.png',
@@ -1171,6 +1172,7 @@ export const FLARE_MAINNET: Chain = {
   chain_id: 14,
   name: 'Flare',
   symbol: 'FLR',
+  png_symbol: 'PFL',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
