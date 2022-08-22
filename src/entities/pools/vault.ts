@@ -13,7 +13,6 @@ export const MIN_RESERVE = JSBI.exponentiate(TEN, TARGET_DECIMAL)
 
 export class Vault extends Pool {
   public readonly amp: JSBI
-  private readonly c_amounts: JSBI[]
 
   static getAddress(tokens: Token[]): string {
     return tokens.map((token: Token) => token.address).join('-')
@@ -39,13 +38,12 @@ export class Vault extends Pool {
     super(chainId, liquidityToken, tokenAmounts)
 
     this.amp = amp
-    this.c_amounts = tokenAmounts.map((tokenAmount: TokenAmount) =>
-      Vault.amount_to_c_amount(tokenAmount.raw, tokenAmount.token.decimals)
-    )
   }
 
   public get reserves_c(): JSBI[] {
-    return this.c_amounts
+    return this.tokenAmounts.map((tokenAmount: TokenAmount) =>
+      Vault.amount_to_c_amount(tokenAmount.raw, tokenAmount.token.decimals)
+    )
   }
 
   public static amount_to_c_amount(amount: JSBI, decimals: number): JSBI {
@@ -124,7 +122,8 @@ export class Vault extends Pool {
       new TokenAmount(outputToken, outputAmountWithFee)
     )
 
-    invariant(JSBI.greaterThanOrEqual(newTokenAmounts[out_token_i].raw, MIN_RESERVE), 'MIN_RESERVE')
+    const newOutputTokenReserve_c = Vault.amount_to_c_amount(newTokenAmounts[out_token_i].raw, outputToken.decimals)
+    invariant(JSBI.greaterThanOrEqual(newOutputTokenReserve_c, MIN_RESERVE), 'MIN_RESERVE')
 
     return [new TokenAmount(outputToken, outputAmountWithFee), new Vault(newTokenAmounts, this.amp, this.chainId)]
   }
@@ -154,23 +153,24 @@ export class Vault extends Pool {
       return new TokenAmount(this.liquidityToken, d_0)
     }
 
-    const n = this.c_amounts.length
-    const d_0 = this.calc_d(this.amp, this.c_amounts)
-    let c_amounts = []
+    const n = this.tokenCount
+    const old_c_amounts = this.reserves_c
+    const d_0 = this.calc_d(this.amp, old_c_amounts)
+    let new_c_amounts = []
     for (let i = 0; i < n; i++) {
-      c_amounts[i] = JSBI.add(this.c_amounts[i], deposit_c_amounts[i])
+      new_c_amounts[i] = JSBI.add(old_c_amounts[i], deposit_c_amounts[i])
     }
-    const d_1 = this.calc_d(this.amp, c_amounts)
+    const d_1 = this.calc_d(this.amp, new_c_amounts)
 
     if (JSBI.lessThanOrEqual(d_1, d_0)) throw new Error(`D1 need less then or equal to D0.`)
 
     for (let i = 0; i < n; i++) {
-      const ideal_balance = JSBI.divide(JSBI.multiply(this.c_amounts[i], d_1), d_0)
-      const difference = abs(JSBI.subtract(ideal_balance, c_amounts[i]))
+      const ideal_balance = JSBI.divide(JSBI.multiply(old_c_amounts[i], d_1), d_0)
+      const difference = abs(JSBI.subtract(ideal_balance, new_c_amounts[i]))
       const fee = this.normalized_trade_fee(n, difference)
-      c_amounts[i] = JSBI.subtract(c_amounts[i], fee)
+      new_c_amounts[i] = JSBI.subtract(new_c_amounts[i], fee)
     }
-    const d_2 = this.calc_d(this.amp, c_amounts)
+    const d_2 = this.calc_d(this.amp, new_c_amounts)
 
     if (JSBI.lessThan(d_1, d_2)) throw new Error(`D2 need less then D1.`)
     if (JSBI.lessThanOrEqual(d_2, d_0)) throw new Error(`D1 need less then or equal to D0.`)
@@ -187,13 +187,14 @@ export class Vault extends Pool {
     invariant(JSBI.lessThanOrEqual(shares.raw, totalSupply.raw), 'LIQUIDITY')
 
     const liquidityTokenValues = []
+    const c_amounts = this.reserves_c
 
-    for (let i = 0; i < this.c_amounts.length; i++) {
+    for (let i = 0; i < this.tokenCount; i++) {
       const amount = JSBI.equal(totalSupply.raw, ZERO)
         ? ZERO
         : JSBI.divide(JSBI.multiply(this.tokenAmounts[i].raw, shares.raw), totalSupply.raw)
       const amount_c = Vault.amount_to_c_amount(amount, this.tokenAmounts[i].token.decimals)
-      const remaining_amount_c = JSBI.subtract(this.c_amounts[i], amount_c)
+      const remaining_amount_c = JSBI.subtract(c_amounts[i], amount_c)
       invariant(JSBI.greaterThanOrEqual(remaining_amount_c, MIN_RESERVE), 'MIN_RESERVE')
       liquidityTokenValues[i] = new TokenAmount(this.tokenAmounts[i].token, amount)
     }
@@ -217,7 +218,7 @@ export class Vault extends Pool {
       }
     }
 
-    const old_c_amounts = this.c_amounts
+    const old_c_amounts = this.reserves_c
     const pool_token_supply = totalSupply
 
     const token_num = old_c_amounts.length
