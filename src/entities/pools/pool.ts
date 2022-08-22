@@ -11,6 +11,17 @@ export abstract class Pool {
   protected readonly tokenAmounts: TokenAmount[]
 
   protected constructor(chainId: ChainId, liquidityToken: Token, tokenAmounts: TokenAmount[]) {
+    const addresses = tokenAmounts.map(tokenAmount => tokenAmount.token.address.toLowerCase())
+    invariant(
+      addresses.every((address, i) => addresses.indexOf(address) === i),
+      'DUPLICATE_TOKEN'
+    )
+    invariant(tokenAmounts.length > 0, 'INSUFFICIENT_TOKENS')
+    invariant(
+      tokenAmounts.every(({ token }) => token.chainId === chainId),
+      'CHAIN_MISMATCH'
+    )
+
     this.chainId = chainId
     this.liquidityToken = liquidityToken
     this.tokenAmounts = tokenAmounts

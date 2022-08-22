@@ -19,8 +19,6 @@ export class Vault extends Pool {
   }
 
   public constructor(tokenAmounts: TokenAmount[], amp: JSBI, chainId: ChainId = ChainId.NEAR_TESTNET) {
-    let decimals: number = 18
-
     invariant(JSBI.greaterThanOrEqual(amp, ONE) && JSBI.lessThanOrEqual(amp, JSBI.BigInt(1_000_000)), 'AMP_ILLEGAL')
     invariant(
       tokenAmounts.every(({ token }) => token.decimals >= 1 && token.decimals <= 24),
@@ -30,7 +28,7 @@ export class Vault extends Pool {
     const liquidityToken = new Token(
       chainId,
       Vault.getAddress(tokenAmounts.map(tokenAmount => tokenAmount.token)),
-      decimals,
+      18,
       'PGL',
       'Pangolin Liquidity'
     )
