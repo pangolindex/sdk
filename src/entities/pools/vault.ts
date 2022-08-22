@@ -18,11 +18,7 @@ export class Vault extends Pool {
     return tokens.map((token: Token) => token.address).join('-')
   }
 
-  public constructor(
-    tokenAmounts: TokenAmount[],
-    amp: JSBI,
-    chainId: ChainId = ChainId.NEAR_TESTNET
-  ) {
+  public constructor(tokenAmounts: TokenAmount[], amp: JSBI, chainId: ChainId = ChainId.NEAR_TESTNET) {
     let decimals: number = 18
 
     const liquidityToken = new Token(
@@ -106,7 +102,10 @@ export class Vault extends Pool {
       out_token_i
     )
     const dy = JSBI.subtract(c_amounts[out_token_i], y)
-    const outputAmountWithFee = JSBI.divide(JSBI.multiply(dy, this.swapFeeCoefficient), this.swapFeeDivisor)
+    const outputAmountWithFee = Vault.c_amount_to_amount(
+      JSBI.divide(JSBI.multiply(dy, this.swapFeeCoefficient), this.swapFeeDivisor),
+      outputToken.decimals
+    )
 
     if (JSBI.equal(outputAmountWithFee, ZERO)) {
       throw new InsufficientInputAmountError()
@@ -115,10 +114,7 @@ export class Vault extends Pool {
     const newTokenAmounts = this.tokenAmounts
     newTokenAmounts[in_token_i] = newTokenAmounts[in_token_i].add(inputAmount)
     newTokenAmounts[out_token_i] = newTokenAmounts[out_token_i].subtract(
-      new TokenAmount(
-        outputToken,
-        Vault.c_amount_to_amount(outputAmountWithFee, newTokenAmounts[out_token_i].token.decimals)
-      )
+      new TokenAmount(outputToken, outputAmountWithFee)
     )
 
     return [new TokenAmount(outputToken, outputAmountWithFee), new Vault(newTokenAmounts, this.amp, this.chainId)]

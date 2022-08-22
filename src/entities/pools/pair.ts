@@ -37,11 +37,7 @@ export class Pair extends Pool {
       : `${tokens[0].address}-${tokens[1].address}`
   }
 
-  public constructor(
-    tokenAmountA: TokenAmount,
-    tokenAmountB: TokenAmount,
-    chainId: ChainId = ChainId.AVALANCHE
-  ) {
+  public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount, chainId: ChainId = ChainId.AVALANCHE) {
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
