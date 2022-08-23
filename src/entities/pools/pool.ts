@@ -34,15 +34,19 @@ export abstract class Pool {
   }
 
   get tokens(): Token[] {
-    return this.tokenAmounts.map((tokenAmount: TokenAmount) => tokenAmount.token)
+    return this.tokenAmounts.map(tokenAmount => tokenAmount.token)
   }
 
   involvesToken(token: Token): boolean {
-    return this.tokenAmounts.some((tokenAmount: TokenAmount) => tokenAmount.token.equals(token))
+    return this.tokenAmounts.some(tokenAmount => tokenAmount.token.equals(token))
   }
 
   token(index: number): Token {
     return this.tokenAmounts[index].token
+  }
+
+  tokenIndex(token: Token): number {
+    return this.tokenAmounts.findIndex(tokenAmount => tokenAmount.token.equals(token))
   }
 
   // Reserves
@@ -56,7 +60,7 @@ export abstract class Pool {
   }
 
   reserveOfToken(token: Token): TokenAmount {
-    const index = this.tokens.indexOf(token)
+    const index = this.tokenIndex(token)
     invariant(index >= 0, 'TOKEN_MISSING')
     return this.tokenAmounts[index]
   }
