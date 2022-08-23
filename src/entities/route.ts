@@ -14,7 +14,7 @@ export class Route {
 
   public constructor(pools: Pool[], input: Currency, output: Currency, hops: Token[] = []) {
     invariant(pools.length > 0, 'PAIRS')
-    invariant(pools.length === 2 || hops.length === pools.length - 1, 'HOPS')
+    invariant(pools.every(pool => pool.tokenCount === 2) || hops.length === pools.length - 1, 'HOPS')
     const chainId = pools[0].chainId
     invariant(
       pools.every(pool => pool.chainId === chainId),
