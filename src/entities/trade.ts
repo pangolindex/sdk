@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId, InsufficientReservesError } from '..'
+import { ChainId, InsufficientInputAmountError, InsufficientReservesError } from '..'
 
 import { ONE, TradeType, ZERO, ZERO_ADDRESS } from '../constants'
 import { sortedInsert } from '../utils'
@@ -343,7 +343,7 @@ export class Trade {
         try {
           ;[amountOut] = pool.getOutputAmount(amountIn, tokenHop)
         } catch (error) {
-          if (error instanceof InsufficientReservesError) {
+          if (error instanceof InsufficientInputAmountError || error instanceof InsufficientReservesError) {
             continue
           }
           throw error
@@ -454,7 +454,7 @@ export class Trade {
         try {
           ;[amountIn] = pool.getInputAmount(amountOut, tokenHop)
         } catch (error) {
-          if (error instanceof InsufficientReservesError) {
+          if (error instanceof InsufficientInputAmountError || error instanceof InsufficientReservesError) {
             continue
           }
           throw error
