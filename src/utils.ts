@@ -47,6 +47,11 @@ export function sqrt(y: JSBI): JSBI {
   return z
 }
 
+export function abs(x: JSBI): JSBI {
+  if (JSBI.lessThan(x, ZERO)) return JSBI.multiply(x, JSBI.BigInt(-1))
+  else return x
+}
+
 // given an array of items sorted by `comparator`, insert an item into its sort index and constrain the size to
 // `maxSize` by removing the last item
 export function sortedInsert<T>(items: T[], add: T, maxSize: number, comparator: (a: T, b: T) => number): T | null {

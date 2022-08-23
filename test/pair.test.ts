@@ -77,28 +77,30 @@ describe('Pair', () => {
   describe('#priceOf', () => {
     const pair = new Pair(new TokenAmount(DAS, '101'), new TokenAmount(CON, '100'), ChainId.FUJI)
     it('returns price of token in terms of other token', () => {
-      expect(pair.priceOf(CON)).toEqual(pair.token0Price)
-      expect(pair.priceOf(DAS)).toEqual(pair.token1Price)
+      expect(pair.priceOf(CON, DAS)).toEqual(pair.token0Price)
+      expect(pair.priceOf(DAS, CON)).toEqual(pair.token1Price)
     })
 
     it('throws if invalid token', () => {
-      expect(() => pair.priceOf(WAVAX[ChainId.FUJI])).toThrow('TOKEN')
+      expect(() => pair.priceOf(WAVAX[ChainId.FUJI], CON)).toThrow('TOKEN')
     })
   })
 
   describe('#reserveOf', () => {
     it('returns reserves of the given token', () => {
-      expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '101'), ChainId.FUJI).reserveOf(DAS)).toEqual(
-        new TokenAmount(DAS, '100')
-      )
-      expect(new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.FUJI).reserveOf(DAS)).toEqual(
-        new TokenAmount(DAS, '100')
-      )
+      expect(
+        new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '101'), ChainId.FUJI).reserveOfToken(DAS)
+      ).toEqual(new TokenAmount(DAS, '100'))
+      expect(
+        new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.FUJI).reserveOfToken(DAS)
+      ).toEqual(new TokenAmount(DAS, '100'))
     })
 
     it('throws if not in the pair', () => {
       expect(() =>
-        new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.FUJI).reserveOf(WAVAX[ChainId.FUJI])
+        new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.FUJI).reserveOfToken(
+          WAVAX[ChainId.FUJI]
+        )
       ).toThrow('TOKEN')
     })
   })
