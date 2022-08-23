@@ -521,30 +521,30 @@ export const COSTON_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
   contracts: {
-    png: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
-    factory: '0x26A500dAFcd0041C3Ebc495E1A5d432C0540983B',
-    router: '0x422c6D44e920454dD949F61202Dad3e3dd24C1fB',
+    png: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
+    factory: '0xa5D4D920cea39f0344A99b2a3c4597E10DA16D88',
+    router: '0x6a6C605700f477E56B9542Ca2a3D68B9A7edf599',
     wrapped_native_token: '0x1659941d425224408c5679eeef606666c7991a8A',
-    local_multisig: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
-    community_treasury: '0x9E961c9E4fFbf3a74b204015A21B6965D1C61Ab7',
-    treasury_vester: '0x60cf5c595F7b31528d4CD5D14F3e75411b5b9447',
+    local_multisig: '0x177126EC2D5BabD6a1374135F082b875773afC45',
+    community_treasury: '0x48197135bA4a9F5F9aB1296A6405c9495AB4Cfd3',
+    treasury_vester: '0x1a6a55a22a696F757f0ade055200308B53D70CAc',
     mini_chef: {
-      address: '0xafd36fCc70Cb7cacff3829EDf06d81EAa9DB82d5',
+      address: '0xFf0C4041ba52428612320cAD2016d07B2e4A802D',
       active: true,
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0x851e530cA86fD32e885086EA89D8890A8742F98E',
+      address: '0x700E2E6fd3C5174E9691a65DC12f44d0A8dd25EC',
       active: true,
       type: AirdropType.MERKLE_TO_STAKING
     },
-    timelock: '0xDE79E161488ec2B5bC914BbCA81f69C69b67F9E7',
-    fee_collector: '0x9aaD91fc17d1f9fB47e0F5Fb1C3B6ea6a89B0acB',
+    timelock: '0xc63C2BA9F4dD17F881d9195fD105611760689bAe',
+    fee_collector: '0x39DEA895DA8cC6ef744Da4C5Cc06F1E6150362f1',
     staking: [
       {
-        address: '0x4e2FF11ab0fE73914F451228cC199f67BE54b448',
+        address: '0xc064943492c9DF4f8238Bf52E7B7170A0Ec6FBAF',
         active: true,
-        reward_token: '0x37d774aB659920BCb9b231a0A3Fc500bcB0bb5Fd',
+        reward_token: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
         type: StakingType.SAR_POSITIONS
       }
     ]
