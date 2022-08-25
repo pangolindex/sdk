@@ -3,6 +3,7 @@ export enum ChainId {
   AVALANCHE = 43114,
   WAGMI = 11111,
   COSTON = 16,
+  SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901
 }
@@ -1146,8 +1147,8 @@ export const POLYGON_MUMBAI: Chain = {
   blockExplorerUrls: ['https://mumbai.polygonscan.com']
 }
 
-export const SONGBIRD_MAINNET: Chain = {
-  id: 'songbird_mainnet',
+export const SONGBIRD_CANARY: Chain = {
+  id: 'songbird_canary',
   chain_id: 19,
   name: 'Songbird',
   symbol: 'SGB',
@@ -1155,10 +1156,39 @@ export const SONGBIRD_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/sgb.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  contracts: {
+    png: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
+    factory: '0x00234704f3be64423Dd0079cfC7E00413976A681',
+    router: '0x40Ee4E0C1174231e46c5862547Bf38b922Bf22eb',
+    wrapped_native_token: '0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED',
+    local_multisig: '0xB4c82E4C8Ac7b9315e51318ac6fF59d1a742492F',
+    community_treasury: '0xFf88b723e07D5015465F23d4958fAc891674AA49',
+    treasury_vester: '0x1BBfF05F11d46E9946556D77D837a5F6890A9412',
+    mini_chef: {
+      address: '0xEAadeae5edF2534AAAdF2a1701eb5FAd93a66401',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0xf5d303c52B3a42A9029d3100EC26Eca7157E0d49',
+      active: true,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0x8a29B05804615242e83a77D01B81E21447CfD42c',
+    fee_collector: '0x86749Ea519264c74c9362D9Fc143C4e209012cBF',
+    staking: [
+      {
+        address: '0x493DA163f2EAF509528355BE1cA3B9FA65183876',
+        active: true,
+        reward_token: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'Songbird',
     symbol: 'SGB',
@@ -1534,6 +1564,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
   [ChainId.COSTON]: COSTON_TESTNET,
+  [ChainId.SONGBIRD]: SONGBIRD_CANARY,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET
 }
@@ -1579,7 +1610,7 @@ export const ALL_CHAINS: Chain[] = [
   OP_KOVAN,
   POLYGON_MAINNET,
   POLYGON_MUMBAI,
-  SONGBIRD_MAINNET,
+  SONGBIRD_CANARY,
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
   EWC_MAINNET,
