@@ -66,7 +66,7 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WAVAX = {
+export const WAVAX: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(
     ChainId.FUJI,
     CHAINS[ChainId.FUJI].contracts!.wrapped_native_token,
@@ -94,6 +94,13 @@ export const WAVAX = {
     18,
     'WCFLR',
     'Wrapped CostonFlare'
+  ),
+  [ChainId.SONGBIRD]: new Token(
+    ChainId.SONGBIRD,
+    CHAINS[ChainId.SONGBIRD].contracts!.wrapped_native_token,
+    18,
+    'wWSGB',
+    'Wrapped Songbird'
   ),
   [ChainId.NEAR_MAINNET]: new Token(
     ChainId.NEAR_MAINNET,
