@@ -20,6 +20,7 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: CHAINS[ChainId.AVALANCHE].contracts!.factory,
   [ChainId.WAGMI]: CHAINS[ChainId.WAGMI].contracts!.factory,
   [ChainId.COSTON]: CHAINS[ChainId.COSTON].contracts!.factory,
+  [ChainId.SONGBIRD]: CHAINS[ChainId.SONGBIRD].contracts!.factory,
   [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
   [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory
 }
