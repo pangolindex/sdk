@@ -516,7 +516,7 @@ export const COSTON_TESTNET: Chain = {
   chain_id: 16,
   name: 'Coston',
   symbol: 'cFLR',
-  png_symbol: 'PCF',
+  png_symbol: 'PCT',
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
