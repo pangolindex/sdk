@@ -115,5 +115,12 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     24,
     'wNEAR',
     'Wrapped NEAR'
+  ),
+  [ChainId.HEDERA_TESTNET]: new Token(
+    ChainId.HEDERA_TESTNET,
+    CHAINS[ChainId.HEDERA_TESTNET].contracts!.wrapped_native_token,
+    18,
+    'wHBAR',
+    'Wrapped HBAR'
   )
 }

@@ -27,7 +27,12 @@ export class Currency {
     [ChainId.COSTON]: new Currency(18, CHAINS[ChainId.COSTON].symbol, CHAINS[ChainId.COSTON].name),
     [ChainId.SONGBIRD]: new Currency(18, CHAINS[ChainId.SONGBIRD].symbol, CHAINS[ChainId.SONGBIRD].name),
     [ChainId.NEAR_MAINNET]: new Currency(24, CHAINS[ChainId.NEAR_MAINNET].symbol, CHAINS[ChainId.NEAR_MAINNET].name),
-    [ChainId.NEAR_TESTNET]: new Currency(24, CHAINS[ChainId.NEAR_TESTNET].symbol, CHAINS[ChainId.NEAR_TESTNET].name)
+    [ChainId.NEAR_TESTNET]: new Currency(24, CHAINS[ChainId.NEAR_TESTNET].symbol, CHAINS[ChainId.NEAR_TESTNET].name),
+    [ChainId.HEDERA_TESTNET]: new Currency(
+      18,
+      CHAINS[ChainId.HEDERA_TESTNET].symbol,
+      CHAINS[ChainId.HEDERA_TESTNET].name
+    )
   }
 
   /**

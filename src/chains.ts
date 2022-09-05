@@ -5,7 +5,8 @@ export enum ChainId {
   COSTON = 16,
   SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
-  NEAR_TESTNET = 329847901
+  NEAR_TESTNET = 329847901,
+  HEDERA_TESTNET = 329847910
 }
 
 export enum StakingType {
@@ -998,6 +999,50 @@ export const NEAR_TESTNET: Chain = {
   blockExplorerUrls: ['https://explorer.testnet.near.org']
 }
 
+export const HEDERA_TESTNET: Chain = {
+  id: 'hedera_testnet',
+  chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  name: 'Hedera',
+  symbol: `HBAR`,
+  mainnet: false,
+  evm: false,
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
+  png_symbol: 'PNR',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
+  contracts: {
+    png: '',
+    factory: '',
+    router: '',
+    wrapped_native_token: '',
+    local_multisig: '',
+    community_treasury: '',
+    treasury_vester: '',
+    mini_chef: {
+      address: '',
+      active: true,
+      type: ChefType.NEAR_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
+    timelock: '',
+    governor: '',
+    migrator: '',
+    multicall: ''
+  },
+  nativeCurrency: {
+    name: 'Hbar',
+    symbol: 'HBAR',
+    decimals: 18
+  },
+  blockExplorerUrls: ['']
+}
+
 export const OEC_MAINNET: Chain = {
   id: 'oec_mainnet',
   chain_id: 66,
@@ -1575,7 +1620,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.COSTON]: COSTON_TESTNET,
   [ChainId.SONGBIRD]: SONGBIRD_CANARY,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
-  [ChainId.NEAR_TESTNET]: NEAR_TESTNET
+  [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
+  [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -1606,6 +1652,7 @@ export const ALL_CHAINS: Chain[] = [
   HARMONY_TESTNET,
   HECO_MAINNET,
   HECO_TESTNET,
+  HEDERA_TESTNET,
   KLAYTN_MAINNET,
   KLAYTN_BAOBAB,
   METIS_MAINNET,
