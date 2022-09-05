@@ -3,6 +3,7 @@ export enum ChainId {
   AVALANCHE = 43114,
   WAGMI = 11111,
   COSTON = 16,
+  SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901
 }
@@ -88,6 +89,7 @@ export interface Chain {
     revenue_distributor?: string
     governor?: string
     fee_collector?: string
+    multicall: string
     staking?: StakingContract[]
   }
 }
@@ -235,6 +237,7 @@ export const AVALANCHE_MAINNET: Chain = {
     timelock: '0xEB5c91bE6Dbfd30cf616127C2EA823C64e4b1ff8',
     governor: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
     migrator: '0x4b23Aa72A1214d0E4fd3f2c8Da7C6ba660F7483C',
+    multicall: '0x0FB54156B496b5a040b51A71817aED9e2927912E',
     staking: [
       {
         address: '0x88afdaE1a9F58Da3E68584421937E5F564A0135b',
@@ -286,6 +289,7 @@ export const AVALANCHE_FUJI: Chain = {
     treasury_vester: '0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1',
     revenue_distributor: '0xF3861Acb8061A70499DC85c4a6aA9E934C83049f',
     fee_collector: '0x0609ce4F16388c440BF9a84b5E8df1b0438F714A',
+    multicall: '0xb465Fd2d9C71d5D6e6c069aaC9b4E21c69aAA78f',
     staking: [
       {
         address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
@@ -540,6 +544,7 @@ export const COSTON_TESTNET: Chain = {
     },
     timelock: '0xc63C2BA9F4dD17F881d9195fD105611760689bAe',
     fee_collector: '0x39DEA895DA8cC6ef744Da4C5Cc06F1E6150362f1',
+    multicall: '0xF7aB82e5253F65496e21dF0dacfA6D5e765b4874',
     staking: [
       {
         address: '0xc064943492c9DF4f8238Bf52E7B7170A0Ec6FBAF',
@@ -938,7 +943,8 @@ export const NEAR_MAINNET: Chain = {
     },
     timelock: 'example10.near',
     governor: 'example11.near',
-    migrator: 'example12.near'
+    migrator: 'example12.near',
+    multicall: ''
   },
   nativeCurrency: {
     name: 'Near',
@@ -981,7 +987,8 @@ export const NEAR_TESTNET: Chain = {
     },
     timelock: 'example10.near',
     governor: 'example11.near',
-    migrator: 'example12.near'
+    migrator: 'example12.near',
+    multicall: ''
   },
   nativeCurrency: {
     name: 'Near',
@@ -1129,6 +1136,7 @@ export const POLYGON_MUMBAI: Chain = {
     timelock: '0xE6ec3b8AD6ad20210a2698d89016DDF6965E5fBC',
     revenue_distributor: '0x780A51831dc1cE3AAD2879479dBE9419e834744c',
     fee_collector: '0xB2FcD54680150e3033A878cf1F689e1256d51fc5',
+    multicall: '',
     staking: [
       {
         address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
@@ -1146,8 +1154,8 @@ export const POLYGON_MUMBAI: Chain = {
   blockExplorerUrls: ['https://mumbai.polygonscan.com']
 }
 
-export const SONGBIRD_MAINNET: Chain = {
-  id: 'songbird_mainnet',
+export const SONGBIRD_CANARY: Chain = {
+  id: 'songbird_canary',
   chain_id: 19,
   name: 'Songbird',
   symbol: 'SGB',
@@ -1155,10 +1163,40 @@ export const SONGBIRD_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/sgb.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  contracts: {
+    png: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
+    factory: '0x00234704f3be64423Dd0079cfC7E00413976A681',
+    router: '0x40Ee4E0C1174231e46c5862547Bf38b922Bf22eb',
+    wrapped_native_token: '0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED',
+    local_multisig: '0xB4c82E4C8Ac7b9315e51318ac6fF59d1a742492F',
+    community_treasury: '0xFf88b723e07D5015465F23d4958fAc891674AA49',
+    treasury_vester: '0x1BBfF05F11d46E9946556D77D837a5F6890A9412',
+    mini_chef: {
+      address: '0xEAadeae5edF2534AAAdF2a1701eb5FAd93a66401',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0xf5d303c52B3a42A9029d3100EC26Eca7157E0d49',
+      active: true,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0x8a29B05804615242e83a77D01B81E21447CfD42c',
+    fee_collector: '0x86749Ea519264c74c9362D9Fc143C4e209012cBF',
+    multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
+    staking: [
+      {
+        address: '0x493DA163f2EAF509528355BE1cA3B9FA65183876',
+        active: true,
+        reward_token: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'Songbird',
     symbol: 'SGB',
@@ -1222,6 +1260,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
     timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
     governor: '0x0000000000000000000000000000000000000000',
     migrator: '0x0000000000000000000000000000000000000000',
+    multicall: '0x5138349f3027F1e2c2f10eDAD83d38096C0D8Abe',
     staking: [
       {
         address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
@@ -1534,6 +1573,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
   [ChainId.COSTON]: COSTON_TESTNET,
+  [ChainId.SONGBIRD]: SONGBIRD_CANARY,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET
 }
@@ -1579,7 +1619,7 @@ export const ALL_CHAINS: Chain[] = [
   OP_KOVAN,
   POLYGON_MAINNET,
   POLYGON_MUMBAI,
-  SONGBIRD_MAINNET,
+  SONGBIRD_CANARY,
   WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
   EWC_MAINNET,
