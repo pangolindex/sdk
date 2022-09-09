@@ -6,7 +6,7 @@ export enum ChainId {
   SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901,
-  HEDERA_TESTNET = 329847910
+  HEDERA_TESTNET = 296
 }
 
 export enum StakingType {
