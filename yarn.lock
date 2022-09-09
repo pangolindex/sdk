@@ -1461,21 +1461,10 @@
     table "^6.8.0"
     undici "^5.4.0"
 
-"@pangolindex/exchange-contracts@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@pangolindex/exchange-contracts/-/exchange-contracts-2.1.2.tgz#15787bce6d5301f31f61311aa079e99ac2f603e6"
-  integrity sha512-qjy1YayMoXvyM2XbNMwgJvzkSE0pedAkoVVqw6YSxFYbnfnwpVxgmXy3DrlDNvq/rPExbZjAbqGk01Jpeo7fVw==
-  dependencies:
-    "@gnosis.pm/safe-core-sdk" "^1.3.0"
-    "@nomiclabs/hardhat-etherscan" "^3.0.0"
-    "@pangolindex/sdk" "^1.4.0"
-    chance "^1.1.8"
-    dotenv "^14.2.0"
-
-"@pangolindex/exchange-contracts@2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@pangolindex/exchange-contracts/-/exchange-contracts-2.1.4.tgz#104a582bc2965d8f782fecc7283e977c88485b02"
-  integrity sha512-xF0U2NVhBg4IF1ATSwQG+UVK8Hya66woegpImuK5a1Hl5GZMP9+MvGy+5im+5ZmCnZxx7yvNCwUyLNMl8/8qfw==
+"@pangolindex/exchange-contracts@2.1.2", "@pangolindex/exchange-contracts@2.1.5", "@pangolindex/exchange-contracts@^2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@pangolindex/exchange-contracts/-/exchange-contracts-2.1.5.tgz#11eab2cc3c01b1991d8f90d454db981092647ab7"
+  integrity sha512-sUiwPOeK9xl5KXQZSikBVYqCDMFSweCdqyTF2uCDeVecZcYdWrzDbkR6XYgAMXHKNoCoLMZKs0R0LaxG2GGwMA==
   dependencies:
     "@gnosis.pm/safe-core-sdk" "^1.3.0"
     "@nomiclabs/hardhat-etherscan" "^3.0.0"
@@ -1484,30 +1473,12 @@
     chance "^1.1.8"
     dotenv "^14.2.0"
 
-"@pangolindex/exchange-contracts@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@pangolindex/exchange-contracts/-/exchange-contracts-1.0.1.tgz"
-  integrity sha512-lvL2y1xVsAh1S+fC3RCp9+Z70MOtydaRvBD9AZAJ4ZUajvMtDhTzCAAZAf2op43149JMWAytWYOrAbCSUeaw7Q==
-
 "@pangolindex/sdk@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@pangolindex/sdk/-/sdk-3.1.0.tgz#a14848c2bbe6708d29189da52e08f1d971da2ef9"
   integrity sha512-Rn0WW0tBdNbs7rL9vIws7A4hcGBL4tP0Jnht4Y2WSiF/CBZwQF7AmBdPyKJn19u4hrW0EPTBaj+TuusUagfE6w==
   dependencies:
     "@pangolindex/exchange-contracts" "2.1.2"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
-"@pangolindex/sdk@^1.4.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@pangolindex/sdk/-/sdk-1.5.0.tgz#5b51d76775b2e6fc23aa82264dea291fc12fbd8a"
-  integrity sha512-b/OLh0wGygl/6unrlJ1VtzepV9DpeNz/ifNVsQOkDUZFlGQT3Gv6DvSXWJelYKPUSK24ZPoNXbu0bvqHfnjhIg==
-  dependencies:
-    "@pangolindex/exchange-contracts" "^1.0.1"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
     jsbi "^3.1.1"
