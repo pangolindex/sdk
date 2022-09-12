@@ -1192,7 +1192,7 @@ export const SONGBIRD_CANARY: Chain = {
       {
         address: '0x7428A089A79B24400a620F1Cbf8bd0526cFae777',
         active: true,
-        reward_token: '0x3AAD4eE30d41525c2Ee7D0F4070ebF31568F31b4',
+        reward_token: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
         type: StakingType.SAR_POSITIONS
       }
     ]
