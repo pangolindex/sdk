@@ -1168,29 +1168,29 @@ export const SONGBIRD_CANARY: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
   contracts: {
-    png: '0x3AAD4eE30d41525c2Ee7D0F4070ebF31568F31b4',
-    factory: '0xe8E23105C0D394bE611dC7516E7dF9D52B2Ec744',
-    router: '0xb16711146c6E669CBCA71d4ae3E1d2c86A2cAb3C',
+    png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
+    factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
+    router: '0x6591cf4E1CfDDEcB4Aa5946c033596635Ba6FB0F',
     wrapped_native_token: '0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED',
-    local_multisig: '0x56a7F4597D8ee5d4Af13f7063b507E4Dc7D0099c',
-    community_treasury: '0x4DbD504D19ce7557b9F88091199b9a1Cfe8c5F72',
-    treasury_vester: '0xdE02A2c7Be09eF81461f4E528c2d394Cb204F5d3',
+    local_multisig: '0xe18dFC20edE326930d11b3316E92bdC1F606dc94',
+    community_treasury: '0xA2e6eFFdbb278744E286F602Bfaa2BcDAccBb1AA',
+    treasury_vester: '0x47d3d75E68594960845Bb3fD89f6a73E0Af8093E',
     mini_chef: {
-      address: '0x482FC8A1d418e3C4BC73C0E7fE0fA62eAB0df8dc',
+      address: '0x76489156Fff6f4B89626f58386366941150642B7',
       active: true,
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0xa3ffE2CE452C23941b62B5D570f36b823E1e0D0F',
+      address: '0x1c4429A271ec5E36a2FDc6400A5a6e49E605dF17',
       active: true,
       type: AirdropType.MERKLE_TO_STAKING
     },
-    timelock: '0x987a31C27Dc3685C1cDFBE58635Eb1379181D886',
-    fee_collector: '0x0B1C4A4D658657D00a0CA7087ad152a9d29309B6',
+    timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
+    fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
     multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
     staking: [
       {
-        address: '0xcf46391024803368eA169c5F5cE6eDa622Cb577c',
+        address: '0x7428A089A79B24400a620F1Cbf8bd0526cFae777',
         active: true,
         reward_token: '0x3AAD4eE30d41525c2Ee7D0F4070ebF31568F31b4',
         type: StakingType.SAR_POSITIONS
