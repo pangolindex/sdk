@@ -1213,31 +1213,31 @@ export const SONGBIRD_CANARY: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
   contracts: {
-    png: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
-    factory: '0x00234704f3be64423Dd0079cfC7E00413976A681',
-    router: '0x40Ee4E0C1174231e46c5862547Bf38b922Bf22eb',
+    png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
+    factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
+    router: '0x6591cf4E1CfDDEcB4Aa5946c033596635Ba6FB0F',
     wrapped_native_token: '0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED',
-    local_multisig: '0xB4c82E4C8Ac7b9315e51318ac6fF59d1a742492F',
-    community_treasury: '0xFf88b723e07D5015465F23d4958fAc891674AA49',
-    treasury_vester: '0x1BBfF05F11d46E9946556D77D837a5F6890A9412',
+    local_multisig: '0xe18dFC20edE326930d11b3316E92bdC1F606dc94',
+    community_treasury: '0xA2e6eFFdbb278744E286F602Bfaa2BcDAccBb1AA',
+    treasury_vester: '0x47d3d75E68594960845Bb3fD89f6a73E0Af8093E',
     mini_chef: {
-      address: '0xEAadeae5edF2534AAAdF2a1701eb5FAd93a66401',
+      address: '0x76489156Fff6f4B89626f58386366941150642B7',
       active: true,
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0xf5d303c52B3a42A9029d3100EC26Eca7157E0d49',
+      address: '0x1c4429A271ec5E36a2FDc6400A5a6e49E605dF17',
       active: true,
       type: AirdropType.MERKLE_TO_STAKING
     },
-    timelock: '0x8a29B05804615242e83a77D01B81E21447CfD42c',
-    fee_collector: '0x86749Ea519264c74c9362D9Fc143C4e209012cBF',
+    timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
+    fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
     multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
     staking: [
       {
-        address: '0x493DA163f2EAF509528355BE1cA3B9FA65183876',
+        address: '0x7428A089A79B24400a620F1Cbf8bd0526cFae777',
         active: true,
-        reward_token: '0xd2C217a4798FB7C331876B54D6cA6cb369dEb70C',
+        reward_token: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
         type: StakingType.SAR_POSITIONS
       }
     ]
