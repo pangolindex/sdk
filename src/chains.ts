@@ -1014,9 +1014,9 @@ export const HEDERA_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: '',
-    factory: '',
-    router: '',
-    wrapped_native_token: '',
+    factory: '0x0000000000000000000000000000000002dfa5ae',
+    router: '0x0000000000000000000000000000000002dfa5ca',
+    wrapped_native_token: '0x0000000000000000000000000000000002dfa5b1',
     local_multisig: '',
     community_treasury: '',
     treasury_vester: '',
