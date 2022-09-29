@@ -1010,7 +1010,7 @@ export const HEDERA_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
-  png_symbol: 'PNR',
+  png_symbol: 'PHT',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: '',
@@ -1038,7 +1038,7 @@ export const HEDERA_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Hbar',
     symbol: 'HBAR',
-    decimals: 18
+    decimals: 8
   },
   blockExplorerUrls: ['']
 }

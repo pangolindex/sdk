@@ -119,7 +119,7 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
   [ChainId.HEDERA_TESTNET]: new Token(
     ChainId.HEDERA_TESTNET,
     CHAINS[ChainId.HEDERA_TESTNET].contracts!.wrapped_native_token,
-    18,
+    CHAINS[ChainId.HEDERA_TESTNET].nativeCurrency.decimals,
     'wHBAR',
     'Wrapped HBAR'
   )
