@@ -25,6 +25,7 @@ export enum AirdropType {
   LEGACY = 'LEGACY',
   MERKLE = 'MERKLE',
   MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
+  MERKLE_TO_STAKING_COMPLIANT = 'MERKLE_TO_STAKING_COMPLIANT',
   NEAR_AIRDROP = 'NEAR_AIRDROP'
 }
 
@@ -32,6 +33,10 @@ interface AirdropContract {
   address: string
   active: boolean
   type: AirdropType
+}
+
+interface AirdropContractTitled extends AirdropContract {
+  title: string
 }
 
 export enum ChefType {
@@ -84,6 +89,7 @@ export interface Chain {
     timelock?: string
     migrator?: string
     airdrop?: AirdropContract
+    specialAirdrops?: AirdropContractTitled[]
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
@@ -1181,10 +1187,18 @@ export const SONGBIRD_CANARY: Chain = {
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0x1c4429A271ec5E36a2FDc6400A5a6e49E605dF17',
+      address: '0x3B8377E6a9d527b4587F251bce706b53DAC26cf6',
       active: true,
-      type: AirdropType.MERKLE_TO_STAKING
+      type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
     },
+    specialAirdrops: [
+      {
+        title: 'Old PSB Reimbursement',
+        address: '0x78407686458ACf7FceA53Cf73697d0ff51052ca6',
+        active: true,
+        type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
+      }
+    ],
     timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
     fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
     multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
