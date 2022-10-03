@@ -1194,7 +1194,7 @@ export const SONGBIRD_CANARY: Chain = {
     specialAirdrops: [
       {
         title: 'Old PSB Reimbursement',
-        address: '0x85B81256bB70772E14c8A78192fF3A556FBD162a',
+        address: '0x78407686458ACf7FceA53Cf73697d0ff51052ca6',
         active: true,
         type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
       }
