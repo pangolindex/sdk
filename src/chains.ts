@@ -35,6 +35,10 @@ interface AirdropContract {
   type: AirdropType
 }
 
+interface AirdropContractTitled extends AirdropContract {
+  title: string
+}
+
 export enum ChefType {
   MINI_CHEF = 'MINI_CHEF',
   MINI_CHEF_V2 = 'MINI_CHEF_V2',
@@ -85,6 +89,7 @@ export interface Chain {
     timelock?: string
     migrator?: string
     airdrop?: AirdropContract
+    specialAirdrops?: AirdropContractTitled[]
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
@@ -1186,6 +1191,14 @@ export const SONGBIRD_CANARY: Chain = {
       active: true,
       type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
     },
+    specialAirdrops: [
+      {
+        title: 'Old PSB Reimbursement',
+        address: '0x85B81256bB70772E14c8A78192fF3A556FBD162a',
+        active: true,
+        type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
+      }
+    ],
     timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
     fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
     multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
