@@ -1181,7 +1181,7 @@ export const SONGBIRD_CANARY: Chain = {
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0x1c4429A271ec5E36a2FDc6400A5a6e49E605dF17',
+      address: '0x3B8377E6a9d527b4587F251bce706b53DAC26cf6',
       active: true,
       type: AirdropType.MERKLE_TO_STAKING
     },
