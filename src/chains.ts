@@ -25,6 +25,7 @@ export enum AirdropType {
   LEGACY = 'LEGACY',
   MERKLE = 'MERKLE',
   MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
+  MERKLE_TO_STAKING_COMPLIANT = 'MERKLE_TO_STAKING_COMPLIANT',
   NEAR_AIRDROP = 'NEAR_AIRDROP'
 }
 
@@ -1183,7 +1184,7 @@ export const SONGBIRD_CANARY: Chain = {
     airdrop: {
       address: '0x3B8377E6a9d527b4587F251bce706b53DAC26cf6',
       active: true,
-      type: AirdropType.MERKLE_TO_STAKING
+      type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
     },
     timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
     fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
