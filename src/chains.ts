@@ -1390,6 +1390,37 @@ export const FLARE_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
+  contracts: {
+    png: '0xC60BcDaA9CC7Cc372E793101fDfCB1083E25A203',
+    factory: '0x9F771eB2D8eD6fC39b1f4DD2E4d784F946dcCB00',
+    router: '0x7851F4A2414E15117770FD602CD18eB56CA62E16',
+    wrapped_native_token: '0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d',
+    local_multisig: '0x40Ad5Ad031307298ADf951b42Ea4DE95752371fE',
+    community_treasury: '0x6f377e6B5DA548E867671cbDe7Ba0B1AD7dFac98',
+    treasury_vester: '0x0ec65653f6cAD6b35E58585AcE46CAC85D50Eeb3',
+    mini_chef: {
+      address: '0xD70ad4C1A45670AfD9D2339EA30Ec0f43690a5A6',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0xFB9C4c973Bdfb039D7497b18E855C9d0062fd0d9',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    specialAirdrops: [],
+    timelock: '0xC73B11d428895d5Cc1361eF3077B173Ad0C94007',
+    fee_collector: '0x89888506511f79EBb6624D12FFF9622464C41596',
+    multicall: '0x336897CAe2791048DA77EEa2A43BFB96342b9CE1',
+    staking: [
+      {
+        address: '0xd970AD96563274caDd4d1Fd31d04fDc76cdC88Ec',
+        active: true,
+        reward_token: '0xC60BcDaA9CC7Cc372E793101fDfCB1083E25A203',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'Flare',
     symbol: 'FLR',
@@ -1848,6 +1879,7 @@ export const ALL_CHAINS: Chain[] = [
   EVMOS_TESTNET,
   FANTOM_MAINNET,
   FANTOM_TESTNET,
+  FLARE_MAINNET,
   FUSE_MAINNET,
   FUSE_TESTNET,
   HARMONY_MAINNET,
