@@ -1,4 +1,6 @@
 name: Publish alpha package
+env:
+  CI: true
 on:
   pull_request:
     branches:
