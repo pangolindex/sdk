@@ -1046,7 +1046,7 @@ export const HEDERA_TESTNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['']
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
 }
 
 export const OEC_MAINNET: Chain = {
