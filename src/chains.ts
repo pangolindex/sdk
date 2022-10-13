@@ -5,7 +5,8 @@ export enum ChainId {
   COSTON = 16,
   SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
-  NEAR_TESTNET = 329847901
+  NEAR_TESTNET = 329847901,
+  HEDERA_TESTNET = 296
 }
 
 export enum StakingType {
@@ -25,6 +26,7 @@ export enum AirdropType {
   LEGACY = 'LEGACY',
   MERKLE = 'MERKLE',
   MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
+  MERKLE_TO_STAKING_COMPLIANT = 'MERKLE_TO_STAKING_COMPLIANT',
   NEAR_AIRDROP = 'NEAR_AIRDROP'
 }
 
@@ -32,6 +34,10 @@ interface AirdropContract {
   address: string
   active: boolean
   type: AirdropType
+}
+
+interface AirdropContractTitled extends AirdropContract {
+  title: string
 }
 
 export enum ChefType {
@@ -84,6 +90,7 @@ export interface Chain {
     timelock?: string
     migrator?: string
     airdrop?: AirdropContract
+    specialAirdrops?: AirdropContractTitled[]
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
@@ -1052,6 +1059,50 @@ export const NEAR_TESTNET: Chain = {
   blockExplorerUrls: ['https://explorer.testnet.near.org']
 }
 
+export const HEDERA_TESTNET: Chain = {
+  id: 'hedera_testnet',
+  chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  name: 'Hedera',
+  symbol: `HBAR`,
+  mainnet: false,
+  evm: false,
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
+  png_symbol: 'PHT',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
+  contracts: {
+    png: '',
+    factory: '0x0000000000000000000000000000000002dfa5ae',
+    router: '0x0000000000000000000000000000000002dfa5ca',
+    wrapped_native_token: '0x0000000000000000000000000000000002dfa5b1',
+    local_multisig: '',
+    community_treasury: '',
+    treasury_vester: '',
+    mini_chef: {
+      address: '',
+      active: true,
+      type: ChefType.NEAR_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
+    timelock: '',
+    governor: '',
+    migrator: '',
+    multicall: ''
+  },
+  nativeCurrency: {
+    name: 'Hbar',
+    symbol: 'HBAR',
+    decimals: 8
+  },
+  blockExplorerUrls: ['']
+}
+
 export const OEC_MAINNET: Chain = {
   id: 'oec_mainnet',
   chain_id: 66,
@@ -1235,10 +1286,18 @@ export const SONGBIRD_CANARY: Chain = {
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0x1c4429A271ec5E36a2FDc6400A5a6e49E605dF17',
+      address: '0x3B8377E6a9d527b4587F251bce706b53DAC26cf6',
       active: true,
-      type: AirdropType.MERKLE_TO_STAKING
+      type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
     },
+    specialAirdrops: [
+      {
+        title: 'Old PSB Reimbursement',
+        address: '0x78407686458ACf7FceA53Cf73697d0ff51052ca6',
+        active: true,
+        type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
+      }
+    ],
     timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
     fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
     multicall: '0x17032Ea9c3a13Ed337665145364c0d2aD1108c91',
@@ -1629,7 +1688,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.COSTON]: COSTON_TESTNET,
   [ChainId.SONGBIRD]: SONGBIRD_CANARY,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
-  [ChainId.NEAR_TESTNET]: NEAR_TESTNET
+  [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
+  [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -1661,6 +1721,7 @@ export const ALL_CHAINS: Chain[] = [
   HARMONY_TESTNET,
   HECO_MAINNET,
   HECO_TESTNET,
+  HEDERA_TESTNET,
   KLAYTN_MAINNET,
   KLAYTN_BAOBAB,
   METIS_MAINNET,
