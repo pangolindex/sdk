@@ -126,7 +126,7 @@ export const THORCHAIN: Bridge = {
 export const LIFI: Bridge = {
   id: 'lifi',
   name: 'LI.FI',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/thorchain.png',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/lifi.png',
   aggregator_address: '0x7a68c37D8AFA3078f3Ad51D98eA23Fe57a8Ae21a',
   lim: '100001618',
   affiliate: 'thor1h2hf0txuzdl2hedx9epcqc6zf65aldk4ckpwcw',
