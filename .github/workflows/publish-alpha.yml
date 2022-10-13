@@ -22,6 +22,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
           node-version: '14.x'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: yarn --frozen-lockfile
         env:
