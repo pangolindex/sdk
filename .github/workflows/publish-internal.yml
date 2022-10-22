@@ -50,6 +50,8 @@ jobs:
       - run: npm publish --ignore-scripts --tag internal
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - run: echo '${{ toJSON(github) }}'
 
       - run: echo "LATEST_VERSION=$(jq -r .version ./package.json)" >> $GITHUB_ENV
 
