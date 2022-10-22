@@ -52,10 +52,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: echo '${{ toJSON(github) }}'
-      - run: echo '${{ env.GITHUB_EVENT_PATH }}'
-      - run: echo '${{ env.GITHUB_ACTION }}'
-      - run: echo '${{ env.GITHUB_BASE_REF }}'
-      - run: ehco '${{ env.GITHUB_REF }}'
+      - run: env
 
       - run: echo "LATEST_VERSION=$(jq -r .version ./package.json)" >> $GITHUB_ENV
 
