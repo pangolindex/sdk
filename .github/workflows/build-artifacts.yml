@@ -41,3 +41,14 @@ jobs:
             !.github
             !.git
             !node_modules
+
+      # we need to save PR number to some file artifact so that we can fetch it in publish-internal workflow
+      - name: Save PR number
+        run: |
+          mkdir -p ./pr
+          echo ${{ github.event.number }} > ./pr/PR_NUMBER
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: pr/

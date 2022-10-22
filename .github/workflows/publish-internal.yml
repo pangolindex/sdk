@@ -37,6 +37,30 @@ jobs:
             var fs = require('fs');
             fs.writeFileSync('${{github.workspace}}/build_artifacts.zip', Buffer.from(download.data));
 
+            var prArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "pr"
+            })[0];
+            var prDownload = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: prArtifact.id,
+               archive_format: 'zip',
+            });
+            fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(prDownload.data));
+
+      - run: unzip pr.zip
+      - name: 'Get PR Number'
+        uses: actions/github-script@v6
+        id: prNumber
+        with:
+          script: |
+            var fs = require('fs');
+            var prNum = Number(fs.readFileSync('./PR_NUMBER'));
+            fs.unlinkSync("./PR_NUMBER")
+            fs.unlinkSync("./pr.zip")
+            return prNum
+          result-encoding: string
+
       - run: unzip build_artifacts.zip
 
       - uses: actions/setup-node@v3
@@ -51,14 +75,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: echo '${{ toJSON(github) }}'
-      - run: env
-
       - run: echo "LATEST_VERSION=$(jq -r .version ./package.json)" >> $GITHUB_ENV
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           recreate: true
-          number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          number: ${{ steps.prNumber.outputs.result }}
           message: |
             Last commit released to npm version: `${{ env.LATEST_VERSION }}`
