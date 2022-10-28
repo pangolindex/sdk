@@ -1011,7 +1011,7 @@ export const HEDERA_TESTNET: Chain = {
   name: 'Hedera',
   symbol: `HBAR`,
   mainnet: false,
-  evm: false,
+  evm: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
