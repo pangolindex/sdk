@@ -1020,9 +1020,9 @@ export const HEDERA_TESTNET: Chain = {
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: '',
-    factory: '0x0000000000000000000000000000000002dfa5ae', // 0.0.48211374
-    router: '0x0000000000000000000000000000000002dfa5ca', // 0.0.48211402
-    wrapped_native_token: '0x0000000000000000000000000000000002dfa5b2', // 0.0.48211378
+    factory: '0x0000000000000000000000000000000002DfA5aE', // 0.0.48211374
+    router: '0x0000000000000000000000000000000002DFa5Ca', // 0.0.48211402
+    wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
     local_multisig: '',
     community_treasury: '',
     treasury_vester: '',
@@ -1039,7 +1039,7 @@ export const HEDERA_TESTNET: Chain = {
     timelock: '',
     governor: '',
     migrator: '',
-    multicall: ''
+    multicall: '0x0000000000000000000000000000000002E803bB'
   },
   nativeCurrency: {
     name: 'Hbar',
