@@ -1019,7 +1019,7 @@ export const HEDERA_TESTNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
-    png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+    png: '0x0000000000000000000000000000000002DfA5b2', // TODO: change this to correct address, 0.0.47908352
     factory: '0x0000000000000000000000000000000002DfA5aE', // 0.0.48211374
     router: '0x0000000000000000000000000000000002E8F86b', // 0.0.48822379
     wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
