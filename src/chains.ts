@@ -1016,7 +1016,7 @@ export const HEDERA_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
-  png_symbol: 'PHT',
+  png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
     png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
