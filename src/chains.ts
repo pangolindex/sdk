@@ -92,59 +92,6 @@ export interface Chain {
     multicall: string
     staking?: StakingContract[]
   }
-  supported_bridges?: Bridge[]
-}
-
-export interface Bridge {
-  id: string
-  name: string
-  logo: string
-  aggregator_address: string
-  lim: string
-  affiliate: string
-  fee: number
-}
-
-export const THORCHAIN: Bridge = {
-  id: 'thorchain',
-  name: 'ThorChain',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/thorchain.png',
-  aggregator_address: '0x7a68c37D8AFA3078f3Ad51D98eA23Fe57a8Ae21a',
-  lim: '100001618',
-  affiliate: 'thor1h2hf0txuzdl2hedx9epcqc6zf65aldk4ckpwcw',
-  fee: 10
-}
-
-//TODO: edit this
-export const LIFI: Bridge = {
-  id: 'lifi',
-  name: 'LI.FI',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/thorchain.png',
-  aggregator_address: '0x7a68c37D8AFA3078f3Ad51D98eA23Fe57a8Ae21a',
-  lim: '100001618',
-  affiliate: 'thor1h2hf0txuzdl2hedx9epcqc6zf65aldk4ckpwcw',
-  fee: 10
-}
-
-export const BTC_MAINNET: Chain = {
-  id: 'btc_mainnet',
-  chain_id: 329847902,
-  name: 'Bitcoin',
-  symbol: 'BTC',
-  mainnet: true,
-  evm: false,
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/btc.png',
-  pangolin_is_live: false,
-  tracked_by_debank: false,
-  supported_by_gelato: false,
-  rpc_uri: '...',
-  coingecko_id: 'Bitcoin',
-  nativeCurrency: {
-    name: 'Bitcoin',
-    symbol: 'BTC',
-    decimals: 8
-  },
-  supported_bridges: [THORCHAIN]
 }
 
 export const ETHEREUM_MAINNET: Chain = {
@@ -305,8 +252,7 @@ export const AVALANCHE_MAINNET: Chain = {
     symbol: 'AVAX',
     decimals: 18
   },
-  blockExplorerUrls: ['https://snowtrace.io'],
-  supported_bridges: [THORCHAIN]
+  blockExplorerUrls: ['https://snowtrace.io']
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -1644,7 +1590,6 @@ export const ALL_CHAINS: Chain[] = [
   BITTORRENT_MAINNET,
   BSC_MAINNET,
   BSC_TESTNET,
-  BTC_MAINNET,
   CELO_MAINNET,
   CELO_ALFAJORES_TESTNET,
   CELO_BAKLAVA_TESTNET,
@@ -1691,5 +1636,3 @@ export const ALL_CHAINS: Chain[] = [
   GODWOKEN_MAINNET,
   GODWOKEN_TESTNET
 ]
-
-export const BRIDGES: Bridge[] = [THORCHAIN, LIFI]
