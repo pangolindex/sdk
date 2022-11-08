@@ -1,0 +1,54 @@
+name: Create Build Artifacts
+
+env:
+  CI: true
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - run: yarn --frozen-lockfile
+
+      - name: Bump package.json
+        run: |
+          npm --no-git-tag-version version $(npm show . version)-internal.$(git rev-parse --short HEAD)
+
+      - run: yarn tsc && yarn lint
+      - run: yarn build
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build_artifacts
+          path: |
+            *
+            !src
+            !test
+            !.husky
+            !.github
+            !.git
+            !node_modules
+
+      # we need to save PR number to some file artifact so that we can fetch it in publish-internal workflow
+      - name: Save PR number
+        run: |
+          mkdir -p ./pr
+          echo ${{ github.event.number }} > ./pr/PR_NUMBER
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: pr/

@@ -9,7 +9,7 @@ import { ChainId, CHAINS } from '../../chains'
 import {
   BigintIsh,
   FACTORY_ADDRESS,
-  INIT_CODE_HASH,
+  INIT_CODE_HASH_MAPPING,
   MINIMUM_LIQUIDITY,
   ZERO,
   ONE,
@@ -32,7 +32,7 @@ export class Pair extends Pool {
       ? getCreate2Address(
           FACTORY_ADDRESS[chainId],
           keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-          INIT_CODE_HASH
+          INIT_CODE_HASH_MAPPING[chainId]
         )
       : `${tokens[0].address}-${tokens[1].address}`
   }
