@@ -36,4 +36,4 @@ export const SQUID: Bridge = {
   fee: 0
 }
 
-export const BRIDGES: Bridge[] = [LIFI, THORSWAP, SQUID]
+export const BRIDGES: Bridge[] = [LIFI]
