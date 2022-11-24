@@ -6,13 +6,14 @@ export enum ChainId {
   SONGBIRD = 19,
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901,
-  HEDERA_TESTNET = 296
+  HEDERA_TESTNET = 296,
+  EVMOS_TESTNET = 9000,
 }
 
 export enum StakingType {
   LEGACY = 'LEGACY',
   SAR_POSITIONS = 'SAR_POSITIONS',
-  NEAR_STAKING = 'NEAR_STAKING'
+  NEAR_STAKING = 'NEAR_STAKING',
 }
 
 interface StakingContract {
@@ -27,7 +28,7 @@ export enum AirdropType {
   MERKLE = 'MERKLE',
   MERKLE_TO_STAKING = 'MERKLE_TO_STAKING',
   MERKLE_TO_STAKING_COMPLIANT = 'MERKLE_TO_STAKING_COMPLIANT',
-  NEAR_AIRDROP = 'NEAR_AIRDROP'
+  NEAR_AIRDROP = 'NEAR_AIRDROP',
 }
 
 interface AirdropContract {
@@ -44,7 +45,7 @@ export enum ChefType {
   MINI_CHEF = 'MINI_CHEF',
   MINI_CHEF_V2 = 'MINI_CHEF_V2',
   PANGO_CHEF = 'PANGO_CHEF',
-  NEAR_CHEF = 'NEAR_CHEF'
+  NEAR_CHEF = 'NEAR_CHEF',
 }
 
 interface ChefContract {
@@ -117,9 +118,9 @@ export const ETHEREUM_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://etherscan.io']
+  blockExplorerUrls: ['https://etherscan.io'],
 }
 
 export const ARBITRUM_MAINNET: Chain = {
@@ -138,9 +139,9 @@ export const ARBITRUM_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://arbiscan.io']
+  blockExplorerUrls: ['https://arbiscan.io'],
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
@@ -158,9 +159,9 @@ export const ARBITRUM_RINKEBY: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io']
+  blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io'],
 }
 
 export const AURORA_MAINNET: Chain = {
@@ -179,9 +180,9 @@ export const AURORA_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://aurorascan.dev']
+  blockExplorerUrls: ['https://aurorascan.dev'],
 }
 
 export const AURORA_TESTNET: Chain = {
@@ -199,9 +200,9 @@ export const AURORA_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.aurorascan.dev']
+  blockExplorerUrls: ['https://testnet.aurorascan.dev'],
 }
 
 export const AVALANCHE_MAINNET: Chain = {
@@ -218,7 +219,7 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_gelato: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange'
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -234,12 +235,12 @@ export const AVALANCHE_MAINNET: Chain = {
     mini_chef: {
       address: '0x1f806f7C8dED893fd3caE279191ad7Aa3798E928',
       active: true,
-      type: ChefType.MINI_CHEF_V2
+      type: ChefType.MINI_CHEF_V2,
     },
     airdrop: {
       address: '0x0C58C2041da4CfCcF5818Bbe3b66DBC23B3902d9',
       active: false,
-      type: AirdropType.LEGACY
+      type: AirdropType.LEGACY,
     },
     timelock: '0xEB5c91bE6Dbfd30cf616127C2EA823C64e4b1ff8',
     governor: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
@@ -250,16 +251,16 @@ export const AVALANCHE_MAINNET: Chain = {
         address: '0x88afdaE1a9F58Da3E68584421937E5F564A0135b',
         active: true,
         reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
-        type: StakingType.LEGACY
-      }
-    ]
+        type: StakingType.LEGACY,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'Avalanche',
     symbol: 'AVAX',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://snowtrace.io']
+  blockExplorerUrls: ['https://snowtrace.io'],
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -285,13 +286,13 @@ export const AVALANCHE_FUJI: Chain = {
     mini_chef: {
       address: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
       active: true,
-      type: ChefType.MINI_CHEF_V2
+      type: ChefType.MINI_CHEF_V2,
     },
     community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
     airdrop: {
       address: '0x630CC51306B1E2cf149B7F7a15F78bCD006A5D65',
       active: false,
-      type: AirdropType.LEGACY
+      type: AirdropType.LEGACY,
     },
     treasury_vester: '0xee82a2695c1ae2cCFC3DDDa643836Ff5E55Fa1e1',
     revenue_distributor: '0xF3861Acb8061A70499DC85c4a6aA9E934C83049f',
@@ -302,16 +303,16 @@ export const AVALANCHE_FUJI: Chain = {
         address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
         active: true,
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
-        type: StakingType.LEGACY
-      }
-    ]
+        type: StakingType.LEGACY,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'Avalanche',
     symbol: 'AVAX',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.snowtrace.io']
+  blockExplorerUrls: ['https://testnet.snowtrace.io'],
 }
 
 export const BOBA_MAINNET: Chain = {
@@ -330,9 +331,9 @@ export const BOBA_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://blockexplorer.boba.network']
+  blockExplorerUrls: ['https://blockexplorer.boba.network'],
 }
 
 export const BITTORRENT_MAINNET: Chain = {
@@ -350,9 +351,9 @@ export const BITTORRENT_MAINNET: Chain = {
   nativeCurrency: {
     name: 'BitTorrent',
     symbol: 'BTT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://scan.bt.io']
+  blockExplorerUrls: ['https://scan.bt.io'],
 }
 
 export const BITTORRENT_TESTNET: Chain = {
@@ -370,9 +371,9 @@ export const BITTORRENT_TESTNET: Chain = {
   nativeCurrency: {
     name: 'BitTorrent',
     symbol: 'BTT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://scan.bittorrentchain.io']
+  blockExplorerUrls: ['https://scan.bittorrentchain.io'],
 }
 
 export const BSC_MAINNET: Chain = {
@@ -391,9 +392,9 @@ export const BSC_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Binance Coin',
     symbol: 'BNB',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://bscscan.com']
+  blockExplorerUrls: ['https://bscscan.com'],
 }
 
 export const BSC_TESTNET: Chain = {
@@ -411,9 +412,9 @@ export const BSC_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Binance Coin',
     symbol: 'BNB',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.bscscan.com']
+  blockExplorerUrls: ['https://testnet.bscscan.com'],
 }
 
 export const CELO_MAINNET: Chain = {
@@ -432,9 +433,9 @@ export const CELO_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.celo.org']
+  blockExplorerUrls: ['https://explorer.celo.org'],
 }
 
 export const CELO_ALFAJORES_TESTNET: Chain = {
@@ -452,9 +453,9 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org']
+  blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org'],
 }
 
 export const CELO_BAKLAVA_TESTNET: Chain = {
@@ -472,9 +473,9 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Celo',
     symbol: 'CELO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org']
+  blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org'],
 }
 
 export const CRONOS_MAINNET: Chain = {
@@ -493,9 +494,9 @@ export const CRONOS_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Cronos',
     symbol: 'CRO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://cronos.org/explorer']
+  blockExplorerUrls: ['https://cronos.org/explorer'],
 }
 
 export const CRONOS_TESTNET: Chain = {
@@ -513,9 +514,9 @@ export const CRONOS_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Cronos',
     symbol: 'CRO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://cronos.org/explorer/testnet3']
+  blockExplorerUrls: ['https://cronos.org/explorer/testnet3'],
 }
 
 export const COSTON_TESTNET: Chain = {
@@ -542,12 +543,12 @@ export const COSTON_TESTNET: Chain = {
     mini_chef: {
       address: '0xFf0C4041ba52428612320cAD2016d07B2e4A802D',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
     },
     airdrop: {
       address: '0x700E2E6fd3C5174E9691a65DC12f44d0A8dd25EC',
       active: true,
-      type: AirdropType.MERKLE_TO_STAKING
+      type: AirdropType.MERKLE_TO_STAKING,
     },
     timelock: '0xc63C2BA9F4dD17F881d9195fD105611760689bAe',
     fee_collector: '0x39DEA895DA8cC6ef744Da4C5Cc06F1E6150362f1',
@@ -557,16 +558,16 @@ export const COSTON_TESTNET: Chain = {
         address: '0xc064943492c9DF4f8238Bf52E7B7170A0Ec6FBAF',
         active: true,
         reward_token: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
-        type: StakingType.SAR_POSITIONS
-      }
-    ]
+        type: StakingType.SAR_POSITIONS,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'CostonFlare',
     symbol: 'CFLR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://coston-explorer.flare.network']
+  blockExplorerUrls: ['https://coston-explorer.flare.network'],
 }
 
 export const EVMOS_TESTNET: Chain = {
@@ -574,6 +575,7 @@ export const EVMOS_TESTNET: Chain = {
   chain_id: 9000,
   name: 'EVMOS Testnet',
   symbol: 'tEVMOS',
+  png_symbol: 'evmPNG',
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/evmos.png',
@@ -581,12 +583,42 @@ export const EVMOS_TESTNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  contracts: {
+    png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
+    factory: '0x02fD35823a82b8f02e5F2d1a351807B9d1B38c3B',
+    router: '0x6b6D3049dD90E6Ecc84f8dca55f4A847b3a63fc2',
+    wrapped_native_token: '0xcF5ef8d007a616066e5eaEa0916592374a0F478D',
+    local_multisig: '0x90CE7198211D6B17be9fa5204701F9c9aCe2970b',
+    community_treasury: '0x3520e13c0E3f49Aa522dBD4477280fe3DF8B40fC',
+    treasury_vester: '0x6B77Cb69Dae236bC708d75B76356911D2D197601',
+    mini_chef: {
+      address: '0xA96b69EE04E33E1752b059a7a9B7C9FE2B3C93A9',
+      active: true,
+      type: ChefType.PANGO_CHEF,
+    },
+    airdrop: {
+      address: '0x2D1B541Cb20aD73217aC30cbA07C4571AF729Bc7',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING,
+    },
+    timelock: '0xdA291D8daD1c55BBe828c91C58d16A523148bE11',
+    fee_collector: '0x0Da69A72C3875f74385BC1B633618e68AB2666F8',
+    multicall: '0x4fE8a78EB5bbDdC90942e13a09397Ee3CA7ed350',
+    staking: [
+      {
+        address: '0x997415e58dAEa9117027d55DAB7E765748C50834',
+        active: true,
+        reward_token: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
+        type: StakingType.SAR_POSITIONS,
+      },
+    ],
+  },
   nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://evm.evmos.dev']
+  blockExplorerUrls: ['https://evm.evmos.dev'],
 }
 
 export const EVMOS_MAINNET: Chain = {
@@ -604,9 +636,9 @@ export const EVMOS_MAINNET: Chain = {
   nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://evm.evmos.org']
+  blockExplorerUrls: ['https://evm.evmos.org'],
 }
 
 export const FANTOM_MAINNET: Chain = {
@@ -625,9 +657,9 @@ export const FANTOM_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Fantom',
     symbol: 'FTM',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://ftmscan.com']
+  blockExplorerUrls: ['https://ftmscan.com'],
 }
 
 export const FANTOM_TESTNET: Chain = {
@@ -645,9 +677,9 @@ export const FANTOM_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Fantom',
     symbol: 'FTM',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.ftmscan.com']
+  blockExplorerUrls: ['https://testnet.ftmscan.com'],
 }
 
 export const FUSE_MAINNET: Chain = {
@@ -666,9 +698,9 @@ export const FUSE_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Fuse',
     symbol: 'FUSE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['http://explorer.fuse.io']
+  blockExplorerUrls: ['http://explorer.fuse.io'],
 }
 
 export const FUSE_TESTNET: Chain = {
@@ -686,9 +718,9 @@ export const FUSE_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Fuse',
     symbol: 'FUSE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.fusespark.io']
+  blockExplorerUrls: ['https://explorer.fusespark.io'],
 }
 
 export const HARMONY_MAINNET: Chain = {
@@ -707,9 +739,9 @@ export const HARMONY_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Harmony',
     symbol: 'ONE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.harmony.one']
+  blockExplorerUrls: ['https://explorer.harmony.one'],
 }
 
 export const HARMONY_TESTNET: Chain = {
@@ -727,9 +759,9 @@ export const HARMONY_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Harmony',
     symbol: 'ONE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.pops.one']
+  blockExplorerUrls: ['https://explorer.pops.one'],
 }
 
 export const HECO_MAINNET: Chain = {
@@ -748,9 +780,9 @@ export const HECO_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Heco',
     symbol: 'HECO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://hecoinfo.com']
+  blockExplorerUrls: ['https://hecoinfo.com'],
 }
 
 export const HECO_TESTNET: Chain = {
@@ -768,9 +800,9 @@ export const HECO_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Heco',
     symbol: 'HECO',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://scan-testnet.hecochain.com']
+  blockExplorerUrls: ['https://scan-testnet.hecochain.com'],
 }
 
 export const KLAYTN_MAINNET: Chain = {
@@ -789,9 +821,9 @@ export const KLAYTN_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Klaytn',
     symbol: 'KLAY',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://scope.klaytn.com']
+  blockExplorerUrls: ['https://scope.klaytn.com'],
 }
 
 export const KLAYTN_BAOBAB: Chain = {
@@ -809,9 +841,9 @@ export const KLAYTN_BAOBAB: Chain = {
   nativeCurrency: {
     name: 'Klaytn',
     symbol: 'KLAY',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://baobab.scope.klaytn.com']
+  blockExplorerUrls: ['https://baobab.scope.klaytn.com'],
 }
 
 export const METIS_MAINNET: Chain = {
@@ -830,9 +862,9 @@ export const METIS_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Metis',
     symbol: 'METIS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://andromeda-explorer.metis.io']
+  blockExplorerUrls: ['https://andromeda-explorer.metis.io'],
 }
 
 export const METIS_RINKEBY: Chain = {
@@ -850,9 +882,9 @@ export const METIS_RINKEBY: Chain = {
   nativeCurrency: {
     name: 'Metis',
     symbol: 'tMETIS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://stardust-explorer.metis.io']
+  blockExplorerUrls: ['https://stardust-explorer.metis.io'],
 }
 
 export const MOONRIVER_MAINNET: Chain = {
@@ -871,9 +903,9 @@ export const MOONRIVER_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Moonriver',
     symbol: 'MOVR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://moonriver.moonscan.io']
+  blockExplorerUrls: ['https://moonriver.moonscan.io'],
 }
 
 export const MOONBEAM_MAINNET: Chain = {
@@ -892,9 +924,9 @@ export const MOONBEAM_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Moonbeam',
     symbol: 'GLMR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://moonscan.io']
+  blockExplorerUrls: ['https://moonscan.io'],
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
@@ -912,9 +944,9 @@ export const MOONBEAM_MOONBASE: Chain = {
   nativeCurrency: {
     name: 'Moonbase',
     symbol: 'DEV',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://moonbase.moonscan.io']
+  blockExplorerUrls: ['https://moonbase.moonscan.io'],
 }
 
 export const NEAR_MAINNET: Chain = {
@@ -941,24 +973,24 @@ export const NEAR_MAINNET: Chain = {
     mini_chef: {
       address: 'example8.near',
       active: true,
-      type: ChefType.NEAR_CHEF
+      type: ChefType.NEAR_CHEF,
     },
     airdrop: {
       address: 'example9.near',
       active: false,
-      type: AirdropType.NEAR_AIRDROP
+      type: AirdropType.NEAR_AIRDROP,
     },
     timelock: 'example10.near',
     governor: 'example11.near',
     migrator: 'example12.near',
-    multicall: ''
+    multicall: '',
   },
   nativeCurrency: {
     name: 'Near',
     symbol: 'NEAR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.near.org']
+  blockExplorerUrls: ['https://explorer.near.org'],
 }
 
 export const NEAR_TESTNET: Chain = {
@@ -985,24 +1017,24 @@ export const NEAR_TESTNET: Chain = {
     mini_chef: {
       address: 'example8.near',
       active: true,
-      type: ChefType.NEAR_CHEF
+      type: ChefType.NEAR_CHEF,
     },
     airdrop: {
       address: 'example9.near',
       active: false,
-      type: AirdropType.NEAR_AIRDROP
+      type: AirdropType.NEAR_AIRDROP,
     },
     timelock: 'example10.near',
     governor: 'example11.near',
     migrator: 'example12.near',
-    multicall: ''
+    multicall: '',
   },
   nativeCurrency: {
     name: 'Near',
     symbol: 'NEAR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.testnet.near.org']
+  blockExplorerUrls: ['https://explorer.testnet.near.org'],
 }
 
 export const HEDERA_TESTNET: Chain = {
@@ -1029,24 +1061,24 @@ export const HEDERA_TESTNET: Chain = {
     mini_chef: {
       address: '',
       active: true,
-      type: ChefType.NEAR_CHEF
+      type: ChefType.NEAR_CHEF,
     },
     airdrop: {
       address: '',
       active: false,
-      type: AirdropType.NEAR_AIRDROP
+      type: AirdropType.NEAR_AIRDROP,
     },
     timelock: '',
     governor: '',
     migrator: '',
-    multicall: '0x0000000000000000000000000000000002E803bB'
+    multicall: '0x0000000000000000000000000000000002E803bB',
   },
   nativeCurrency: {
     name: 'Hbar',
     symbol: 'HBAR',
-    decimals: 8
+    decimals: 8,
   },
-  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io'],
 }
 
 export const OEC_MAINNET: Chain = {
@@ -1065,9 +1097,9 @@ export const OEC_MAINNET: Chain = {
   nativeCurrency: {
     name: 'OEC',
     symbol: 'OKT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://www.oklink.com/okexchain']
+  blockExplorerUrls: ['https://www.oklink.com/okexchain'],
 }
 
 export const OEC_TESTNET: Chain = {
@@ -1085,9 +1117,9 @@ export const OEC_TESTNET: Chain = {
   nativeCurrency: {
     name: 'OEC',
     symbol: 'OKT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://www.oklink.com/oec-test']
+  blockExplorerUrls: ['https://www.oklink.com/oec-test'],
 }
 
 export const OP_MAINNET: Chain = {
@@ -1106,9 +1138,9 @@ export const OP_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://optimistic.etherscan.io']
+  blockExplorerUrls: ['https://optimistic.etherscan.io'],
 }
 
 export const OP_KOVAN: Chain = {
@@ -1126,9 +1158,9 @@ export const OP_KOVAN: Chain = {
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://kovan-optimistic.etherscan.io']
+  blockExplorerUrls: ['https://kovan-optimistic.etherscan.io'],
 }
 
 export const POLYGON_MAINNET: Chain = {
@@ -1147,9 +1179,9 @@ export const POLYGON_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Polygon',
     symbol: 'MATIC',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://polygonscan.com']
+  blockExplorerUrls: ['https://polygonscan.com'],
 }
 
 export const POLYGON_MUMBAI: Chain = {
@@ -1177,12 +1209,12 @@ export const POLYGON_MUMBAI: Chain = {
     mini_chef: {
       address: '0xa34Ad412652267FB3b1261D7d4F351a678B01Bf8',
       active: true,
-      type: ChefType.MINI_CHEF_V2
+      type: ChefType.MINI_CHEF_V2,
     },
     airdrop: {
       address: '0x34338ad5D7fd49B24D07D1D8e8d38Fc64F42f94A',
       active: false,
-      type: AirdropType.LEGACY
+      type: AirdropType.LEGACY,
     },
     timelock: '0xE6ec3b8AD6ad20210a2698d89016DDF6965E5fBC',
     revenue_distributor: '0x780A51831dc1cE3AAD2879479dBE9419e834744c',
@@ -1193,16 +1225,16 @@ export const POLYGON_MUMBAI: Chain = {
         address: '0x3AA2baD17b768fFe5F9Fa05Ca95f97959862B41B',
         active: true,
         reward_token: '0x4828a3D98E428e73184374845f23C40eB76bA695',
-        type: StakingType.LEGACY
-      }
-    ]
+        type: StakingType.LEGACY,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'Polygon',
     symbol: 'MATIC',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://mumbai.polygonscan.com']
+  blockExplorerUrls: ['https://mumbai.polygonscan.com'],
 }
 
 export const SONGBIRD_CANARY: Chain = {
@@ -1229,20 +1261,20 @@ export const SONGBIRD_CANARY: Chain = {
     mini_chef: {
       address: '0x76489156Fff6f4B89626f58386366941150642B7',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
     },
     airdrop: {
       address: '0x3B8377E6a9d527b4587F251bce706b53DAC26cf6',
       active: true,
-      type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
+      type: AirdropType.MERKLE_TO_STAKING_COMPLIANT,
     },
     specialAirdrops: [
       {
         title: 'Old PSB Reimbursement',
         address: '0x78407686458ACf7FceA53Cf73697d0ff51052ca6',
         active: true,
-        type: AirdropType.MERKLE_TO_STAKING_COMPLIANT
-      }
+        type: AirdropType.MERKLE_TO_STAKING_COMPLIANT,
+      },
     ],
     timelock: '0xF92F8A011A55C243CBAA096A62d9C48880070af6',
     fee_collector: '0x7d84e8A7c89F84a97a0e190B45E4D2fC27412894',
@@ -1252,16 +1284,16 @@ export const SONGBIRD_CANARY: Chain = {
         address: '0x7428A089A79B24400a620F1Cbf8bd0526cFae777',
         active: true,
         reward_token: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
-        type: StakingType.SAR_POSITIONS
-      }
-    ]
+        type: StakingType.SAR_POSITIONS,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'Songbird',
     symbol: 'SGB',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://songbird-explorer.flare.network']
+  blockExplorerUrls: ['https://songbird-explorer.flare.network'],
 }
 
 export const FLARE_MAINNET: Chain = {
@@ -1280,9 +1312,9 @@ export const FLARE_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Flare',
     symbol: 'FLR',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://flare-explorer.flare.network']
+  blockExplorerUrls: ['https://flare-explorer.flare.network'],
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
@@ -1309,12 +1341,12 @@ export const WAGMI_FUJI_SUBNET: Chain = {
     mini_chef: {
       address: '0x3014526b462ceef5734d9AaAe24321769E59269a',
       active: true,
-      type: ChefType.MINI_CHEF_V2
+      type: ChefType.MINI_CHEF_V2,
     },
     airdrop: {
       address: '0x0BD8b5D5FF2d4FCcDf7782Af15368FcAFE040Bd1',
       active: false,
-      type: AirdropType.LEGACY
+      type: AirdropType.LEGACY,
     },
     timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
     governor: '0x0000000000000000000000000000000000000000',
@@ -1325,22 +1357,22 @@ export const WAGMI_FUJI_SUBNET: Chain = {
         address: '0x4C08b0D7F51A27db7baFb8Dc4632494Df8d53Af8',
         active: true,
         reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
-        type: StakingType.LEGACY
+        type: StakingType.LEGACY,
       },
       {
         address: '0xf9E3691617151969f30b0Da57AA0c9f4698ef6ab',
         active: true,
         reward_token: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
-        type: StakingType.SAR_POSITIONS
-      }
-    ]
+        type: StakingType.SAR_POSITIONS,
+      },
+    ],
   },
   nativeCurrency: {
     name: 'Wagmi',
     symbol: 'WGMI',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://subnets.avax.network/wagmi/wagmi-chain-testnet/explorer']
+  blockExplorerUrls: ['https://subnets.avax.network/wagmi/wagmi-chain-testnet/explorer'],
 }
 
 export const XDAI_MAINNET: Chain = {
@@ -1359,9 +1391,9 @@ export const XDAI_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Gnosis',
     symbol: 'xDAI',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://blockscout.com/xdai/mainnet']
+  blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
 }
 
 export const EWC_MAINNET: Chain = {
@@ -1379,9 +1411,9 @@ export const EWC_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Energy Web Token',
     symbol: 'EWT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['http://explorer.energyweb.org']
+  blockExplorerUrls: ['http://explorer.energyweb.org'],
 }
 
 export const EWC_TESTNET: Chain = {
@@ -1399,9 +1431,9 @@ export const EWC_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Volta',
     symbol: 'VT',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['http://volta-aexplorer.energyweb.org']
+  blockExplorerUrls: ['http://volta-aexplorer.energyweb.org'],
 }
 
 export const IOTEX_MAINNET: Chain = {
@@ -1420,9 +1452,9 @@ export const IOTEX_MAINNET: Chain = {
   nativeCurrency: {
     name: 'IoTex',
     symbol: 'IOTX',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://iotexscan.io']
+  blockExplorerUrls: ['https://iotexscan.io'],
 }
 
 export const IOTEX_TESTNET: Chain = {
@@ -1440,9 +1472,9 @@ export const IOTEX_TESTNET: Chain = {
   nativeCurrency: {
     name: 'IoTex',
     symbol: 'IOTX',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.iotexscan.io']
+  blockExplorerUrls: ['https://testnet.iotexscan.io'],
 }
 
 export const ASTAR_MAINNET: Chain = {
@@ -1460,9 +1492,9 @@ export const ASTAR_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Astar',
     symbol: 'ASTL',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://blockscout.com/astar']
+  blockExplorerUrls: ['https://blockscout.com/astar'],
 }
 
 export const SHIDEN_MAINNET: Chain = {
@@ -1480,9 +1512,9 @@ export const SHIDEN_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Shiden',
     symbol: 'SDN',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://blockscout.com/shiden']
+  blockExplorerUrls: ['https://blockscout.com/shiden'],
 }
 
 export const SHIBUYA_TESTNET: Chain = {
@@ -1500,9 +1532,9 @@ export const SHIBUYA_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Shibuya',
     symbol: 'SBY',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://blockscout.com/shibuya']
+  blockExplorerUrls: ['https://blockscout.com/shibuya'],
 }
 
 export const TELOS_MAINNET: Chain = {
@@ -1521,9 +1553,9 @@ export const TELOS_MAINNET: Chain = {
   nativeCurrency: {
     name: 'TELOS',
     symbol: 'TLOS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://www.teloscan.io']
+  blockExplorerUrls: ['https://www.teloscan.io'],
 }
 
 export const TELOS_TESTNET: Chain = {
@@ -1541,9 +1573,9 @@ export const TELOS_TESTNET: Chain = {
   nativeCurrency: {
     name: 'TELOS',
     symbol: 'TLOS',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.telos.net/v2/explore']
+  blockExplorerUrls: ['https://testnet.telos.net/v2/explore'],
 }
 
 export const OASIS_MAINNET: Chain = {
@@ -1562,9 +1594,9 @@ export const OASIS_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Oasis Network',
     symbol: 'ROSE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.emerald.oasis.dev']
+  blockExplorerUrls: ['https://explorer.emerald.oasis.dev'],
 }
 
 export const OASIS_TESTNET: Chain = {
@@ -1582,9 +1614,9 @@ export const OASIS_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Oasis Network',
     symbol: 'ROSE',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev']
+  blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
 }
 
 export const GODWOKEN_MAINNET: Chain = {
@@ -1602,9 +1634,9 @@ export const GODWOKEN_MAINNET: Chain = {
   nativeCurrency: {
     name: 'Nervos Network',
     symbol: 'CKB',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://gwscan.com']
+  blockExplorerUrls: ['https://gwscan.com'],
 }
 
 export const GODWOKEN_TESTNET: Chain = {
@@ -1622,9 +1654,9 @@ export const GODWOKEN_TESTNET: Chain = {
   nativeCurrency: {
     name: 'Nervos Network',
     symbol: 'CKB',
-    decimals: 18
+    decimals: 18,
   },
-  blockExplorerUrls: ['https://aggron.gwscan.com/en-US']
+  blockExplorerUrls: ['https://aggron.gwscan.com/en-US'],
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
@@ -1635,7 +1667,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.SONGBIRD]: SONGBIRD_CANARY,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
-  [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET
+  [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET,
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -1695,5 +1727,5 @@ export const ALL_CHAINS: Chain[] = [
   OASIS_MAINNET,
   OASIS_TESTNET,
   GODWOKEN_MAINNET,
-  GODWOKEN_TESTNET
+  GODWOKEN_TESTNET,
 ]
