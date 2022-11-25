@@ -1025,7 +1025,7 @@ export const HEDERA_TESTNET: Chain = {
     wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
     local_multisig: '',
     community_treasury: '',
-    treasury_vester: '',
+    treasury_vester: '0x0000000000000000000000000000000002db05ff', //0.0.47908351
     mini_chef: {
       address: '0x0000000000000000000000000000000002eb26e3', // 0.0.48965347
       active: true,
