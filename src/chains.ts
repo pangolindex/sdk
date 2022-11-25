@@ -1213,7 +1213,7 @@ export const SONGBIRD_CANARY: Chain = {
   png_symbol: 'PSB',
   mainnet: true,
   evm: true,
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/sgb.png',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/sgb.jpg',
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
