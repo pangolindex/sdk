@@ -3,6 +3,7 @@ import { ChainId } from '../chains'
 import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
 import { CHAINS } from '../chains'
+import { ZERO_ADDRESS } from '../constants'
 
 /**
  * Represents an ERC20 token with a unique address and some metadata.
@@ -122,5 +123,20 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     CHAINS[ChainId.HEDERA_TESTNET].nativeCurrency.decimals,
     'wHBAR',
     'Wrapped HBAR'
-  )
+  ),
+  [ChainId.ETHEREUM]: new Token(ChainId.ETHEREUM, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.POLYGON]: new Token(ChainId.POLYGON, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.FANTOM]: new Token(ChainId.FANTOM, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.XDAI]: new Token(ChainId.XDAI, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.CELO]: new Token(ChainId.CELO, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.OKXCHAIN]: new Token(ChainId.OKXCHAIN, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.VELAS]: new Token(ChainId.VELAS, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.CRONOS]: new Token(ChainId.CRONOS, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.FUSE]: new Token(ChainId.FUSE, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.MOONRIVER]: new Token(ChainId.MOONRIVER, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.MOONBEAM]: new Token(ChainId.MOONBEAM, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.OP]: new Token(ChainId.OP, ZERO_ADDRESS, 18, '', '')
 }
