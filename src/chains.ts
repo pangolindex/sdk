@@ -21,7 +21,7 @@ export enum ChainId {
   MOONRIVER = 1285,
   MOONBEAM = 1284,
   OP = 10,
-  XDAI = 100,
+  XDAI = 100
 }
 
 export enum StakingType {
@@ -1707,7 +1707,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUSE]: FUSE_MAINNET,
   [ChainId.MOONRIVER]: MOONRIVER_MAINNET,
   [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
-  [ChainId.OP]: OP_MAINNET,
+  [ChainId.OP]: OP_MAINNET
 }
 
 export const ALL_CHAINS: Chain[] = [
