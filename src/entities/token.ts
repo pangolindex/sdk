@@ -129,5 +129,5 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     18,
     'WEVMOS',
     'Wrapped Evmos'
-  ),
+  )
 }

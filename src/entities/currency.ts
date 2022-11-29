@@ -33,7 +33,7 @@ export class Currency {
       CHAINS[ChainId.HEDERA_TESTNET].symbol,
       CHAINS[ChainId.HEDERA_TESTNET].name
     ),
-    [ChainId.EVMOS_TESTNET]: new Currency(18, CHAINS[ChainId.EVMOS_TESTNET].symbol, CHAINS[ChainId.EVMOS_TESTNET].name),
+    [ChainId.EVMOS_TESTNET]: new Currency(18, CHAINS[ChainId.EVMOS_TESTNET].symbol, CHAINS[ChainId.EVMOS_TESTNET].name)
   }
 
   /**
