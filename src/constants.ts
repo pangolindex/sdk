@@ -6,13 +6,13 @@ export type BigintIsh = JSBI | bigint | string
 
 export enum TradeType {
   EXACT_INPUT,
-  EXACT_OUTPUT
+  EXACT_OUTPUT,
 }
 
 export enum Rounding {
   ROUND_DOWN,
   ROUND_HALF_UP,
-  ROUND_UP
+  ROUND_UP,
 }
 
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
@@ -23,7 +23,8 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.SONGBIRD]: CHAINS[ChainId.SONGBIRD].contracts!.factory,
   [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
   [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory,
-  [ChainId.HEDERA_TESTNET]: CHAINS[ChainId.HEDERA_TESTNET].contracts!.factory
+  [ChainId.HEDERA_TESTNET]: CHAINS[ChainId.HEDERA_TESTNET].contracts!.factory,
+  [ChainId.EVMOS_TESTNET]: CHAINS[ChainId.EVMOS_TESTNET].contracts!.factory,
 }
 
 export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
@@ -36,7 +37,8 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.SONGBIRD]: INIT_CODE_HASH,
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
-  [ChainId.HEDERA_TESTNET]: '0x382076a41ac6627fafdd1b955933855e41b5ea78b7f2a90d89b4b73f4059f584' // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
+  [ChainId.HEDERA_TESTNET]: '0x382076a41ac6627fafdd1b955933855e41b5ea78b7f2a90d89b4b73f4059f584', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
+  [ChainId.EVMOS_TESTNET]: INIT_CODE_HASH,
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
@@ -56,10 +58,10 @@ export const _1000 = JSBI.BigInt(1000)
 
 export enum SolidityType {
   uint8 = 'uint8',
-  uint256 = 'uint256'
+  uint256 = 'uint256',
 }
 
 export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
-  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'),
 }

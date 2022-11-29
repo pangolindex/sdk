@@ -1668,6 +1668,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
   [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET,
+  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
 }
 
 export const ALL_CHAINS: Chain[] = [
