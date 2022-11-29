@@ -1053,7 +1053,7 @@ export const HEDERA_TESTNET: Chain = {
   contracts: {
     png: '0x0000000000000000000000000000000002DfA5b2', // TODO: change this to correct address, 0.0.47908352
     factory: '0x0000000000000000000000000000000002DfA5aE', // 0.0.48211374
-    router: '0x0000000000000000000000000000000002E8F86b', // 0.0.48822379
+    router: '0x0000000000000000000000000000000002e9dc0D', // 0.0.48880653
     wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
     local_multisig: '',
     community_treasury: '',
