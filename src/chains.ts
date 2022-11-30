@@ -1036,6 +1036,14 @@ export const HEDERA_TESTNET: Chain = {
       active: false,
       type: AirdropType.NEAR_AIRDROP
     },
+    staking: [
+      {
+        address: '0x0000000000000000000000000000000002ebb484', // 0.0.49001604
+        active: true,
+        reward_token: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+        type: StakingType.SAR_POSITIONS
+      }
+    ],
     timelock: '',
     governor: '',
     migrator: '',
