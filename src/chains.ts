@@ -1038,7 +1038,7 @@ export const HEDERA_TESTNET: Chain = {
     },
     staking: [
       {
-        address: '0x0000000000000000000000000000000002ebba22', // 0.0.49003042
+        address: '0x0000000000000000000000000000000002ec28c3', // 0.0.49031363
         active: true,
         reward_token: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
         type: StakingType.SAR_POSITIONS
