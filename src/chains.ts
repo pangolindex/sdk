@@ -1011,18 +1011,18 @@ export const HEDERA_TESTNET: Chain = {
   name: 'Hedera',
   symbol: `HBAR`,
   mainnet: false,
-  evm: false,
+  evm: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
-  png_symbol: 'PHT',
+  png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
-    png: '',
-    factory: '0x0000000000000000000000000000000002dfa5ae', // 0.0.48211374
-    router: '0x0000000000000000000000000000000002dfa5ca', // 0.0.48211402
-    wrapped_native_token: '0x0000000000000000000000000000000002dfa5b2', // 0.0.48211378
+    png: '0x0000000000000000000000000000000002DfA5b2', // TODO: change this to correct address, 0.0.47908352
+    factory: '0x0000000000000000000000000000000002DfA5aE', // 0.0.48211374
+    router: '0x0000000000000000000000000000000002e9dc0D', // 0.0.48880653
+    wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
     local_multisig: '',
     community_treasury: '',
     treasury_vester: '',
@@ -1039,14 +1039,14 @@ export const HEDERA_TESTNET: Chain = {
     timelock: '',
     governor: '',
     migrator: '',
-    multicall: ''
+    multicall: '0x0000000000000000000000000000000002E803bB'
   },
   nativeCurrency: {
     name: 'Hbar',
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['']
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
 }
 
 export const OEC_MAINNET: Chain = {

@@ -1,0 +1,85 @@
+name: Publish internal version
+
+# this flow will be triggered once 'Create Build Artifacts' is completed
+# use of this flow is to publish internal version
+# main intention for this flow is to support forked repo, because in pull_request trigger fork repo can't access secrets due to security purpose
+# so that when forked repo create a PR it should be deployed as internal for testing
+# ref: https://securitylab.github.com/research/github-actions-preventing-pwn-requests
+
+on:
+  workflow_run:
+    workflows: ['Create Build Artifacts']
+    types:
+      - completed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Download artifact'
+        uses: actions/github-script@v3.1.0
+        with:
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "build_artifacts"
+            })[0];
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.writeFileSync('${{github.workspace}}/build_artifacts.zip', Buffer.from(download.data));
+
+            var prArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "pr"
+            })[0];
+            var prDownload = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: prArtifact.id,
+               archive_format: 'zip',
+            });
+            fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(prDownload.data));
+
+      - run: unzip pr.zip
+      - name: 'Get PR Number'
+        uses: actions/github-script@v6
+        id: prNumber
+        with:
+          script: |
+            var fs = require('fs');
+            var prNum = Number(fs.readFileSync('./PR_NUMBER'));
+            fs.unlinkSync("./PR_NUMBER")
+            fs.unlinkSync("./pr.zip")
+            return prNum
+          result-encoding: string
+
+      - run: unzip build_artifacts.zip
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org/'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm publish --ignore-scripts --tag internal
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: echo "LATEST_VERSION=$(jq -r .version ./package.json)" >> $GITHUB_ENV
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          number: ${{ steps.prNumber.outputs.result }}
+          message: |
+            Last commit released to npm version: `${{ env.LATEST_VERSION }}`
