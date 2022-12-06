@@ -33,6 +33,21 @@ export class Currency {
       CHAINS[ChainId.HEDERA_TESTNET].symbol,
       CHAINS[ChainId.HEDERA_TESTNET].name
     ),
+    [ChainId.ETHEREUM]: new Currency(18, CHAINS[ChainId.ETHEREUM].symbol, CHAINS[ChainId.ETHEREUM].name),
+    [ChainId.POLYGON]: new Currency(18, CHAINS[ChainId.POLYGON].symbol, CHAINS[ChainId.POLYGON].name),
+    [ChainId.FANTOM]: new Currency(18, CHAINS[ChainId.FANTOM].symbol, CHAINS[ChainId.FANTOM].name),
+    [ChainId.XDAI]: new Currency(18, CHAINS[ChainId.XDAI].symbol, CHAINS[ChainId.XDAI].name),
+    [ChainId.BSC]: new Currency(18, CHAINS[ChainId.BSC].symbol, CHAINS[ChainId.BSC].name),
+    [ChainId.ARBITRUM]: new Currency(18, CHAINS[ChainId.ARBITRUM].symbol, CHAINS[ChainId.ARBITRUM].name),
+    [ChainId.CELO]: new Currency(18, CHAINS[ChainId.CELO].symbol, CHAINS[ChainId.CELO].name),
+    [ChainId.OKXCHAIN]: new Currency(18, CHAINS[ChainId.OKXCHAIN].symbol, CHAINS[ChainId.OKXCHAIN].name),
+    [ChainId.VELAS]: new Currency(18, CHAINS[ChainId.VELAS].symbol, CHAINS[ChainId.VELAS].name),
+    [ChainId.AURORA]: new Currency(18, CHAINS[ChainId.AURORA].symbol, CHAINS[ChainId.AURORA].name),
+    [ChainId.CRONOS]: new Currency(18, CHAINS[ChainId.CRONOS].symbol, CHAINS[ChainId.CRONOS].name),
+    [ChainId.FUSE]: new Currency(18, CHAINS[ChainId.FUSE].symbol, CHAINS[ChainId.FUSE].name),
+    [ChainId.MOONRIVER]: new Currency(18, CHAINS[ChainId.MOONRIVER].symbol, CHAINS[ChainId.MOONRIVER].name),
+    [ChainId.MOONBEAM]: new Currency(18, CHAINS[ChainId.MOONBEAM].symbol, CHAINS[ChainId.MOONBEAM].name),
+    [ChainId.OP]: new Currency(18, CHAINS[ChainId.OP].symbol, CHAINS[ChainId.OP].name),
     [ChainId.EVMOS_TESTNET]: new Currency(18, CHAINS[ChainId.EVMOS_TESTNET].symbol, CHAINS[ChainId.EVMOS_TESTNET].name)
   }
 

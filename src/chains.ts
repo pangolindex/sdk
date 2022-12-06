@@ -7,6 +7,21 @@ export enum ChainId {
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901,
   HEDERA_TESTNET = 296,
+  POLYGON = 137,
+  ETHEREUM = 1,
+  OKXCHAIN = 66,
+  VELAS = 106,
+  BSC = 56,
+  CELO = 42220,
+  ARBITRUM = 42161,
+  AURORA = 1313161554,
+  CRONOS = 25,
+  FANTOM = 250,
+  FUSE = 122,
+  MOONRIVER = 1285,
+  MOONBEAM = 1284,
+  OP = 10,
+  XDAI = 100,
   EVMOS_TESTNET = 9000
 }
 
@@ -61,6 +76,7 @@ export interface Chain {
   mainnet: boolean
   evm: boolean
   pangolin_is_live: boolean
+  supported_by_bridge?: boolean
   tracked_by_debank: boolean
   supported_by_gelato: boolean
   rpc_uri: string
@@ -104,13 +120,14 @@ export interface Chain {
 
 export const ETHEREUM_MAINNET: Chain = {
   id: 'ethereum_mainnet',
-  chain_id: 1,
+  chain_id: ChainId.ETHEREUM,
   name: 'Ethereum',
   symbol: 'ETH',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/eth.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
@@ -123,15 +140,60 @@ export const ETHEREUM_MAINNET: Chain = {
   blockExplorerUrls: ['https://etherscan.io']
 }
 
+export const OKXCHAIN_MAINNET: Chain = {
+  id: 'okxchain_mainnet',
+  chain_id: ChainId.OKXCHAIN,
+  name: 'OKXChain',
+  symbol: 'OKT',
+  mainnet: true,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/okx.png',
+  pangolin_is_live: false,
+  supported_by_bridge: true,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://exchainrpc.okex.org',
+  coingecko_id: 'okc-token',
+  nativeCurrency: {
+    name: 'OKC',
+    symbol: 'OKT',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://www.oklink.com/en/okc']
+}
+
+export const VELAS_MAINNET: Chain = {
+  id: 'velas_mainnet',
+  chain_id: ChainId.VELAS,
+  name: 'Velas',
+  symbol: 'VLX',
+  mainnet: true,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/velas.png',
+  pangolin_is_live: false,
+  supported_by_bridge: true,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://evmexplorer.velas.com/rpc',
+  coingecko_id: 'velas',
+  nativeCurrency: {
+    name: 'Velas',
+    symbol: 'VLX',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://evmexplorer.velas.com']
+}
+
 export const ARBITRUM_MAINNET: Chain = {
   id: 'arbitrum_mainnet',
-  chain_id: 42161,
+  chain_id: ChainId.ARBITRUM,
   name: 'Arbitrum',
   symbol: 'ARB',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/arb.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
@@ -166,13 +228,14 @@ export const ARBITRUM_RINKEBY: Chain = {
 
 export const AURORA_MAINNET: Chain = {
   id: 'aurora_mainnet',
-  chain_id: 1313161554,
+  chain_id: ChainId.AURORA,
   name: 'Aurora',
   symbol: 'AURORA',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/aurora.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.aurora.dev',
@@ -207,7 +270,7 @@ export const AURORA_TESTNET: Chain = {
 
 export const AVALANCHE_MAINNET: Chain = {
   id: 'avalanche_mainnet',
-  chain_id: 43114,
+  chain_id: ChainId.AVALANCHE,
   name: 'Avalanche',
   symbol: 'AVAX',
   png_symbol: 'PNG',
@@ -378,13 +441,14 @@ export const BITTORRENT_TESTNET: Chain = {
 
 export const BSC_MAINNET: Chain = {
   id: 'bsc_mainnet',
-  chain_id: 56,
+  chain_id: ChainId.BSC,
   name: 'Binance',
   symbol: 'BSC',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/bsc.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://bsc-dataseed.binance.org',
@@ -419,13 +483,14 @@ export const BSC_TESTNET: Chain = {
 
 export const CELO_MAINNET: Chain = {
   id: 'celo_mainnet',
-  chain_id: 42220,
+  chain_id: ChainId.CELO,
   name: 'Celo',
   symbol: 'CELO',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/celo.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://forno.celo.org',
@@ -480,13 +545,14 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
 
 export const CRONOS_MAINNET: Chain = {
   id: 'cronos_mainnet',
-  chain_id: 25,
+  chain_id: ChainId.CRONOS,
   name: 'Cronos',
   symbol: 'CRO',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/cro.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://evm-cronos.crypto.org',
@@ -521,7 +587,7 @@ export const CRONOS_TESTNET: Chain = {
 
 export const COSTON_TESTNET: Chain = {
   id: 'coston_testnet',
-  chain_id: 16,
+  chain_id: ChainId.COSTON,
   name: 'Coston',
   symbol: 'cFLR',
   png_symbol: 'PCT',
@@ -643,13 +709,14 @@ export const EVMOS_MAINNET: Chain = {
 
 export const FANTOM_MAINNET: Chain = {
   id: 'fantom_mainnet',
-  chain_id: 250,
+  chain_id: ChainId.FANTOM,
   name: 'Fantom',
   symbol: 'FTM',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/ftm.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://rpc.ftm.tools',
@@ -684,13 +751,14 @@ export const FANTOM_TESTNET: Chain = {
 
 export const FUSE_MAINNET: Chain = {
   id: 'fuse_mainnet',
-  chain_id: 122,
+  chain_id: ChainId.FUSE,
   name: 'Fuse',
   symbol: 'FUSE',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/fuse.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.fuse.io',
@@ -889,13 +957,14 @@ export const METIS_RINKEBY: Chain = {
 
 export const MOONRIVER_MAINNET: Chain = {
   id: 'moonriver_mainnet',
-  chain_id: 1285,
+  chain_id: ChainId.MOONRIVER,
   name: 'Moonriver',
   symbol: 'MOVR',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/movr.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
@@ -910,13 +979,14 @@ export const MOONRIVER_MAINNET: Chain = {
 
 export const MOONBEAM_MAINNET: Chain = {
   id: 'moonbeam_mainnet',
-  chain_id: 1284,
+  chain_id: ChainId.MOONBEAM,
   name: 'Moonbeam',
   symbol: 'MOBM',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/mobm.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbeam.network',
@@ -1124,13 +1194,14 @@ export const OEC_TESTNET: Chain = {
 
 export const OP_MAINNET: Chain = {
   id: 'op_mainnet',
-  chain_id: 10,
+  chain_id: ChainId.OP,
   name: 'Optimism',
   symbol: 'OP',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/op.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.optimism.io',
@@ -1165,13 +1236,14 @@ export const OP_KOVAN: Chain = {
 
 export const POLYGON_MAINNET: Chain = {
   id: 'polygon_mainnet',
-  chain_id: 137,
+  chain_id: ChainId.POLYGON,
   name: 'Polygon',
   symbol: 'MATIC',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/matic.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://polygon-rpc.com',
@@ -1239,7 +1311,7 @@ export const POLYGON_MUMBAI: Chain = {
 
 export const SONGBIRD_CANARY: Chain = {
   id: 'songbird_canary',
-  chain_id: 19,
+  chain_id: ChainId.SONGBIRD,
   name: 'Songbird',
   symbol: 'SGB',
   png_symbol: 'PSB',
@@ -1319,7 +1391,7 @@ export const FLARE_MAINNET: Chain = {
 
 export const WAGMI_FUJI_SUBNET: Chain = {
   id: 'wagmi_fuji_subnet',
-  chain_id: 11111,
+  chain_id: ChainId.WAGMI,
   name: 'Wagmi',
   symbol: 'WGMI',
   png_symbol: 'wagmiPNG',
@@ -1377,13 +1449,14 @@ export const WAGMI_FUJI_SUBNET: Chain = {
 
 export const XDAI_MAINNET: Chain = {
   id: 'xdai_mainnet',
-  chain_id: 100,
+  chain_id: ChainId.XDAI,
   name: 'Gnosis',
   symbol: 'XDAI',
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/xdai.png',
   pangolin_is_live: false,
+  supported_by_bridge: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.xdaichain.com',
@@ -1668,25 +1741,46 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
   [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET,
+  [ChainId.ETHEREUM]: ETHEREUM_MAINNET,
+  [ChainId.POLYGON]: POLYGON_MAINNET,
+  [ChainId.FANTOM]: FANTOM_MAINNET,
+  [ChainId.XDAI]: XDAI_MAINNET,
+  [ChainId.BSC]: BSC_MAINNET,
+  [ChainId.ARBITRUM]: ARBITRUM_MAINNET,
+  [ChainId.CELO]: CELO_MAINNET,
+  [ChainId.OKXCHAIN]: OKXCHAIN_MAINNET,
+  [ChainId.VELAS]: VELAS_MAINNET,
+  [ChainId.AURORA]: AURORA_MAINNET,
+  [ChainId.CRONOS]: CRONOS_MAINNET,
+  [ChainId.FUSE]: FUSE_MAINNET,
+  [ChainId.MOONRIVER]: MOONRIVER_MAINNET,
+  [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
+  [ChainId.OP]: OP_MAINNET,
   [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
+  AVALANCHE_MAINNET,
+  SONGBIRD_CANARY,
+  AVALANCHE_FUJI,
+  COSTON_TESTNET,
+  WAGMI_FUJI_SUBNET,
+  HEDERA_TESTNET,
   ETHEREUM_MAINNET,
+  BSC_MAINNET,
+  POLYGON_MAINNET,
+  OKXCHAIN_MAINNET,
+  VELAS_MAINNET,
   ARBITRUM_MAINNET,
   ARBITRUM_RINKEBY,
   AURORA_MAINNET,
   AURORA_TESTNET,
-  AVALANCHE_MAINNET,
-  AVALANCHE_FUJI,
   BOBA_MAINNET,
   BITTORRENT_MAINNET,
-  BSC_MAINNET,
   BSC_TESTNET,
   CELO_MAINNET,
   CELO_ALFAJORES_TESTNET,
   CELO_BAKLAVA_TESTNET,
-  COSTON_TESTNET,
   CRONOS_MAINNET,
   CRONOS_TESTNET,
   EVMOS_MAINNET,
@@ -1699,7 +1793,6 @@ export const ALL_CHAINS: Chain[] = [
   HARMONY_TESTNET,
   HECO_MAINNET,
   HECO_TESTNET,
-  HEDERA_TESTNET,
   KLAYTN_MAINNET,
   KLAYTN_BAOBAB,
   METIS_MAINNET,
@@ -1711,10 +1804,7 @@ export const ALL_CHAINS: Chain[] = [
   OEC_TESTNET,
   OP_MAINNET,
   OP_KOVAN,
-  POLYGON_MAINNET,
   POLYGON_MUMBAI,
-  SONGBIRD_CANARY,
-  WAGMI_FUJI_SUBNET,
   XDAI_MAINNET,
   EWC_MAINNET,
   EWC_TESTNET,
