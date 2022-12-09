@@ -85,7 +85,6 @@ export interface Chain {
   mainnet: boolean
   evm: boolean
   pangolin_is_live: boolean
-  supported_by_bridge?: boolean
   tracked_by_debank: boolean
   supported_by_gelato: boolean
   rpc_uri: string
@@ -135,8 +134,7 @@ export const ETHEREUM_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/eth.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
@@ -157,8 +155,7 @@ export const OKXCHAIN_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/okx.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://exchainrpc.okex.org',
@@ -179,8 +176,7 @@ export const VELAS_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/velas.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://evmexplorer.velas.com/rpc',
@@ -201,8 +197,7 @@ export const ARBITRUM_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/arb.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
@@ -243,8 +238,7 @@ export const AURORA_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/aurora.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.aurora.dev',
@@ -456,8 +450,7 @@ export const BSC_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/bsc.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://bsc-dataseed.binance.org',
@@ -498,8 +491,7 @@ export const CELO_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/celo.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://forno.celo.org',
@@ -560,8 +552,7 @@ export const CRONOS_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/cro.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://evm-cronos.crypto.org',
@@ -693,8 +684,7 @@ export const FANTOM_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/ftm.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://rpc.ftm.tools',
@@ -735,8 +725,7 @@ export const FUSE_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/fuse.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.fuse.io',
@@ -941,8 +930,7 @@ export const MOONRIVER_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/movr.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
@@ -963,8 +951,7 @@ export const MOONBEAM_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/mobm.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.api.moonbeam.network',
@@ -1099,23 +1086,31 @@ export const HEDERA_TESTNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
   contracts: {
-    png: '0x0000000000000000000000000000000002DfA5b2', // TODO: change this to correct address, 0.0.47908352
-    factory: '0x0000000000000000000000000000000002DfA5aE', // 0.0.48211374
-    router: '0x0000000000000000000000000000000002e9dc0D', // 0.0.48880653
+    png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+    factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
+    router: '0x0000000000000000000000000000000002eb265a', // 0.0.48965210
     wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
     local_multisig: '',
     community_treasury: '',
-    treasury_vester: '',
+    treasury_vester: '0x0000000000000000000000000000000002db05ff', //0.0.47908351
     mini_chef: {
-      address: '',
+      address: '0x0000000000000000000000000000000002eb26e3', // 0.0.48965347
       active: true,
-      type: ChefType.NEAR_CHEF
+      type: ChefType.PANGO_CHEF
     },
     airdrop: {
       address: '',
       active: false,
       type: AirdropType.NEAR_AIRDROP
     },
+    staking: [
+      {
+        address: '0x0000000000000000000000000000000002ec28c3', // 0.0.49031363
+        active: true,
+        reward_token: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+        type: StakingType.SAR_POSITIONS
+      }
+    ],
     timelock: '',
     governor: '',
     migrator: '',
@@ -1178,8 +1173,7 @@ export const OP_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/op.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet.optimism.io',
@@ -1220,8 +1214,7 @@ export const POLYGON_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/matic.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
   rpc_uri: 'https://polygon-rpc.com',
@@ -1433,8 +1426,7 @@ export const XDAI_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/xdai.png',
-  pangolin_is_live: false,
-  supported_by_bridge: true,
+  pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
   rpc_uri: 'https://rpc.xdaichain.com',
