@@ -45,6 +45,8 @@ export class Pair extends Pool {
     let decimals: number
     if ([ChainId.NEAR_TESTNET, ChainId.NEAR_MAINNET].includes(chainId)) {
       decimals = 24
+    } else if ([ChainId.HEDERA_TESTNET].includes(chainId)) {
+      decimals = 0
     } else {
       decimals = 18
     }
