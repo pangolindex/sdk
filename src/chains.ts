@@ -21,7 +21,8 @@ export enum ChainId {
   MOONRIVER = 1285,
   MOONBEAM = 1284,
   OP = 10,
-  XDAI = 100
+  XDAI = 100,
+  COSTON2 = 114
 }
 
 export enum StakingType {
@@ -1692,6 +1693,57 @@ export const GODWOKEN_TESTNET: Chain = {
   blockExplorerUrls: ['https://aggron.gwscan.com/en-US']
 }
 
+export const COSTON2_TESTNET: Chain = {
+  id: 'coston2_testnet',
+  chain_id: 114,
+  name: 'COSTON2 Testnet',
+  symbol: 'C2FLR',
+  png_symbol: 'PCT2',
+  mainnet: false,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
+  pangolin_is_live: true,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://coston2-api.flare.network/ext/C/rpc',
+  contracts: {
+    png: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
+    factory: '0x4a2ba0812a92c78b3975bA25509b08b49972dFFa',
+    router: '0x1435422E3765898D3bD167DC06b36e9a8AEf4784',
+    wrapped_native_token: '0xC67DCE33D7A8efA5FfEB961899C73fe01bCe9273',
+    local_multisig: '0x3dC36E8244e9A9aeF85129475015db6F4aBAa3b8',
+    community_treasury: '0x2C6C561ab9C24cB12f24B886F055c1F972819b8D',
+    treasury_vester: '0x95087BaAcDb2713b4CA5cD2F79532fA92694b87F',
+    mini_chef: {
+      address: '0x28B8C90F9A1622a1EAba08a125196f38fb9B13ED',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0xb52Fa2153F2cFD02CFF545c55479f3D5cd73292e',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0x259F60251abb18B307FF37FD4DcD3657FCa52074',
+    fee_collector: '0xe789277c602bD78D80fFa38B957b41a548E792f9',
+    multicall: '0x1E253ce1648e498db48960A5dAb9Fc63Cf9c418D',
+    staking: [
+      {
+        address: '0xDd1a0e81496bB29fE8f8917ff1a8A50b45194ac2',
+        active: true,
+        reward_token: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
+  nativeCurrency: {
+    name: 'Coston2Flare',
+    symbol: 'C2FLR',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://coston2-explorer.flare.network']
+}
+
 export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
@@ -1715,7 +1767,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUSE]: FUSE_MAINNET,
   [ChainId.MOONRIVER]: MOONRIVER_MAINNET,
   [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
-  [ChainId.OP]: OP_MAINNET
+  [ChainId.OP]: OP_MAINNET,
+  [ChainId.COSTON2]: COSTON2_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -1777,5 +1830,6 @@ export const ALL_CHAINS: Chain[] = [
   OASIS_MAINNET,
   OASIS_TESTNET,
   GODWOKEN_MAINNET,
-  GODWOKEN_TESTNET
+  GODWOKEN_TESTNET,
+  COSTON2_TESTNET
 ]
