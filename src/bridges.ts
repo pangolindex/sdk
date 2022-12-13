@@ -35,4 +35,13 @@ export const SQUID: Bridge = {
   fee: 0
 }
 
-export const BRIDGES: Bridge[] = [LIFI, SQUID]
+export const HASHPORT: Bridge = {
+  id: 'hashport',
+  name: 'Hashport',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/hashport.png',
+  aggregator_address: '',
+  affiliate: '',
+  fee: 0
+}
+
+export const BRIDGES: Bridge[] = [LIFI, SQUID, HASHPORT]
