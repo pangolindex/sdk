@@ -76,6 +76,9 @@ export enum NetworkType {
 export interface BridgeChain extends Omit<Chain, 'chain_id'> {
   chain_id?: number | string
   network_type?: NetworkType
+  meta_data?: {
+    [key: string]: any
+  }
 }
 
 export interface Chain {
