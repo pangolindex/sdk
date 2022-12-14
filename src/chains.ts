@@ -1695,7 +1695,7 @@ export const GODWOKEN_TESTNET: Chain = {
 
 export const COSTON2_TESTNET: Chain = {
   id: 'coston2_testnet',
-  chain_id: 114,
+  chain_id: ChainId.COSTON2,
   name: 'COSTON2 Testnet',
   symbol: 'C2FLR',
   png_symbol: 'PCT2',
