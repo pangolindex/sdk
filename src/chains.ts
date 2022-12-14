@@ -1287,6 +1287,7 @@ export const SONGBIRD_CANARY: Chain = {
     png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
     factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
     router: '0x6591cf4E1CfDDEcB4Aa5946c033596635Ba6FB0F',
+    router_daas: '0xBCFced55B59AA7c0269571735eD2C2CCf6c63963',
     wrapped_native_token: '0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED',
     local_multisig: '0xe18dFC20edE326930d11b3316E92bdC1F606dc94',
     community_treasury: '0xA2e6eFFdbb278744E286F602Bfaa2BcDAccBb1AA',
