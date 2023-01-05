@@ -22,7 +22,8 @@ export enum ChainId {
   MOONBEAM = 1284,
   OP = 10,
   XDAI = 100,
-  COSTON2 = 114
+  COSTON2 = 114,
+  EVMOS_TESTNET = 9000
 }
 
 export enum StakingType {
@@ -645,13 +646,44 @@ export const EVMOS_TESTNET: Chain = {
   chain_id: 9000,
   name: 'EVMOS Testnet',
   symbol: 'tEVMOS',
+  png_symbol: 'evmPNG',
   mainnet: false,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/evmos.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  contracts: {
+    png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
+    factory: '0x02fD35823a82b8f02e5F2d1a351807B9d1B38c3B',
+    router: '0x6b6D3049dD90E6Ecc84f8dca55f4A847b3a63fc2',
+    wrapped_native_token: '0xcF5ef8d007a616066e5eaEa0916592374a0F478D',
+    local_multisig: '0x90CE7198211D6B17be9fa5204701F9c9aCe2970b',
+    community_treasury: '0x3520e13c0E3f49Aa522dBD4477280fe3DF8B40fC',
+    treasury_vester: '0x6B77Cb69Dae236bC708d75B76356911D2D197601',
+    mini_chef: {
+      address: '0xA96b69EE04E33E1752b059a7a9B7C9FE2B3C93A9',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0x2D1B541Cb20aD73217aC30cbA07C4571AF729Bc7',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0xdA291D8daD1c55BBe828c91C58d16A523148bE11',
+    fee_collector: '0x0Da69A72C3875f74385BC1B633618e68AB2666F8',
+    multicall: '0x4fE8a78EB5bbDdC90942e13a09397Ee3CA7ed350',
+    staking: [
+      {
+        address: '0x997415e58dAEa9117027d55DAB7E765748C50834',
+        active: true,
+        reward_token: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
@@ -1782,7 +1814,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.MOONRIVER]: MOONRIVER_MAINNET,
   [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
   [ChainId.OP]: OP_MAINNET,
-  [ChainId.COSTON2]: COSTON2_TESTNET
+  [ChainId.COSTON2]: COSTON2_TESTNET,
+  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
