@@ -26,7 +26,6 @@ export const LIFI: Bridge = {
   fee: 0
 }
 
-//TODO:
 export const SQUID: Bridge = {
   id: 'squid',
   name: 'Squid',
@@ -36,4 +35,4 @@ export const SQUID: Bridge = {
   fee: 0
 }
 
-export const BRIDGES: Bridge[] = [LIFI]
+export const BRIDGES: Bridge[] = [LIFI, SQUID]

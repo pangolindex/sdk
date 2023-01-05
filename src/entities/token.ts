@@ -139,6 +139,13 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
   [ChainId.MOONRIVER]: new Token(ChainId.MOONRIVER, ZERO_ADDRESS, 18, '', ''),
   [ChainId.MOONBEAM]: new Token(ChainId.MOONBEAM, ZERO_ADDRESS, 18, '', ''),
   [ChainId.OP]: new Token(ChainId.OP, ZERO_ADDRESS, 18, '', ''),
+  [ChainId.COSTON2]: new Token(
+    ChainId.COSTON2,
+    CHAINS[ChainId.COSTON2].contracts!.wrapped_native_token,
+    18,
+    'WC2FLR',
+    'Wrapped Coston2Flare'
+  ),
   [ChainId.EVMOS_TESTNET]: new Token(
     ChainId.EVMOS_TESTNET,
     CHAINS[ChainId.EVMOS_TESTNET].contracts!.wrapped_native_token,
