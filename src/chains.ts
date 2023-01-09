@@ -1112,7 +1112,7 @@ export const NEAR_TESTNET: Chain = {
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
   chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
-  name: 'Hedera',
+  name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
   evm: true,
@@ -1121,7 +1121,7 @@ export const HEDERA_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   contracts: {
     png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
     factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
