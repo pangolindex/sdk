@@ -68,6 +68,7 @@ interface ChefContract {
   address: string
   active: boolean
   type: ChefType
+  compoundPoolIdForNonPngFarm?: number // this is compound pool id for non-png farm
 }
 
 export enum NetworkType {
@@ -1111,7 +1112,7 @@ export const NEAR_TESTNET: Chain = {
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
   chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
-  name: 'Hedera',
+  name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
   evm: true,
@@ -1120,7 +1121,7 @@ export const HEDERA_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   contracts: {
     png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
     factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
@@ -1761,9 +1762,10 @@ export const COSTON2_TESTNET: Chain = {
     community_treasury: '0x2C6C561ab9C24cB12f24B886F055c1F972819b8D',
     treasury_vester: '0x95087BaAcDb2713b4CA5cD2F79532fA92694b87F',
     mini_chef: {
-      address: '0x28B8C90F9A1622a1EAba08a125196f38fb9B13ED',
+      address: '0x07Fe5fD0476454a43f905649d59Ea5941C9a87B8',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 3
     },
     airdrop: {
       address: '0xb52Fa2153F2cFD02CFF545c55479f3D5cd73292e',
