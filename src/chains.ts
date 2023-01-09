@@ -1392,32 +1392,32 @@ export const FLARE_MAINNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
   contracts: {
-    png: '0xC60BcDaA9CC7Cc372E793101fDfCB1083E25A203',
-    factory: '0x9F771eB2D8eD6fC39b1f4DD2E4d784F946dcCB00',
-    router: '0x7851F4A2414E15117770FD602CD18eB56CA62E16',
+    png: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
+    factory: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
+    router: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308',
     wrapped_native_token: '0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d',
-    local_multisig: '0x40Ad5Ad031307298ADf951b42Ea4DE95752371fE',
-    community_treasury: '0x6f377e6B5DA548E867671cbDe7Ba0B1AD7dFac98',
-    treasury_vester: '0x0ec65653f6cAD6b35E58585AcE46CAC85D50Eeb3',
+    local_multisig: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
+    community_treasury: '0x5d29aDabe7a49cB27a2c8d2Db62814B88F25501c',
+    treasury_vester: '0xa0C70D6Ac3FCBeA51c8126E049a9fed560504148',
     mini_chef: {
-      address: '0xD70ad4C1A45670AfD9D2339EA30Ec0f43690a5A6',
+      address: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
       active: true,
       type: ChefType.PANGO_CHEF
     },
     airdrop: {
-      address: '0xFB9C4c973Bdfb039D7497b18E855C9d0062fd0d9',
+      address: '0x290593624b60D5c8EBf329344343d2cD21c46Cf3',
       active: false,
       type: AirdropType.MERKLE_TO_STAKING
     },
     specialAirdrops: [],
-    timelock: '0xC73B11d428895d5Cc1361eF3077B173Ad0C94007',
-    fee_collector: '0x89888506511f79EBb6624D12FFF9622464C41596',
+    timelock: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
+    fee_collector: '0xacA1a5601082F544299C80421FE69b08334d71c6',
     multicall: '0x336897CAe2791048DA77EEa2A43BFB96342b9CE1',
     staking: [
       {
-        address: '0xd970AD96563274caDd4d1Fd31d04fDc76cdC88Ec',
+        address: '0x12245B3Fe351ec3BE15EF971f31927Af1292Ff40',
         active: true,
-        reward_token: '0xC60BcDaA9CC7Cc372E793101fDfCB1083E25A203',
+        reward_token: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
         type: StakingType.SAR_POSITIONS
       }
     ]
