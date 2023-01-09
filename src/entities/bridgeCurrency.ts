@@ -9,6 +9,7 @@ export class BridgeCurrency extends Currency {
   public readonly address: string
   public readonly logo?: string
   public readonly reserveAmount?: string
+  public bridgeableNetworks?: BridgeCurrency[]
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
@@ -19,6 +20,7 @@ export class BridgeCurrency extends Currency {
    * @param symbol of the currency
    * @param name of the currency
    * @param reverseAmount of the currency (Valid only Hashport Bridge)
+   * @param bridgeableNetworks of the currency (Valid only Hashport Bridge)
    */
   protected constructor(
     address: string,
@@ -27,7 +29,8 @@ export class BridgeCurrency extends Currency {
     logo?: string,
     symbol?: string,
     name?: string,
-    reverseAmount?: string
+    reverseAmount?: string,
+    bridgeableNetworks?: BridgeCurrency[],
   ) {
     super(decimals, symbol, name)
 
@@ -35,5 +38,6 @@ export class BridgeCurrency extends Currency {
     this.chainId = chainId
     this.logo = logo
     this.reserveAmount = reverseAmount
+    this.bridgeableNetworks = bridgeableNetworks
   }
 }
