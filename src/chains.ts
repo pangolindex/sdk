@@ -68,6 +68,7 @@ interface ChefContract {
   address: string
   active: boolean
   type: ChefType
+  compoundPoolIdForNonPngFarm?: number // this is compound pool id for non-png farm
 }
 
 export enum NetworkType {
@@ -1761,9 +1762,10 @@ export const COSTON2_TESTNET: Chain = {
     community_treasury: '0x2C6C561ab9C24cB12f24B886F055c1F972819b8D',
     treasury_vester: '0x95087BaAcDb2713b4CA5cD2F79532fA92694b87F',
     mini_chef: {
-      address: '0x28B8C90F9A1622a1EAba08a125196f38fb9B13ED',
+      address: '0x07Fe5fD0476454a43f905649d59Ea5941C9a87B8',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 3
     },
     airdrop: {
       address: '0xb52Fa2153F2cFD02CFF545c55479f3D5cd73292e',
