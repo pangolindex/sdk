@@ -52,6 +52,7 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.WAGMI]: INIT_CODE_HASH,
   [ChainId.COSTON]: INIT_CODE_HASH,
   [ChainId.SONGBIRD]: INIT_CODE_HASH,
+  [ChainId.FLARE_MAINNET]: INIT_CODE_HASH,
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
   [ChainId.HEDERA_TESTNET]: '0xd3e12a46a423ca4b4073538735498f47c65af1b02c11d3eabf32c9daa1f22fa0', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
