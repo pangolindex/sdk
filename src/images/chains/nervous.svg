@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="127.99999"
+   height="128"
+   viewBox="0 0 33.866664 33.866667"
+   version="1.1"
+   id="svg4195"
+   inkscape:export-filename="nervous.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4197"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs4192" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="scale(0.71111111)">
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0;stroke-linejoin:bevel;stroke-opacity:0.684597"
+       id="path4316"
+       cx="23.8125"
+       cy="23.8125"
+       r="23.8125" />
+    <path
+       d="M 37.765137,9.8598645 V 37.765136 L 24.809118,24.809116 h 5.979701 V 9.8598645 Z M 9.8598633,37.765136 V 9.8598645 L 22.815883,22.815884 h -5.979698 v 14.949252 z"
+       id="path8606"
+       style="stroke-width:0.996615" />
+  </g>
+</svg>

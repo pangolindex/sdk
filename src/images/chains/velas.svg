@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="578"
+   height="578"
+   viewBox="0 0 152.92916 152.92917"
+   version="1.1"
+   id="svg7221"
+   inkscape:export-filename="Velas.svg"
+   inkscape:export-xdpi="21.259516"
+   inkscape:export-ydpi="21.259516"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7223"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs7218" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.470852"
+       id="path7394"
+       cx="76.464584"
+       cy="76.464584"
+       r="76.464584" />
+    <g
+       id="Слой_2"
+       data-name="Слой 2"
+       transform="matrix(0.63789605,0,0,0.63789605,23.547917,41.750638)">
+      <g
+         id="new">
+        <g
+           id="logo_velas_2"
+           data-name="logo velas 2">
+          <path
+             d="M 114.06,53.88 83,107.76 51.85,53.88 h 62.21 m 31.11,-18 H 20.74 L 83,143.68 145.17,35.92 Z M 0,0 10.37,18 H 155.54 L 165.91,0 Z"
+             id="path15443" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

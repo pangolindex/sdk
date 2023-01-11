@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="Hedera.svg"
+   width="128"
+   height="128"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#fff;}</style>
+  </defs>
+  <title
+     id="title6">hedera--logo</title>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="scale(0.0512)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <path
+         d="M 1250,0 C 559.64,0 0,559.64 0,1250 0,1940.36 559.64,2500 1250,2500 1940.36,2500 2500,1940.36 2500,1250 2500,559.64 1940.36,0 1250,0"
+         id="path8" />
+      <path
+         class="cls-1"
+         d="M 1758.12,1790.62 H 1599.38 V 1453.13 H 900.62 v 337.49 H 741.87 V 696.25 h 158.75 v 329.37 h 698.76 V 696.25 h 158.75 z m -850,-463.75 h 698.75 V 1152.5 H 908.12 Z"
+         id="path10" />
+    </g>
+  </g>
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>hedera--logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
