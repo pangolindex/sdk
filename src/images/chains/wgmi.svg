@@ -2,14 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="255.99998"
-   height="255.99998"
-   viewBox="0 0 67.733328 67.733329"
+   width="127.99999"
+   height="128"
+   viewBox="0 0 33.866664 33.866667"
    version="1.1"
    id="svg393"
    inkscape:export-filename="wagmi.svg"
    inkscape:export-xdpi="48"
    inkscape:export-ydpi="48"
+   sodipodi:docname="wgmi.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -31,7 +32,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="matrix(0.49999919,0,0,0.49999919,-2.8431462e-5,-2.8431462e-5)">
     <circle
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke-width:0.454598"
        id="path566"

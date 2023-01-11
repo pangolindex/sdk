@@ -2,14 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="578"
-   height="578"
-   viewBox="0 0 152.92917 152.92917"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
    version="1.1"
    id="svg353"
    inkscape:export-filename="Aurora.png"
    inkscape:export-xdpi="21.259516"
    inkscape:export-ydpi="21.259516"
+   sodipodi:docname="aurora.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -38,17 +39,18 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="scale(0.83698879)">
     <circle
-       style="fill:#101820;fill-opacity:1;stroke-width:0.686855"
+       style="fill:#101820;fill-opacity:1;stroke-width:0.18173"
        id="path474"
-       cx="76.464584"
-       cy="76.464584"
-       r="76.464584" />
+       cx="20.231255"
+       cy="20.231255"
+       r="20.231255" />
     <g
        id="g5154"
        style="display:inline"
-       transform="matrix(0.17993447,0,0,-0.17993447,3.9629576,146.24835)"
+       transform="matrix(0.04760766,0,0,-0.04760766,1.0485326,38.694876)"
        inkscape:label="g5154">
       <g
          id="g5156"

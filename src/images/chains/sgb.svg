@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 522.3 522.3"
-   width="522.29999"
-   height="522.29999"
+   viewBox="0 0 128 128"
+   width="128"
+   height="128"
    version="1.1"
    id="svg10739"
-   sodipodi:docname="Songbird.svg"
+   sodipodi:docname="sgb.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -34,14 +34,14 @@
   </defs>
   <circle
      class="cls-3"
-     cx="261.14999"
-     cy="261.14999"
-     r="261.14999"
-     style="fill:#ffffff;fill-opacity:1"
+     cx="64"
+     cy="64"
+     r="64"
+     style="fill:#ffffff;fill-opacity:1;stroke-width:0.24507"
      id="circle10733" />
   <g
      class="cls-2"
-     transform="translate(-27.740213,-27.740129)"
+     transform="matrix(0.24506989,0,0,0.24506989,-6.7982909,-6.7982703)"
      clip-path="url(#clippath)"
      id="g10737">
     <image

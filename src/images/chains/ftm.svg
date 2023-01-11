@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="1024"
-   height="1024"
-   viewBox="0 0 1024 1024"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
    version="1.1"
    id="svg12593"
-   sodipodi:docname="Fantom_round.svg"
+   sodipodi:docname="ftm.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,8 @@
      stroke="none"
      stroke-width="1"
      fill="none"
-     fill-rule="evenodd">
+     fill-rule="evenodd"
+     transform="scale(0.125)">
     <g
        id="Fantom-circle">
       <circle

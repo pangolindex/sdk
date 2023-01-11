@@ -2,14 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="578"
-   height="578"
-   viewBox="0 0 152.92917 152.92917"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
    version="1.1"
    id="svg353"
    inkscape:export-filename="Kusama.png"
    inkscape:export-xdpi="21.259516"
    inkscape:export-ydpi="21.259516"
+   sodipodi:docname="kusuma.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +31,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="scale(0.22145328)">
     <circle
        style="fill:#000000;stroke-width:0.686855"
        id="path474"
