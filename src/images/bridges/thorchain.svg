@@ -2,14 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="578"
-   height="578"
-   viewBox="0 0 152.92916 152.92917"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866665 33.866667"
    version="1.1"
    id="svg7221"
    inkscape:export-filename="NEAR.svg"
    inkscape:export-xdpi="21.259516"
    inkscape:export-ydpi="21.259516"
+   sodipodi:docname="thorchain.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -35,22 +36,21 @@
        x2="-320.72461"
        y2="644.28137"
        gradientTransform="matrix(92.266264,0,0,-105.83333,29714.653,68262.914)">
-	<stop
-   offset="0"
-   style="stop-color:#00CCFF"
-   id="stop13859" />
-
-	<stop
-   offset="1"
-   style="stop-color:#33FF99"
-   id="stop13861" />
-
-</linearGradient>
+      <stop
+         offset="0"
+         style="stop-color:#00CCFF"
+         id="stop13859" />
+      <stop
+         offset="1"
+         style="stop-color:#33FF99"
+         id="stop13861" />
+    </linearGradient>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="scale(0.22145328)">
     <circle
        style="fill:#000b12;fill-opacity:1;stroke-width:0.470852"
        id="path7394"
