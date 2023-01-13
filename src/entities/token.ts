@@ -103,6 +103,13 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     'wWSGB',
     'Wrapped Songbird'
   ),
+  [ChainId.FLARE_MAINNET]: new Token(
+    ChainId.FLARE_MAINNET,
+    CHAINS[ChainId.FLARE_MAINNET].contracts!.wrapped_native_token,
+    18,
+    'WFLR',
+    'Wrapped Flare'
+  ),
   [ChainId.NEAR_MAINNET]: new Token(
     ChainId.NEAR_MAINNET,
     CHAINS[ChainId.NEAR_MAINNET].contracts!.wrapped_native_token,

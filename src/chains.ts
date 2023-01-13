@@ -4,6 +4,7 @@ export enum ChainId {
   WAGMI = 11111,
   COSTON = 16,
   SONGBIRD = 19,
+  FLARE_MAINNET = 14,
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901,
   HEDERA_TESTNET = 296,
@@ -68,6 +69,7 @@ interface ChefContract {
   address: string
   active: boolean
   type: ChefType
+  compoundPoolIdForNonPngFarm?: number // this is compound pool id for non-png farm
 }
 
 export enum NetworkType {
@@ -1111,7 +1113,7 @@ export const NEAR_TESTNET: Chain = {
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
   chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
-  name: 'Hedera',
+  name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
   evm: true,
@@ -1120,7 +1122,7 @@ export const HEDERA_TESTNET: Chain = {
   supported_by_gelato: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   contracts: {
     png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
     factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
@@ -1437,10 +1439,41 @@ export const FLARE_MAINNET: Chain = {
   mainnet: true,
   evm: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/flare.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
+  contracts: {
+    png: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
+    factory: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
+    router: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308',
+    wrapped_native_token: '0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d',
+    local_multisig: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
+    community_treasury: '0x5d29aDabe7a49cB27a2c8d2Db62814B88F25501c',
+    treasury_vester: '0xa0C70D6Ac3FCBeA51c8126E049a9fed560504148',
+    mini_chef: {
+      address: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0x290593624b60D5c8EBf329344343d2cD21c46Cf3',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    specialAirdrops: [],
+    timelock: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
+    fee_collector: '0xacA1a5601082F544299C80421FE69b08334d71c6',
+    multicall: '0x336897CAe2791048DA77EEa2A43BFB96342b9CE1',
+    staking: [
+      {
+        address: '0x12245B3Fe351ec3BE15EF971f31927Af1292Ff40',
+        active: true,
+        reward_token: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'Flare',
     symbol: 'FLR',
@@ -1813,9 +1846,10 @@ export const COSTON2_TESTNET: Chain = {
     community_treasury: '0x2C6C561ab9C24cB12f24B886F055c1F972819b8D',
     treasury_vester: '0x95087BaAcDb2713b4CA5cD2F79532fA92694b87F',
     mini_chef: {
-      address: '0x28B8C90F9A1622a1EAba08a125196f38fb9B13ED',
+      address: '0x07Fe5fD0476454a43f905649d59Ea5941C9a87B8',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 3
     },
     airdrop: {
       address: '0xb52Fa2153F2cFD02CFF545c55479f3D5cd73292e',
@@ -1848,6 +1882,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.WAGMI]: WAGMI_FUJI_SUBNET,
   [ChainId.COSTON]: COSTON_TESTNET,
   [ChainId.SONGBIRD]: SONGBIRD_CANARY,
+  [ChainId.FLARE_MAINNET]: FLARE_MAINNET,
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
   [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET,
@@ -1899,6 +1934,7 @@ export const ALL_CHAINS: Chain[] = [
   EVMOS_TESTNET,
   FANTOM_MAINNET,
   FANTOM_TESTNET,
+  FLARE_MAINNET,
   FUSE_MAINNET,
   FUSE_TESTNET,
   HARMONY_MAINNET,

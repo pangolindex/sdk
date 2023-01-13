@@ -21,6 +21,7 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.WAGMI]: CHAINS[ChainId.WAGMI].contracts!.factory,
   [ChainId.COSTON]: CHAINS[ChainId.COSTON].contracts!.factory,
   [ChainId.SONGBIRD]: CHAINS[ChainId.SONGBIRD].contracts!.factory,
+  [ChainId.FLARE_MAINNET]: CHAINS[ChainId.FLARE_MAINNET].contracts!.factory,
   [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
   [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory,
   [ChainId.HEDERA_TESTNET]: CHAINS[ChainId.HEDERA_TESTNET].contracts!.factory,
@@ -51,6 +52,7 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.WAGMI]: INIT_CODE_HASH,
   [ChainId.COSTON]: INIT_CODE_HASH,
   [ChainId.SONGBIRD]: INIT_CODE_HASH,
+  [ChainId.FLARE_MAINNET]: INIT_CODE_HASH,
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
   [ChainId.HEDERA_TESTNET]: '0xd3e12a46a423ca4b4073538735498f47c65af1b02c11d3eabf32c9daa1f22fa0', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
