@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866665 33.866667"
+   version="1.1"
+   id="svg7221"
+   inkscape:export-filename="NEAR.svg"
+   inkscape:export-xdpi="21.259516"
+   inkscape:export-ydpi="21.259516"
+   sodipodi:docname="thorchain.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7223"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs7218">
+    <linearGradient
+       id="SVGID_1_"
+       gradientUnits="userSpaceOnUse"
+       x1="-321.72461"
+       y1="644.28137"
+       x2="-320.72461"
+       y2="644.28137"
+       gradientTransform="matrix(92.266264,0,0,-105.83333,29714.653,68262.914)">
+      <stop
+         offset="0"
+         style="stop-color:#00CCFF"
+         id="stop13859" />
+      <stop
+         offset="1"
+         style="stop-color:#33FF99"
+         id="stop13861" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="scale(0.22145328)">
+    <circle
+       style="fill:#000b12;fill-opacity:1;stroke-width:0.470852"
+       id="path7394"
+       cx="76.464584"
+       cy="76.464584"
+       r="76.464584" />
+    <path
+       class="st0"
+       d="M 30.324166,129.38125 104.20713,98.268798 80.818142,74.551935 Z M 57.465589,50.871499 80.854574,74.551935 122.605,23.547919 Z"
+       id="path13864"
+       style="fill:url(#SVGID_1_);stroke-width:0.364314" />
+  </g>
+</svg>

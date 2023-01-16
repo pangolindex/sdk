@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
+   version="1.1"
+   id="svg353"
+   inkscape:export-filename="Celo.png"
+   inkscape:export-xdpi="21.259516"
+   inkscape:export-ydpi="21.259516"
+   sodipodi:docname="celo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview355"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs350" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="scale(0.22145328)">
+    <circle
+       style="fill:#111214;fill-opacity:1;stroke-width:0.686855"
+       id="path474"
+       cx="76.464584"
+       cy="76.464584"
+       r="76.464584" />
+    <path
+       id="Bottom_Ring"
+       class="st0"
+       d="m 65.324234,118.2409 c 16.922193,0 30.635967,-13.71377 30.635967,-30.635963 0,-16.922195 -13.713774,-30.635967 -30.635967,-30.635967 -16.922194,0 -30.635967,13.713772 -30.635967,30.635967 0,16.922193 13.713773,30.635963 30.635967,30.635963 z m 0,11.14035 c -23.071668,0 -41.776317,-18.70465 -41.776317,-41.776313 0,-23.071668 18.704649,-41.776318 41.776317,-41.776318 23.071668,0 41.776316,18.70465 41.776316,41.776318 0,23.071663 -18.704648,41.776313 -41.776316,41.776313 z"
+       style="fill:#fbcc5c;stroke-width:0.111403" />
+    <path
+       id="Top_Ring"
+       class="st1"
+       d="m 87.604937,95.9602 c 16.922193,0 30.635963,-13.713773 30.635963,-30.635966 0,-16.922193 -13.71377,-30.635966 -30.635963,-30.635966 -16.922195,0 -30.635967,13.713773 -30.635967,30.635966 0,16.922193 13.713772,30.635966 30.635967,30.635966 z m 0,11.14035 c -23.071668,0 -41.776316,-18.704649 -41.776316,-41.776316 0,-23.071667 18.704648,-41.776317 41.776316,-41.776317 23.071663,0 41.776313,18.70465 41.776313,41.776317 0,23.071667 -18.70465,41.776316 -41.776313,41.776316 z"
+       style="fill:#35d07f;stroke-width:0.111403" />
+    <path
+       id="Rings_Overlap"
+       class="st2"
+       d="m 88.986339,107.10055 c 2.896493,-3.50921 4.968599,-7.62 6.071491,-12.04272 4.411579,-1.102893 8.52237,-3.174998 12.04272,-6.071491 -0.15597,5.113423 -1.25886,10.148859 -3.25298,14.872371 -4.712371,1.98298 -9.747811,3.08587 -14.861231,3.24184 z m -31.115,-49.229211 c -4.411579,1.102895 -8.522369,3.175 -12.042718,6.071491 0.155962,-5.113421 1.258859,-10.14886 3.252981,-14.861228 4.712368,-1.982983 9.758947,-3.085877 14.861228,-3.252983 -2.896491,3.509211 -4.968596,7.620001 -6.071491,12.04272 z"
+       style="fill:#5ea33b;stroke-width:0.111403" />
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 128 128"
+   xml:space="preserve"
+   sodipodi:docname="bsc.svg"
+   width="128"
+   height="128"
+   inkscape:export-filename="bsc.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs17" /><sodipodi:namedview
+   id="namedview15"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false" />
+<g
+   id="g12"
+   transform="scale(0.05128205)">
+	<path
+   style="clip-rule:evenodd;fill:#181a20;fill-opacity:1;fill-rule:evenodd"
+   d="m 1248,0 c 689.3,0 1248,558.7 1248,1248 0,689.3 -558.7,1248 -1248,1248 C 558.7,2496 0,1937.3 0,1248 0,558.7 558.7,0 1248,0 Z"
+   id="path2" />
+	<path
+   style="fill:#f0b90b;fill-opacity:1"
+   d="m 685.9,1248 0.9,330 280.4,165 v 193.2 L 522.7,1675.5 v -524 z m 0,-330 v 192.3 L 522.6,1013.7 V 821.4 L 685.9,724.8 850,821.4 Z m 398.4,-96.6 163.3,-96.6 164.1,96.6 -164.1,96.6 z"
+   id="path4" />
+	<path
+   style="fill:#f0b90b;fill-opacity:1"
+   d="m 803.9,1509.6 v -193.2 l 163.3,96.6 v 192.3 z m 280.4,302.6 163.3,96.6 164.1,-96.6 v 192.3 l -164.1,96.6 -163.3,-96.6 z m 561.6,-990.8 163.3,-96.6 164.1,96.6 v 192.3 l -164.1,96.6 V 918 Z m 163.3,756.6 0.9,-330 163.3,-96.6 v 524 l -444.5,260.7 v -193.2 z"
+   id="path6" />
+	<polygon
+   style="fill:#f0b90b;fill-opacity:1"
+   points="1692.1,1509.6 1528.8,1605.3 1528.8,1413 1692.1,1316.4 "
+   id="polygon8" />
+	<path
+   style="fill:#f0b90b;fill-opacity:1"
+   d="m 1692.1,986.4 0.9,193.2 -281.2,165 v 330.8 l -163.3,95.7 -163.3,-95.7 V 1344.6 L 804,1179.6 V 986.4 l 164,-96.6 279.5,165.8 281.2,-165.8 164.1,96.6 z M 803.9,656.5 1247.6,394.9 1692.1,656.5 1528.8,753.1 1247.6,587.3 967.2,753.1 Z"
+   id="path10" />
+</g>
+</svg>

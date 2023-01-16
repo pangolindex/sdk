@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg:svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   fill="none"
+   version="1.1"
+   id="svg10908"
+   sodipodi:docname="regen.logo.svg"
+   inkscape:export-filename="..\Mainnet_128x128\chains\regen.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview10910"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false" />
+  <script />
+  <svg:circle
+     cx="64"
+     cy="64"
+     r="64"
+     fill="url(#paint0_linear)"
+     id="circle10869"
+     style="fill:url(#paint0_linear);stroke-width:1.82857" />
+  <svg:path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="m 64,122.99447 c 32.581669,0 58.99447,-26.572619 58.99447,-59.351956 C 122.99447,30.86336 96.581669,4.2906331 64,4.2906331 31.418331,4.2906331 5.0055863,30.86336 5.0055863,63.642514 5.0055863,96.421851 31.418331,122.99447 64,122.99447 Z m 0,-5.00553 c 29.817234,0 53.98875,-24.331706 53.98875,-54.346426 C 117.98875,33.627977 93.817234,9.2962194 64,9.2962194 c -29.817234,0 -53.988827,24.3317576 -53.988827,54.3462946 0,30.01472 24.171593,54.346426 53.988827,54.346426 z"
+     fill="#ffffff"
+     id="path10871"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 58.541714,50.532389 v 0.04772 l -4.48128,-23.64544 -3.7184,-1.191863 -2.335817,3.146423 z"
+     fill="#ffffff"
+     id="path10873"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="M 60.9728,40.664503 62.879634,49.8176 64.929646,40.521509 62.92736,39.186651 Z"
+     fill="#ffffff"
+     id="path10875"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 75.131429,42.285349 -2.431269,0.238262 -2.860251,9.057829 6.292662,-7.103269 z"
+     fill="#ffffff"
+     id="path10877"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="M 95.916617,44.192183 V 40.330606 L 92.150491,39.138926 74.511726,55.681097 Z"
+     fill="#ffffff"
+     id="path10879"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 52.820846,53.964983 -5.243977,-7.865966 0.09545,0.19072 -0.09545,-0.19072 -2.383543,0.38144 -0.38144,2.383726 z"
+     fill="#ffffff"
+     id="path10881"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 86.5728,61.973577 -9.39136,1.859292 9.39136,2.050011 1.430126,-1.954743 z"
+     fill="#ffffff"
+     id="path10883"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 48.625737,63.880411 -24.122148,-3.050971 -2.336,3.146423 2.336,3.146423 z"
+     fill="#ffffff"
+     id="path10885"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 39.710903,69.124754 -0.714972,2.240549 1.95456,1.430308 8.342675,-4.672 z"
+     fill="#ffffff"
+     id="path10887"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 42.475886,75.750766 -0.09527,2.383725 2.288274,0.810423 6.674103,-7.007817 z"
+     fill="#ffffff"
+     id="path10889"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 54.489234,75.178971 -7.103085,6.24512 0.619702,2.288275 2.431269,0.09527 z"
+     fill="#ffffff"
+     id="path10891"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 62.92736,77.943771 -1.906834,9.248366 1.95456,1.382583 1.95456,-1.430309 z"
+     fill="#ffffff"
+     id="path10893"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="M 95.96416,83.569189 74.511726,72.17536 92.24576,88.622446 l 3.7184,-1.191863 z"
+     fill="#ffffff"
+     id="path10895"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 72.318903,85.333029 -4.814812,-8.056686 1.096412,9.248366 2.288274,0.715154 z"
+     fill="#ffffff"
+     id="path10897"
+     style="stroke-width:1.82857" />
+  <svg:path
+     d="m 58.589257,77.276343 -10.440228,21.69088 2.335817,3.146427 3.718583,-1.19187 z"
+     fill="#ffffff"
+     id="path10899"
+     style="stroke-width:1.82857" />
+  <svg:defs
+     id="defs10906">
+    <svg:linearGradient
+       id="paint0_linear"
+       x1="18.3799"
+       y1="65.698303"
+       x2="45.167599"
+       y2="-2.55798e-06"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.8285714)">
+      <svg:stop
+         stop-color="#3FAD6C"
+         id="stop10901" />
+      <svg:stop
+         offset="1"
+         stop-color="#6EC2B7"
+         id="stop10903" />
+    </svg:linearGradient>
+  </svg:defs>
+</svg:svg>

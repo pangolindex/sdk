@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
+   version="1.1"
+   id="svg353"
+   inkscape:export-filename="Aurora.png"
+   inkscape:export-xdpi="21.259516"
+   inkscape:export-ydpi="21.259516"
+   sodipodi:docname="aurora.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview355"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs350">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5160">
+      <path
+         d="M 0,808.475 H 805.867 V 0 H 0 Z"
+         id="path5158" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="scale(0.83698879)">
+    <circle
+       style="fill:#101820;fill-opacity:1;stroke-width:0.18173"
+       id="path474"
+       cx="20.231255"
+       cy="20.231255"
+       r="20.231255" />
+    <g
+       id="g5154"
+       style="display:inline"
+       transform="matrix(0.04760766,0,0,-0.04760766,1.0485326,38.694876)"
+       inkscape:label="g5154">
+      <g
+         id="g5156"
+         clip-path="url(#clipPath5160)">
+        <g
+           id="g5162"
+           transform="translate(402.9335,637.8043)">
+          <path
+             d="m 0,0 c -31.33,0 -59.969,-17.701 -73.98,-45.721 l -137.854,-275.708 c -12.82,-25.641 -11.45,-56.09 3.62,-80.475 15.072,-24.385 41.694,-39.229 70.36,-39.229 h 275.708 c 28.666,0 55.288,14.844 70.36,39.229 15.07,24.385 16.44,54.834 3.62,80.475 L 73.98,-45.721 C 59.969,-17.701 31.33,0 0,0 m 0,-33.698 c 18.685,0 35.483,-10.382 43.84,-27.093 l 137.854,-275.708 c 7.653,-15.306 6.851,-33.133 -2.144,-47.688 -8.998,-14.557 -24.585,-23.249 -41.696,-23.249 h -275.708 c -17.111,0 -32.698,8.692 -41.695,23.248 -8.996,14.556 -9.798,32.383 -2.145,47.689 L -43.84,-60.792 c 8.357,16.712 25.155,27.094 43.84,27.094"
+             style="fill:#5deb5a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path5164" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
