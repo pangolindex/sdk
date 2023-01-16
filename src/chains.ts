@@ -74,7 +74,8 @@ interface ChefContract {
 
 export enum NetworkType {
   EVM = 'EVM',
-  COSMOS = 'COSMOS'
+  COSMOS = 'COSMOS',
+  HEDERA = "HEDERA",
 }
 
 export interface BridgeChain extends Omit<Chain, 'chain_id'> {
