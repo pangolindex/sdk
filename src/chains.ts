@@ -1132,7 +1132,7 @@ export const HEDERA_TESTNET: Chain = {
     community_treasury: '',
     treasury_vester: '0x0000000000000000000000000000000002db05ff', //0.0.47908351
     mini_chef: {
-      address: '0x0000000000000000000000000000000002EDb055', // 0.0.49131605
+      address: '0x0000000000000000000000000000000002f06049', // 0.0.49307721
       active: true,
       type: ChefType.PANGO_CHEF
     },
