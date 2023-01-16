@@ -74,7 +74,8 @@ interface ChefContract {
 
 export enum NetworkType {
   EVM = 'EVM',
-  COSMOS = 'COSMOS'
+  COSMOS = 'COSMOS',
+  HEDERA = "HEDERA",
 }
 
 export interface BridgeChain extends Omit<Chain, 'chain_id'> {
@@ -1162,6 +1163,58 @@ export const HEDERA_TESTNET: Chain = {
   blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
 }
 
+export const HEDERA_MAINNET: Chain = {
+  id: 'hedera_mainnet',
+  chain_id: 295, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  name: 'Hedera',
+  symbol: `HBAR`,
+  mainnet: true,
+  evm: true,
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
+  png_symbol: 'PBAR',
+  logo: 'https://app.hashport.network/assets/HederaNetwork.7978e94a.svg',
+  contracts: {
+    png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+    factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
+    router: '0x0000000000000000000000000000000002eb265a', // 0.0.48965210
+    wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
+    local_multisig: '',
+    community_treasury: '',
+    treasury_vester: '0x0000000000000000000000000000000002db05ff', //0.0.47908351
+    mini_chef: {
+      address: '0x0000000000000000000000000000000002eb26e3', // 0.0.48965347
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
+    staking: [
+      {
+        address: '0x0000000000000000000000000000000002ec28c3', // 0.0.49031363
+        active: true,
+        reward_token: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+        type: StakingType.SAR_POSITIONS
+      }
+    ],
+    timelock: '',
+    governor: '',
+    migrator: '',
+    multicall: '0x0000000000000000000000000000000002E803bB'
+  },
+  nativeCurrency: {
+    name: 'Hbar',
+    symbol: 'HBAR',
+    decimals: 8
+  },
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
+}
+
 export const OEC_MAINNET: Chain = {
   id: 'oec_mainnet',
   chain_id: 66,
@@ -1860,6 +1913,7 @@ export const ALL_CHAINS: Chain[] = [
   COSTON_TESTNET,
   WAGMI_FUJI_SUBNET,
   HEDERA_TESTNET,
+  HEDERA_MAINNET,
   ETHEREUM_MAINNET,
   BSC_MAINNET,
   POLYGON_MAINNET,
