@@ -94,6 +94,7 @@ export interface Chain {
   pangolin_is_live: boolean
   tracked_by_debank: boolean
   supported_by_gelato: boolean
+  supported_by_twap: boolean
   rpc_uri: string
   subgraph?: {
     exchange: string
@@ -144,6 +145,7 @@ export const ETHEREUM_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
   coingecko_id: 'ethereum',
   nativeCurrency: {
@@ -165,6 +167,7 @@ export const OKXCHAIN_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://exchainrpc.okex.org',
   coingecko_id: 'okc-token',
   nativeCurrency: {
@@ -186,6 +189,7 @@ export const VELAS_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://evmexplorer.velas.com/rpc',
   coingecko_id: 'velas',
   nativeCurrency: {
@@ -207,6 +211,7 @@ export const ARBITRUM_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://arb1.arbitrum.io/rpc',
   coingecko_id: 'arbitrum-one',
   nativeCurrency: {
@@ -228,6 +233,7 @@ export const ARBITRUM_RINKEBY: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://rinkeby.arbitrum.io/rpc',
   nativeCurrency: {
     name: 'Ether',
@@ -248,6 +254,7 @@ export const AURORA_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.aurora.dev',
   coingecko_id: 'aurora',
   nativeCurrency: {
@@ -269,6 +276,7 @@ export const AURORA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://testnet.aurora.dev',
   nativeCurrency: {
     name: 'Ether',
@@ -290,6 +298,7 @@ export const AVALANCHE_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
     exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange'
@@ -348,6 +357,7 @@ export const AVALANCHE_FUJI: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
@@ -399,6 +409,7 @@ export const BOBA_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.boba.network',
   coingecko_id: 'boba',
   nativeCurrency: {
@@ -420,6 +431,7 @@ export const BITTORRENT_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.bt.io',
   nativeCurrency: {
     name: 'BitTorrent',
@@ -440,6 +452,7 @@ export const BITTORRENT_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://test-rpc.bittorrentchain.io',
   nativeCurrency: {
     name: 'BitTorrent',
@@ -460,6 +473,7 @@ export const BSC_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://bsc-dataseed.binance.org',
   coingecko_id: 'binance-smart-chain',
   nativeCurrency: {
@@ -481,6 +495,7 @@ export const BSC_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://data-seed-prebsc-1-s1.binance.org:8545',
   nativeCurrency: {
     name: 'Binance Coin',
@@ -501,6 +516,7 @@ export const CELO_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://forno.celo.org',
   coingecko_id: 'celo',
   nativeCurrency: {
@@ -522,6 +538,7 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://alfajores-forno.celo-testnet.org',
   nativeCurrency: {
     name: 'Celo',
@@ -542,6 +559,7 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://baklava-forno.celo-testnet.org',
   nativeCurrency: {
     name: 'Celo',
@@ -562,6 +580,7 @@ export const CRONOS_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://evm-cronos.crypto.org',
   coingecko_id: 'cronos',
   nativeCurrency: {
@@ -583,6 +602,7 @@ export const CRONOS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://cronos-testnet-3.crypto.org:8545',
   nativeCurrency: {
     name: 'Cronos',
@@ -604,6 +624,7 @@ export const COSTON_TESTNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
   contracts: {
     png: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
@@ -655,6 +676,7 @@ export const EVMOS_TESTNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
   contracts: {
     png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
@@ -705,6 +727,7 @@ export const EVMOS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
   nativeCurrency: {
     name: 'EVMOS',
@@ -725,6 +748,7 @@ export const FANTOM_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.ftm.tools',
   coingecko_id: 'fantom',
   nativeCurrency: {
@@ -746,6 +770,7 @@ export const FANTOM_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.testnet.fantom.network',
   nativeCurrency: {
     name: 'Fantom',
@@ -766,6 +791,7 @@ export const FUSE_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.fuse.io',
   coingecko_id: 'fuse',
   nativeCurrency: {
@@ -787,6 +813,7 @@ export const FUSE_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.fusespark.io',
   nativeCurrency: {
     name: 'Fuse',
@@ -807,6 +834,7 @@ export const HARMONY_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://api.harmony.one',
   coingecko_id: 'harmony-shard-0',
   nativeCurrency: {
@@ -828,6 +856,7 @@ export const HARMONY_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://api.s0.b.hmny.io',
   nativeCurrency: {
     name: 'Harmony',
@@ -848,6 +877,7 @@ export const HECO_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://http-mainnet.hecochain.com',
   coingecko_id: 'huobi-token',
   nativeCurrency: {
@@ -869,6 +899,7 @@ export const HECO_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://http-testnet.hecochain.com',
   nativeCurrency: {
     name: 'Heco',
@@ -889,6 +920,7 @@ export const KLAYTN_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://kaikas.cypress.klaytn.net:8651',
   coingecko_id: 'klay-token',
   nativeCurrency: {
@@ -910,6 +942,7 @@ export const KLAYTN_BAOBAB: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://api.baobab.klaytn.net:8651',
   nativeCurrency: {
     name: 'Klaytn',
@@ -930,6 +963,7 @@ export const METIS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://andromeda.metis.io/?owner=1088',
   coingecko_id: 'metis-andromeda',
   nativeCurrency: {
@@ -951,6 +985,7 @@ export const METIS_RINKEBY: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://stardust.metis.io/?owner=588',
   nativeCurrency: {
     name: 'Metis',
@@ -971,6 +1006,7 @@ export const MOONRIVER_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.moonriver.moonbeam.network',
   coingecko_id: 'moonriver',
   nativeCurrency: {
@@ -992,6 +1028,7 @@ export const MOONBEAM_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.api.moonbeam.network',
   coingecko_id: 'moonbeam',
   nativeCurrency: {
@@ -1013,6 +1050,7 @@ export const MOONBEAM_MOONBASE: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.api.moonbase.moonbeam.network',
   nativeCurrency: {
     name: 'Moonbase',
@@ -1032,6 +1070,7 @@ export const NEAR_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.mainnet.near.org',
   png_symbol: 'PNR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
@@ -1076,6 +1115,7 @@ export const NEAR_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.testnet.near.org',
   png_symbol: 'PNR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/near.svg',
@@ -1120,6 +1160,7 @@ export const HEDERA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
@@ -1173,6 +1214,7 @@ export const OEC_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://exchainrpc.okex.org',
   coingecko_id: 'okex-chain',
   nativeCurrency: {
@@ -1194,6 +1236,7 @@ export const OEC_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://exchaintestrpc.okex.org',
   nativeCurrency: {
     name: 'OEC',
@@ -1214,6 +1257,7 @@ export const OP_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.optimism.io',
   coingecko_id: 'optimistic-ethereum',
   nativeCurrency: {
@@ -1235,6 +1279,7 @@ export const OP_KOVAN: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://kovan.optimism.io',
   nativeCurrency: {
     name: 'Ether',
@@ -1255,6 +1300,7 @@ export const POLYGON_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://polygon-rpc.com',
   coingecko_id: 'polygon-pos',
   nativeCurrency: {
@@ -1276,6 +1322,7 @@ export const POLYGON_MUMBAI: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: true,
+  supported_by_twap: false,
   rpc_uri: 'https://matic-mumbai.chainstacklabs.com',
   contracts: {
     png: '0x4828a3D98E428e73184374845f23C40eB76bA695',
@@ -1330,6 +1377,7 @@ export const SONGBIRD_CANARY: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
   contracts: {
     png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
@@ -1390,6 +1438,7 @@ export const FLARE_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
   contracts: {
     png: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
@@ -1442,6 +1491,7 @@ export const WAGMI_FUJI_SUBNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://subnets.avax.network/wagmi/wagmi-chain-testnet/rpc',
   contracts: {
     png: '0xbdf33c7128fBB220fc0e4Be277697cEeef8BdfF5',
@@ -1499,6 +1549,7 @@ export const XDAI_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: true,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.xdaichain.com',
   coingecko_id: 'xdai',
   nativeCurrency: {
@@ -1520,6 +1571,7 @@ export const EWC_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.energyweb.org',
   nativeCurrency: {
     name: 'Energy Web Token',
@@ -1540,6 +1592,7 @@ export const EWC_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://volta-rpc.energyweb.org',
   nativeCurrency: {
     name: 'Volta',
@@ -1560,6 +1613,7 @@ export const IOTEX_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://babel-api.mainnet.iotex.io',
   coingecko_id: 'iotex',
   nativeCurrency: {
@@ -1581,6 +1635,7 @@ export const IOTEX_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://babel-api.testnet.iotex.io',
   nativeCurrency: {
     name: 'IoTex',
@@ -1601,6 +1656,7 @@ export const ASTAR_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://astar.api.onfinality.io/public',
   nativeCurrency: {
     name: 'Astar',
@@ -1621,6 +1677,7 @@ export const SHIDEN_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://shiden.api.onfinality.io/public',
   nativeCurrency: {
     name: 'Shiden',
@@ -1641,6 +1698,7 @@ export const SHIBUYA_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://rpc.shibuya.astar.network:8545',
   nativeCurrency: {
     name: 'Shibuya',
@@ -1661,6 +1719,7 @@ export const TELOS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.telos.net/evm',
   coingecko_id: 'telos',
   nativeCurrency: {
@@ -1682,6 +1741,7 @@ export const TELOS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://testnet.telos.net/evm',
   nativeCurrency: {
     name: 'TELOS',
@@ -1702,6 +1762,7 @@ export const OASIS_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://emerald.oasis.dev',
   coingecko_id: 'oasis',
   nativeCurrency: {
@@ -1723,6 +1784,7 @@ export const OASIS_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://testnet.emerald.oasis.dev',
   nativeCurrency: {
     name: 'Oasis Network',
@@ -1743,6 +1805,7 @@ export const GODWOKEN_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet.godwoken.io/rpc/eth-wallet',
   nativeCurrency: {
     name: 'Nervos Network',
@@ -1763,6 +1826,7 @@ export const GODWOKEN_TESTNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://godwoken-testnet-web3-v1-rpc.ckbapp.dev/',
   nativeCurrency: {
     name: 'Nervos Network',
@@ -1784,6 +1848,7 @@ export const COSTON2_TESTNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://coston2-api.flare.network/ext/C/rpc',
   contracts: {
     png: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
