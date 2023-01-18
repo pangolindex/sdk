@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId } from '../chains'
+import { ChainId, NetworkType } from '../chains'
 import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
 import { CHAINS } from '../chains'
@@ -23,7 +23,8 @@ export class Token extends Currency {
     this.chainId = chainId
 
     // only validate address for evm chains
-    const shouldValidateAddress = !!CHAINS[chainId]?.evm
+    const chain = CHAINS[chainId]
+    const shouldValidateAddress = chain?.network_type === NetworkType.EVM || chain?.network_type === NetworkType.HEDERA
     this.address = shouldValidateAddress ? validateAndParseAddress(address) : address
   }
 
