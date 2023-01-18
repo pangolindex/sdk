@@ -77,7 +77,7 @@ export enum NetworkType {
   COSMOS = 'COSMOS',
   HEDERA = 'HEDERA',
   NEAR = 'NEAR',
-  SUBNET = 'SUBNET',
+  SUBNET = 'SUBNET'
 }
 
 export interface Chain {
@@ -137,7 +137,6 @@ export interface BridgeChain extends Omit<Chain, 'chain_id'> {
   }
 }
 
-
 export const ETHEREUM_MAINNET: Chain = {
   id: 'ethereum_mainnet',
   chain_id: ChainId.ETHEREUM,
@@ -148,7 +147,7 @@ export const ETHEREUM_MAINNET: Chain = {
   pangolin_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: true,
-  supported_by_bridge:  true,
+  supported_by_bridge: true,
   rpc_uri: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
   coingecko_id: 'ethereum',
   nativeCurrency: {
@@ -157,7 +156,7 @@ export const ETHEREUM_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://etherscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OKXCHAIN_MAINNET: Chain = {
@@ -179,7 +178,7 @@ export const OKXCHAIN_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://www.oklink.com/en/okc'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const VELAS_MAINNET: Chain = {
@@ -201,7 +200,7 @@ export const VELAS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://evmexplorer.velas.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const ARBITRUM_MAINNET: Chain = {
@@ -223,7 +222,7 @@ export const ARBITRUM_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://arbiscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const ARBITRUM_RINKEBY: Chain = {
@@ -244,7 +243,7 @@ export const ARBITRUM_RINKEBY: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://rinkeby-explorer.arbitrum.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const AURORA_MAINNET: Chain = {
@@ -266,7 +265,7 @@ export const AURORA_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://aurorascan.dev'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const AURORA_TESTNET: Chain = {
@@ -287,7 +286,7 @@ export const AURORA_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.aurorascan.dev'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const AVALANCHE_MAINNET: Chain = {
@@ -346,7 +345,7 @@ export const AVALANCHE_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://snowtrace.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -399,7 +398,7 @@ export const AVALANCHE_FUJI: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.snowtrace.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const BOBA_MAINNET: Chain = {
@@ -421,7 +420,7 @@ export const BOBA_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://blockexplorer.boba.network'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const BITTORRENT_MAINNET: Chain = {
@@ -442,7 +441,7 @@ export const BITTORRENT_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://scan.bt.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const BITTORRENT_TESTNET: Chain = {
@@ -463,7 +462,7 @@ export const BITTORRENT_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://scan.bittorrentchain.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const BSC_MAINNET: Chain = {
@@ -485,7 +484,7 @@ export const BSC_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://bscscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const BSC_TESTNET: Chain = {
@@ -506,7 +505,7 @@ export const BSC_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.bscscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CELO_MAINNET: Chain = {
@@ -528,7 +527,7 @@ export const CELO_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.celo.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CELO_ALFAJORES_TESTNET: Chain = {
@@ -549,7 +548,7 @@ export const CELO_ALFAJORES_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CELO_BAKLAVA_TESTNET: Chain = {
@@ -570,7 +569,7 @@ export const CELO_BAKLAVA_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://baklava-blockscout.celo-testnet.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CRONOS_MAINNET: Chain = {
@@ -592,7 +591,7 @@ export const CRONOS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://cronos.org/explorer'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CRONOS_TESTNET: Chain = {
@@ -613,7 +612,7 @@ export const CRONOS_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://cronos.org/explorer/testnet3'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const COSTON_TESTNET: Chain = {
@@ -665,7 +664,7 @@ export const COSTON_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://coston-explorer.flare.network'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const EVMOS_TESTNET: Chain = {
@@ -717,7 +716,7 @@ export const EVMOS_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://evm.evmos.dev'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const EVMOS_MAINNET: Chain = {
@@ -738,7 +737,7 @@ export const EVMOS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://evm.evmos.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const FANTOM_MAINNET: Chain = {
@@ -760,7 +759,7 @@ export const FANTOM_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://ftmscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const FANTOM_TESTNET: Chain = {
@@ -781,7 +780,7 @@ export const FANTOM_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.ftmscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const FUSE_MAINNET: Chain = {
@@ -803,7 +802,7 @@ export const FUSE_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['http://explorer.fuse.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const FUSE_TESTNET: Chain = {
@@ -824,7 +823,7 @@ export const FUSE_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.fusespark.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const HARMONY_MAINNET: Chain = {
@@ -846,7 +845,7 @@ export const HARMONY_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.harmony.one'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const HARMONY_TESTNET: Chain = {
@@ -867,7 +866,7 @@ export const HARMONY_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.pops.one'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const HECO_MAINNET: Chain = {
@@ -889,7 +888,7 @@ export const HECO_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://hecoinfo.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const HECO_TESTNET: Chain = {
@@ -910,7 +909,7 @@ export const HECO_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://scan-testnet.hecochain.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const KLAYTN_MAINNET: Chain = {
@@ -932,7 +931,7 @@ export const KLAYTN_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://scope.klaytn.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const KLAYTN_BAOBAB: Chain = {
@@ -953,7 +952,7 @@ export const KLAYTN_BAOBAB: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://baobab.scope.klaytn.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const METIS_MAINNET: Chain = {
@@ -975,7 +974,7 @@ export const METIS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://andromeda-explorer.metis.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const METIS_RINKEBY: Chain = {
@@ -996,7 +995,7 @@ export const METIS_RINKEBY: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://stardust-explorer.metis.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const MOONRIVER_MAINNET: Chain = {
@@ -1018,7 +1017,7 @@ export const MOONRIVER_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://moonriver.moonscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const MOONBEAM_MAINNET: Chain = {
@@ -1040,7 +1039,7 @@ export const MOONBEAM_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://moonscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const MOONBEAM_MOONBASE: Chain = {
@@ -1061,7 +1060,7 @@ export const MOONBEAM_MOONBASE: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://moonbase.moonscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const NEAR_MAINNET: Chain = {
@@ -1106,7 +1105,7 @@ export const NEAR_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.near.org'],
-  network_type: NetworkType.NEAR,
+  network_type: NetworkType.NEAR
 }
 
 export const NEAR_TESTNET: Chain = {
@@ -1151,7 +1150,7 @@ export const NEAR_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.testnet.near.org'],
-  network_type: NetworkType.NEAR,
+  network_type: NetworkType.NEAR
 }
 
 export const HEDERA_TESTNET: Chain = {
@@ -1204,7 +1203,7 @@ export const HEDERA_TESTNET: Chain = {
     decimals: 8
   },
   blockExplorerUrls: ['https://ledger-testnet.hashlog.io'],
-  network_type: NetworkType.HEDERA,
+  network_type: NetworkType.HEDERA
 }
 
 export const OEC_MAINNET: Chain = {
@@ -1226,7 +1225,7 @@ export const OEC_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://www.oklink.com/okexchain'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OEC_TESTNET: Chain = {
@@ -1247,7 +1246,7 @@ export const OEC_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://www.oklink.com/oec-test'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OP_MAINNET: Chain = {
@@ -1269,7 +1268,7 @@ export const OP_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://optimistic.etherscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OP_KOVAN: Chain = {
@@ -1290,7 +1289,7 @@ export const OP_KOVAN: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://kovan-optimistic.etherscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const POLYGON_MAINNET: Chain = {
@@ -1312,7 +1311,7 @@ export const POLYGON_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://polygonscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const POLYGON_MUMBAI: Chain = {
@@ -1366,7 +1365,7 @@ export const POLYGON_MUMBAI: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://mumbai.polygonscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const SONGBIRD_CANARY: Chain = {
@@ -1427,7 +1426,7 @@ export const SONGBIRD_CANARY: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://songbird-explorer.flare.network'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const FLARE_MAINNET: Chain = {
@@ -1480,7 +1479,7 @@ export const FLARE_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://flare-explorer.flare.network'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const WAGMI_FUJI_SUBNET: Chain = {
@@ -1562,7 +1561,7 @@ export const XDAI_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const EWC_MAINNET: Chain = {
@@ -1583,7 +1582,7 @@ export const EWC_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['http://explorer.energyweb.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const EWC_TESTNET: Chain = {
@@ -1604,7 +1603,7 @@ export const EWC_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['http://volta-aexplorer.energyweb.org'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const IOTEX_MAINNET: Chain = {
@@ -1626,7 +1625,7 @@ export const IOTEX_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://iotexscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const IOTEX_TESTNET: Chain = {
@@ -1647,7 +1646,7 @@ export const IOTEX_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.iotexscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const ASTAR_MAINNET: Chain = {
@@ -1668,7 +1667,7 @@ export const ASTAR_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://blockscout.com/astar'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const SHIDEN_MAINNET: Chain = {
@@ -1689,7 +1688,7 @@ export const SHIDEN_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://blockscout.com/shiden'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const SHIBUYA_TESTNET: Chain = {
@@ -1710,7 +1709,7 @@ export const SHIBUYA_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://blockscout.com/shibuya'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const TELOS_MAINNET: Chain = {
@@ -1732,7 +1731,7 @@ export const TELOS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://www.teloscan.io'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const TELOS_TESTNET: Chain = {
@@ -1753,7 +1752,7 @@ export const TELOS_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.telos.net/v2/explore'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OASIS_MAINNET: Chain = {
@@ -1775,7 +1774,7 @@ export const OASIS_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.emerald.oasis.dev'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const OASIS_TESTNET: Chain = {
@@ -1796,7 +1795,7 @@ export const OASIS_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet.explorer.emerald.oasis.dev'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const GODWOKEN_MAINNET: Chain = {
@@ -1817,7 +1816,7 @@ export const GODWOKEN_MAINNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://gwscan.com'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const GODWOKEN_TESTNET: Chain = {
@@ -1838,7 +1837,7 @@ export const GODWOKEN_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://aggron.gwscan.com/en-US'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const COSTON2_TESTNET: Chain = {
@@ -1891,7 +1890,7 @@ export const COSTON2_TESTNET: Chain = {
     decimals: 18
   },
   blockExplorerUrls: ['https://coston2-explorer.flare.network'],
-  network_type: NetworkType.EVM,
+  network_type: NetworkType.EVM
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
