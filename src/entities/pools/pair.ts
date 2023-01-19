@@ -43,7 +43,7 @@ export class Pair extends Pool {
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
 
-    const chain = CHAINS[chainId];
+    const chain = CHAINS[chainId]
     let decimals: number
     if (chain.network_type === NetworkType.NEAR) {
       decimals = 24
