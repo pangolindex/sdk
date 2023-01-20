@@ -55,7 +55,7 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.FLARE_MAINNET]: INIT_CODE_HASH,
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
-  [ChainId.HEDERA_TESTNET]: '0xd3e12a46a423ca4b4073538735498f47c65af1b02c11d3eabf32c9daa1f22fa0', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
+  [ChainId.HEDERA_TESTNET]: '0x1db8e860308f9cefcc7345fe3fc38fab15da33c1fe18477723a94a5c4cacd427', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
   [ChainId.ETHEREUM]: '',
   [ChainId.POLYGON]: '',
   [ChainId.FANTOM]: '',
