@@ -35,4 +35,13 @@ export const SQUID: Bridge = {
   fee: 0
 }
 
-export const BRIDGES: Bridge[] = [LIFI, SQUID]
+export const RANGO: Bridge = {
+  id: 'rango',
+  name: 'Rango.Exchange',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/rango.jpeg',
+  aggregator_address: '',
+  affiliate: '',
+  fee: 0
+}
+
+export const BRIDGES: Bridge[] = [LIFI, SQUID, RANGO]
