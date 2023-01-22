@@ -38,7 +38,7 @@ export const SQUID: Bridge = {
 export const RANGO: Bridge = {
   id: 'rango',
   name: 'Rango.Exchange',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/rango.jpeg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/rango.png',
   aggregator_address: '',
   affiliate: '',
   fee: 0
