@@ -8,6 +8,7 @@ export enum ChainId {
   NEAR_MAINNET = 329847900,
   NEAR_TESTNET = 329847901,
   HEDERA_TESTNET = 296,
+  HEDERA_MAINNET = 295,
   POLYGON = 137,
   ETHEREUM = 1,
   OKXCHAIN = 66,
@@ -1162,6 +1163,58 @@ export const HEDERA_TESTNET: Chain = {
   blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
 }
 
+export const HEDERA_MAINNET: Chain = {
+  id: 'hedera_mainnet',
+  chain_id: ChainId.HEDERA_MAINNET,
+  name: 'Hedera',
+  symbol: `HBAR`,
+  mainnet: false,
+  evm: true,
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
+  png_symbol: 'PBAR',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
+  contracts: {
+    png: '0x00000000000000000000000000000000001a88b2',
+    factory: '0x00000000000000000000000000000000001a88bc',
+    router: '0x00000000000000000000000000000000001a88c9',
+    wrapped_native_token: '0x00000000000000000000000000000000001a8837',
+    local_multisig: '0x00000000000000000000000000000000001a7e7e',
+    community_treasury: '0x00000000000000000000000000000000001a88b5',
+    treasury_vester: '0x00000000000000000000000000000000001a88b1',
+    mini_chef: {
+      address: '0x00000000000000000000000000000000001a88db',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.NEAR_AIRDROP
+    },
+    staking: [
+      {
+        address: '0x00000000000000000000000000000000001a8957',
+        active: true,
+        reward_token: '0x00000000000000000000000000000000001a88b2',
+        type: StakingType.SAR_POSITIONS
+      }
+    ],
+    timelock: '0x00000000000000000000000000000000001a88ac',
+    governor: '0x00000000000000000000000000000000001a896e',
+    migrator: '',
+    multicall: '0x00000000000000000000000000000000001a89ac'
+  },
+  nativeCurrency: {
+    name: 'Hbar',
+    symbol: 'HBAR',
+    decimals: 8
+  },
+  blockExplorerUrls: ['https://ledger.hashlog.io']
+}
+
 export const OEC_MAINNET: Chain = {
   id: 'oec_mainnet',
   chain_id: 66,
@@ -1834,6 +1887,7 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.NEAR_MAINNET]: NEAR_MAINNET,
   [ChainId.NEAR_TESTNET]: NEAR_TESTNET,
   [ChainId.HEDERA_TESTNET]: HEDERA_TESTNET,
+  [ChainId.HEDERA_MAINNET]: HEDERA_MAINNET,
   [ChainId.ETHEREUM]: ETHEREUM_MAINNET,
   [ChainId.POLYGON]: POLYGON_MAINNET,
   [ChainId.FANTOM]: FANTOM_MAINNET,
