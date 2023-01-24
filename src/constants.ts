@@ -25,6 +25,7 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
   [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory,
   [ChainId.HEDERA_TESTNET]: CHAINS[ChainId.HEDERA_TESTNET].contracts!.factory,
+  [ChainId.HEDERA_MAINNET]: CHAINS[ChainId.HEDERA_MAINNET].contracts!.factory,
   [ChainId.ETHEREUM]: '',
   [ChainId.POLYGON]: '',
   [ChainId.FANTOM]: '',
@@ -56,6 +57,7 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
   [ChainId.HEDERA_TESTNET]: '0x498c05f5d58b176beadaf081fac3f417a35b30a9bf2835cfb1999c6a6c462df6', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
+  [ChainId.HEDERA_MAINNET]: '0x498c05f5d58b176beadaf081fac3f417a35b30a9bf2835cfb1999c6a6c462df6', // https://github.com/pangolindex/hedera-contracts/blob/main/contracts/pangolin-periphery/libraries/PangolinLibrary.sol#L22-L26
   [ChainId.ETHEREUM]: '',
   [ChainId.POLYGON]: '',
   [ChainId.FANTOM]: '',
