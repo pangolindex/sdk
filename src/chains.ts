@@ -1124,15 +1124,15 @@ export const HEDERA_TESTNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   contracts: {
-    png: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
-    factory: '0x0000000000000000000000000000000002eb241c', // 0.0.48964636
-    router: '0x0000000000000000000000000000000002eb265a', // 0.0.48965210
-    wrapped_native_token: '0x0000000000000000000000000000000002DfA5b2', // 0.0.48211378
-    local_multisig: '',
-    community_treasury: '',
-    treasury_vester: '0x0000000000000000000000000000000002db05ff', //0.0.47908351
+    png: '0x0000000000000000000000000000000002f1c1a7',
+    factory: '0x0000000000000000000000000000000002f1c1ab',
+    router: '0x0000000000000000000000000000000002f1c1ae',
+    wrapped_native_token: '0x0000000000000000000000000000000002f1c1a2',
+    local_multisig: '0x0000000000000000000000000000000002f1c19f',
+    community_treasury: '0x0000000000000000000000000000000002f1c1a9',
+    treasury_vester: '0x0000000000000000000000000000000002f1c1a6',
     mini_chef: {
-      address: '0x0000000000000000000000000000000002EDb055', // 0.0.49131605
+      address: '0x0000000000000000000000000000000002f1c1b3',
       active: true,
       type: ChefType.PANGO_CHEF
     },
@@ -1143,14 +1143,14 @@ export const HEDERA_TESTNET: Chain = {
     },
     staking: [
       {
-        address: '0x0000000000000000000000000000000002ec28c3', // 0.0.49031363
+        address: '0x0000000000000000000000000000000002f1c1b7',
         active: true,
-        reward_token: '0x0000000000000000000000000000000002Db0600', // 0.0.47908352
+        reward_token: '0x0000000000000000000000000000000002f1c1a7',
         type: StakingType.SAR_POSITIONS
       }
     ],
-    timelock: '',
-    governor: '',
+    timelock: '0x0000000000000000000000000000000002f1c1a4',
+    governor: '0x0000000000000000000000000000000002f1c1c0',
     migrator: '',
     multicall: '0x0000000000000000000000000000000002E803bB'
   },
