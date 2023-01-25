@@ -132,6 +132,13 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     'wHBAR',
     'Wrapped HBAR'
   ),
+  [ChainId.HEDERA_MAINNET]: new Token(
+    ChainId.HEDERA_MAINNET,
+    CHAINS[ChainId.HEDERA_MAINNET].contracts!.wrapped_native_token,
+    CHAINS[ChainId.HEDERA_MAINNET].nativeCurrency.decimals,
+    'wHBAR',
+    'Wrapped HBAR'
+  ),
   [ChainId.ETHEREUM]: new Token(ChainId.ETHEREUM, ZERO_ADDRESS, 18, '', ''),
   [ChainId.POLYGON]: new Token(ChainId.POLYGON, ZERO_ADDRESS, 18, '', ''),
   [ChainId.FANTOM]: new Token(ChainId.FANTOM, ZERO_ADDRESS, 18, '', ''),

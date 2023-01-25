@@ -34,6 +34,11 @@ export class Currency {
       CHAINS[ChainId.HEDERA_TESTNET].symbol,
       CHAINS[ChainId.HEDERA_TESTNET].name
     ),
+    [ChainId.HEDERA_MAINNET]: new Currency(
+      CHAINS[ChainId.HEDERA_MAINNET].nativeCurrency.decimals,
+      CHAINS[ChainId.HEDERA_MAINNET].symbol,
+      CHAINS[ChainId.HEDERA_MAINNET].name
+    ),
     [ChainId.ETHEREUM]: new Currency(18, CHAINS[ChainId.ETHEREUM].symbol, CHAINS[ChainId.ETHEREUM].name),
     [ChainId.POLYGON]: new Currency(18, CHAINS[ChainId.POLYGON].symbol, CHAINS[ChainId.POLYGON].name),
     [ChainId.FANTOM]: new Currency(18, CHAINS[ChainId.FANTOM].symbol, CHAINS[ChainId.FANTOM].name),
