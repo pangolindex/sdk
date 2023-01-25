@@ -1213,10 +1213,10 @@ export const HEDERA_MAINNET: Chain = {
   name: 'Hedera',
   symbol: `HBAR`,
   mainnet: false,
-  evm: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_bridge: false,
   rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
@@ -1256,7 +1256,8 @@ export const HEDERA_MAINNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['https://ledger.hashlog.io']
+  blockExplorerUrls: ['https://ledger.hashlog.io'],
+  network_type: NetworkType.HEDERA
 }
 
 export const OEC_MAINNET: Chain = {
