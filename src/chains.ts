@@ -1170,7 +1170,7 @@ export const HEDERA_MAINNET: Chain = {
   symbol: `HBAR`,
   mainnet: true,
   evm: true,
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
