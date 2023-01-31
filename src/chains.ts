@@ -1168,7 +1168,7 @@ export const HEDERA_MAINNET: Chain = {
   chain_id: ChainId.HEDERA_MAINNET,
   name: 'Hedera',
   symbol: `HBAR`,
-  mainnet: false,
+  mainnet: true,
   evm: true,
   pangolin_is_live: false,
   tracked_by_debank: false,
