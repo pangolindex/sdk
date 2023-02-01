@@ -25,7 +25,8 @@ export enum ChainId {
   OP = 10,
   XDAI = 100,
   COSTON2 = 114,
-  EVMOS_TESTNET = 9000
+  EVMOS_TESTNET = 9000,
+  EVMOS_MAINNET = 9001
 }
 
 export enum StakingType {
@@ -707,12 +708,42 @@ export const EVMOS_MAINNET: Chain = {
   tracked_by_debank: false,
   supported_by_gelato: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
+  contracts: {
+    png: '',
+    factory: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
+    router: '0x3dC36E8244e9A9aeF85129475015db6F4aBAa3b8',
+    wrapped_native_token: '0xd4949664cd82660aae99bedc034a0dea8a0bd517',
+    local_multisig: '0xAA7815897586708C157B829300af34c508445E8F',
+    community_treasury: '',
+    treasury_vester: '',
+    mini_chef: {
+      address: '',
+      active: false,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0xa566e7106Fb2b224601773E71c1D93241F965418',
+    fee_collector: '',
+    multicall: '0x259F60251abb18B307FF37FD4DcD3657FCa52074',
+    staking: [
+      {
+        address: '',
+        active: false,
+        reward_token: '',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
     decimals: 18
   },
-  blockExplorerUrls: ['https://evm.evmos.org']
+  blockExplorerUrls: ['https://blockscout.evmos.org']
 }
 
 export const FANTOM_MAINNET: Chain = {
@@ -1904,7 +1935,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
   [ChainId.OP]: OP_MAINNET,
   [ChainId.COSTON2]: COSTON2_TESTNET,
-  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET
+  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
+  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET
 }
 
 export const ALL_CHAINS: Chain[] = [
