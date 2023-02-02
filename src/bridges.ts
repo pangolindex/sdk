@@ -57,5 +57,5 @@ export const BRIDGE_PARTNERS: BridgePartner[] = [
   {
     name: 'Li.Fi',
     logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/lifi.png'
-  },
+  }
 ]
