@@ -648,7 +648,7 @@ export const COSTON_TESTNET: Chain = {
 export const EVMOS_TESTNET: Chain = {
   id: 'evmos_testnet',
   chain_id: 9000,
-  name: 'EVMOS Testnet',
+  name: 'Evmos Testnet',
   symbol: 'tEVMOS',
   png_symbol: 'evmPNG',
   mainnet: false,
@@ -699,7 +699,7 @@ export const EVMOS_TESTNET: Chain = {
 export const EVMOS_MAINNET: Chain = {
   id: 'evmos_mainnet',
   chain_id: 9001,
-  name: 'EVMOS',
+  name: 'Evmos',
   symbol: 'EVMOS',
   mainnet: true,
   evm: true,
