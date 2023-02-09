@@ -1214,6 +1214,7 @@ export const HEDERA_MAINNET: Chain = {
   pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
+  supported_by_twap: false,
   rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
