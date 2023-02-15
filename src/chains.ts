@@ -1176,7 +1176,8 @@ export const HEDERA_TESTNET: Chain = {
     mini_chef: {
       address: '0x0000000000000000000000000000000000000750',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 2
     },
     airdrop: {
       address: '',
@@ -1229,7 +1230,8 @@ export const HEDERA_MAINNET: Chain = {
     mini_chef: {
       address: '0x00000000000000000000000000000000001a88db',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 11
     },
     airdrop: {
       address: '',
