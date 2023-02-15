@@ -1231,7 +1231,7 @@ export const HEDERA_MAINNET: Chain = {
       address: '0x00000000000000000000000000000000001a88db',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 0
+      compoundPoolIdForNonPngFarm: 11
     },
     airdrop: {
       address: '',
