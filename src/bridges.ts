@@ -7,6 +7,11 @@ export interface Bridge {
   fee: number
 }
 
+export interface BridgePartner {
+  name: string
+  logo: string
+}
+
 export const THORSWAP: Bridge = {
   id: 'thorswap',
   name: 'ThorSwap',
@@ -16,7 +21,6 @@ export const THORSWAP: Bridge = {
   fee: 10
 }
 
-//TODO:
 export const LIFI: Bridge = {
   id: 'lifi',
   name: 'LI.FI',
@@ -35,4 +39,36 @@ export const SQUID: Bridge = {
   fee: 0
 }
 
-export const BRIDGES: Bridge[] = [LIFI, SQUID]
+export const RANGO: Bridge = {
+  id: 'rango',
+  name: 'Rango',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/rango.png',
+  aggregator_address: '',
+  affiliate: '',
+  fee: 0
+}
+
+export const BRIDGES: Bridge[] = [LIFI, SQUID, RANGO]
+
+export const BRIDGE_PARTNERS: BridgePartner[] = [
+  {
+    name: 'Squid',
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/squid.png'
+  },
+  {
+    name: 'Axelar',
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/axelar.png'
+  },
+  {
+    name: 'Thorswap',
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/thorswap.png'
+  },
+  {
+    name: 'Li.Fi',
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/lifi.png'
+  },
+  {
+    name: 'Rango',
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/partners/rango.png'
+  }
+]
