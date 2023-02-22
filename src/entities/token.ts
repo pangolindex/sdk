@@ -166,5 +166,12 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     18,
     'WEVMOS',
     'Wrapped Evmos'
+  ),
+  [ChainId.EVMOS_MAINNET]: new Token(
+    ChainId.EVMOS_MAINNET,
+    CHAINS[ChainId.EVMOS_MAINNET].contracts!.wrapped_native_token,
+    18,
+    'WEVMOS',
+    'Wrapped Evmos'
   )
 }
