@@ -743,7 +743,7 @@ export const EVMOS_MAINNET: Chain = {
     symbol: 'EVMOS',
     decimals: 18
   },
-  blockExplorerUrls: ['https://blockscout.evmos.org']
+  blockExplorerUrls: ['https://escan.live']
 }
 
 export const FANTOM_MAINNET: Chain = {
