@@ -26,7 +26,8 @@ export enum ChainId {
   XDAI = 100,
   COSTON2 = 114,
   EVMOS_TESTNET = 9000,
-  EVMOS_MAINNET = 9001
+  EVMOS_MAINNET = 9001,
+  ZKSYNC_TESTNET = 280
 }
 
 export enum StakingType {
@@ -1976,6 +1977,58 @@ export const COSTON2_TESTNET: Chain = {
   blockExplorerUrls: ['https://coston2-explorer.flare.network']
 }
 
+export const ZKSYNC_TESTNET: Chain = {
+  id: 'zksync_testnet',
+  chain_id: ChainId.ZKSYNC_TESTNET,
+  name: 'zkSync Testnet',
+  symbol: 'ETH',
+  png_symbol: 'PZKS',
+  mainnet: false,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/zksync.png',
+  pangolin_is_live: true,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  rpc_uri: 'https://zksync2-testnet.zksync.dev',
+  contracts: {
+    png: '0x8D127AF2E8015841508D9a99c320231EB78CD85E',
+    factory: '0x5eDBAe9fdbE01ba8246e8170E0F3aa4deB080bD3',
+    router: '0x431082C41C8cd3d7eA09D9aD6c6615011a17349A',
+    wrapped_native_token: '0x7C36d1a6Cd054eD821E41F12F9d9dd6Fbe2EA48d',
+    local_multisig: '0xbEf6ec231aA6200569ce84F3fe679F2d2Df7273B',
+    community_treasury: '0x05eE73ED2AAfC0b39c3A24a0a751E6f989B59dA0',
+    treasury_vester: '0x90933D8822cC8F75B968EebAf211F0381A3d1604',
+    mini_chef: {
+      address: '0xEF18B475Eea636a347D6c71E6F2eDa41e26fB1f6',
+      active: true,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '0x6c6D7cEF610eF4e7d73A64c960dF0D098Cd88f83',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0x41399e0a6a26B08ec0951b89d2253aB08eBc9eB0',
+    fee_collector: '0x8294278614264A5BfFE6Fc2311e8cD257335DF7d',
+    multicall: '0xBeCF15F939578a4fe2FE75Cc0A1128Eb3202647a',
+    staking: [
+      {
+        address: '0xBF55A67bd5A1077988a63e817e2C0B8509DfAD08',
+        active: true,
+        reward_token: '0x8D127AF2E8015841508D9a99c320231EB78CD85E',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
+  nativeCurrency: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://goerli.explorer.zksync.io']
+}
+
 export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
@@ -2004,7 +2057,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.OP]: OP_MAINNET,
   [ChainId.COSTON2]: COSTON2_TESTNET,
   [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
-  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET
+  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET,
+  [ChainId.ZKSYNC_TESTNET]: ZKSYNC_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -2068,5 +2122,6 @@ export const ALL_CHAINS: Chain[] = [
   OASIS_TESTNET,
   GODWOKEN_MAINNET,
   GODWOKEN_TESTNET,
-  COSTON2_TESTNET
+  COSTON2_TESTNET,
+  ZKSYNC_TESTNET
 ]
