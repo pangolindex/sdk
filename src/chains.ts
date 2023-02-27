@@ -369,9 +369,9 @@ export const AVALANCHE_FUJI: Chain = {
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     timelock: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
     mini_chef: {
-      address: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
+      address: '0x6de0C3F0EA67530225daF379Ad655EAB20938926',
       active: true,
-      type: ChefType.MINI_CHEF_V2
+      type: ChefType.PANGO_CHEF
     },
     community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
     airdrop: {
@@ -385,10 +385,10 @@ export const AVALANCHE_FUJI: Chain = {
     multicall: '0xb465Fd2d9C71d5D6e6c069aaC9b4E21c69aAA78f',
     staking: [
       {
-        address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
+        address: '0x43c27a9B2857C3AA5522EC2DF8d183F252DbCfE7',
         active: true,
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
-        type: StakingType.LEGACY
+        type: StakingType.SAR_POSITIONS
       }
     ]
   },
