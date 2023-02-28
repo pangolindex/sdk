@@ -2026,7 +2026,7 @@ export const ZKSYNC_TESTNET: Chain = {
     symbol: 'ETH',
     decimals: 18
   },
-  blockExplorerUrls: ['https://goerli.explorer.zksync.io']
+  blockExplorerUrls: ['https://zksync2-testnet.zkscan.io']
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
