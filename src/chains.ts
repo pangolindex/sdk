@@ -101,7 +101,7 @@ export interface Chain {
   subgraph?: {
     exchange?: string
     blocks?: string
-    minichef?: string 
+    minichef?: string
     pangochef?: string
   }
   symbol: string
@@ -1202,6 +1202,8 @@ export const HEDERA_TESTNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
+    exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
@@ -1259,6 +1261,8 @@ export const HEDERA_MAINNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
+    exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
