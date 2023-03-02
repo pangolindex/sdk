@@ -99,7 +99,10 @@ export interface Chain {
   supported_by_twap: boolean
   rpc_uri: string
   subgraph?: {
-    exchange: string
+    exchange?: string
+    blocks?: string
+    minichef?: string 
+    pangochef?: string
   }
   symbol: string
   nativeCurrency: {
@@ -303,7 +306,9 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_twap: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
+    blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -1197,7 +1202,7 @@ export const HEDERA_TESTNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
-    exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x0000000000000000000000000000000000000744',
@@ -1254,7 +1259,7 @@ export const HEDERA_MAINNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
-    exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
