@@ -100,7 +100,10 @@ export interface Chain {
   supported_by_twap: boolean
   rpc_uri: string
   subgraph?: {
-    exchange: string
+    exchange?: string
+    blocks?: string
+    minichef?: string
+    pangochef?: string
   }
   symbol: string
   nativeCurrency: {
@@ -304,7 +307,9 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_twap: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange'
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
+    blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -1197,6 +1202,11 @@ export const HEDERA_TESTNET: Chain = {
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
+  subgraph: {
+    exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+  },
   contracts: {
     png: '0x0000000000000000000000000000000000000744',
     factory: '0x0000000000000000000000000000000000000748',
@@ -1251,6 +1261,11 @@ export const HEDERA_MAINNET: Chain = {
   rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
+  subgraph: {
+    exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+  },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
     factory: '0x00000000000000000000000000000000001a88bc',
