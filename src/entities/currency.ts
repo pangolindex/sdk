@@ -55,7 +55,8 @@ export class Currency {
     [ChainId.MOONBEAM]: new Currency(18, CHAINS[ChainId.MOONBEAM].symbol, CHAINS[ChainId.MOONBEAM].name),
     [ChainId.OP]: new Currency(18, CHAINS[ChainId.OP].symbol, CHAINS[ChainId.OP].name),
     [ChainId.COSTON2]: new Currency(18, CHAINS[ChainId.COSTON2].symbol, CHAINS[ChainId.COSTON2].name),
-    [ChainId.EVMOS_TESTNET]: new Currency(18, CHAINS[ChainId.EVMOS_TESTNET].symbol, CHAINS[ChainId.EVMOS_TESTNET].name)
+    [ChainId.EVMOS_TESTNET]: new Currency(18, CHAINS[ChainId.EVMOS_TESTNET].symbol, CHAINS[ChainId.EVMOS_TESTNET].name),
+    [ChainId.EVMOS_MAINNET]: new Currency(18, CHAINS[ChainId.EVMOS_MAINNET].symbol, CHAINS[ChainId.EVMOS_MAINNET].name)
   }
 
   /**

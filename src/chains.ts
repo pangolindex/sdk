@@ -25,7 +25,8 @@ export enum ChainId {
   OP = 10,
   XDAI = 100,
   COSTON2 = 114,
-  EVMOS_TESTNET = 9000
+  EVMOS_TESTNET = 9000,
+  EVMOS_MAINNET = 9001
 }
 
 export enum StakingType {
@@ -93,7 +94,10 @@ export interface Chain {
   supported_by_bridge: boolean
   rpc_uri: string
   subgraph?: {
-    exchange: string
+    exchange?: string
+    blocks?: string
+    minichef?: string
+    pangochef?: string
   }
   symbol: string
   nativeCurrency: {
@@ -313,7 +317,9 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_bridge: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange'
+    exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
+    blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -692,7 +698,7 @@ export const COSTON_TESTNET: Chain = {
 export const EVMOS_TESTNET: Chain = {
   id: 'evmos_testnet',
   chain_id: 9000,
-  name: 'EVMOS Testnet',
+  name: 'Evmos Testnet',
   symbol: 'tEVMOS',
   png_symbol: 'evmPNG',
   mainnet: false,
@@ -745,22 +751,52 @@ export const EVMOS_TESTNET: Chain = {
 export const EVMOS_MAINNET: Chain = {
   id: 'evmos_mainnet',
   chain_id: 9001,
-  name: 'EVMOS',
+  name: 'Evmos',
   symbol: 'EVMOS',
   mainnet: true,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/evmos.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
+  contracts: {
+    png: '',
+    factory: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
+    router: '0x3dC36E8244e9A9aeF85129475015db6F4aBAa3b8',
+    wrapped_native_token: '0xd4949664cd82660aae99bedc034a0dea8a0bd517',
+    local_multisig: '0xAA7815897586708C157B829300af34c508445E8F',
+    community_treasury: '',
+    treasury_vester: '',
+    mini_chef: {
+      address: '',
+      active: false,
+      type: ChefType.PANGO_CHEF
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0xa566e7106Fb2b224601773E71c1D93241F965418',
+    fee_collector: '',
+    multicall: '0x259F60251abb18B307FF37FD4DcD3657FCa52074',
+    staking: [
+      {
+        address: '',
+        active: false,
+        reward_token: '',
+        type: StakingType.SAR_POSITIONS
+      }
+    ]
+  },
   nativeCurrency: {
     name: 'EVMOS',
     symbol: 'EVMOS',
     decimals: 18
   },
-  blockExplorerUrls: ['https://evm.evmos.org'],
+  blockExplorerUrls: ['https://escan.live'],
   network_type: NetworkType.EVM
 }
 
@@ -1208,6 +1244,11 @@ export const HEDERA_TESTNET: Chain = {
   rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
+  subgraph: {
+    exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+  },
   contracts: {
     png: '0x0000000000000000000000000000000000000744',
     factory: '0x0000000000000000000000000000000000000748',
@@ -1219,7 +1260,8 @@ export const HEDERA_TESTNET: Chain = {
     mini_chef: {
       address: '0x0000000000000000000000000000000000000750',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 2
     },
     airdrop: {
       address: '',
@@ -1262,6 +1304,11 @@ export const HEDERA_MAINNET: Chain = {
   rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
+  subgraph: {
+    exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+  },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
     factory: '0x00000000000000000000000000000000001a88bc',
@@ -1273,7 +1320,8 @@ export const HEDERA_MAINNET: Chain = {
     mini_chef: {
       address: '0x00000000000000000000000000000000001a88db',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 11
     },
     airdrop: {
       address: '',
@@ -2040,7 +2088,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.MOONBEAM]: MOONBEAM_MAINNET,
   [ChainId.OP]: OP_MAINNET,
   [ChainId.COSTON2]: COSTON2_TESTNET,
-  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET
+  [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
+  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET
 }
 
 export const ALL_CHAINS: Chain[] = [
