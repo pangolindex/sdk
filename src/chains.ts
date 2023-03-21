@@ -369,9 +369,9 @@ export const AVALANCHE_FUJI: Chain = {
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     timelock: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
     mini_chef: {
-      address: '0x6de0C3F0EA67530225daF379Ad655EAB20938926',
+      address: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.MINI_CHEF_V2
     },
     community_treasury: '0x3a6e244678f392638876A92DAAa3C56e02dC1080',
     airdrop: {
