@@ -94,6 +94,15 @@ export const _997 = JSBI.BigInt(997)
 export const _998 = JSBI.BigInt(998)
 export const _1000 = JSBI.BigInt(1000)
 
+// constants used internally but not expected to be used externally
+export const NEGATIVE_ONE = JSBI.BigInt(-1)
+
+// used in liquidity amount math
+export const Q96 = JSBI.exponentiate(JSBI.BigInt(2), JSBI.BigInt(96))
+export const Q192 = JSBI.exponentiate(Q96, JSBI.BigInt(2))
+
+export const MaxUint256 = JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+
 export enum SolidityType {
   uint8 = 'uint8',
   uint256 = 'uint256'
