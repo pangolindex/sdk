@@ -136,6 +136,14 @@ export interface Chain {
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
+    concentratedLiquidity?: {
+      factory?: string
+      nftDescriptorLibrary?: string
+      nftDescriptor?: string
+      nftManager?: string
+      swapRouter?: string
+      migrator?: string
+    }
   }
 }
 
@@ -395,7 +403,15 @@ export const AVALANCHE_FUJI: Chain = {
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
         type: StakingType.LEGACY
       }
-    ]
+    ],
+    concentratedLiquidity: {
+      factory: '0x56afa30776c1B13b965516560CE0BBAD3bE5FC91',
+      nftDescriptorLibrary: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
+      nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
+      nftManager: '0x1ff5C8F2499Ea5bc0D2fACBd382cA800f9083361',
+      swapRouter: '0x9da28c0554Bb3666a7e30491b2A11edba569F507',
+      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B'
+    }
   },
   nativeCurrency: {
     name: 'Avalanche',
