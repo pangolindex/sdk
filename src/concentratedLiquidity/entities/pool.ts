@@ -2,7 +2,7 @@ import { Price, Token, TokenAmount } from '../../entities'
 import { BigintIsh } from '../../constants'
 import JSBI from 'jsbi'
 import invariant from 'tiny-invariant'
-import { FACTORY_ADDRESS, FeeAmount, TICK_SPACINGS } from '../constants'
+import { CONCENTRATE_FACTORY_ADDRESS, FeeAmount, TICK_SPACINGS } from '../constants'
 import { NEGATIVE_ONE, ONE, Q192, ZERO } from '../../constants'
 import { computePoolAddress } from '../utils/computePoolAddress'
 import { LiquidityMath } from '../utils/liquidityMath'
@@ -11,6 +11,7 @@ import { TickMath } from '../utils/tickMath'
 import { Tick, TickConstructorArgs } from './tick'
 import { NoTickDataProvider, TickDataProvider } from './tickDataProvider'
 import { TickListDataProvider } from './tickListDataProvider'
+import { ChainId } from '../../chains'
 
 interface StepComputations {
   sqrtPriceStartX96: JSBI
@@ -47,14 +48,16 @@ export class ConcentratedPool {
     tokenB: Token,
     fee: FeeAmount,
     initCodeHashManualOverride?: string,
-    factoryAddressOverride?: string
+    factoryAddressOverride?: string,
+    chainId: ChainId = ChainId.AVALANCHE
   ): string {
     return computePoolAddress({
-      factoryAddress: factoryAddressOverride ?? FACTORY_ADDRESS,
+      factoryAddress: factoryAddressOverride ?? CONCENTRATE_FACTORY_ADDRESS[chainId],
       fee,
       tokenA,
       tokenB,
-      initCodeHashManualOverride
+      initCodeHashManualOverride,
+      chainId
     })
   }
 
