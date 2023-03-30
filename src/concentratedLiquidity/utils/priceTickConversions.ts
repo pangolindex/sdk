@@ -26,7 +26,7 @@ export function tickToPrice(baseToken: Token, quoteToken: Token, tick: number): 
  * @param price for which to return the closest tick that represents a price less than or equal to the input price,
  * i.e. the price of the returned tick is less than or equal to the input price
  */
-export function priceToClosestTick(price: Price): number {
+export function priceToClosestTick(_price: Price): number {
   // const sorted = price.baseCurrency.sortsBefore(price.quoteCurrency)
 
   // const sqrtRatioX96 = sorted
