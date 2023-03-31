@@ -20,8 +20,4 @@ export {
   TickMath,
   computePoolAddress
 } from './concentratedLiquidity/utils'
-export {
-  TICK_SPACINGS,
-  FeeAmount,
-  POOL_INIT_CODE_HASH_MAPPING
-} from './concentratedLiquidity/constants'
+export { TICK_SPACINGS, FeeAmount, POOL_INIT_CODE_HASH_MAPPING } from './concentratedLiquidity/constants'
