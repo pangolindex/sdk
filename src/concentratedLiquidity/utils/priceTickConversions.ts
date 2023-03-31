@@ -1,8 +1,9 @@
 import { Price, Token } from '../../entities'
 import JSBI from 'jsbi'
 import { Q192 } from '../../constants'
-// import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96'
+import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96'
 import { TickMath } from './tickMath'
+import { wrappedCurrency } from './wrappedCurrency'
 
 /**
  * Returns a price object corresponding to the input tick and the base/quote token
@@ -26,24 +27,27 @@ export function tickToPrice(baseToken: Token, quoteToken: Token, tick: number): 
  * @param price for which to return the closest tick that represents a price less than or equal to the input price,
  * i.e. the price of the returned tick is less than or equal to the input price
  */
-export function priceToClosestTick(_price: Price): number {
-  // const sorted = price.baseCurrency.sortsBefore(price.quoteCurrency)
+export function priceToClosestTick(price: Price): number {
+  const baseToken = wrappedCurrency(price.baseCurrency)
+  const quoteToken = wrappedCurrency(price.quoteCurrency)
 
-  // const sqrtRatioX96 = sorted
-  //   ? encodeSqrtRatioX96(price.numerator, price.denominator)
-  //   : encodeSqrtRatioX96(price.denominator, price.numerator)
+  const sorted = baseToken.sortsBefore(quoteToken)
 
-  // let tick = TickMath.getTickAtSqrtRatio(sqrtRatioX96)
-  // const nextTickPrice = tickToPrice(price.baseCurrency, price.quoteCurrency, tick + 1)
-  // if (sorted) {
-  //   if (!price.lessThan(nextTickPrice)) {
-  //     tick++
-  //   }
-  // } else {
-  //   if (!price.greaterThan(nextTickPrice)) {
-  //     tick++
-  //   }
-  // }
-  const tick = 1
+  const sqrtRatioX96 = sorted
+    ? encodeSqrtRatioX96(price.numerator, price.denominator)
+    : encodeSqrtRatioX96(price.denominator, price.numerator)
+
+  let tick = TickMath.getTickAtSqrtRatio(sqrtRatioX96)
+  const nextTickPrice = tickToPrice(baseToken, quoteToken, tick + 1)
+  if (sorted) {
+    if (!price.lessThan(nextTickPrice)) {
+      tick++
+    }
+  } else {
+    if (!price.greaterThan(nextTickPrice)) {
+      tick++
+    }
+  }
+
   return tick
 }

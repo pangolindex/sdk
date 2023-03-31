@@ -1,4 +1,4 @@
-import { ChainId, CHAINS } from '../chains'
+import { ChainId } from '../chains'
 
 /**
  * The default factory enabled fee amounts, denominated in hundredths of bips.
@@ -18,37 +18,6 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.LOW]: 10,
   [FeeAmount.MEDIUM]: 60,
   [FeeAmount.HIGH]: 200
-}
-
-export const CONCENTRATE_FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.FUJI]: CHAINS[ChainId.FUJI].contracts!.factory,
-  [ChainId.AVALANCHE]: CHAINS[ChainId.AVALANCHE].contracts!.factory,
-  [ChainId.WAGMI]: CHAINS[ChainId.WAGMI].contracts!.factory,
-  [ChainId.COSTON]: CHAINS[ChainId.COSTON].contracts!.factory,
-  [ChainId.SONGBIRD]: CHAINS[ChainId.SONGBIRD].contracts!.factory,
-  [ChainId.FLARE_MAINNET]: CHAINS[ChainId.FLARE_MAINNET].contracts!.factory,
-  [ChainId.NEAR_MAINNET]: CHAINS[ChainId.NEAR_MAINNET].contracts!.factory,
-  [ChainId.NEAR_TESTNET]: CHAINS[ChainId.NEAR_TESTNET].contracts!.factory,
-  [ChainId.HEDERA_TESTNET]: CHAINS[ChainId.HEDERA_TESTNET].contracts!.factory,
-  [ChainId.HEDERA_MAINNET]: CHAINS[ChainId.HEDERA_MAINNET].contracts!.factory,
-  [ChainId.ETHEREUM]: '',
-  [ChainId.POLYGON]: '',
-  [ChainId.FANTOM]: '',
-  [ChainId.XDAI]: '',
-  [ChainId.BSC]: '',
-  [ChainId.ARBITRUM]: '',
-  [ChainId.CELO]: '',
-  [ChainId.OKXCHAIN]: '',
-  [ChainId.VELAS]: '',
-  [ChainId.AURORA]: '',
-  [ChainId.CRONOS]: '',
-  [ChainId.FUSE]: '',
-  [ChainId.MOONRIVER]: '',
-  [ChainId.MOONBEAM]: '',
-  [ChainId.OP]: '',
-  [ChainId.COSTON2]: CHAINS[ChainId.COSTON2].contracts!.factory,
-  [ChainId.EVMOS_TESTNET]: CHAINS[ChainId.EVMOS_TESTNET].contracts!.factory,
-  [ChainId.EVMOS_MAINNET]: CHAINS[ChainId.EVMOS_MAINNET].contracts!.factory
 }
 
 export const POOL_INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
