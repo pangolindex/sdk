@@ -103,7 +103,7 @@ export interface Chain {
     blocks?: string
     minichef?: string
     pangochef?: string
-    concetratedLiquidity?: string
+    concentratedLiquidity?: string
   }
   symbol: string
   nativeCurrency: {
@@ -376,7 +376,7 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_twap: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   subgraph: {
-    concetratedLiquidity: 'https://hedera-test.pangolin.network/subgraphs/name/uniswap-v3'
+    concentratedLiquidity: 'https://hedera-test.pangolin.network/subgraphs/name/uniswap-v3'
   },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
