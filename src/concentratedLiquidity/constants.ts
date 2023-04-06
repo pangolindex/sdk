@@ -20,7 +20,7 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.HIGH]: 200
 }
 
-export const POOL_INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
+export const POOL_INIT_CODE_HASH = '0x3fcff66860e53a77b6570a354f8e175e3e01fb76620272df5c59e6cf9bffc577'
 
 export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: POOL_INIT_CODE_HASH,
