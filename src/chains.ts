@@ -144,6 +144,9 @@ export interface Chain {
       nftManager?: string
       swapRouter?: string
       migrator?: string
+      pangolinInterfaceMultical?: string
+      quoterV2?: string
+      tickLens?: string
     }
   }
 }
@@ -414,7 +417,10 @@ export const AVALANCHE_FUJI: Chain = {
       nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
       nftManager: '0x1ff5C8F2499Ea5bc0D2fACBd382cA800f9083361',
       swapRouter: '0x9da28c0554Bb3666a7e30491b2A11edba569F507',
-      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B'
+      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B',
+      pangolinInterfaceMultical: '0xF7456B047932A35EcF87BA502d08fd1D3054A4Ca',
+      quoterV2: '0x984b01B8f661dD175f2212D00aa01D27F2eBA4F1',
+      tickLens: '0x6e8172703338A5E068Dd59E19e02984cC5184A65'
     }
   },
   nativeCurrency: {
