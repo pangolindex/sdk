@@ -96,7 +96,7 @@ const SHORTHAND_USD_TWO_DECIMALS = new Intl.NumberFormat('en-US', {
   style: 'currency'
 })
 
-const SHORTHAND_USD_ONE_DECIMAL = new Intl.NumberFormat('en-US', { 
+const SHORTHAND_USD_ONE_DECIMAL = new Intl.NumberFormat('en-US', {
   //@ts-ignore
   notation: 'compact',
   minimumFractionDigits: 1,
