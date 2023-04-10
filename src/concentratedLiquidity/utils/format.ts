@@ -1,4 +1,4 @@
-import { CurrencyAmount, Price } from '../../index'
+import { CurrencyAmount, NumberType, Price } from '../../index'
 
 import { Nullish } from '../types'
 
@@ -242,45 +242,6 @@ const ntfCollectionStatsFormatter: FormatterRule[] = [
   { upperBound: 1e15, formatter: SHORTHAND_FIVE_DECIMALS_NO_TRAILING_ZEROS },
   { upperBound: Infinity, formatter: '>999T' }
 ]
-
-export enum NumberType {
-  // used for token quantities in non-transaction contexts (e.g. portfolio balances)
-  TokenNonTx = 'token-non-tx',
-
-  // used for token quantities in transaction contexts (e.g. swap, send)
-  TokenTx = 'token-tx',
-
-  // this formatter is only used for displaying the swap trade output amount
-  // in the text input boxes. Output amounts on review screen should use the above TokenTx formatter
-  SwapTradeAmount = 'swap-trade-amount',
-
-  // fiat prices in any component that belongs in the Token Details flow (except for token stats)
-  FiatTokenDetails = 'fiat-token-details',
-
-  // fiat prices everywhere except Token Details flow
-  FiatTokenPrice = 'fiat-token-price',
-
-  // fiat values for market cap, TVL, volume in the Token Details screen
-  FiatTokenStats = 'fiat-token-stats',
-
-  // fiat price of token balances
-  FiatTokenQuantity = 'fiat-token-quantity',
-
-  // fiat gas prices
-  FiatGasPrice = 'fiat-gas-price',
-
-  // portfolio balance
-  PortfolioBalance = 'portfolio-balance',
-
-  // nft floor price denominated in a token (e.g, ETH)
-  NFTTokenFloorPrice = 'nft-token-floor-price',
-
-  // nft collection stats like number of items, holder, and sales
-  NFTCollectionStats = 'nft-collection-stats',
-
-  // nft floor price with trailing zeros
-  NFTTokenFloorPriceTrailingZeros = 'nft-token-floor-price-trailing-zeros'
-}
 
 const TYPE_TO_FORMATTER_RULES = {
   [NumberType.TokenNonTx]: tokenNonTxFormatter,

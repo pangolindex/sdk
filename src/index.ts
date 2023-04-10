@@ -17,7 +17,8 @@ export {
   nearestUsableTick,
   priceToClosestTick,
   tickToPrice,
+  formatPrice,
   TickMath,
   computePoolAddress
 } from './concentratedLiquidity/utils'
-export { TICK_SPACINGS, FeeAmount, POOL_INIT_CODE_HASH_MAPPING } from './concentratedLiquidity/constants'
+export { TICK_SPACINGS, FeeAmount, NumberType, POOL_INIT_CODE_HASH_MAPPING } from './concentratedLiquidity/constants'
