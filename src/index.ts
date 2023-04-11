@@ -10,7 +10,7 @@ export * from './fetcher'
 export * from './chains'
 export * from './bridges'
 
-export { Position, ConcentratedPool } from './concentratedLiquidity/entities'
+export { Position, ConcentratedPool, NonfungiblePositionManager } from './concentratedLiquidity/entities'
 
 export {
   encodeSqrtRatioX96,
