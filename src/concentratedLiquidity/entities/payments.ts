@@ -1,9 +1,9 @@
 import JSBI from 'jsbi'
 import { Interface } from '@ethersproject/abi'
-import IPeripheryPaymentsWithFee from '@uniswap/v3-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json'
+import IPeripheryPaymentsWithFee from '../../abis/concentratedLiquidity/IPeripheryPaymentsWithFee.json'
 import { Percent, Token } from '../../entities'
 import { validateAndParseAddress } from '../../utils'
-import { toHex } from './utils/calldata'
+import { toHex } from '../utils/calldata'
 
 export interface FeeOptions {
   /**
