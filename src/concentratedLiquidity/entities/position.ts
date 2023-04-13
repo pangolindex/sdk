@@ -45,7 +45,7 @@ export class Position {
     this.pool = pool
     this.tickLower = tickLower
     this.tickUpper = tickUpper
-    this.liquidity = JSBI.BigInt(liquidity?.toString())
+    this.liquidity = JSBI.BigInt(liquidity)
   }
 
   /**
@@ -129,7 +129,7 @@ export class Position {
   /**
    * Returns the lower and upper sqrt ratios if the price 'slips' up to slippage tolerance percentage
    * @param slippageTolerance The amount by which the price can 'slip' before the transaction will revert
-   * @returns The sqrt ratios after slippage
+   * @returns The sqrt ratios after slippage ====S
    */
   private ratiosAfterSlippage(slippageTolerance: Percent): { sqrtRatioX96Lower: JSBI; sqrtRatioX96Upper: JSBI } {
     const token0PriceFraction = new Fraction(
@@ -137,8 +137,8 @@ export class Position {
       this.pool.token0Price?.denominator.toString()
     )
 
-    const priceLower = token0PriceFraction.multiply(new Percent('1').subtract(slippageTolerance))
-    const priceUpper = token0PriceFraction.multiply(slippageTolerance.add('1'))
+    const priceLower = token0PriceFraction.multiply(new Percent(1).subtract(slippageTolerance))
+    const priceUpper = token0PriceFraction.multiply(slippageTolerance.add(1))
     let sqrtRatioX96Lower = encodeSqrtRatioX96(priceLower.numerator, priceLower.denominator)
     if (JSBI.lessThanOrEqual(sqrtRatioX96Lower, TickMath.MIN_SQRT_RATIO)) {
       sqrtRatioX96Lower = JSBI.add(TickMath.MIN_SQRT_RATIO, JSBI.BigInt(1))
@@ -169,7 +169,7 @@ export class Position {
       this.pool.token1,
       this.pool.fee,
       sqrtRatioX96Lower,
-      '0' /* liquidity doesn't matter */,
+      0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Lower)
     )
     const poolUpper = new ConcentratedPool(
@@ -177,7 +177,7 @@ export class Position {
       this.pool.token1,
       this.pool.fee,
       sqrtRatioX96Upper,
-      '0' /* liquidity doesn't matter */,
+      0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Upper)
     )
 
@@ -225,7 +225,7 @@ export class Position {
       this.pool.token1,
       this.pool.fee,
       sqrtRatioX96Lower,
-      '0' /* liquidity doesn't matter */,
+      0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Lower)
     )
     const poolUpper = new ConcentratedPool(
@@ -233,7 +233,7 @@ export class Position {
       this.pool.token1,
       this.pool.fee,
       sqrtRatioX96Upper,
-      '0' /* liquidity doesn't matter */,
+      0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Upper)
     )
 
@@ -331,6 +331,7 @@ export class Position {
   }) {
     const sqrtRatioAX96 = TickMath.getSqrtRatioAtTick(tickLower)
     const sqrtRatioBX96 = TickMath.getSqrtRatioAtTick(tickUpper)
+
     return new Position({
       pool,
       tickLower,

@@ -17,10 +17,7 @@ function maxLiquidityForAmount0Imprecise(sqrtRatioAX96: JSBI, sqrtRatioBX96: JSB
     ;[sqrtRatioAX96, sqrtRatioBX96] = [sqrtRatioBX96, sqrtRatioAX96]
   }
   const intermediate = JSBI.divide(JSBI.multiply(sqrtRatioAX96, sqrtRatioBX96), Q96)
-  return JSBI.divide(
-    JSBI.multiply(JSBI.BigInt(amount0?.toString()), intermediate),
-    JSBI.subtract(sqrtRatioBX96, sqrtRatioAX96)
-  )
+  return JSBI.divide(JSBI.multiply(JSBI.BigInt(amount0), intermediate), JSBI.subtract(sqrtRatioBX96, sqrtRatioAX96))
 }
 
 /**
@@ -36,7 +33,7 @@ function maxLiquidityForAmount0Precise(sqrtRatioAX96: JSBI, sqrtRatioBX96: JSBI,
     ;[sqrtRatioAX96, sqrtRatioBX96] = [sqrtRatioBX96, sqrtRatioAX96]
   }
 
-  const numerator = JSBI.multiply(JSBI.multiply(JSBI.BigInt(amount0?.toString()), sqrtRatioAX96), sqrtRatioBX96)
+  const numerator = JSBI.multiply(JSBI.multiply(JSBI.BigInt(amount0), sqrtRatioAX96), sqrtRatioBX96)
   const denominator = JSBI.multiply(Q96, JSBI.subtract(sqrtRatioBX96, sqrtRatioAX96))
 
   return JSBI.divide(numerator, denominator)
@@ -53,7 +50,7 @@ function maxLiquidityForAmount1(sqrtRatioAX96: JSBI, sqrtRatioBX96: JSBI, amount
   if (JSBI.greaterThan(sqrtRatioAX96, sqrtRatioBX96)) {
     ;[sqrtRatioAX96, sqrtRatioBX96] = [sqrtRatioBX96, sqrtRatioAX96]
   }
-  return JSBI.divide(JSBI.multiply(JSBI.BigInt(amount1?.toString()), Q96), JSBI.subtract(sqrtRatioBX96, sqrtRatioAX96))
+  return JSBI.divide(JSBI.multiply(JSBI.BigInt(amount1), Q96), JSBI.subtract(sqrtRatioBX96, sqrtRatioAX96))
 }
 
 /**

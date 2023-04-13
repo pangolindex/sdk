@@ -2,7 +2,7 @@ import JSBI from 'jsbi'
 import { ChainId, CHAINS } from './chains'
 
 // exports for external consumption
-export type BigintIsh = JSBI | bigint | string
+export type BigintIsh = JSBI | number | string
 
 export enum TradeType {
   EXACT_INPUT,

@@ -11,13 +11,13 @@ export interface TickConstructorArgs {
 
 export class Tick {
   public readonly index: number
-  public readonly liquidityGross: BigintIsh
-  public readonly liquidityNet: BigintIsh
+  public readonly liquidityGross: JSBI
+  public readonly liquidityNet: JSBI
 
   constructor({ index, liquidityGross, liquidityNet }: TickConstructorArgs) {
     invariant(index >= TickMath.MIN_TICK && index <= TickMath.MAX_TICK, 'TICK')
     this.index = index
-    this.liquidityGross = JSBI.BigInt(liquidityGross as any)
-    this.liquidityNet = JSBI.BigInt(liquidityNet as any)
+    this.liquidityGross = JSBI.BigInt(liquidityGross)
+    this.liquidityNet = JSBI.BigInt(liquidityNet)
   }
 }

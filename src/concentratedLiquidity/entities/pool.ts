@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Price, Token, TokenAmount } from '../../entities'
 import { BigintIsh } from '../../constants'
 import JSBI from 'jsbi'
@@ -85,15 +86,15 @@ export class ConcentratedPool {
     const tickCurrentSqrtRatioX96 = TickMath.getSqrtRatioAtTick(tickCurrent)
     const nextTickSqrtRatioX96 = TickMath.getSqrtRatioAtTick(tickCurrent + 1)
     invariant(
-      JSBI.greaterThanOrEqual(JSBI.BigInt(sqrtRatioX96?.toString()), tickCurrentSqrtRatioX96) &&
-        JSBI.lessThanOrEqual(JSBI.BigInt(sqrtRatioX96?.toString()), nextTickSqrtRatioX96),
+      JSBI.greaterThanOrEqual(JSBI.BigInt(sqrtRatioX96), tickCurrentSqrtRatioX96) &&
+        JSBI.lessThanOrEqual(JSBI.BigInt(sqrtRatioX96), nextTickSqrtRatioX96),
       'PRICE_BOUNDS'
     )
     // always create a copy of the list since we want the pool's tick list to be immutable
     ;[this.token0, this.token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
     this.fee = fee
-    this.sqrtRatioX96 = JSBI.BigInt(sqrtRatioX96?.toString())
-    this.liquidity = JSBI.BigInt(liquidity?.toString())
+    this.sqrtRatioX96 = JSBI.BigInt(sqrtRatioX96)
+    this.liquidity = JSBI.BigInt(liquidity)
     this.tickCurrent = tickCurrent
     this.tickDataProvider = Array.isArray(ticks) ? new TickListDataProvider(ticks, TICK_SPACINGS[fee]) : ticks
   }
@@ -263,7 +264,7 @@ export class ConcentratedPool {
     }
 
     // start swap while loop
-    while (JSBI.notEqual(state.amountSpecifiedRemaining, ZERO) && state.sqrtPriceX96 !== sqrtPriceLimitX96) {
+    while (JSBI.notEqual(state.amountSpecifiedRemaining, ZERO) && state.sqrtPriceX96 != sqrtPriceLimitX96) {
       let step: Partial<StepComputations> = {}
       step.sqrtPriceStartX96 = state.sqrtPriceX96
 
@@ -310,9 +311,7 @@ export class ConcentratedPool {
       if (JSBI.equal(state.sqrtPriceX96, step.sqrtPriceNextX96)) {
         // if the tick is initialized, run the tick transition
         if (step.initialized) {
-          let liquidityNet = JSBI.BigInt(
-            (await this.tickDataProvider.getTick(Number(step.tickNext?.toString()))).liquidityNet?.toString()
-          )
+          let liquidityNet = JSBI.BigInt((await this.tickDataProvider.getTick(step.tickNext)).liquidityNet)
           // if we're moving leftward, we interpret liquidityNet as the opposite sign
           // safe because liquidityNet cannot be type(int128).min
           if (zeroForOne) liquidityNet = JSBI.multiply(liquidityNet, NEGATIVE_ONE)
@@ -340,3 +339,4 @@ export class ConcentratedPool {
     return TICK_SPACINGS[this.fee]
   }
 }
+/* eslint-enable */
