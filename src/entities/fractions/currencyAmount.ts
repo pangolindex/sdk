@@ -36,6 +36,15 @@ export class CurrencyAmount extends Fraction {
     return this.numerator
   }
 
+  /**
+   * Returns a new currency amount instance from the unitless amount of token, i.e. the raw amount
+   * @param currency the currency in the amount
+   * @param rawAmount the raw token or ether amount
+   */
+  public static fromRawAmount(currency: Currency, rawAmount: BigintIsh): CurrencyAmount {
+    return new CurrencyAmount(currency, rawAmount)
+  }
+
   public add(other: CurrencyAmount): CurrencyAmount {
     invariant(currencyEquals(this.currency, other.currency), 'TOKEN')
     return new CurrencyAmount(this.currency, JSBI.add(this.raw, other.raw))
