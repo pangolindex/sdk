@@ -390,8 +390,12 @@ export abstract class NonfungiblePositionManager {
       ...NonfungiblePositionManager.encodeCollect({
         tokenId: toHex(options.tokenId),
         // add the underlying value to the expected currency already owed
-        expectedCurrencyOwed0: expectedCurrencyOwed0.add(new TokenAmount(expectedCurrencyOwed0.currency as Token, amount0Min)),
-        expectedCurrencyOwed1: expectedCurrencyOwed1.add(new TokenAmount(expectedCurrencyOwed1.currency as Token, amount1Min)),
+        expectedCurrencyOwed0: expectedCurrencyOwed0.add(
+          new TokenAmount(expectedCurrencyOwed0.currency as Token, amount0Min)
+        ),
+        expectedCurrencyOwed1: expectedCurrencyOwed1.add(
+          new TokenAmount(expectedCurrencyOwed1.currency as Token, amount1Min)
+        ),
         ...rest
       })
     )
