@@ -14,6 +14,15 @@ export class TokenAmount extends CurrencyAmount {
     this.token = token
   }
 
+  /**
+   * Returns a new token amount instance from the unitless amount of token, i.e. the raw amount
+   * @param token the token in the amount
+   * @param rawAmount the raw token or ether amount
+   */
+  public static fromRawAmount(token: Token, rawAmount: BigintIsh): TokenAmount {
+    return new TokenAmount(token, rawAmount)
+  }
+
   public add(other: TokenAmount): TokenAmount {
     invariant(this.token.equals(other.token), 'TOKEN')
     return new TokenAmount(this.token, JSBI.add(this.raw, other.raw))
