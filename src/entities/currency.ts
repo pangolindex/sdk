@@ -18,8 +18,6 @@ export class Currency {
    * The only instance of the base class `Currency`.
    */
 
-  //$ public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
-
   public static readonly CURRENCY: { [chainId in ChainId]: Currency } = {
     [ChainId.FUJI]: new Currency(18, CHAINS[ChainId.FUJI].symbol, CHAINS[ChainId.FUJI].name),
     [ChainId.AVALANCHE]: new Currency(18, CHAINS[ChainId.AVALANCHE].symbol, CHAINS[ChainId.AVALANCHE].name),
@@ -71,6 +69,15 @@ export class Currency {
     this.decimals = decimals
     this.symbol = symbol
     this.name = name
+  }
+
+  public equals(other: Currency): boolean {
+    // short circuit on reference equality
+    if (this === other) {
+      return true
+    }
+    // TODO: Ideally compare via a unique identifier such as chainId (since only 1 currency per chainId)
+    return other.decimals === this.decimals && other.symbol === this.symbol && other.name === this.name
   }
 }
 
