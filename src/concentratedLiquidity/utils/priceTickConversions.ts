@@ -4,6 +4,7 @@ import { Q192 } from '../../constants'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96'
 import { TickMath } from './tickMath'
 import { wrappedCurrency } from './wrappedCurrency'
+import { ChainId } from '../../chains'
 
 /**
  * Returns a price object corresponding to the input tick and the base/quote token
@@ -28,8 +29,9 @@ export function tickToPrice(baseToken: Token, quoteToken: Token, tick: number): 
  * i.e. the price of the returned tick is less than or equal to the input price
  */
 export function priceToClosestTick(price: Price): number {
-  const baseToken = wrappedCurrency(price.baseCurrency)
-  const quoteToken = wrappedCurrency(price.quoteCurrency)
+  const dummyChainId = ChainId.ETHEREUM
+  const baseToken = wrappedCurrency(price.baseCurrency, dummyChainId)
+  const quoteToken = wrappedCurrency(price.quoteCurrency, dummyChainId)
 
   const sorted = baseToken.sortsBefore(quoteToken)
 

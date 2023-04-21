@@ -12,7 +12,7 @@ import { TickMath } from '../utils/tickMath'
 import { Tick, TickConstructorArgs } from './tick'
 import { NoTickDataProvider, TickDataProvider } from './tickDataProvider'
 import { TickListDataProvider } from './tickListDataProvider'
-import { ChainId, CHAINS } from '../../chains'
+import { CHAINS } from '../../chains'
 
 interface StepComputations {
   sqrtPriceStartX96: JSBI
@@ -49,9 +49,9 @@ export class ConcentratedPool {
     tokenB: Token,
     fee: FeeAmount,
     initCodeHashManualOverride?: string,
-    factoryAddressOverride?: string,
-    chainId: ChainId = ChainId.AVALANCHE
+    factoryAddressOverride?: string
   ): string {
+    const chainId = tokenA.chainId
     return computePoolAddress({
       factoryAddress: factoryAddressOverride ?? CHAINS[chainId].contracts?.concentratedLiquidity?.factory ?? '',
       fee,

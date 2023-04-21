@@ -9,11 +9,11 @@ import { ZERO_ADDRESS } from '../constants'
  * Represents an ERC20 token with a unique address and some metadata.
  */
 export class Token extends Currency {
-  public readonly chainId: ChainId = ChainId.AVALANCHE
+  public readonly chainId: ChainId
   public readonly address: string
 
   public constructor(
-    chainId: ChainId = ChainId.AVALANCHE,
+    chainId: ChainId,
     address: string,
     decimals: number,
     symbol?: string,
