@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
-import {Currency, Price, Token, WAVAX} from '../../entities'
-import {ConcentratedPool} from './pool'
-import {ChainId} from '../../chains'
+import { Currency, Price, Token, WAVAX } from '../../entities'
+import { ConcentratedPool } from './pool'
+import { ChainId } from '../../chains'
 
 /**
  * Represents a list of pools through which a swap can occur

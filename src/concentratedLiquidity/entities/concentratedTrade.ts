@@ -13,10 +13,7 @@ import { ChainId } from '../../chains'
  * @param b The second trade to compare
  * @returns A sorted ordering for two neighboring elements in a trade array
  */
-export function concentratedTradeComparator(
-  a: ConcentratedTrade,
-  b: ConcentratedTrade
-) {
+export function concentratedTradeComparator(a: ConcentratedTrade, b: ConcentratedTrade) {
   // must have same input and output token for comparison
   invariant(a.inputAmount.currency.equals(b.inputAmount.currency), 'INPUT_CURRENCY')
   invariant(a.outputAmount.currency.equals(b.outputAmount.currency), 'OUTPUT_CURRENCY')
@@ -61,7 +58,7 @@ export class ConcentratedTrade {
    * i.e. which pools the trade goes through.
    */
   public get route(): ConcentratedRoute {
-    invariant(this.swaps.length == 1, 'MULTIPLE_ROUTES')
+    invariant(this.swaps.length === 1, 'MULTIPLE_ROUTES')
     return this.swaps[0].route
   }
 
@@ -186,10 +183,7 @@ export class ConcentratedTrade {
    * @param amountIn The amount being passed in
    * @returns The exact in trade
    */
-  public static async exactIn(
-    route: ConcentratedRoute,
-    amountIn: CurrencyAmount
-  ): Promise<ConcentratedTrade> {
+  public static async exactIn(route: ConcentratedRoute, amountIn: CurrencyAmount): Promise<ConcentratedTrade> {
     return ConcentratedTrade.fromRoute(route, amountIn, TradeType.EXACT_INPUT)
   }
 
@@ -199,10 +193,7 @@ export class ConcentratedTrade {
    * @param amountOut The amount returned by the trade
    * @returns The exact out trade
    */
-  public static async exactOut(
-    route: ConcentratedRoute,
-    amountOut: CurrencyAmount
-  ): Promise<ConcentratedTrade> {
+  public static async exactOut(route: ConcentratedRoute, amountOut: CurrencyAmount): Promise<ConcentratedTrade> {
     return ConcentratedTrade.fromRoute(route, amountOut, TradeType.EXACT_OUTPUT)
   }
 
@@ -345,16 +336,14 @@ export class ConcentratedTrade {
    * @param constructorArguments The arguments passed to the trade constructor
    * @returns The unchecked trade
    */
-  public static createUncheckedTradeWithMultipleRoutes(
-    constructorArguments: {
-      routes: {
-        route: ConcentratedRoute
-        inputAmount: CurrencyAmount
-        outputAmount: CurrencyAmount
-      }[]
-      tradeType: TradeType
-    }
-  ): ConcentratedTrade {
+  public static createUncheckedTradeWithMultipleRoutes(constructorArguments: {
+    routes: {
+      route: ConcentratedRoute
+      inputAmount: CurrencyAmount
+      outputAmount: CurrencyAmount
+    }[]
+    tradeType: TradeType
+  }): ConcentratedTrade {
     return new ConcentratedTrade(constructorArguments)
   }
 
@@ -380,8 +369,8 @@ export class ConcentratedTrade {
     const outputCurrency = routes[0].outputAmount.currency
     const outputCurrencyWrapped = wrappedCurrency(outputCurrency, chainId)
     invariant(
-        routes.every(({ route }) => route.chainId === chainId),
-        'CHAIN_IDS'
+      routes.every(({ route }) => route.chainId === chainId),
+      'CHAIN_IDS'
     )
     invariant(
       routes.every(({ route }) => {
