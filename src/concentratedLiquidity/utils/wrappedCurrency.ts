@@ -4,6 +4,6 @@ import { Currency, CAVAX, Token, WAVAX } from '../../entities'
 
 export function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (currency instanceof Token) return currency
-  if (currency === CAVAX[chainId]) return WAVAX[chainId]
+  if (CAVAX[chainId].equals(currency)) return WAVAX[chainId]
   invariant(false, 'CURRENCY')
 }

@@ -71,6 +71,11 @@ export class Currency {
     this.name = name
   }
 
+  public isNative(chainId: ChainId): boolean {
+    if (!(this instanceof Currency)) return false
+    return this.equals(CAVAX[chainId])
+  }
+
   public equals(other: Currency): boolean {
     // short circuit on reference equality
     if (this === other) {

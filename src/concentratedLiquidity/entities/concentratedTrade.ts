@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant'
 import { Currency, Fraction, Percent, Price, CurrencyAmount, TokenAmount } from '../../entities'
-import { wrappedAmount, wrappedCurrency } from '../utils'
+import { createAmount, wrappedAmount, wrappedCurrency } from '../utils'
 import { sortedInsert } from '../../utils'
 import { ONE, TradeType, BestTradeOptions, ZERO } from '../../constants'
 import { ConcentratedPool as Pool } from './pool'
@@ -101,7 +101,7 @@ export class ConcentratedTrade {
     const inputCurrency = this.swaps[0].inputAmount.currency
     const totalInputFromRoutes = this.swaps
       .map(({ inputAmount }) => inputAmount)
-      .reduce((total, cur) => total.add(cur), CurrencyAmount.fromRawAmount(inputCurrency, 0))
+      .reduce((total, cur) => total.add(cur), createAmount(inputCurrency, 0, this.chainId))
 
     this._inputAmount = totalInputFromRoutes
     return this._inputAmount
@@ -124,7 +124,7 @@ export class ConcentratedTrade {
     const outputCurrency = this.swaps[0].outputAmount.currency
     const totalOutputFromRoutes = this.swaps
       .map(({ outputAmount }) => outputAmount)
-      .reduce((total, cur) => total.add(cur), CurrencyAmount.fromRawAmount(outputCurrency, 0))
+      .reduce((total, cur) => total.add(cur), createAmount(outputCurrency, 0, this.chainId))
 
     this._outputAmount = totalOutputFromRoutes
     return this._outputAmount
@@ -165,7 +165,7 @@ export class ConcentratedTrade {
       return this._priceImpact
     }
 
-    let spotOutputAmount = CurrencyAmount.fromRawAmount(this.outputAmount.currency, 0)
+    let spotOutputAmount = createAmount(this.outputAmount.currency, 0, this.chainId)
     for (const { route, inputAmount } of this.swaps) {
       const midPrice = route.midPrice
       spotOutputAmount = spotOutputAmount.add(midPrice.quote(inputAmount, this.chainId))
@@ -220,14 +220,8 @@ export class ConcentratedTrade {
         const [outputAmount] = await pool.getOutputAmount(amounts[i])
         amounts[i + 1] = outputAmount
       }
-      // inputAmount = route.input instanceof Token
-      //     ? TokenAmount.fromRawAmount(route.input, amount.raw)
-      //     : CurrencyAmount.fromRawAmount(route.input, amount.raw)
-      // outputAmount = route.output instanceof Token
-      //   ? TokenAmount.fromRawAmount(route.output, amounts[amounts.length - 1].raw)
-      //   : CurrencyAmount.fromRawAmount(route.output, amounts[amounts.length - 1].raw)
-      inputAmount = CurrencyAmount.fromRawAmount(route.input, amount.raw)
-      outputAmount = CurrencyAmount.fromRawAmount(route.output, amounts[amounts.length - 1].raw)
+      inputAmount = createAmount(route.input, amount.raw, route.chainId)
+      outputAmount = createAmount(route.output, amounts[amounts.length - 1].raw, route.chainId)
     } else {
       invariant(amount.currency.equals(route.output), 'OUTPUT')
       amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
@@ -236,8 +230,8 @@ export class ConcentratedTrade {
         const [inputAmount] = await pool.getInputAmount(amounts[i])
         amounts[i - 1] = inputAmount
       }
-      inputAmount = CurrencyAmount.fromRawAmount(route.input, amounts[0].raw)
-      outputAmount = CurrencyAmount.fromRawAmount(route.output, amount.raw)
+      inputAmount = createAmount(route.input, amounts[0].raw, route.chainId)
+      outputAmount = createAmount(route.output, amount.raw, route.chainId)
     }
 
     return new ConcentratedTrade({
@@ -273,7 +267,7 @@ export class ConcentratedTrade {
 
       if (tradeType === TradeType.EXACT_INPUT) {
         invariant(amount.currency.equals(route.input), 'INPUT')
-        inputAmount = CurrencyAmount.fromRawAmount(route.input, amount.raw)
+        inputAmount = createAmount(route.input, amount.raw, route.chainId)
         amounts[0] = wrappedAmount(amount, route.chainId as ChainId)
 
         for (let i = 0; i < route.tokenPath.length - 1; i++) {
@@ -282,10 +276,10 @@ export class ConcentratedTrade {
           amounts[i + 1] = outputAmount
         }
 
-        outputAmount = CurrencyAmount.fromRawAmount(route.output, amounts[amounts.length - 1].raw)
+        outputAmount = createAmount(route.output, amounts[amounts.length - 1].raw, route.chainId)
       } else {
         invariant(amount.currency.equals(route.output), 'OUTPUT')
-        outputAmount = CurrencyAmount.fromRawAmount(route.output, amount.raw)
+        outputAmount = createAmount(route.output, amount.raw, route.chainId)
         amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
 
         for (let i = route.tokenPath.length - 1; i > 0; i--) {
@@ -294,7 +288,7 @@ export class ConcentratedTrade {
           amounts[i - 1] = inputAmount
         }
 
-        inputAmount = CurrencyAmount.fromRawAmount(route.input, amounts[0].raw)
+        inputAmount = createAmount(route.input, amounts[0].raw, route.chainId)
       }
 
       populatedRoutes.push({ route, inputAmount, outputAmount })
@@ -413,7 +407,7 @@ export class ConcentratedTrade {
         .add(slippageTolerance)
         .invert()
         .multiply(amountOut.raw).quotient
-      return CurrencyAmount.fromRawAmount(amountOut.currency, slippageAdjustedAmountOut)
+      return createAmount(amountOut.currency, slippageAdjustedAmountOut, this.chainId)
     }
   }
 
@@ -428,7 +422,7 @@ export class ConcentratedTrade {
       return amountIn
     } else {
       const slippageAdjustedAmountIn = new Fraction(ONE).add(slippageTolerance).multiply(amountIn.raw).quotient
-      return CurrencyAmount.fromRawAmount(amountIn.currency, slippageAdjustedAmountIn)
+      return createAmount(amountIn.currency, slippageAdjustedAmountIn, this.chainId)
     }
   }
 

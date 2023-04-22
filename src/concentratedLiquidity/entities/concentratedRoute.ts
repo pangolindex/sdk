@@ -1,7 +1,8 @@
 import invariant from 'tiny-invariant'
-import { Currency, Price, Token, WAVAX } from '../../entities'
+import { Currency, Price, Token } from '../../entities'
 import { ConcentratedPool } from './pool'
 import { ChainId } from '../../chains'
+import { wrappedCurrency } from '../utils'
 
 /**
  * Represents a list of pools through which a swap can occur
@@ -29,10 +30,10 @@ export class ConcentratedRoute {
     const allOnSameChain = pools.every(pool => pool.chainId === chainId)
     invariant(allOnSameChain, 'CHAIN_IDS')
 
-    const wrappedInput: Token = input instanceof Token ? input : WAVAX[chainId]
+    const wrappedInput: Token = wrappedCurrency(input, chainId)
     invariant(pools[0].involvesToken(wrappedInput), 'INPUT')
 
-    const wrappedOutput: Token = output instanceof Token ? output : WAVAX[chainId]
+    const wrappedOutput: Token = wrappedCurrency(output, chainId)
     invariant(pools[pools.length - 1].involvesToken(wrappedOutput), 'OUTPUT')
 
     /**
