@@ -1,4 +1,5 @@
 export * from './computePoolAddress'
+export * from './encodeRouteToPath'
 export * from './encodeSqrtRatioX96'
 export * from './fullMath'
 export * from './isSorted'
