@@ -743,12 +743,12 @@ export const EVMOS_TESTNET: Chain = {
     concentratedLiquidity: {
       factory: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
       nftDescriptorLibrary: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
-      nftDescriptor: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
-      nftManager: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308',
-      swapRouter: '0x5d29aDabe7a49cB27a2c8d2Db62814B88F25501c',
-      migrator: '0x112FBa5EB3D944d8F81D0cF37f17DF6323B3C034',
+      nftDescriptor: '0x003eD59911C4e50ACaB9c2c4d1A46026C95a4320',
+      nftManager: '0x290593624b60D5c8EBf329344343d2cD21c46Cf3',
+      swapRouter: '0xa0C70D6Ac3FCBeA51c8126E049a9fed560504148',
+      migrator: '0xacA1a5601082F544299C80421FE69b08334d71c6',
       pangolinInterfaceMultical: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
-      quoterV2: '0x26676fDEB6784844D7D26555A9EAE0a50C04EFC3',
+      quoterV2: '0x9c331881b0e91ec4651b924c184EA3E8A759e32F',
       tickLens: '0xa29aa1b4ea54f82fCA30F617aCAd472faD0148DB'
     }
   },
