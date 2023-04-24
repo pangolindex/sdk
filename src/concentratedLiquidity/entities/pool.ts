@@ -12,7 +12,7 @@ import { TickMath } from '../utils/tickMath'
 import { Tick, TickConstructorArgs } from './tick'
 import { NoTickDataProvider, TickDataProvider } from './tickDataProvider'
 import { TickListDataProvider } from './tickListDataProvider'
-import { ChainId, CHAINS } from '../../chains'
+import { CHAINS } from '../../chains'
 
 interface StepComputations {
   sqrtPriceStartX96: JSBI
@@ -49,9 +49,9 @@ export class ConcentratedPool {
     tokenB: Token,
     fee: FeeAmount,
     initCodeHashManualOverride?: string,
-    factoryAddressOverride?: string,
-    chainId: ChainId = ChainId.AVALANCHE
+    factoryAddressOverride?: string
   ): string {
+    const chainId = tokenA.chainId
     return computePoolAddress({
       factoryAddress: factoryAddressOverride ?? CHAINS[chainId].contracts?.concentratedLiquidity?.factory ?? '',
       fee,
@@ -171,7 +171,7 @@ export class ConcentratedPool {
 
     const { amountCalculated: outputAmount, sqrtRatioX96, liquidity, tickCurrent } = await this.swap(
       zeroForOne,
-      inputAmount.quotient,
+      inputAmount.raw,
       sqrtPriceLimitX96
     )
     const outputToken = zeroForOne ? this.token1 : this.token0
@@ -205,7 +205,7 @@ export class ConcentratedPool {
 
     const { amountCalculated: inputAmount, sqrtRatioX96, liquidity, tickCurrent } = await this.swap(
       zeroForOne,
-      JSBI.multiply(outputAmount.quotient, NEGATIVE_ONE),
+      JSBI.multiply(outputAmount.raw, NEGATIVE_ONE),
       sqrtPriceLimitX96
     )
     const inputToken = zeroForOne ? this.token0 : this.token1

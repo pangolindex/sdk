@@ -19,7 +19,7 @@ export class CurrencyAmount extends Fraction {
    * @param amount ether amount in wei
    * @param chainId
    */
-  public static ether(amount: BigintIsh, chainId: ChainId = ChainId.AVALANCHE): CurrencyAmount {
+  public static ether(amount: BigintIsh, chainId: ChainId): CurrencyAmount {
     return new CurrencyAmount(CAVAX[chainId], amount)
   }
 

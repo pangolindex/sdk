@@ -9,6 +9,13 @@ export enum TradeType {
   EXACT_OUTPUT
 }
 
+export interface BestTradeOptions {
+  // how many results to return
+  maxNumResults?: number
+  // the maximum number of hops a trade should contain
+  maxHops?: number
+}
+
 export enum Rounding {
   ROUND_DOWN,
   ROUND_HALF_UP,

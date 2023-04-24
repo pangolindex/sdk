@@ -10,15 +10,6 @@ export * from './fetcher'
 export * from './chains'
 export * from './bridges'
 
-export { Position, ConcentratedPool, NonfungiblePositionManager } from './concentratedLiquidity/entities'
-
-export {
-  encodeSqrtRatioX96,
-  nearestUsableTick,
-  priceToClosestTick,
-  tickToPrice,
-  formatPrice,
-  TickMath,
-  computePoolAddress
-} from './concentratedLiquidity/utils'
-export { TICK_SPACINGS, FeeAmount, NumberType, POOL_INIT_CODE_HASH_MAPPING } from './concentratedLiquidity/constants'
+export * from './concentratedLiquidity/constants'
+export * from './concentratedLiquidity/entities'
+export * from './concentratedLiquidity/utils'
