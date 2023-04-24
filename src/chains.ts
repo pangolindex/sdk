@@ -739,7 +739,18 @@ export const EVMOS_TESTNET: Chain = {
         reward_token: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    concentratedLiquidity: {
+      factory: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
+      nftDescriptorLibrary: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
+      nftDescriptor: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
+      nftManager: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308',
+      swapRouter: '0x5d29aDabe7a49cB27a2c8d2Db62814B88F25501c',
+      migrator: '0x112FBa5EB3D944d8F81D0cF37f17DF6323B3C034',
+      pangolinInterfaceMultical: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
+      quoterV2: '0x26676fDEB6784844D7D26555A9EAE0a50C04EFC3',
+      tickLens: '0xa29aa1b4ea54f82fCA30F617aCAd472faD0148DB'
+    }
   },
   nativeCurrency: {
     name: 'EVMOS',

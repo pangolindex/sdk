@@ -49,7 +49,7 @@ export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.MOONBEAM]: '',
   [ChainId.OP]: '',
   [ChainId.COSTON2]: POOL_INIT_CODE_HASH,
-  [ChainId.EVMOS_TESTNET]: POOL_INIT_CODE_HASH,
+  [ChainId.EVMOS_TESTNET]: '0x000cbf4d86001640860651f244cd69869becc83c6dd9e7210bb7e7ef89c5e3fd',
   [ChainId.EVMOS_MAINNET]: POOL_INIT_CODE_HASH
 }
 
