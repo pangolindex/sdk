@@ -1,4 +1,5 @@
-import { Currency } from './currency'
+import { ChainId } from 'chains'
+import { CAVAX, Currency } from './currency'
 
 /**
  * A currency is any fungible financial instrument on any blockchain.
@@ -31,5 +32,23 @@ export class BridgeCurrency extends Currency {
     this.address = address
     this.chainId = chainId
     this.logo = logo
+  }
+
+  public equals(other: BridgeCurrency): boolean {
+    // short circuit on reference equality
+    if (this === other) {
+      return true
+    }
+    return other.chainId === this.chainId && other.address === this.address
+  }
+
+  public isNative(chainId: ChainId): boolean {
+    const nativeCurrency = CAVAX[chainId]
+    if (!nativeCurrency) return false
+    return (
+      nativeCurrency.decimals === this.decimals &&
+      nativeCurrency.symbol === this.symbol &&
+      nativeCurrency.name === this.name
+    )
   }
 }
