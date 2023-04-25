@@ -2,7 +2,7 @@ import { ChainId } from 'chains'
 import { CAVAX, Currency } from './currency'
 
 /**
- * A currency is any fungible financial instrument on any blockchain.
+ * A BridgeCurrency is any fungible financial instrument on any blockchain.
  *
  */
 export class BridgeCurrency extends Currency {
@@ -11,7 +11,6 @@ export class BridgeCurrency extends Currency {
   public readonly logo?: string
 
   /**
-   * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
    * @param chainId chainId of the currency
    * @param address of the currency
    * @param logo of the currency
@@ -19,7 +18,7 @@ export class BridgeCurrency extends Currency {
    * @param symbol of the currency
    * @param name of the currency
    */
-  protected constructor(
+  public constructor(
     address: string,
     chainId: string,
     decimals: number,
