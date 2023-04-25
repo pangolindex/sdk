@@ -2,7 +2,7 @@ import { Interface } from '@ethersproject/abi'
 import invariant from 'tiny-invariant'
 import { ZERO_ADDRESS, BigintIsh, TradeType } from '../../constants'
 import { PermitOptions, SelfPermit } from './selfPermit'
-import { createAmount, encodeRouteToPath, wrappedCurrency } from '../utils'
+import { createAmount, currencyIsNative, encodeRouteToPath, wrappedCurrency } from '../utils'
 import { validateAndParseAddress } from '../../utils'
 import { MethodParameters, toHex } from '../utils/calldata'
 import ISwapRouter from '../../abis/concentratedLiquidity/ISwapRouter.json'
@@ -98,10 +98,11 @@ export abstract class SwapRouter {
 
     // flag for whether a refund needs to happen
     const mustRefund =
-      sampleTrade.inputAmount.currency.isNative(sampleChainId) && sampleTrade.tradeType === TradeType.EXACT_OUTPUT
-    const inputIsNative = sampleTrade.inputAmount.currency.isNative(sampleChainId)
+      currencyIsNative(sampleTrade.inputAmount.currency, sampleChainId) &&
+      sampleTrade.tradeType === TradeType.EXACT_OUTPUT
+    const inputIsNative = currencyIsNative(sampleTrade.inputAmount.currency, sampleChainId)
     // flags for whether funds should be sent first to the router
-    const outputIsNative = sampleTrade.outputAmount.currency.isNative(sampleChainId)
+    const outputIsNative = currencyIsNative(sampleTrade.outputAmount.currency, sampleChainId)
     const routerMustCustody = outputIsNative || !!options.fee
 
     const totalValue: CurrencyAmount = inputIsNative
@@ -110,7 +111,7 @@ export abstract class SwapRouter {
 
     // encode permit if necessary
     if (options.inputTokenPermit) {
-      invariant(!sampleTrade.inputAmount.currency.isNative(sampleChainId), 'NON_TOKEN_PERMIT')
+      invariant(!currencyIsNative(sampleTrade.inputAmount.currency, sampleChainId), 'NON_TOKEN_PERMIT')
       calldatas.push(
         SelfPermit.encodePermit(
           wrappedCurrency(sampleTrade.inputAmount.currency, sampleTrade.chainId),

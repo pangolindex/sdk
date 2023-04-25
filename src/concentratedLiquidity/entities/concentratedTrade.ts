@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant'
 import { Currency, Fraction, Percent, Price, CurrencyAmount, TokenAmount } from '../../entities'
-import { createAmount, wrappedAmount, wrappedCurrency } from '../utils'
+import { createAmount, currencyIsEqual, wrappedAmount, wrappedCurrency } from '../utils'
 import { sortedInsert } from '../../utils'
 import { ONE, TradeType, BestTradeOptions, ZERO } from '../../constants'
 import { ConcentratedPool as Pool } from './pool'
@@ -15,8 +15,8 @@ import { ChainId } from '../../chains'
  */
 export function concentratedTradeComparator(a: ConcentratedTrade, b: ConcentratedTrade) {
   // must have same input and output token for comparison
-  invariant(a.inputAmount.currency.equals(b.inputAmount.currency), 'INPUT_CURRENCY')
-  invariant(a.outputAmount.currency.equals(b.outputAmount.currency), 'OUTPUT_CURRENCY')
+  invariant(currencyIsEqual(a.inputAmount.currency, b.inputAmount.currency), 'INPUT_CURRENCY')
+  invariant(currencyIsEqual(a.outputAmount.currency, b.outputAmount.currency), 'OUTPUT_CURRENCY')
   if (a.outputAmount.equalTo(b.outputAmount)) {
     if (a.inputAmount.equalTo(b.inputAmount)) {
       // consider the number of hops since each hop costs gas
@@ -213,7 +213,7 @@ export class ConcentratedTrade {
     let inputAmount: CurrencyAmount
     let outputAmount: CurrencyAmount
     if (tradeType === TradeType.EXACT_INPUT) {
-      invariant(amount.currency.equals(route.input), 'INPUT')
+      invariant(currencyIsEqual(amount.currency, route.input), 'INPUT')
       amounts[0] = wrappedAmount(amount, route.chainId as ChainId)
       for (let i = 0; i < route.tokenPath.length - 1; i++) {
         const pool = route.pools[i]
@@ -223,7 +223,7 @@ export class ConcentratedTrade {
       inputAmount = createAmount(route.input, amount.raw, route.chainId)
       outputAmount = createAmount(route.output, amounts[amounts.length - 1].raw, route.chainId)
     } else {
-      invariant(amount.currency.equals(route.output), 'OUTPUT')
+      invariant(currencyIsEqual(amount.currency, route.output), 'OUTPUT')
       amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
       for (let i = route.tokenPath.length - 1; i > 0; i--) {
         const pool = route.pools[i - 1]
@@ -266,7 +266,7 @@ export class ConcentratedTrade {
       let outputAmount: CurrencyAmount
 
       if (tradeType === TradeType.EXACT_INPUT) {
-        invariant(amount.currency.equals(route.input), 'INPUT')
+        invariant(currencyIsEqual(amount.currency, route.input), 'INPUT')
         inputAmount = createAmount(route.input, amount.raw, route.chainId)
         amounts[0] = wrappedAmount(amount, route.chainId as ChainId)
 
@@ -278,7 +278,7 @@ export class ConcentratedTrade {
 
         outputAmount = createAmount(route.output, amounts[amounts.length - 1].raw, route.chainId)
       } else {
-        invariant(amount.currency.equals(route.output), 'OUTPUT')
+        invariant(currencyIsEqual(amount.currency, route.output), 'OUTPUT')
         outputAmount = createAmount(route.output, amount.raw, route.chainId)
         amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
 

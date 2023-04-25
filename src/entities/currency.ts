@@ -70,20 +70,6 @@ export class Currency {
     this.symbol = symbol
     this.name = name
   }
-
-  public isNative(chainId: ChainId): boolean {
-    if (!(this instanceof Currency)) return false
-    return this.equals(CAVAX[chainId])
-  }
-
-  public equals(other: Currency): boolean {
-    // short circuit on reference equality
-    if (this === other) {
-      return true
-    }
-    // TODO: Ideally compare via a unique identifier such as chainId (since only 1 currency per chainId)
-    return other.decimals === this.decimals && other.symbol === this.symbol && other.name === this.name
-  }
 }
 
 //$ const CAVAX = Currency.CAVAX
