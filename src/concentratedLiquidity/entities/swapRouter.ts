@@ -134,8 +134,8 @@ export abstract class SwapRouter {
         if (singleHop) {
           if (trade.tradeType === TradeType.EXACT_INPUT) {
             const exactInputSingleParams = {
-              tokenIn: route.tokenPath[0].address,
-              tokenOut: route.tokenPath[1].address,
+              tokenIn: route.path[0].address,
+              tokenOut: route.path[1].address,
               fee: route.pools[0].fee,
               recipient: routerMustCustody ? ZERO_ADDRESS : recipient,
               deadline,
@@ -147,8 +147,8 @@ export abstract class SwapRouter {
             calldatas.push(SwapRouter.INTERFACE.encodeFunctionData('exactInputSingle', [exactInputSingleParams]))
           } else {
             const exactOutputSingleParams = {
-              tokenIn: route.tokenPath[0].address,
-              tokenOut: route.tokenPath[1].address,
+              tokenIn: route.path[0].address,
+              tokenOut: route.path[1].address,
               fee: route.pools[0].fee,
               recipient: routerMustCustody ? ZERO_ADDRESS : recipient,
               deadline,

@@ -9,7 +9,7 @@ import { wrappedCurrency } from '../utils'
  */
 export class ConcentratedRoute {
   public readonly pools: ConcentratedPool[]
-  public readonly tokenPath: Token[]
+  public readonly path: Token[]
   public readonly input: Currency
   public readonly inputWrapped: Token
   public readonly output: Currency
@@ -39,19 +39,19 @@ export class ConcentratedRoute {
     /**
      * Normalizes token0-token1 order and selects the next token/fee step to add to the path
      * */
-    const tokenPath: Token[] = [wrappedInput]
+    const path: Token[] = [wrappedInput]
     for (const [i, pool] of pools.entries()) {
-      const currentInputToken = tokenPath[i]
+      const currentInputToken = path[i]
       invariant(currentInputToken.equals(pool.token0) || currentInputToken.equals(pool.token1), 'PATH')
       const nextToken = currentInputToken.equals(pool.token0) ? pool.token1 : pool.token0
-      tokenPath.push(nextToken)
+      path.push(nextToken)
     }
 
     this.pools = pools
-    this.tokenPath = tokenPath
+    this.path = path
     this.input = input
     this.inputWrapped = wrappedInput
-    this.output = output ?? tokenPath[tokenPath.length - 1]
+    this.output = output ?? path[path.length - 1]
     this.outputWrapped = wrappedOutput
   }
 

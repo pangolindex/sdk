@@ -20,8 +20,8 @@ export function concentratedTradeComparator(a: ConcentratedTrade, b: Concentrate
   if (a.outputAmount.equalTo(b.outputAmount)) {
     if (a.inputAmount.equalTo(b.inputAmount)) {
       // consider the number of hops since each hop costs gas
-      const aHops = a.swaps.reduce((total, cur) => total + cur.route.tokenPath.length, 0)
-      const bHops = b.swaps.reduce((total, cur) => total + cur.route.tokenPath.length, 0)
+      const aHops = a.swaps.reduce((total, cur) => total + cur.route.path.length, 0)
+      const bHops = b.swaps.reduce((total, cur) => total + cur.route.path.length, 0)
       return aHops - bHops
     }
     // trade A requires less input than trade B, so A should come first
@@ -51,11 +51,18 @@ export function concentratedTradeComparator(a: ConcentratedTrade, b: Concentrate
  */
 export class ConcentratedTrade {
   /**
-   * @deprecated Deprecated in favor of 'swaps' property. If the trade consists of multiple routes
+   * This is kind of deprecated method in uni code but we are still using this as
+   * we are not supporting MULTIPLE_ROUTES as of now
+   *
+   * Deprecated in favor of 'swaps' property. If the trade consists of multiple routes
    * this will return an error.
    *
    * When the trade consists of just a single route, this returns the route of the trade,
    * i.e. which pools the trade goes through.
+   *
+   * As of now we are not supporting MULTIPLE_ROUTES, so the invariant should not trigger
+   * in future we might need multiple routes such that some swap will use v2 routing and some
+   * swap will use elixir routing
    */
   public get route(): ConcentratedRoute {
     invariant(this.swaps.length === 1, 'MULTIPLE_ROUTES')
@@ -209,13 +216,13 @@ export class ConcentratedTrade {
     amount: CurrencyAmount,
     tradeType: TradeType
   ): Promise<ConcentratedTrade> {
-    const amounts: TokenAmount[] = new Array(route.tokenPath.length)
+    const amounts: TokenAmount[] = new Array(route.path.length)
     let inputAmount: CurrencyAmount
     let outputAmount: CurrencyAmount
     if (tradeType === TradeType.EXACT_INPUT) {
       invariant(currencyIsEqual(amount.currency, route.input), 'INPUT')
       amounts[0] = wrappedAmount(amount, route.chainId as ChainId)
-      for (let i = 0; i < route.tokenPath.length - 1; i++) {
+      for (let i = 0; i < route.path.length - 1; i++) {
         const pool = route.pools[i]
         const [outputAmount] = await pool.getOutputAmount(amounts[i])
         amounts[i + 1] = outputAmount
@@ -225,7 +232,7 @@ export class ConcentratedTrade {
     } else {
       invariant(currencyIsEqual(amount.currency, route.output), 'OUTPUT')
       amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
-      for (let i = route.tokenPath.length - 1; i > 0; i--) {
+      for (let i = route.path.length - 1; i > 0; i--) {
         const pool = route.pools[i - 1]
         const [inputAmount] = await pool.getInputAmount(amounts[i])
         amounts[i - 1] = inputAmount
@@ -261,7 +268,7 @@ export class ConcentratedTrade {
     }[] = []
 
     for (const { route, amount } of routes) {
-      const amounts: TokenAmount[] = new Array(route.tokenPath.length)
+      const amounts: TokenAmount[] = new Array(route.path.length)
       let inputAmount: CurrencyAmount
       let outputAmount: CurrencyAmount
 
@@ -270,7 +277,7 @@ export class ConcentratedTrade {
         inputAmount = createAmount(route.input, amount.raw, route.chainId)
         amounts[0] = wrappedAmount(amount, route.chainId as ChainId)
 
-        for (let i = 0; i < route.tokenPath.length - 1; i++) {
+        for (let i = 0; i < route.path.length - 1; i++) {
           const pool = route.pools[i]
           const [outputAmount] = await pool.getOutputAmount(amounts[i])
           amounts[i + 1] = outputAmount
@@ -282,7 +289,7 @@ export class ConcentratedTrade {
         outputAmount = createAmount(route.output, amount.raw, route.chainId)
         amounts[amounts.length - 1] = wrappedAmount(amount, route.chainId as ChainId)
 
-        for (let i = route.tokenPath.length - 1; i > 0; i--) {
+        for (let i = route.path.length - 1; i > 0; i--) {
           const pool = route.pools[i - 1]
           const [inputAmount] = await pool.getInputAmount(amounts[i])
           amounts[i - 1] = inputAmount
