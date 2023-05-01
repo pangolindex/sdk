@@ -379,7 +379,7 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_twap: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   subgraph: {
-    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-v3'
+    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-elixir'
   },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
