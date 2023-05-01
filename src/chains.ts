@@ -711,6 +711,9 @@ export const EVMOS_TESTNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  subgraph: {
+    elixir: 'https://graph-evmos-test.pangolin.network/subgraphs/name/evmos-testnet/pangolin-elixir'
+  },
   contracts: {
     png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
     factory: '0x02fD35823a82b8f02e5F2d1a351807B9d1B38c3B',
