@@ -7,10 +7,10 @@ import { tickToPrice } from '../utils/priceTickConversions'
 import { SqrtPriceMath } from '../utils/sqrtPriceMath'
 import { TickMath } from '../utils/tickMath'
 import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96'
-import { ConcentratedPool } from './pool'
+import { ElixirPool } from './pool'
 
 interface PositionConstructorArgs {
-  pool: ConcentratedPool
+  pool: ElixirPool
   tickLower: number
   tickUpper: number
   liquidity: BigintIsh
@@ -20,7 +20,7 @@ interface PositionConstructorArgs {
  * Represents a position on a Uniswap V3 Pool
  */
 export class Position {
-  public readonly pool: ConcentratedPool
+  public readonly pool: ElixirPool
   public readonly tickLower: number
   public readonly tickUpper: number
   public readonly liquidity: JSBI
@@ -164,7 +164,7 @@ export class Position {
     const { sqrtRatioX96Upper, sqrtRatioX96Lower } = this.ratiosAfterSlippage(slippageTolerance)
 
     // construct counterfactual pools
-    const poolLower = new ConcentratedPool(
+    const poolLower = new ElixirPool(
       this.pool.token0,
       this.pool.token1,
       this.pool.fee,
@@ -172,7 +172,7 @@ export class Position {
       0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Lower)
     )
-    const poolUpper = new ConcentratedPool(
+    const poolUpper = new ElixirPool(
       this.pool.token0,
       this.pool.token1,
       this.pool.fee,
@@ -220,7 +220,7 @@ export class Position {
     const { sqrtRatioX96Upper, sqrtRatioX96Lower } = this.ratiosAfterSlippage(slippageTolerance)
 
     // construct counterfactual pools
-    const poolLower = new ConcentratedPool(
+    const poolLower = new ElixirPool(
       this.pool.token0,
       this.pool.token1,
       this.pool.fee,
@@ -228,7 +228,7 @@ export class Position {
       0 /* liquidity doesn't matter */,
       TickMath.getTickAtSqrtRatio(sqrtRatioX96Lower)
     )
-    const poolUpper = new ConcentratedPool(
+    const poolUpper = new ElixirPool(
       this.pool.token0,
       this.pool.token1,
       this.pool.fee,
@@ -322,7 +322,7 @@ export class Position {
     amount1,
     useFullPrecision
   }: {
-    pool: ConcentratedPool
+    pool: ElixirPool
     tickLower: number
     tickUpper: number
     amount0: BigintIsh
@@ -364,7 +364,7 @@ export class Position {
     amount0,
     useFullPrecision
   }: {
-    pool: ConcentratedPool
+    pool: ElixirPool
     tickLower: number
     tickUpper: number
     amount0: BigintIsh
@@ -394,7 +394,7 @@ export class Position {
     tickUpper,
     amount1
   }: {
-    pool: ConcentratedPool
+    pool: ElixirPool
     tickLower: number
     tickUpper: number
     amount1: BigintIsh

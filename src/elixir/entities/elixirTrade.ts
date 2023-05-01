@@ -3,8 +3,8 @@ import { Currency, Fraction, Percent, Price, CurrencyAmount, TokenAmount } from 
 import { createAmount, currencyIsEqual, wrappedAmount, wrappedCurrency } from '../utils'
 import { sortedInsert } from '../../utils'
 import { ONE, TradeType, BestTradeOptions, ZERO } from '../../constants'
-import { ConcentratedPool as Pool } from './pool'
-import { ConcentratedRoute } from './concentratedRoute'
+import { ElixirPool as Pool } from './pool'
+import { ElixirRoute } from './elixirRoute'
 import { ChainId } from '../../chains'
 
 /**
@@ -13,7 +13,7 @@ import { ChainId } from '../../chains'
  * @param b The second trade to compare
  * @returns A sorted ordering for two neighboring elements in a trade array
  */
-export function concentratedTradeComparator(a: ConcentratedTrade, b: ConcentratedTrade) {
+export function elixirTradeComparator(a: ElixirTrade, b: ElixirTrade) {
   // must have same input and output token for comparison
   invariant(currencyIsEqual(a.inputAmount.currency, b.inputAmount.currency), 'INPUT_CURRENCY')
   invariant(currencyIsEqual(a.outputAmount.currency, b.outputAmount.currency), 'OUTPUT_CURRENCY')
@@ -49,7 +49,7 @@ export function concentratedTradeComparator(a: ConcentratedTrade, b: Concentrate
  * Does not account for slippage, i.e., changes in price environment that can occur between
  * the time the trade is submitted and when it is executed.
  */
-export class ConcentratedTrade {
+export class ElixirTrade {
   /**
    * This is kind of deprecated method in uni code but we are still using this as
    * we are not supporting MULTIPLE_ROUTES as of now
@@ -64,7 +64,7 @@ export class ConcentratedTrade {
    * in future we might need multiple routes such that some swap will use v2 routing and some
    * swap will use elixir routing
    */
-  public get route(): ConcentratedRoute {
+  public get route(): ElixirRoute {
     invariant(this.swaps.length === 1, 'MULTIPLE_ROUTES')
     return this.swaps[0].route
   }
@@ -74,7 +74,7 @@ export class ConcentratedTrade {
    * make up the trade.
    */
   public readonly swaps: {
-    route: ConcentratedRoute
+    route: ElixirRoute
     inputAmount: CurrencyAmount
     outputAmount: CurrencyAmount
   }[]
@@ -190,8 +190,8 @@ export class ConcentratedTrade {
    * @param amountIn The amount being passed in
    * @returns The exact in trade
    */
-  public static async exactIn(route: ConcentratedRoute, amountIn: CurrencyAmount): Promise<ConcentratedTrade> {
-    return ConcentratedTrade.fromRoute(route, amountIn, TradeType.EXACT_INPUT)
+  public static async exactIn(route: ElixirRoute, amountIn: CurrencyAmount): Promise<ElixirTrade> {
+    return ElixirTrade.fromRoute(route, amountIn, TradeType.EXACT_INPUT)
   }
 
   /**
@@ -200,8 +200,8 @@ export class ConcentratedTrade {
    * @param amountOut The amount returned by the trade
    * @returns The exact out trade
    */
-  public static async exactOut(route: ConcentratedRoute, amountOut: CurrencyAmount): Promise<ConcentratedTrade> {
-    return ConcentratedTrade.fromRoute(route, amountOut, TradeType.EXACT_OUTPUT)
+  public static async exactOut(route: ElixirRoute, amountOut: CurrencyAmount): Promise<ElixirTrade> {
+    return ElixirTrade.fromRoute(route, amountOut, TradeType.EXACT_OUTPUT)
   }
 
   /**
@@ -212,10 +212,10 @@ export class ConcentratedTrade {
    * @returns The route
    */
   public static async fromRoute(
-    route: ConcentratedRoute,
+    route: ElixirRoute,
     amount: CurrencyAmount,
     tradeType: TradeType
-  ): Promise<ConcentratedTrade> {
+  ): Promise<ElixirTrade> {
     const amounts: TokenAmount[] = new Array(route.path.length)
     let inputAmount: CurrencyAmount
     let outputAmount: CurrencyAmount
@@ -241,7 +241,7 @@ export class ConcentratedTrade {
       outputAmount = createAmount(route.output, amount.raw, route.chainId)
     }
 
-    return new ConcentratedTrade({
+    return new ElixirTrade({
       routes: [{ inputAmount, outputAmount, route }],
       tradeType
     })
@@ -257,12 +257,12 @@ export class ConcentratedTrade {
   public static async fromRoutes(
     routes: {
       amount: CurrencyAmount
-      route: ConcentratedRoute
+      route: ElixirRoute
     }[],
     tradeType: TradeType
-  ): Promise<ConcentratedTrade> {
+  ): Promise<ElixirTrade> {
     const populatedRoutes: {
-      route: ConcentratedRoute
+      route: ElixirRoute
       inputAmount: CurrencyAmount
       outputAmount: CurrencyAmount
     }[] = []
@@ -301,7 +301,7 @@ export class ConcentratedTrade {
       populatedRoutes.push({ route, inputAmount, outputAmount })
     }
 
-    return new ConcentratedTrade({
+    return new ElixirTrade({
       routes: populatedRoutes,
       tradeType
     })
@@ -314,12 +314,12 @@ export class ConcentratedTrade {
    * @returns The unchecked trade
    */
   public static createUncheckedTrade(constructorArguments: {
-    route: ConcentratedRoute
+    route: ElixirRoute
     inputAmount: CurrencyAmount
     outputAmount: CurrencyAmount
     tradeType: TradeType
-  }): ConcentratedTrade {
-    return new ConcentratedTrade({
+  }): ElixirTrade {
+    return new ElixirTrade({
       ...constructorArguments,
       routes: [
         {
@@ -339,13 +339,13 @@ export class ConcentratedTrade {
    */
   public static createUncheckedTradeWithMultipleRoutes(constructorArguments: {
     routes: {
-      route: ConcentratedRoute
+      route: ElixirRoute
       inputAmount: CurrencyAmount
       outputAmount: CurrencyAmount
     }[]
     tradeType: TradeType
-  }): ConcentratedTrade {
-    return new ConcentratedTrade(constructorArguments)
+  }): ElixirTrade {
+    return new ElixirTrade(constructorArguments)
   }
 
   /**
@@ -358,7 +358,7 @@ export class ConcentratedTrade {
     tradeType
   }: {
     routes: {
-      route: ConcentratedRoute
+      route: ElixirRoute
       inputAmount: CurrencyAmount
       outputAmount: CurrencyAmount
     }[]
@@ -470,8 +470,8 @@ export class ConcentratedTrade {
     // used in recursion.
     currentPools: Pool[] = [],
     nextAmountIn: CurrencyAmount = currencyAmountIn,
-    bestTrades: ConcentratedTrade[] = []
-  ): Promise<ConcentratedTrade[]> {
+    bestTrades: ElixirTrade[] = []
+  ): Promise<ElixirTrade[]> {
     invariant(pools.length > 0, 'POOLS')
     invariant(maxHops > 0, 'MAX_HOPS')
     invariant(currencyAmountIn === nextAmountIn || currentPools.length > 0, 'INVALID_RECURSION')
@@ -500,19 +500,19 @@ export class ConcentratedTrade {
       if (amountOut.token.equals(tokenOut)) {
         sortedInsert(
           bestTrades,
-          await ConcentratedTrade.fromRoute(
-            new ConcentratedRoute([...currentPools, pool], currencyAmountIn.currency, currencyOut),
+          await ElixirTrade.fromRoute(
+            new ElixirRoute([...currentPools, pool], currencyAmountIn.currency, currencyOut),
             currencyAmountIn,
             TradeType.EXACT_INPUT
           ),
           maxNumResults,
-          concentratedTradeComparator
+          elixirTradeComparator
         )
       } else if (maxHops > 1 && pools.length > 1) {
         const poolsExcludingThisPool = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
 
         // otherwise, consider all the other paths that lead from this token as long as we have not exceeded maxHops
-        await ConcentratedTrade.bestTradeExactIn(
+        await ElixirTrade.bestTradeExactIn(
           poolsExcludingThisPool,
           currencyAmountIn,
           currencyOut,
@@ -554,8 +554,8 @@ export class ConcentratedTrade {
     // used in recursion.
     currentPools: Pool[] = [],
     nextAmountOut: CurrencyAmount = currencyAmountOut,
-    bestTrades: ConcentratedTrade[] = []
-  ): Promise<ConcentratedTrade[]> {
+    bestTrades: ElixirTrade[] = []
+  ): Promise<ElixirTrade[]> {
     invariant(pools.length > 0, 'POOLS')
     invariant(maxHops > 0, 'MAX_HOPS')
     invariant(currencyAmountOut === nextAmountOut || currentPools.length > 0, 'INVALID_RECURSION')
@@ -583,19 +583,19 @@ export class ConcentratedTrade {
       if (amountIn.token.equals(tokenInWrapped)) {
         sortedInsert(
           bestTrades,
-          await ConcentratedTrade.fromRoute(
-            new ConcentratedRoute([pool, ...currentPools], currencyIn, currencyAmountOut.currency),
+          await ElixirTrade.fromRoute(
+            new ElixirRoute([pool, ...currentPools], currencyIn, currencyAmountOut.currency),
             currencyAmountOut,
             TradeType.EXACT_OUTPUT
           ),
           maxNumResults,
-          concentratedTradeComparator
+          elixirTradeComparator
         )
       } else if (maxHops > 1 && pools.length > 1) {
         const poolsExcludingThisPool = pools.slice(0, i).concat(pools.slice(i + 1, pools.length))
 
         // otherwise, consider all the other paths that arrive at this token as long as we have not exceeded maxHops
-        await ConcentratedTrade.bestTradeExactOut(
+        await ElixirTrade.bestTradeExactOut(
           poolsExcludingThisPool,
           currencyIn,
           currencyAmountOut,

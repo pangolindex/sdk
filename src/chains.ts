@@ -103,7 +103,7 @@ export interface Chain {
     blocks?: string
     minichef?: string
     pangochef?: string
-    concentratedLiquidity?: string
+    elixir?: string
   }
   symbol: string
   nativeCurrency: {
@@ -137,7 +137,7 @@ export interface Chain {
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
-    concentratedLiquidity?: {
+    elixir?: {
       factory?: string
       nftDescriptorLibrary?: string
       nftDescriptor?: string
@@ -379,7 +379,7 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_twap: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   subgraph: {
-    concentratedLiquidity: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-v3'
+    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-v3'
   },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
@@ -411,7 +411,7 @@ export const AVALANCHE_FUJI: Chain = {
         type: StakingType.LEGACY
       }
     ],
-    concentratedLiquidity: {
+    elixir: {
       factory: '0x56afa30776c1B13b965516560CE0BBAD3bE5FC91',
       nftDescriptorLibrary: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
       nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
@@ -740,7 +740,7 @@ export const EVMOS_TESTNET: Chain = {
         type: StakingType.SAR_POSITIONS
       }
     ],
-    concentratedLiquidity: {
+    elixir: {
       factory: '0x5eBa6f88517DcB2A203E211777665Fb1adA3E6F4',
       nftDescriptorLibrary: '0x0FD7c21c9eC2d48F8396F95377172aE58B78543A',
       nftDescriptor: '0x0F9A849e91Fc5556DA49531645059aA3913e676a',

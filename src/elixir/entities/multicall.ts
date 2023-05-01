@@ -1,5 +1,5 @@
 import { Interface } from '@ethersproject/abi'
-import IMulticall from '../../abis/concentratedLiquidity/IMulticall.json'
+import IMulticall from '../../abis/elixir/IMulticall.json'
 
 export abstract class Multicall {
   public static INTERFACE: Interface = new Interface(IMulticall)

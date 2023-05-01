@@ -32,7 +32,7 @@ const NO_TICK_DATA_PROVIDER_DEFAULT = new NoTickDataProvider()
 /**
  * Represents a V3 pool
  */
-export class ConcentratedPool {
+export class ElixirPool {
   public readonly token0: Token
   public readonly token1: Token
   public readonly fee: FeeAmount
@@ -53,7 +53,7 @@ export class ConcentratedPool {
   ): string {
     const chainId = tokenA.chainId
     return computePoolAddress({
-      factoryAddress: factoryAddressOverride ?? CHAINS[chainId].contracts?.concentratedLiquidity?.factory ?? '',
+      factoryAddress: factoryAddressOverride ?? CHAINS[chainId].contracts?.elixir?.factory ?? '',
       fee,
       tokenA,
       tokenB,
@@ -164,7 +164,7 @@ export class ConcentratedPool {
   public async getOutputAmount(
     inputAmount: TokenAmount,
     sqrtPriceLimitX96?: JSBI
-  ): Promise<[TokenAmount, ConcentratedPool]> {
+  ): Promise<[TokenAmount, ElixirPool]> {
     invariant(this.involvesToken(inputAmount.token), 'TOKEN')
 
     const zeroForOne = inputAmount.token.equals(this.token0)
@@ -177,7 +177,7 @@ export class ConcentratedPool {
     const outputToken = zeroForOne ? this.token1 : this.token0
     return [
       new TokenAmount(outputToken, JSBI.multiply(outputAmount, NEGATIVE_ONE)),
-      new ConcentratedPool(
+      new ElixirPool(
         this.token0,
         this.token1,
         this.fee,
@@ -198,7 +198,7 @@ export class ConcentratedPool {
   public async getInputAmount(
     outputAmount: TokenAmount,
     sqrtPriceLimitX96?: JSBI
-  ): Promise<[TokenAmount, ConcentratedPool]> {
+  ): Promise<[TokenAmount, ElixirPool]> {
     invariant(outputAmount.token && this.involvesToken(outputAmount.token), 'TOKEN')
 
     const zeroForOne = outputAmount.token.equals(this.token1)
@@ -211,7 +211,7 @@ export class ConcentratedPool {
     const inputToken = zeroForOne ? this.token0 : this.token1
     return [
       new TokenAmount(inputToken, inputAmount),
-      new ConcentratedPool(
+      new ElixirPool(
         this.token0,
         this.token1,
         this.fee,
