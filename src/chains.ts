@@ -744,15 +744,15 @@ export const EVMOS_TESTNET: Chain = {
       }
     ],
     elixir: {
-      factory: '0x5eBa6f88517DcB2A203E211777665Fb1adA3E6F4',
-      nftDescriptorLibrary: '0x0FD7c21c9eC2d48F8396F95377172aE58B78543A',
-      nftDescriptor: '0x0F9A849e91Fc5556DA49531645059aA3913e676a',
-      nftManager: '0x4AaF5643c4049F457c1921671094403b5532E664',
-      swapRouter: '0x752eA0B562DcE4a7Aa307BDAC67a0d684d8fd5AA',
-      migrator: '0xE2dd3154bF697Ea08271442C10894510f9EbAd91',
-      pangolinInterfaceMulticall: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
-      quoterV2: '0x364D018335df0B3e942d3865afD138e0Fd4aEc93',
-      tickLens: '0xC5833D61506FD30a9861DB01547Ac638E349eC36'
+      factory: '0x052C529c1651afc32575C798DA79fdd41B8569F0',
+      nftDescriptorLibrary: '0xCAe51f56171C4C5ed874B8BFc48490f7e18054ED',
+      nftDescriptor: '0x377D447808Dc78276c9692C5CcB07290a7Be7D51',
+      nftManager: '0x4A8dB8095dd8623CfA765F5Fc59b9C756e56ef94',
+      swapRouter: '0xB111fc7aB82a1b2588Bd35A037B6967d1C9B6753',
+      migrator: '0x36C1123A7D3C2c1Fe05930ccae48379F7364d1fF',
+      pangolinInterfaceMulticall: '0x97301Eb5Ce641E6Eb52B25747eC23BA90E4B88F0',
+      quoterV2: '0x18B932f7BF50ef4Be6a8134c6B5837cDd5Dd3ED5',
+      tickLens: '0xfBd36a64D3Ce194C7dcdFC4f3f6cC3606348fb7A'
     }
   },
   nativeCurrency: {
