@@ -5,10 +5,10 @@ import { PermitOptions, SelfPermit } from './selfPermit'
 import { createAmount, currencyIsNative, encodeRouteToPath, wrappedCurrency } from '../utils'
 import { validateAndParseAddress } from '../../utils'
 import { MethodParameters, toHex } from '../utils/calldata'
-import ISwapRouter from '../../abis/concentratedLiquidity/ISwapRouter.json'
+import ISwapRouter from '../../abis/elixir/ISwapRouter.json'
 import { Multicall } from './multicall'
 import { FeeOptions, Payments } from './payments'
-import { ConcentratedTrade } from './index'
+import { ElixirTrade } from './index'
 import { Percent, CurrencyAmount } from '../../entities'
 import { ChainId } from '../../chains'
 
@@ -64,7 +64,7 @@ export abstract class SwapRouter {
    * @param options options for the call parameters
    */
   public static swapCallParameters(
-    trades: ConcentratedTrade | ConcentratedTrade[],
+    trades: ElixirTrade | ElixirTrade[],
     options: SwapOptions
   ): MethodParameters {
     if (!Array.isArray(trades)) {

@@ -5,10 +5,10 @@ import invariant from 'tiny-invariant'
 import { Position } from './position'
 import { MethodParameters, toHex } from '../utils/calldata'
 import { Interface } from '@ethersproject/abi'
-import INonfungiblePositionManager from '../../abis/concentratedLiquidity/nonfungiblePositionManager.json'
+import INonfungiblePositionManager from '../../abis/elixir/nonfungiblePositionManager.json'
 import { PermitOptions, SelfPermit } from './selfPermit'
 import { ZERO_ADDRESS, ONE, ZERO, BigintIsh } from '../../constants'
-import { ConcentratedPool } from './pool'
+import { ElixirPool } from './pool'
 import { Multicall } from './multicall'
 import { Payments } from './payments'
 import { ChainId } from 'chains'
@@ -175,7 +175,7 @@ export abstract class NonfungiblePositionManager {
    */
   private constructor() {}
 
-  private static encodeCreate(pool: ConcentratedPool): string {
+  private static encodeCreate(pool: ElixirPool): string {
     return NonfungiblePositionManager.INTERFACE.encodeFunctionData('createAndInitializePoolIfNecessary', [
       pool.token0.address,
       pool.token1.address,
@@ -184,7 +184,7 @@ export abstract class NonfungiblePositionManager {
     ])
   }
 
-  public static createCallParameters(pool: ConcentratedPool): MethodParameters {
+  public static createCallParameters(pool: ElixirPool): MethodParameters {
     return {
       calldata: this.encodeCreate(pool),
       value: toHex('0')

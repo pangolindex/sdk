@@ -1,14 +1,14 @@
 import invariant from 'tiny-invariant'
 import { Currency, Price, Token } from '../../entities'
-import { ConcentratedPool } from './pool'
+import { ElixirPool } from './pool'
 import { ChainId } from '../../chains'
 import { wrappedCurrency } from '../utils'
 
 /**
  * Represents a list of pools through which a swap can occur
  */
-export class ConcentratedRoute {
-  public readonly pools: ConcentratedPool[]
+export class ElixirRoute {
+  public readonly pools: ElixirPool[]
   public readonly path: Token[]
   public readonly input: Currency
   public readonly inputWrapped: Token
@@ -19,11 +19,11 @@ export class ConcentratedRoute {
 
   /**
    * Creates an instance of route.
-   * @param pools An array of `ConcentratedPool` objects, ordered by the route the swap will take
+   * @param pools An array of `ElixirPool` objects, ordered by the route the swap will take
    * @param input The input token
    * @param output The output token
    */
-  public constructor(pools: ConcentratedPool[], input: Currency, output: Currency) {
+  public constructor(pools: ElixirPool[], input: Currency, output: Currency) {
     invariant(pools.length > 0, 'POOLS')
 
     const chainId: ChainId = pools[0].chainId

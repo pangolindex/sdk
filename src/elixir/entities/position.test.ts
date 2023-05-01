@@ -4,7 +4,7 @@ import { FeeAmount, TICK_SPACINGS } from '../constants'
 import { encodeSqrtRatioX96 } from '../utils/encodeSqrtRatioX96'
 import { nearestUsableTick } from '../utils/nearestUsableTick'
 import { TickMath } from '../utils/tickMath'
-import { ConcentratedPool } from './pool'
+import { ElixirPool } from './pool'
 import { Position } from './position'
 
 describe('Position', () => {
@@ -13,7 +13,7 @@ describe('Position', () => {
   const POOL_SQRT_RATIO_START = encodeSqrtRatioX96('100e6', '100e18')
   const POOL_TICK_CURRENT = TickMath.getTickAtSqrtRatio(POOL_SQRT_RATIO_START)
   const TICK_SPACING = TICK_SPACINGS[FeeAmount.LOW]
-  const DAI_USDC_POOL = new ConcentratedPool(
+  const DAI_USDC_POOL = new ElixirPool(
     DAI,
     USDC,
     FeeAmount.LOW,
@@ -273,7 +273,7 @@ describe('Position', () => {
 
       it('is correct for pool at min price', () => {
         const position = new Position({
-          pool: new ConcentratedPool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, '0', TickMath.MIN_TICK, []),
+          pool: new ElixirPool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, '0', TickMath.MIN_TICK, []),
           liquidity: '100e18',
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -286,7 +286,7 @@ describe('Position', () => {
 
       it('is correct for pool at max price', () => {
         const position = new Position({
-          pool: new ConcentratedPool(
+          pool: new ElixirPool(
             DAI,
             USDC,
             FeeAmount.LOW,
@@ -396,7 +396,7 @@ describe('Position', () => {
 
       it('is correct for pool at min price', () => {
         const position = new Position({
-          pool: new ConcentratedPool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, '0', TickMath.MIN_TICK, []),
+          pool: new ElixirPool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, '0', TickMath.MIN_TICK, []),
           liquidity: '100e18',
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -409,7 +409,7 @@ describe('Position', () => {
 
       it('is correct for pool at max price', () => {
         const position = new Position({
-          pool: new ConcentratedPool(
+          pool: new ElixirPool(
             DAI,
             USDC,
             FeeAmount.LOW,

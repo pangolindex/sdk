@@ -1,7 +1,7 @@
 import { Token } from '../../entities'
 import { Interface } from '@ethersproject/abi'
 import { BigintIsh } from '../../constants'
-import ISelfPermit from '../../abis/concentratedLiquidity/ISelfPermit.json'
+import ISelfPermit from '../../abis/elixir/ISelfPermit.json'
 import { toHex } from '../utils/calldata'
 
 export interface StandardPermitArguments {

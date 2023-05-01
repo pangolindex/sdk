@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 import { ChainId } from '../../chains'
 import { CurrencyAmount, CAVAX, WAVAX, TokenAmount, Token, Currency } from '../../entities'
 import { BigintIsh } from '../../constants'
-import { currencyIsEqual, currencyIsNative } from '../utils/currencyHelper'
+import { currencyIsEqual, currencyIsNative } from './currencyHelper'
 
 export function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount

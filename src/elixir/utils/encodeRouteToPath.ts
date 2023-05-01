@@ -1,19 +1,19 @@
 import { pack } from '@ethersproject/solidity'
 import { Token } from '../../entities'
-import { ConcentratedPool, ConcentratedRoute } from '../entities'
+import { ElixirPool, ElixirRoute } from '../entities'
 
 /**
  * Converts a route to a hex encoded path
  * @param route the v3 path to convert to an encoded path
  * @param exactOutput whether the route should be encoded in reverse, for making exact output swaps
  */
-export function encodeRouteToPath(route: ConcentratedRoute, exactOutput: boolean): string {
+export function encodeRouteToPath(route: ElixirRoute, exactOutput: boolean): string {
   const firstInputToken: Token = route.inputWrapped
 
   const { path, types } = route.pools.reduce(
     (
       { inputToken, path, types }: { inputToken: Token; path: (string | number)[]; types: string[] },
-      pool: ConcentratedPool,
+      pool: ElixirPool,
       index
     ): { inputToken: Token; path: (string | number)[]; types: string[] } => {
       const outputToken: Token = pool.token0.equals(inputToken) ? pool.token1 : pool.token0
