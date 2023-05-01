@@ -63,10 +63,7 @@ export abstract class SwapRouter {
    * @param trades to produce call parameters for
    * @param options options for the call parameters
    */
-  public static swapCallParameters(
-    trades: ElixirTrade | ElixirTrade[],
-    options: SwapOptions
-  ): MethodParameters {
+  public static swapCallParameters(trades: ElixirTrade | ElixirTrade[], options: SwapOptions): MethodParameters {
     if (!Array.isArray(trades)) {
       trades = [trades]
     }

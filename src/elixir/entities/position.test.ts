@@ -13,15 +13,7 @@ describe('Position', () => {
   const POOL_SQRT_RATIO_START = encodeSqrtRatioX96('100e6', '100e18')
   const POOL_TICK_CURRENT = TickMath.getTickAtSqrtRatio(POOL_SQRT_RATIO_START)
   const TICK_SPACING = TICK_SPACINGS[FeeAmount.LOW]
-  const DAI_USDC_POOL = new ElixirPool(
-    DAI,
-    USDC,
-    FeeAmount.LOW,
-    POOL_SQRT_RATIO_START,
-    '0',
-    POOL_TICK_CURRENT,
-    []
-  )
+  const DAI_USDC_POOL = new ElixirPool(DAI, USDC, FeeAmount.LOW, POOL_SQRT_RATIO_START, '0', POOL_TICK_CURRENT, [])
 
   it('can be constructed around 0 tick', () => {
     const position = new Position({
