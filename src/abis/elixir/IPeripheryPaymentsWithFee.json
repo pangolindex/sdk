@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "IPeripheryPaymentsWithFee",
-  "sourceName": "contracts/pangolinv2-periphery/interfaces/IPeripheryPaymentsWithFee.sol",
+  "sourceName": "contracts/elixir-periphery/interfaces/IPeripheryPaymentsWithFee.sol",
   "abi": [
     {
       "inputs": [],

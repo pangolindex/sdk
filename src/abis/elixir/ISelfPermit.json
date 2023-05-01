@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "ISelfPermit",
-  "sourceName": "contracts/pangolinv2-periphery/interfaces/ISelfPermit.sol",
+  "sourceName": "contracts/elixir-periphery/interfaces/ISelfPermit.sol",
   "abi": [
     {
       "inputs": [
