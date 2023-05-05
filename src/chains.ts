@@ -103,6 +103,7 @@ export interface Chain {
     blocks?: string
     minichef?: string
     pangochef?: string
+    singleStaking?: string
     elixir?: string
   }
   symbol: string
@@ -1244,7 +1245,8 @@ export const HEDERA_TESTNET: Chain = {
   subgraph: {
     exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x0000000000000000000000000000000000000744',
@@ -1303,7 +1305,8 @@ export const HEDERA_MAINNET: Chain = {
   subgraph: {
     exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
