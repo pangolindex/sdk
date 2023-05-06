@@ -1139,7 +1139,7 @@ export const MOONBEAM_MOONBASE: Chain = {
 
 export const NEAR_MAINNET: Chain = {
   id: 'near_mainnet',
-  chain_id: 329847900, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847900, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: true,
@@ -1184,7 +1184,7 @@ export const NEAR_MAINNET: Chain = {
 
 export const NEAR_TESTNET: Chain = {
   id: 'near_testnet',
-  chain_id: 329847901, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847901, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: false,
@@ -1229,7 +1229,7 @@ export const NEAR_TESTNET: Chain = {
 
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
-  chain_id: ChainId.HEDERA_TESTNET, // Hedera actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: ChainId.HEDERA_TESTNET,
   name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
@@ -1258,7 +1258,7 @@ export const HEDERA_TESTNET: Chain = {
       address: '0x000000000000000000000000000000000040b216',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 2
+      compoundPoolIdForNonPngFarm: 0
     },
     airdrop: {
       address: '',
