@@ -98,6 +98,7 @@ export interface Chain {
     blocks?: string
     minichef?: string
     pangochef?: string
+    elixir?: string
   }
   symbol: string
   nativeCurrency: {
@@ -131,6 +132,17 @@ export interface Chain {
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
+    elixir?: {
+      factory?: string
+      nftDescriptorLibrary?: string
+      nftDescriptor?: string
+      nftManager?: string
+      swapRouter?: string
+      migrator?: string
+      pangolinInterfaceMulticall?: string
+      quoterV2?: string
+      tickLens?: string
+    }
   }
   network_type: NetworkType
   sub_network_types?: NetworkType[]
@@ -378,6 +390,9 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
+  subgraph: {
+    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-elixir'
+  },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
     factory: '0x2a496ec9e9bE22e66C61d4Eb9d316beaEE31A77b',
@@ -407,7 +422,18 @@ export const AVALANCHE_FUJI: Chain = {
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
         type: StakingType.LEGACY
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x56afa30776c1B13b965516560CE0BBAD3bE5FC91',
+      nftDescriptorLibrary: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
+      nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
+      nftManager: '0x1ff5C8F2499Ea5bc0D2fACBd382cA800f9083361',
+      swapRouter: '0x9da28c0554Bb3666a7e30491b2A11edba569F507',
+      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B',
+      pangolinInterfaceMulticall: '0xF7456B047932A35EcF87BA502d08fd1D3054A4Ca',
+      quoterV2: '0x984b01B8f661dD175f2212D00aa01D27F2eBA4F1',
+      tickLens: '0x6e8172703338A5E068Dd59E19e02984cC5184A65'
+    }
   },
   nativeCurrency: {
     name: 'Avalanche',
@@ -709,6 +735,9 @@ export const EVMOS_TESTNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  subgraph: {
+    elixir: 'https://graph-evmos-test.pangolin.network/subgraphs/name/evmos-testnet/pangolin-elixir'
+  },
   contracts: {
     png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
     factory: '0x02fD35823a82b8f02e5F2d1a351807B9d1B38c3B',
@@ -737,7 +766,18 @@ export const EVMOS_TESTNET: Chain = {
         reward_token: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x052C529c1651afc32575C798DA79fdd41B8569F0',
+      nftDescriptorLibrary: '0xCAe51f56171C4C5ed874B8BFc48490f7e18054ED',
+      nftDescriptor: '0x377D447808Dc78276c9692C5CcB07290a7Be7D51',
+      nftManager: '0x4A8dB8095dd8623CfA765F5Fc59b9C756e56ef94',
+      swapRouter: '0xB111fc7aB82a1b2588Bd35A037B6967d1C9B6753',
+      migrator: '0x36C1123A7D3C2c1Fe05930ccae48379F7364d1fF',
+      pangolinInterfaceMulticall: '0x97301Eb5Ce641E6Eb52B25747eC23BA90E4B88F0',
+      quoterV2: '0x18B932f7BF50ef4Be6a8134c6B5837cDd5Dd3ED5',
+      tickLens: '0xfBd36a64D3Ce194C7dcdFC4f3f6cC3606348fb7A'
+    }
   },
   nativeCurrency: {
     name: 'EVMOS',
@@ -1321,7 +1361,7 @@ export const HEDERA_MAINNET: Chain = {
       address: '0x00000000000000000000000000000000001a88db',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 11
+      compoundPoolIdForNonPngFarm: 16
     },
     airdrop: {
       address: '',
