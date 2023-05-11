@@ -1140,7 +1140,7 @@ export const MOONBEAM_MOONBASE: Chain = {
 
 export const NEAR_MAINNET: Chain = {
   id: 'near_mainnet',
-  chain_id: 329847900, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847900, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: true,
@@ -1185,7 +1185,7 @@ export const NEAR_MAINNET: Chain = {
 
 export const NEAR_TESTNET: Chain = {
   id: 'near_testnet',
-  chain_id: 329847901, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847901, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: false,
@@ -1230,7 +1230,7 @@ export const NEAR_TESTNET: Chain = {
 
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
-  chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: ChainId.HEDERA_TESTNET,
   name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
@@ -1249,18 +1249,18 @@ export const HEDERA_TESTNET: Chain = {
     singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
-    png: '0x0000000000000000000000000000000000000744',
-    factory: '0x0000000000000000000000000000000000000748',
-    router: '0x000000000000000000000000000000000000074b',
-    wrapped_native_token: '0x000000000000000000000000000000000000073d',
-    local_multisig: '0x0000000000000000000000000000000000000739',
-    community_treasury: '0x0000000000000000000000000000000000000746',
-    treasury_vester: '0x0000000000000000000000000000000000000743',
+    png: '0x000000000000000000000000000000000040b1fa',
+    factory: '0x000000000000000000000000000000000040b204',
+    router: '0x000000000000000000000000000000000040b20d',
+    wrapped_native_token: '0x000000000000000000000000000000000040b1f0',
+    local_multisig: '0x000000000000000000000000000000000040b1eb',
+    community_treasury: '0x000000000000000000000000000000000040b1fc',
+    treasury_vester: '0x000000000000000000000000000000000040b1f9',
     mini_chef: {
-      address: '0x0000000000000000000000000000000000000750',
+      address: '0x000000000000000000000000000000000040b216',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 2
+      compoundPoolIdForNonPngFarm: 0
     },
     airdrop: {
       address: '',
@@ -1269,16 +1269,16 @@ export const HEDERA_TESTNET: Chain = {
     },
     staking: [
       {
-        address: '0x0000000000000000000000000000000000000755',
+        address: '0x000000000000000000000000000000000040b221',
         active: true,
-        reward_token: '0x0000000000000000000000000000000000000744',
+        reward_token: '0x000000000000000000000000000000000040b1fa',
         type: StakingType.SAR_POSITIONS
       }
     ],
-    timelock: '0x0000000000000000000000000000000000000740',
-    governor: '0x000000000000000000000000000000000000075c',
+    timelock: '0x000000000000000000000000000000000040b1f5',
+    governor: '0x000000000000000000000000000000000040b233',
     migrator: '',
-    multicall: '0x0000000000000000000000000000000000000760'
+    multicall: '0x000000000000000000000000000000000040b23a'
   },
   nativeCurrency: {
     name: 'Hbar',
