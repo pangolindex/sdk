@@ -18,8 +18,6 @@ export class Currency {
    * The only instance of the base class `Currency`.
    */
 
-  //$ public static readonly CAVAX: Currency = new Currency(18, 'AVAX', 'Avalanche')
-
   public static readonly CURRENCY: { [chainId in ChainId]: Currency } = {
     [ChainId.FUJI]: new Currency(18, CHAINS[ChainId.FUJI].symbol, CHAINS[ChainId.FUJI].name),
     [ChainId.AVALANCHE]: new Currency(18, CHAINS[ChainId.AVALANCHE].symbol, CHAINS[ChainId.AVALANCHE].name),

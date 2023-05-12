@@ -103,6 +103,8 @@ export interface Chain {
     blocks?: string
     minichef?: string
     pangochef?: string
+    singleStaking?: string
+    elixir?: string
   }
   symbol: string
   nativeCurrency: {
@@ -136,6 +138,17 @@ export interface Chain {
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
+    elixir?: {
+      factory?: string
+      nftDescriptorLibrary?: string
+      nftDescriptor?: string
+      nftManager?: string
+      swapRouter?: string
+      migrator?: string
+      pangolinInterfaceMulticall?: string
+      quoterV2?: string
+      tickLens?: string
+    }
   }
 }
 
@@ -366,6 +379,9 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_gelato: true,
   supported_by_twap: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
+  subgraph: {
+    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-elixir'
+  },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
     factory: '0x2a496ec9e9bE22e66C61d4Eb9d316beaEE31A77b',
@@ -395,7 +411,18 @@ export const AVALANCHE_FUJI: Chain = {
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
         type: StakingType.LEGACY
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x56afa30776c1B13b965516560CE0BBAD3bE5FC91',
+      nftDescriptorLibrary: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
+      nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
+      nftManager: '0x1ff5C8F2499Ea5bc0D2fACBd382cA800f9083361',
+      swapRouter: '0x9da28c0554Bb3666a7e30491b2A11edba569F507',
+      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B',
+      pangolinInterfaceMulticall: '0xF7456B047932A35EcF87BA502d08fd1D3054A4Ca',
+      quoterV2: '0x984b01B8f661dD175f2212D00aa01D27F2eBA4F1',
+      tickLens: '0x6e8172703338A5E068Dd59E19e02984cC5184A65'
+    }
   },
   nativeCurrency: {
     name: 'Avalanche',
@@ -685,6 +712,9 @@ export const EVMOS_TESTNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.dev:8545',
+  subgraph: {
+    elixir: 'https://graph-evmos-test.pangolin.network/subgraphs/name/evmos-testnet/pangolin-elixir'
+  },
   contracts: {
     png: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
     factory: '0x02fD35823a82b8f02e5F2d1a351807B9d1B38c3B',
@@ -713,7 +743,18 @@ export const EVMOS_TESTNET: Chain = {
         reward_token: '0x171a6A80cdDDd8f69134ff0471523400f2C16ABe',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x052C529c1651afc32575C798DA79fdd41B8569F0',
+      nftDescriptorLibrary: '0xCAe51f56171C4C5ed874B8BFc48490f7e18054ED',
+      nftDescriptor: '0x377D447808Dc78276c9692C5CcB07290a7Be7D51',
+      nftManager: '0x4A8dB8095dd8623CfA765F5Fc59b9C756e56ef94',
+      swapRouter: '0xB111fc7aB82a1b2588Bd35A037B6967d1C9B6753',
+      migrator: '0x36C1123A7D3C2c1Fe05930ccae48379F7364d1fF',
+      pangolinInterfaceMulticall: '0x97301Eb5Ce641E6Eb52B25747eC23BA90E4B88F0',
+      quoterV2: '0x18B932f7BF50ef4Be6a8134c6B5837cDd5Dd3ED5',
+      tickLens: '0xfBd36a64D3Ce194C7dcdFC4f3f6cC3606348fb7A'
+    }
   },
   nativeCurrency: {
     name: 'EVMOS',
@@ -1099,7 +1140,7 @@ export const MOONBEAM_MOONBASE: Chain = {
 
 export const NEAR_MAINNET: Chain = {
   id: 'near_mainnet',
-  chain_id: 329847900, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847900, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: true,
@@ -1144,7 +1185,7 @@ export const NEAR_MAINNET: Chain = {
 
 export const NEAR_TESTNET: Chain = {
   id: 'near_testnet',
-  chain_id: 329847901, // NEAR acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: 329847901, // NEAR actually doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
   name: 'Near',
   symbol: `NEAR`,
   mainnet: false,
@@ -1189,7 +1230,7 @@ export const NEAR_TESTNET: Chain = {
 
 export const HEDERA_TESTNET: Chain = {
   id: 'hedera_testnet',
-  chain_id: ChainId.HEDERA_TESTNET, // Hedera acutally doesn't have this concept. So this is our naming convention for non EVM chains without Chain IDs
+  chain_id: ChainId.HEDERA_TESTNET,
   name: 'Hedera Testnet',
   symbol: `HBAR`,
   mainnet: false,
@@ -1204,21 +1245,22 @@ export const HEDERA_TESTNET: Chain = {
   subgraph: {
     exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
-    png: '0x0000000000000000000000000000000000000744',
-    factory: '0x0000000000000000000000000000000000000748',
-    router: '0x000000000000000000000000000000000000074b',
-    wrapped_native_token: '0x000000000000000000000000000000000000073d',
-    local_multisig: '0x0000000000000000000000000000000000000739',
-    community_treasury: '0x0000000000000000000000000000000000000746',
-    treasury_vester: '0x0000000000000000000000000000000000000743',
+    png: '0x000000000000000000000000000000000040b1fa',
+    factory: '0x000000000000000000000000000000000040b204',
+    router: '0x000000000000000000000000000000000040b20d',
+    wrapped_native_token: '0x000000000000000000000000000000000040b1f0',
+    local_multisig: '0x000000000000000000000000000000000040b1eb',
+    community_treasury: '0x000000000000000000000000000000000040b1fc',
+    treasury_vester: '0x000000000000000000000000000000000040b1f9',
     mini_chef: {
-      address: '0x0000000000000000000000000000000000000750',
+      address: '0x000000000000000000000000000000000040b216',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 2
+      compoundPoolIdForNonPngFarm: 0
     },
     airdrop: {
       address: '',
@@ -1227,16 +1269,16 @@ export const HEDERA_TESTNET: Chain = {
     },
     staking: [
       {
-        address: '0x0000000000000000000000000000000000000755',
+        address: '0x000000000000000000000000000000000040b221',
         active: true,
-        reward_token: '0x0000000000000000000000000000000000000744',
+        reward_token: '0x000000000000000000000000000000000040b1fa',
         type: StakingType.SAR_POSITIONS
       }
     ],
-    timelock: '0x0000000000000000000000000000000000000740',
-    governor: '0x000000000000000000000000000000000000075c',
+    timelock: '0x000000000000000000000000000000000040b1f5',
+    governor: '0x000000000000000000000000000000000040b233',
     migrator: '',
-    multicall: '0x0000000000000000000000000000000000000760'
+    multicall: '0x000000000000000000000000000000000040b23a'
   },
   nativeCurrency: {
     name: 'Hbar',
@@ -1263,7 +1305,8 @@ export const HEDERA_MAINNET: Chain = {
   subgraph: {
     exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',

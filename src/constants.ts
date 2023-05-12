@@ -2,11 +2,18 @@ import JSBI from 'jsbi'
 import { ChainId, CHAINS } from './chains'
 
 // exports for external consumption
-export type BigintIsh = JSBI | bigint | string
+export type BigintIsh = JSBI | number | string
 
 export enum TradeType {
   EXACT_INPUT,
   EXACT_OUTPUT
+}
+
+export interface BestTradeOptions {
+  // how many results to return
+  maxNumResults?: number
+  // the maximum number of hops a trade should contain
+  maxHops?: number
 }
 
 export enum Rounding {
@@ -93,6 +100,15 @@ export const _100 = JSBI.BigInt(100)
 export const _997 = JSBI.BigInt(997)
 export const _998 = JSBI.BigInt(998)
 export const _1000 = JSBI.BigInt(1000)
+
+// constants used internally but not expected to be used externally
+export const NEGATIVE_ONE = JSBI.BigInt(-1)
+
+// used in liquidity amount math
+export const Q96 = JSBI.exponentiate(JSBI.BigInt(2), JSBI.BigInt(96))
+export const Q192 = JSBI.exponentiate(Q96, JSBI.BigInt(2))
+
+export const MaxUint256 = JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
 
 export enum SolidityType {
   uint8 = 'uint8',
