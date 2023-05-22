@@ -105,6 +105,7 @@ export interface Chain {
     pangochef?: string
     singleStaking?: string
     elixir?: string
+    governance?: string
   }
   symbol: string
   nativeCurrency: {
@@ -321,7 +322,8 @@ export const AVALANCHE_MAINNET: Chain = {
   subgraph: {
     exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
     blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
-    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy',
+    governance: 'https://api.thegraph.com/subgraphs/name/pangolindex/governance'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
