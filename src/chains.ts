@@ -105,6 +105,7 @@ export interface Chain {
     pangochef?: string
     singleStaking?: string
     elixir?: string
+    governance?: string
   }
   symbol: string
   nativeCurrency: {
@@ -135,6 +136,7 @@ export interface Chain {
     joint_multisig?: string
     revenue_distributor?: string
     governor?: string
+    governor_assistant?: string
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
@@ -321,7 +323,8 @@ export const AVALANCHE_MAINNET: Chain = {
   subgraph: {
     exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
     blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
-    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy',
+    governance: 'https://api.thegraph.com/subgraphs/name/pangolindex/governance'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -1246,7 +1249,8 @@ export const HEDERA_TESTNET: Chain = {
     exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    governance: 'https://hedera-test.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
     png: '0x000000000000000000000000000000000040b1fa',
@@ -1277,6 +1281,7 @@ export const HEDERA_TESTNET: Chain = {
     ],
     timelock: '0x000000000000000000000000000000000040b1f5',
     governor: '0x000000000000000000000000000000000040b233',
+    governor_assistant: '0x000000000000000000000000000000000040b22b',
     migrator: '',
     multicall: '0x000000000000000000000000000000000040b23a'
   },
