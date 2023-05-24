@@ -105,6 +105,7 @@ export interface Chain {
     pangochef?: string
     singleStaking?: string
     elixir?: string
+    governance?: string
   }
   symbol: string
   nativeCurrency: {
@@ -135,6 +136,7 @@ export interface Chain {
     joint_multisig?: string
     revenue_distributor?: string
     governor?: string
+    governor_assistant?: string
     fee_collector?: string
     multicall: string
     staking?: StakingContract[]
@@ -321,7 +323,8 @@ export const AVALANCHE_MAINNET: Chain = {
   subgraph: {
     exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
     blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
-    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy'
+    minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy',
+    governance: 'https://api.thegraph.com/subgraphs/name/pangolindex/governance'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -777,6 +780,10 @@ export const EVMOS_MAINNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
+  subgraph: {
+    exchange: 'https://graph-evmos-main.pangolin.network/subgraphs/name/evmos/pangolin-v2',
+    elixir: 'https://graph-evmos-main.pangolin.network/subgraphs/name/evmos/pangolin-elixir'
+  },
   contracts: {
     png: '',
     factory: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
@@ -805,7 +812,18 @@ export const EVMOS_MAINNET: Chain = {
         reward_token: '',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x43c27a9B2857C3AA5522EC2DF8d183F252DbCfE7',
+      nftDescriptorLibrary: '0x4aFe49a475A2F44A4B40e72078960F7618E6cc79',
+      nftDescriptor: '0xE3efd482eE25010bB8026c34e9B88D18D7ea9f29',
+      nftManager: '0xA9E69C45e7b1925cAB432C3716a8b589Df761662',
+      swapRouter: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
+      migrator: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
+      pangolinInterfaceMulticall: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
+      quoterV2: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
+      tickLens: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308'
+    }
   },
   nativeCurrency: {
     name: 'EVMOS',
@@ -1246,7 +1264,8 @@ export const HEDERA_TESTNET: Chain = {
     exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin'
+    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
+    governance: 'https://hedera-test.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
     png: '0x000000000000000000000000000000000040b1fa',
@@ -1277,6 +1296,7 @@ export const HEDERA_TESTNET: Chain = {
     ],
     timelock: '0x000000000000000000000000000000000040b1f5',
     governor: '0x000000000000000000000000000000000040b233',
+    governor_assistant: '0x000000000000000000000000000000000040b22b',
     migrator: '',
     multicall: '0x000000000000000000000000000000000040b23a'
   },
