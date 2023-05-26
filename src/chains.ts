@@ -67,6 +67,11 @@ export enum ChefType {
   NEAR_CHEF = 'NEAR_CHEF'
 }
 
+export enum GovernanceType {
+  STANDARD = 'STANDARD',
+  SAR_NFT = 'SAR_NFT'
+}
+
 interface ChefContract {
   address: string
   active: boolean
@@ -118,6 +123,7 @@ export interface Chain {
   logo?: string
   coingecko_id?: string
   debank_pangolin_id?: string
+  governance_type?: GovernanceType
   contracts?: {
     png: string
     factory: string
@@ -365,7 +371,8 @@ export const AVALANCHE_MAINNET: Chain = {
     symbol: 'AVAX',
     decimals: 18
   },
-  blockExplorerUrls: ['https://snowtrace.io']
+  blockExplorerUrls: ['https://snowtrace.io'],
+  governance_type: GovernanceType.STANDARD
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -1290,7 +1297,8 @@ export const HEDERA_TESTNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io'],
+  governance_type: GovernanceType.SAR_NFT
 }
 
 export const HEDERA_MAINNET: Chain = {
