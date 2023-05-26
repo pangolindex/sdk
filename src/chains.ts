@@ -793,6 +793,10 @@ export const EVMOS_MAINNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   rpc_uri: 'https://eth.bd.evmos.org:8545',
+  subgraph: {
+    exchange: 'https://graph-evmos-main.pangolin.network/subgraphs/name/evmos/pangolin-v2',
+    elixir: 'https://graph-evmos-main.pangolin.network/subgraphs/name/evmos/pangolin-elixir'
+  },
   contracts: {
     png: '',
     factory: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
@@ -821,7 +825,18 @@ export const EVMOS_MAINNET: Chain = {
         reward_token: '',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x43c27a9B2857C3AA5522EC2DF8d183F252DbCfE7',
+      nftDescriptorLibrary: '0x4aFe49a475A2F44A4B40e72078960F7618E6cc79',
+      nftDescriptor: '0xE3efd482eE25010bB8026c34e9B88D18D7ea9f29',
+      nftManager: '0xA9E69C45e7b1925cAB432C3716a8b589Df761662',
+      swapRouter: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
+      migrator: '0xE688399009a1c283FAD889d3cedF6FfF4D685d51',
+      pangolinInterfaceMulticall: '0x8a4A5eEC59899F2d23B08f0188d6eB540cF4EccC',
+      quoterV2: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
+      tickLens: '0xA981cb468c87Ed32F37dE546e25a7c5FF17e2308'
+    }
   },
   nativeCurrency: {
     name: 'EVMOS',
