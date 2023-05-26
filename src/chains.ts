@@ -79,6 +79,11 @@ interface ChefContract {
   compoundPoolIdForNonPngFarm?: number // this is compound pool id for non-png farm
 }
 
+interface GovernanceContract {
+  address: string
+  type: GovernanceType
+}
+
 export enum NetworkType {
   EVM = 'EVM',
   COSMOS = 'COSMOS'
@@ -123,7 +128,6 @@ export interface Chain {
   logo?: string
   coingecko_id?: string
   debank_pangolin_id?: string
-  governance_type?: GovernanceType
   contracts?: {
     png: string
     factory: string
@@ -141,7 +145,7 @@ export interface Chain {
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
-    governor?: string
+    governor?: GovernanceContract
     governor_assistant?: string
     fee_collector?: string
     multicall: string
@@ -354,7 +358,10 @@ export const AVALANCHE_MAINNET: Chain = {
       type: AirdropType.LEGACY
     },
     timelock: '0xEB5c91bE6Dbfd30cf616127C2EA823C64e4b1ff8',
-    governor: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
+    governor: {
+      address: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
+      type: GovernanceType.STANDARD
+    },
     migrator: '0x4b23Aa72A1214d0E4fd3f2c8Da7C6ba660F7483C',
     multicall: '0x0FB54156B496b5a040b51A71817aED9e2927912E',
     staking: [
@@ -371,8 +378,7 @@ export const AVALANCHE_MAINNET: Chain = {
     symbol: 'AVAX',
     decimals: 18
   },
-  blockExplorerUrls: ['https://snowtrace.io'],
-  governance_type: GovernanceType.STANDARD
+  blockExplorerUrls: ['https://snowtrace.io']
 }
 
 export const AVALANCHE_FUJI: Chain = {
@@ -1181,7 +1187,10 @@ export const NEAR_MAINNET: Chain = {
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
-    governor: 'example11.near',
+    governor: {
+      address: 'example11.near',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: 'example12.near',
     multicall: ''
   },
@@ -1226,7 +1235,10 @@ export const NEAR_TESTNET: Chain = {
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
-    governor: 'example11.near',
+    governor: {
+      address: 'example11.near',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: 'example12.near',
     multicall: ''
   },
@@ -1287,7 +1299,10 @@ export const HEDERA_TESTNET: Chain = {
       }
     ],
     timelock: '0x000000000000000000000000000000000040b1f5',
-    governor: '0x000000000000000000000000000000000040b233',
+    governor: {
+      address: '0x000000000000000000000000000000000040b233',
+      type: GovernanceType.SAR_NFT
+    },
     governor_assistant: '0x000000000000000000000000000000000040b22b',
     migrator: '',
     multicall: '0x000000000000000000000000000000000040b23a'
@@ -1297,8 +1312,7 @@ export const HEDERA_TESTNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['https://ledger-testnet.hashlog.io'],
-  governance_type: GovernanceType.SAR_NFT
+  blockExplorerUrls: ['https://ledger-testnet.hashlog.io']
 }
 
 export const HEDERA_MAINNET: Chain = {
@@ -1349,7 +1363,10 @@ export const HEDERA_MAINNET: Chain = {
       }
     ],
     timelock: '0x00000000000000000000000000000000001a88ac',
-    governor: '0x00000000000000000000000000000000001a896e',
+    governor: {
+      address: '0x00000000000000000000000000000000001a896e',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: '',
     multicall: '0x00000000000000000000000000000000001a89ac'
   },
@@ -1670,7 +1687,10 @@ export const WAGMI_FUJI_SUBNET: Chain = {
       type: AirdropType.LEGACY
     },
     timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
-    governor: '0x0000000000000000000000000000000000000000',
+    governor: {
+      address: '0x0000000000000000000000000000000000000000',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: '0x0000000000000000000000000000000000000000',
     multicall: '0x5138349f3027F1e2c2f10eDAD83d38096C0D8Abe',
     staking: [
