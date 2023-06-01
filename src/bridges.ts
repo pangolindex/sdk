@@ -61,7 +61,7 @@ export const BRIDGE_PARTNERS: BridgePartner[] = [
   },
   {
     name: 'Thorswap',
-    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/THORSwap.svg'
+    logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/bridges/Thorchain.svg'
   },
   {
     name: 'Li.Fi',
