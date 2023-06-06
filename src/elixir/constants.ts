@@ -20,15 +20,15 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.HIGH]: 200
 }
 
-export const POOL_INIT_CODE_HASH = '0x3fcff66860e53a77b6570a354f8e175e3e01fb76620272df5c59e6cf9bffc577'
+export const POOL_INIT_CODE_HASH = '0x41a723f9e6457830b1b7a44df4435fab88581d073226894b33131815dd674c22'
 
 export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: POOL_INIT_CODE_HASH,
-  [ChainId.AVALANCHE]: POOL_INIT_CODE_HASH,
-  [ChainId.WAGMI]: POOL_INIT_CODE_HASH,
-  [ChainId.COSTON]: POOL_INIT_CODE_HASH,
-  [ChainId.SONGBIRD]: POOL_INIT_CODE_HASH,
-  [ChainId.FLARE_MAINNET]: POOL_INIT_CODE_HASH,
+  [ChainId.AVALANCHE]: '',
+  [ChainId.WAGMI]: '',
+  [ChainId.COSTON]: '',
+  [ChainId.SONGBIRD]: '',
+  [ChainId.FLARE_MAINNET]: '',
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
   [ChainId.HEDERA_TESTNET]: '',
@@ -48,9 +48,9 @@ export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.MOONRIVER]: '',
   [ChainId.MOONBEAM]: '',
   [ChainId.OP]: '',
-  [ChainId.COSTON2]: POOL_INIT_CODE_HASH,
-  [ChainId.EVMOS_TESTNET]: '0x41a723f9e6457830b1b7a44df4435fab88581d073226894b33131815dd674c22',
-  [ChainId.EVMOS_MAINNET]: '0x41a723f9e6457830b1b7a44df4435fab88581d073226894b33131815dd674c22'
+  [ChainId.COSTON2]: '',
+  [ChainId.EVMOS_TESTNET]: POOL_INIT_CODE_HASH,
+  [ChainId.EVMOS_MAINNET]: POOL_INIT_CODE_HASH
 }
 
 export enum NumberType {
