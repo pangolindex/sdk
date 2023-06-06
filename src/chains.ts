@@ -67,11 +67,21 @@ export enum ChefType {
   NEAR_CHEF = 'NEAR_CHEF'
 }
 
+export enum GovernanceType {
+  STANDARD = 'STANDARD',
+  SAR_NFT = 'SAR_NFT'
+}
+
 interface ChefContract {
   address: string
   active: boolean
   type: ChefType
   compoundPoolIdForNonPngFarm?: number // this is compound pool id for non-png farm
+}
+
+interface GovernanceContract {
+  address: string
+  type: GovernanceType
 }
 
 export enum NetworkType {
@@ -130,7 +140,7 @@ export interface Chain {
     foundation_multisig?: string
     joint_multisig?: string
     revenue_distributor?: string
-    governor?: string
+    governor?: GovernanceContract
     governor_assistant?: string
     fee_collector?: string
     multicall: string
@@ -359,7 +369,10 @@ export const AVALANCHE_MAINNET: Chain = {
       type: AirdropType.LEGACY
     },
     timelock: '0xEB5c91bE6Dbfd30cf616127C2EA823C64e4b1ff8',
-    governor: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
+    governor: {
+      address: '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1',
+      type: GovernanceType.STANDARD
+    },
     migrator: '0x4b23Aa72A1214d0E4fd3f2c8Da7C6ba660F7483C',
     multicall: '0x0FB54156B496b5a040b51A71817aED9e2927912E',
     staking: [
@@ -395,7 +408,7 @@ export const AVALANCHE_FUJI: Chain = {
   supported_by_bridge: false,
   rpc_uri: 'https://api.avax-test.network/ext/bc/C/rpc',
   subgraph: {
-    elixir: 'https://graph.pangolin.network/subgraphs/name/fuji/pangolin-elixir'
+    elixir: 'https://graph-avalanche.pangolin.network/subgraphs/name/fuji/pangolin-elixir'
   },
   contracts: {
     png: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
@@ -428,15 +441,15 @@ export const AVALANCHE_FUJI: Chain = {
       }
     ],
     elixir: {
-      factory: '0x56afa30776c1B13b965516560CE0BBAD3bE5FC91',
-      nftDescriptorLibrary: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
-      nftDescriptor: '0x65d095FF611d85F45537Ac4ede8BA1dF4fd18171',
-      nftManager: '0x1ff5C8F2499Ea5bc0D2fACBd382cA800f9083361',
-      swapRouter: '0x9da28c0554Bb3666a7e30491b2A11edba569F507',
-      migrator: '0x88845AB85508D5715b5c63C823441f583eb41D1B',
-      pangolinInterfaceMulticall: '0xF7456B047932A35EcF87BA502d08fd1D3054A4Ca',
-      quoterV2: '0x984b01B8f661dD175f2212D00aa01D27F2eBA4F1',
-      tickLens: '0x6e8172703338A5E068Dd59E19e02984cC5184A65'
+      factory: '0xAF0F49F7E8084223737a5981A5f5a11101c6E406',
+      nftDescriptorLibrary: '0x08bd698104224EC04f1b156791B481A7f9f5bB4F',
+      nftDescriptor: '0xE1bC64dAD2ED7609CBfBEd292403Bc1D0B597F43',
+      nftManager: '0x6d89F74Cf03bFd8D2bf623c621af9CC6464E2C0a',
+      swapRouter: '0x2F880EE1eed628959cCA85fC58C79D5d9BCb84ae',
+      migrator: '0x418554Ce1e27C251fAfBd85a7Ff688B7cb06b46a',
+      pangolinInterfaceMulticall: '0xBaD101Fc63d545d38A28F03D69B111f921B8D08a',
+      quoterV2: '0xBA67c6E54303b844471F21b6828D07A929181141',
+      tickLens: '0xE3a6103D8A70253CB5aEfe1746DE50e9771efD52'
     }
   },
   nativeCurrency: {
@@ -1230,7 +1243,10 @@ export const NEAR_MAINNET: Chain = {
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
-    governor: 'example11.near',
+    governor: {
+      address: 'example11.near',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: 'example12.near',
     multicall: ''
   },
@@ -1276,7 +1292,10 @@ export const NEAR_TESTNET: Chain = {
       type: AirdropType.NEAR_AIRDROP
     },
     timelock: 'example10.near',
-    governor: 'example11.near',
+    governor: {
+      address: 'example11.near',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: 'example12.near',
     multicall: ''
   },
@@ -1338,7 +1357,10 @@ export const HEDERA_TESTNET: Chain = {
       }
     ],
     timelock: '0x000000000000000000000000000000000040b1f5',
-    governor: '0x000000000000000000000000000000000040b233',
+    governor: {
+      address: '0x000000000000000000000000000000000040b233',
+      type: GovernanceType.SAR_NFT
+    },
     governor_assistant: '0x000000000000000000000000000000000040b22b',
     migrator: '',
     multicall: '0x000000000000000000000000000000000040b23a'
@@ -1400,7 +1422,10 @@ export const HEDERA_MAINNET: Chain = {
       }
     ],
     timelock: '0x00000000000000000000000000000000001a88ac',
-    governor: '0x00000000000000000000000000000000001a896e',
+    governor: {
+      address: '0x00000000000000000000000000000000001a896e',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: '',
     multicall: '0x00000000000000000000000000000000001a89ac'
   },
@@ -1730,7 +1755,10 @@ export const WAGMI_FUJI_SUBNET: Chain = {
       type: AirdropType.LEGACY
     },
     timelock: '0x2d41E2CDf9E74686d89e4A0BeA5dD4D01F7D134e',
-    governor: '0x0000000000000000000000000000000000000000',
+    governor: {
+      address: '0x0000000000000000000000000000000000000000',
+      type: GovernanceType.SAR_NFT
+    },
     migrator: '0x0000000000000000000000000000000000000000',
     multicall: '0x5138349f3027F1e2c2f10eDAD83d38096C0D8Abe',
     staking: [
