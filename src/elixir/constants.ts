@@ -24,11 +24,11 @@ export const POOL_INIT_CODE_HASH = '0x41a723f9e6457830b1b7a44df4435fab88581d0732
 
 export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: POOL_INIT_CODE_HASH,
-  [ChainId.AVALANCHE]: POOL_INIT_CODE_HASH,
-  [ChainId.WAGMI]: POOL_INIT_CODE_HASH,
-  [ChainId.COSTON]: POOL_INIT_CODE_HASH,
-  [ChainId.SONGBIRD]: POOL_INIT_CODE_HASH,
-  [ChainId.FLARE_MAINNET]: POOL_INIT_CODE_HASH,
+  [ChainId.AVALANCHE]: '',
+  [ChainId.WAGMI]: '',
+  [ChainId.COSTON]: '',
+  [ChainId.SONGBIRD]: '',
+  [ChainId.FLARE_MAINNET]: '',
   [ChainId.NEAR_MAINNET]: '',
   [ChainId.NEAR_TESTNET]: '',
   [ChainId.HEDERA_TESTNET]: '',
@@ -48,7 +48,7 @@ export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.MOONRIVER]: '',
   [ChainId.MOONBEAM]: '',
   [ChainId.OP]: '',
-  [ChainId.COSTON2]: POOL_INIT_CODE_HASH,
+  [ChainId.COSTON2]: '',
   [ChainId.EVMOS_TESTNET]: POOL_INIT_CODE_HASH,
   [ChainId.EVMOS_MAINNET]: POOL_INIT_CODE_HASH
 }
