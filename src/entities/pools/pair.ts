@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant'
 import { Pool } from './pool'
 import { Token } from '../token'
 import { Price, TokenAmount } from '../fractions'
-import { ChainId, CHAINS } from '../../chains'
+import { ChainId, CHAINS, NetworkType } from '../../chains'
 import {
   BigintIsh,
   FACTORY_ADDRESS,
@@ -28,7 +28,8 @@ export class Pair extends Pool {
     // we create custom lp address here
     // for evm we have method to create lp address
     // but for non-evm we don't have that method, so for now we are going to concatenate both token addresses
-    return !!CHAINS[chainId]?.evm
+    const chain = CHAINS[chainId]
+    return chain?.network_type === NetworkType.EVM || chain?.network_type === NetworkType.HEDERA
       ? getCreate2Address(
           FACTORY_ADDRESS[chainId],
           keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
@@ -42,10 +43,11 @@ export class Pair extends Pool {
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
 
+    const chain = CHAINS[chainId]
     let decimals: number
-    if ([ChainId.NEAR_TESTNET, ChainId.NEAR_MAINNET].includes(chainId)) {
+    if (chain.network_type === NetworkType.NEAR) {
       decimals = 24
-    } else if ([ChainId.HEDERA_TESTNET, ChainId.HEDERA_MAINNET].includes(chainId)) {
+    } else if (chain.network_type === NetworkType.HEDERA) {
       decimals = 0
     } else {
       decimals = 18
