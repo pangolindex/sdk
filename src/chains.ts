@@ -26,7 +26,8 @@ export enum ChainId {
   XDAI = 100,
   COSTON2 = 114,
   EVMOS_TESTNET = 9000,
-  EVMOS_MAINNET = 9001
+  EVMOS_MAINNET = 9001,
+  SKALE_BELLATRIX_TESTNET = 1351057110
 }
 
 export enum StakingType {
@@ -2164,6 +2165,28 @@ export const COSTON2_TESTNET: Chain = {
   network_type: NetworkType.EVM
 }
 
+export const SKALE_BELLATRIX_TESTNET: Chain = {
+  id: 'skale_bellatrix_testnet',
+  chain_id: 1351057110,
+  name: 'Skale Bellatrix Testnet',
+  symbol: 'SKL',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/skl.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  rpc_uri: 'https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix',
+  nativeCurrency: {
+    name: 'SKALE Fuel',
+    symbol: 'sFUEL',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com'],
+  network_type: NetworkType.EVM,
+  supported_by_bridge: false
+}
+
 export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
@@ -2192,7 +2215,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.OP]: OP_MAINNET,
   [ChainId.COSTON2]: COSTON2_TESTNET,
   [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
-  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET
+  [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET,
+  [ChainId.SKALE_BELLATRIX_TESTNET]: SKALE_BELLATRIX_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -2257,5 +2281,6 @@ export const ALL_CHAINS: Chain[] = [
   OASIS_TESTNET,
   GODWOKEN_MAINNET,
   GODWOKEN_TESTNET,
-  COSTON2_TESTNET
+  COSTON2_TESTNET,
+  SKALE_BELLATRIX_TESTNET
 ]
