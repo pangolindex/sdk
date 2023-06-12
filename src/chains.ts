@@ -345,7 +345,8 @@ export const AVALANCHE_MAINNET: Chain = {
     exchange: 'https://api.thegraph.com/subgraphs/name/pangolindex/exchange',
     blocks: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
     minichef: 'https://api.thegraph.com/subgraphs/name/sarjuhansaliya/minichefv2-dummy',
-    governance: 'https://api.thegraph.com/subgraphs/name/pangolindex/governance'
+    governance: 'https://api.thegraph.com/subgraphs/name/pangolindex/governance',
+    elixir: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/pangolin-elixir'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
@@ -382,7 +383,18 @@ export const AVALANCHE_MAINNET: Chain = {
         reward_token: '0x60781C2586D68229fde47564546784ab3fACA982',
         type: StakingType.LEGACY
       }
-    ]
+    ],
+    elixir: {
+      factory: '0x0bD438cB54153C5418E91547de862F21Bc143Ae2',
+      nftDescriptorLibrary: '0x39fe3D7B6064924B67Dd3da2e61A5c2fa7797e41',
+      nftDescriptor: '0xd6975C40F13E0f9586b3973DBbD7C11d0938056A',
+      nftManager: '0xb18a6cf6833130c7A13076D96c7e3784b7F721D1',
+      swapRouter: '0x71acb793a4D4E5F107D6F167c79484979146a543',
+      migrator: '0x57D58f22b3818c5e4bE8595324Eb2B0d8B3334af',
+      pangolinInterfaceMulticall: '0x46F2F4C35C9e31B45d70335913eb4538079506E6',
+      quoterV2: '0x97Addf65d4b220747B98Cb27356869fD59F39B0C',
+      tickLens: '0x575D15c38895fc0326648e44CaA0CF4f2245642D'
+    }
   },
   nativeCurrency: {
     name: 'Avalanche',
