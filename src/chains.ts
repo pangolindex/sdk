@@ -2186,6 +2186,27 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   blockExplorerUrls: ['https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com']
 }
 
+export const SKALE_BELLATRIX_TESTNET: Chain = {
+  id: 'skale_bellatrix_testnet',
+  chain_id: 1351057110,
+  name: 'Skale Bellatrix Testnet',
+  symbol: 'SKL',
+  mainnet: false,
+  evm: true,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/skl.png',
+  pangolin_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  rpc_uri: 'https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix',
+  nativeCurrency: {
+    name: 'SKALE Fuel',
+    symbol: 'sFUEL',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com']
+}
+
 export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
