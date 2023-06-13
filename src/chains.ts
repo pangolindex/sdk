@@ -2172,7 +2172,7 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   symbol: 'SKL',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/skl.png',
-  pangolin_is_live: false,
+  pangolin_is_live: true,
   tracked_by_debank: false,
   supported_by_gelato: false,
   supported_by_twap: false,
