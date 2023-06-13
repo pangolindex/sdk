@@ -2182,6 +2182,24 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
     symbol: 'sFUEL',
     decimals: 18
   },
+  contracts: {
+    png: '',
+    wrapped_native_token: '0x4CBEC9728A6Bc806B5B2FD9E65892D51E6805611',
+    factory: '',
+    router: '',
+    multicall: '',
+    elixir: {
+      factory: '0x799b54862a9c2740dE61954B4D9eAA9eE604D9A9',
+      nftDescriptorLibrary: '0x68F41c4EE34259B5bc219D93969198ef86025Bca',
+      nftDescriptor: '0xaFb67194Ecd5fA7A6BcFC2Ea82e876EdEec25356',
+      nftManager: '0xC49EdE699A72f1A10d4757D381b049408914CC72',
+      swapRouter: '0x67e0867249dBd5d88F46b5B8734F02C15BDFCB4F',
+      migrator: '0x9356A41Ed8dEF14859a611FC3eEa647c0FfCA6B2',
+      pangolinInterfaceMulticall: '0xB2399B4EE0ec38F1E74DcAA38f33d31aE041c3ae',
+      quoterV2: '0xb667CFDF3716F6315ff336435Ac548ca00C3CdE2',
+      tickLens: '0x805E9365b29414eb4Ab6d90804160dfbE1aC7b3C'
+    }
+  },
   blockExplorerUrls: ['https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com'],
   network_type: NetworkType.EVM,
   supported_by_bridge: false
