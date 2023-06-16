@@ -2187,7 +2187,7 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
     wrapped_native_token: '0x4CBEC9728A6Bc806B5B2FD9E65892D51E6805611',
     factory: '',
     router: '',
-    multicall: '0xfa58872C71f7903cc33B9Cd89Ae385D91CdA0c80',
+    multicall: '0x8b2Efa894eB97D177DD3c6EFFE6e62790292c114',
     elixir: {
       factory: '0x799b54862a9c2740dE61954B4D9eAA9eE604D9A9',
       nftDescriptorLibrary: '0x68F41c4EE34259B5bc219D93969198ef86025Bca',
