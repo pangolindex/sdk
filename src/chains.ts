@@ -2183,11 +2183,35 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
     decimals: 18
   },
   contracts: {
-    png: '',
+    png: '0xe43257Db32d1Aeb6004963Ed06708490c7e6D2A8',
+    factory: '0x012675A18864d6fFF23E38C7dDCa71578075B665',
+    router: '0xc9EE2D08D14EDc4f3f8892b3611486DacB170474',
     wrapped_native_token: '0x4CBEC9728A6Bc806B5B2FD9E65892D51E6805611',
-    factory: '',
-    router: '',
-    multicall: '0x8b2Efa894eB97D177DD3c6EFFE6e62790292c114',
+    local_multisig: '0x0655837D797Ad5C28B35268798e48b4c734C3d34',
+    community_treasury: '0x880cEdd9F61bE1ADd8e1C145D9EB8b82b047a937',
+    treasury_vester: '0xda5A732074115a5437C83473321175fade540624',
+    mini_chef: {
+      address: '0xc304c09eC0C194b512c448179C31923FA6311694',
+      active: true,
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 3
+    },
+    airdrop: {
+      address: '0x6A533A193df8d36a5d87d0E16bd24ED056e09d76',
+      active: false,
+      type: AirdropType.MERKLE_TO_STAKING
+    },
+    timelock: '0x9bA7a40e9D96eaC2547B1996cc5fa70a8B409F68',
+    fee_collector: '0xc284d273f9451236cdaD20C599a4eb5eEb5F859d',
+    multicall: '0x5514FA8fF2733052634721B408205cAD56dC944d',
+    staking: [
+      {
+        address: '0x88CD1628F2BF693D63E5813669AFAa066318bd9C',
+        active: true,
+        reward_token: '0xe43257Db32d1Aeb6004963Ed06708490c7e6D2A8',
+        type: StakingType.SAR_POSITIONS
+      }
+    ],
     elixir: {
       factory: '0x799b54862a9c2740dE61954B4D9eAA9eE604D9A9',
       nftDescriptorLibrary: '0x68F41c4EE34259B5bc219D93969198ef86025Bca',
