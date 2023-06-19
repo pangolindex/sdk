@@ -177,8 +177,10 @@ export class ElixirTrade {
       const midPrice = route.midPrice
       spotOutputAmount = spotOutputAmount.add(midPrice.quote(inputAmount, this.chainId))
     }
-
-    const priceImpact = spotOutputAmount.subtract(this.outputAmount).divide(spotOutputAmount)
+    console.log({ spotOutputAmount: spotOutputAmount.toFixed(), outputAmount: this.outputAmount.toFixed() })
+    const priceImpact = spotOutputAmount.lessThan(this.outputAmount)
+      ? createAmount(this.outputAmount.currency, 0, this.chainId)
+      : spotOutputAmount.subtract(this.outputAmount).divide(spotOutputAmount)
     this._priceImpact = new Percent(priceImpact.numerator, priceImpact.denominator)
 
     return this._priceImpact
