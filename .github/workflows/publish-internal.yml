@@ -72,6 +72,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: yarn --frozen-lockfile
+        env:
+          HUSKY: 0
+
       - run: npm publish --ignore-scripts --tag internal
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
