@@ -1,5 +1,5 @@
 import JSBI from 'jsbi'
-import { ChainId } from '..'
+import { ChainId } from '../chains'
 import { SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
 import { CHAINS } from '../chains'
