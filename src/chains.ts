@@ -2183,32 +2183,32 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
     decimals: 18
   },
   contracts: {
-    png: '0xe43257Db32d1Aeb6004963Ed06708490c7e6D2A8',
-    factory: '0x012675A18864d6fFF23E38C7dDCa71578075B665',
-    router: '0xc9EE2D08D14EDc4f3f8892b3611486DacB170474',
+    png: '0xcCFb97CE3239c8cb2731a92E984dB1702b74fDC2',
+    factory: '0xb689855df31e501614143578f1c812F900F1863E',
+    router: '0x3a95caA20820195a5094E8bAe84cE0F551C8Bb5C',
     wrapped_native_token: '0x4CBEC9728A6Bc806B5B2FD9E65892D51E6805611',
-    local_multisig: '0x0655837D797Ad5C28B35268798e48b4c734C3d34',
-    community_treasury: '0x880cEdd9F61bE1ADd8e1C145D9EB8b82b047a937',
-    treasury_vester: '0xda5A732074115a5437C83473321175fade540624',
+    local_multisig: '0x45F304514110B1d4512e04e2B459F0EB2605b597',
+    community_treasury: '0x18AD02cA27987a59Ea63FfD0A534cfDD72f9C3d1',
+    treasury_vester: '0xC5Db7a1421781ca04CDD05083e0213B539ac8C30',
     mini_chef: {
-      address: '0xc304c09eC0C194b512c448179C31923FA6311694',
+      address: '0x6316cFE5e98ecC22D87308ad6D7596e85bD1D92E',
       active: true,
       type: ChefType.PANGO_CHEF,
       compoundPoolIdForNonPngFarm: 3
     },
     airdrop: {
-      address: '0x6A533A193df8d36a5d87d0E16bd24ED056e09d76',
+      address: '0x37b428B831fE23097548A4e81F7E5e0b34E8B122',
       active: false,
       type: AirdropType.MERKLE_TO_STAKING
     },
-    timelock: '0x9bA7a40e9D96eaC2547B1996cc5fa70a8B409F68',
-    fee_collector: '0xc284d273f9451236cdaD20C599a4eb5eEb5F859d',
-    multicall: '0x5514FA8fF2733052634721B408205cAD56dC944d',
+    timelock: '0x1cEe09B28D493d8b907821560f0c2EeaB1A19Cc3',
+    fee_collector: '0x7EBF09fec705904549B36c8B1A35e4beFDaA20A9',
+    multicall: '0x2F3687C47876E93e55012BC00e3Bd1606207498f',
     staking: [
       {
-        address: '0x88CD1628F2BF693D63E5813669AFAa066318bd9C',
+        address: '0xDDC7fcA8180491ea2b5c57B8d4736ba127C38D32',
         active: true,
-        reward_token: '0xe43257Db32d1Aeb6004963Ed06708490c7e6D2A8',
+        reward_token: '0xcCFb97CE3239c8cb2731a92E984dB1702b74fDC2',
         type: StakingType.SAR_POSITIONS
       }
     ],
