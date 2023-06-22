@@ -58,7 +58,7 @@
     "husky": "^8.0.0"
   },
   "engines": {
-    "node": ">=18.x.x <=20.x.x"
+    "node": ">=18"
   },
   "prettier": {
     "printWidth": 120,
