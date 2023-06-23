@@ -169,5 +169,5 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     'WEVMOS',
     'Wrapped Evmos'
   ),
-  [ChainId.SKALE_BELLATRIX_TESTNET]: new Token(ChainId.SKALE_BELLATRIX_TESTNET, ZERO_ADDRESS, 18, '', '')
+  [ChainId.SKALE_BELLATRIX_TESTNET]: new Token(ChainId.SKALE_BELLATRIX_TESTNET, ZERO_ADDRESS, 18, 'WsFUEL', 'Wrapped sFUEL'),
 }
