@@ -168,5 +168,12 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     18,
     'WEVMOS',
     'Wrapped Evmos'
+  ),
+  [ChainId.ZKSYNC_TESTNET]: new Token(
+    ChainId.ZKSYNC_TESTNET,
+    CHAINS[ChainId.ZKSYNC_TESTNET].contracts!.wrapped_native_token,
+    18,
+    'WAVAX',
+    'Wrapped AVAX'
   )
 }
