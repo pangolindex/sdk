@@ -171,7 +171,7 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
   ),
   [ChainId.SKALE_BELLATRIX_TESTNET]: new Token(
     ChainId.SKALE_BELLATRIX_TESTNET,
-    ZERO_ADDRESS,
+    CHAINS[ChainId.SKALE_BELLATRIX_TESTNET].contracts!.wrapped_native_token,
     18,
     'WsFUEL',
     'Wrapped sFUEL'
