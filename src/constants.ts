@@ -50,7 +50,8 @@ export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.OP]: '',
   [ChainId.COSTON2]: CHAINS[ChainId.COSTON2].contracts!.factory,
   [ChainId.EVMOS_TESTNET]: CHAINS[ChainId.EVMOS_TESTNET].contracts!.factory,
-  [ChainId.EVMOS_MAINNET]: CHAINS[ChainId.EVMOS_MAINNET].contracts!.factory
+  [ChainId.EVMOS_MAINNET]: CHAINS[ChainId.EVMOS_MAINNET].contracts!.factory,
+  [ChainId.SKALE_BELLATRIX_TESTNET]: CHAINS[ChainId.SKALE_BELLATRIX_TESTNET].contracts!.factory
 }
 
 export const INIT_CODE_HASH = '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545'
@@ -83,7 +84,8 @@ export const INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.OP]: '',
   [ChainId.COSTON2]: INIT_CODE_HASH,
   [ChainId.EVMOS_TESTNET]: INIT_CODE_HASH,
-  [ChainId.EVMOS_MAINNET]: INIT_CODE_HASH
+  [ChainId.EVMOS_MAINNET]: INIT_CODE_HASH,
+  [ChainId.SKALE_BELLATRIX_TESTNET]: INIT_CODE_HASH
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
