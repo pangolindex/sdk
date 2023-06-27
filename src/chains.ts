@@ -2169,7 +2169,7 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   id: 'skale_bellatrix_testnet',
   chain_id: 1351057110,
   name: 'Skale Bellatrix Testnet',
-  symbol: 'SKL',
+  symbol: 'sFUEL',
   mainnet: false,
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/skl.png',
   pangolin_is_live: true,
