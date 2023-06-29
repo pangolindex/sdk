@@ -429,6 +429,7 @@ export const AVALANCHE_FUJI: Chain = {
     router: '0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860',
     router_daas: '0xFE97f59B72eEE0F29F93e12195C6F35DCdAB6899',
     wrapped_native_token: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
+    local_multisig: '0x84aC4A9923bb5864Db6F85aCF6811708b88BDc49',
     timelock: '0xf4C589029be33cc4e4056B125794B35A2dF23136',
     mini_chef: {
       address: '0x2572ECa2be804f7799e3f3Ef1D1db60F512a0Ae3',
@@ -1371,7 +1372,7 @@ export const HEDERA_TESTNET: Chain = {
     ],
     timelock: '0x000000000000000000000000000000000040b1f5',
     governor: {
-      address: '0x000000000000000000000000000000000040b233',
+      address: '0x0000000000000000000000000000000000e2907f',
       type: GovernanceType.SAR_NFT
     },
     governor_assistant: '0x000000000000000000000000000000000040b22b',
