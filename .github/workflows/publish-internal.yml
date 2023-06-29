@@ -65,12 +65,13 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '18.x'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org/'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - run: yarn --frozen-lockfile
       - run: npm publish --ignore-scripts --tag internal
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
