@@ -1418,7 +1418,7 @@ export const HEDERA_MAINNET: Chain = {
     airdrop: {
       address: '0x00000000000000000000000000000000002de784',
       active: true,
-      type: AirdropType.MERKLE,
+      type: AirdropType.MERKLE
     },
     staking: [
       {
