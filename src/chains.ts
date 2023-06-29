@@ -2177,6 +2177,12 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   rpc_uri: 'https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix',
+  subgraph: {
+    blocks: 'https://graph-skale-bellatrix.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://graph-skale-bellatrix.pangolin.network/subgraphs/name/skale-bellatrix/pangolin-v2',
+    singleStaking: 'https://graph-skale-bellatrix.pangolin.network/subgraphs/name/skale-bellatrix/stakingPositions',
+    elixir: 'https://graph-skale-bellatrix.pangolin.network/subgraphs/name/skale-bellatrix/pangolin-elixir'
+  },
   nativeCurrency: {
     name: 'SKALE Fuel',
     symbol: 'sFUEL',
