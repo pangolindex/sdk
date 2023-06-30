@@ -727,7 +727,7 @@ export const COSTON_TESTNET: Chain = {
     },
     airdrop: {
       address: '0x700E2E6fd3C5174E9691a65DC12f44d0A8dd25EC',
-      active: true,
+      active: false,
       type: AirdropType.MERKLE_TO_STAKING
     },
     timelock: '0xc63C2BA9F4dD17F881d9195fD105611760689bAe',
@@ -1356,11 +1356,6 @@ export const HEDERA_TESTNET: Chain = {
       type: ChefType.PANGO_CHEF,
       compoundPoolIdForNonPngFarm: 0
     },
-    airdrop: {
-      address: '',
-      active: false,
-      type: AirdropType.NEAR_AIRDROP
-    },
     staking: [
       {
         address: '0x000000000000000000000000000000000040b221',
@@ -1422,9 +1417,9 @@ export const HEDERA_MAINNET: Chain = {
       compoundPoolIdForNonPngFarm: 16
     },
     airdrop: {
-      address: '',
-      active: false,
-      type: AirdropType.NEAR_AIRDROP
+      address: '0x00000000000000000000000000000000002de784',
+      active: true,
+      type: AirdropType.MERKLE
     },
     staking: [
       {
