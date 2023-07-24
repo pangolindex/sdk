@@ -1378,7 +1378,7 @@ export const HEDERA_TESTNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['https://ledger-testnet.hashlog.io'],
+  blockExplorerUrls: ['https://hashscan.io/testnet'],
   network_type: NetworkType.HEDERA
 }
 
@@ -1442,7 +1442,7 @@ export const HEDERA_MAINNET: Chain = {
     symbol: 'HBAR',
     decimals: 8
   },
-  blockExplorerUrls: ['https://ledger.hashlog.io'],
+  blockExplorerUrls: ['https://hashscan.io/mainnet'],
   network_type: NetworkType.HEDERA
 }
 
