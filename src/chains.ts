@@ -1332,7 +1332,7 @@ export const HEDERA_TESTNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
-  rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
+  rpc_uri: 'https://hedera-testnet-rpc.pangolin.network',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
@@ -1392,7 +1392,7 @@ export const HEDERA_MAINNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
-  rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
+  rpc_uri: 'https://hedera-mainnet-rpc.pangolin.network',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
