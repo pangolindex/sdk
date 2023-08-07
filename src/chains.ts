@@ -1340,46 +1340,45 @@ export const HEDERA_TESTNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
-  rpc_uri: 'https://hcs.testnet.mirrornode.hedera.com:5600',
+  rpc_uri: 'https://hedera-testnet-rpc.pangolin.network',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
-    exchange: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
-    blocks: 'https://hedera-test.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://hedera-test.pangolin.network/subgraphs/name/pangolin',
-    governance: 'https://hedera-test.pangolin.network/subgraphs/name/governor'
+    exchange: 'https://graph-hedera-test.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://graph-hedera-test.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://graph-hedera-test.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://graph-hedera-test.pangolin.network/subgraphs/name/pangolin',
+    governance: 'https://graph-hedera-test.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
-    png: '0x000000000000000000000000000000000040b1fa',
-    factory: '0x000000000000000000000000000000000040b204',
-    router: '0x000000000000000000000000000000000040b20d',
-    wrapped_native_token: '0x000000000000000000000000000000000040b1f0',
-    local_multisig: '0x000000000000000000000000000000000040b1eb',
-    community_treasury: '0x000000000000000000000000000000000040b1fc',
-    treasury_vester: '0x000000000000000000000000000000000040b1f9',
+    png: '0x000000000000000000000000000000000002693c',
+    factory: '0x0000000000000000000000000000000000026978',
+    router: '0x00000000000000000000000000000000000269aa',
+    wrapped_native_token: '0x000000000000000000000000000000000002690a',
+    local_multisig: '0x0000000000000000000000000000000000026822',
+    community_treasury: '0x000000000000000000000000000000000002694c',
+    treasury_vester: '0x000000000000000000000000000000000002693b',
     mini_chef: {
-      address: '0x000000000000000000000000000000000040b216',
+      address: '0x00000000000000000000000000000000000269ec',
       active: true,
       type: ChefType.PANGO_CHEF,
       compoundPoolIdForNonPngFarm: 0
     },
     staking: [
       {
-        address: '0x000000000000000000000000000000000040b221',
+        address: '0x0000000000000000000000000000000000026a38',
         active: true,
-        reward_token: '0x000000000000000000000000000000000040b1fa',
+        reward_token: '0x000000000000000000000000000000000002693c',
         type: StakingType.SAR_POSITIONS
       }
     ],
-    timelock: '0x000000000000000000000000000000000040b1f5',
+    timelock: '0x000000000000000000000000000000000002691a',
     governor: {
-      address: '0x0000000000000000000000000000000000e2907f',
+      address: '0x0000000000000000000000000000000000026a86',
       type: GovernanceType.SAR_NFT
     },
-    governor_assistant: '0x000000000000000000000000000000000040b22b',
     migrator: '',
-    multicall: '0x000000000000000000000000000000000040b23a'
+    multicall: '0x0000000000000000000000000000000000026a96'
   },
   nativeCurrency: {
     name: 'Hbar',
@@ -1401,7 +1400,7 @@ export const HEDERA_MAINNET: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
-  rpc_uri: 'https://mainnet-public.mirrornode.hedera.com:443',
+  rpc_uri: 'https://hedera-mainnet-rpc.pangolin.network',
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
@@ -1422,7 +1421,7 @@ export const HEDERA_MAINNET: Chain = {
       address: '0x00000000000000000000000000000000001a88db',
       active: true,
       type: ChefType.PANGO_CHEF,
-      compoundPoolIdForNonPngFarm: 16
+      compoundPoolIdForNonPngFarm: 0
     },
     airdrop: {
       address: '0x00000000000000000000000000000000002de784',
