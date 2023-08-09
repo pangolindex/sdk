@@ -740,7 +740,11 @@ export const COSTON_TESTNET: Chain = {
         reward_token: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    governor: {
+      address: '0x17f6ce028a49F1679d83daaeE62412f86B67fa24',
+      type: GovernanceType.SAR_NFT
+    }
   },
   nativeCurrency: {
     name: 'CostonFlare',
@@ -807,6 +811,10 @@ export const EVMOS_TESTNET: Chain = {
       pangolinInterfaceMulticall: '0x97301Eb5Ce641E6Eb52B25747eC23BA90E4B88F0',
       quoterV2: '0x18B932f7BF50ef4Be6a8134c6B5837cDd5Dd3ED5',
       tickLens: '0xfBd36a64D3Ce194C7dcdFC4f3f6cC3606348fb7A'
+    },
+    governor: {
+      address: '0xD33dd9E5b928Bbd3DA23eDD5911f6956D7C155a6',
+      type: GovernanceType.SAR_NFT
     }
   },
   nativeCurrency: {
@@ -1343,30 +1351,30 @@ export const HEDERA_TESTNET: Chain = {
     governance: 'https://graph-hedera-test.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
-    png: '0x000000000000000000000000000000000002693c',
-    factory: '0x0000000000000000000000000000000000026978',
-    router: '0x00000000000000000000000000000000000269aa',
+    png: '0x0000000000000000000000000000000000070293',
+    factory: '0x0000000000000000000000000000000000070297',
+    router: '0x000000000000000000000000000000000007029a',
     wrapped_native_token: '0x000000000000000000000000000000000002690a',
-    local_multisig: '0x0000000000000000000000000000000000026822',
-    community_treasury: '0x000000000000000000000000000000000002694c',
-    treasury_vester: '0x000000000000000000000000000000000002693b',
+    local_multisig: '0x000000000000000000000000000000000007028e',
+    community_treasury: '0x0000000000000000000000000000000000070295',
+    treasury_vester: '0x0000000000000000000000000000000000070292',
     mini_chef: {
-      address: '0x00000000000000000000000000000000000269ec',
+      address: '0x000000000000000000000000000000000007029e',
       active: true,
       type: ChefType.PANGO_CHEF,
       compoundPoolIdForNonPngFarm: 0
     },
     staking: [
       {
-        address: '0x0000000000000000000000000000000000026a38',
+        address: '0x00000000000000000000000000000000000702a3',
         active: true,
-        reward_token: '0x000000000000000000000000000000000002693c',
+        reward_token: '0x0000000000000000000000000000000000070293',
         type: StakingType.SAR_POSITIONS
       }
     ],
-    timelock: '0x000000000000000000000000000000000002691a',
+    timelock: '0x0000000000000000000000000000000000070290',
     governor: {
-      address: '0x0000000000000000000000000000000000026a86',
+      address: '0x00000000000000000000000000000000000702a8',
       type: GovernanceType.SAR_NFT
     },
     migrator: '',
@@ -1430,7 +1438,7 @@ export const HEDERA_MAINNET: Chain = {
     ],
     timelock: '0x00000000000000000000000000000000001a88ac',
     governor: {
-      address: '0x00000000000000000000000000000000001a896e',
+      address: '0x0000000000000000000000000000000000316e89',
       type: GovernanceType.SAR_NFT
     },
     migrator: '',
@@ -1664,7 +1672,11 @@ export const SONGBIRD_CANARY: Chain = {
         reward_token: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    governor: {
+      address: '0x918549b5DA5A51D67066B1C26C425cD1b36d2FD7',
+      type: GovernanceType.SAR_NFT
+    }
   },
   nativeCurrency: {
     name: 'Songbird',
@@ -1718,7 +1730,11 @@ export const FLARE_MAINNET: Chain = {
         reward_token: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    governor: {
+      address: '0x791aAE9F376159E4419D37142cd8e079a2beaf94',
+      type: GovernanceType.SAR_NFT
+    }
   },
   nativeCurrency: {
     name: 'Flare',
@@ -2148,7 +2164,11 @@ export const COSTON2_TESTNET: Chain = {
         reward_token: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
         type: StakingType.SAR_POSITIONS
       }
-    ]
+    ],
+    governor: {
+      address: '0xD33dd9E5b928Bbd3DA23eDD5911f6956D7C155a6',
+      type: GovernanceType.SAR_NFT
+    }
   },
   nativeCurrency: {
     name: 'Coston2Flare',
