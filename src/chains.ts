@@ -1404,10 +1404,10 @@ export const HEDERA_MAINNET: Chain = {
   png_symbol: 'PBAR',
   logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/hedera.png',
   subgraph: {
-    exchange: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
-    blocks: 'https://hedera-graph.pangolin.network/subgraphs/name/blocks',
-    pangochef: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://hedera-graph.pangolin.network/subgraphs/name/pangolin'
+    exchange: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
+    blocks: 'https://graph-hedera-main.pangolin.network/subgraphs/name/blocks',
+    pangochef: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
+    singleStaking: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
