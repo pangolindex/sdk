@@ -1634,7 +1634,7 @@ export const SONGBIRD_CANARY: Chain = {
   supported_by_gelato: false,
   supported_by_twap: false,
   supported_by_bridge: false,
-  rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  rpc_uri: 'https://songbird-api.flare.network/ext/C/rpc',
   contracts: {
     png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
     factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
