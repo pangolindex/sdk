@@ -9,6 +9,7 @@ export * from './router'
 export * from './fetcher'
 export * from './chains'
 export * from './bridges'
+export * from './elixirVaults'
 
 export * from './elixir/constants'
 export * from './elixir/entities'
