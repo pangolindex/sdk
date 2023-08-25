@@ -7,11 +7,11 @@ export interface ElixirVaultProvider {
 export const DEFIEDGE: ElixirVaultProvider = {
   id: 'defiedge',
   name: 'DefiEdge',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/elixirVault/DefiEdge.svg'
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/elixirVault/DefiEdge.png'
 }
 
 export const ICHI: ElixirVaultProvider = {
   id: 'ichi',
   name: 'Ichi',
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/elixirVault/Ichi.svg'
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/elixirVault/Ichi.png'
 }
