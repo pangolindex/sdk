@@ -2266,9 +2266,9 @@ export const SOROBAN = {
   nativeCurrency: {
     decimals: 7,
     name: 'Stellar',
-    symbol: 'XLM',
+    symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const SOROBAN_TESTNET = {
@@ -2287,9 +2287,9 @@ export const SOROBAN_TESTNET = {
   nativeCurrency: {
     decimals: 7,
     name: 'Stellar',
-    symbol: 'XLM',
+    symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg',
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
