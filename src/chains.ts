@@ -90,7 +90,8 @@ export enum NetworkType {
   COSMOS = 'COSMOS',
   HEDERA = 'HEDERA',
   NEAR = 'NEAR',
-  SUBNET = 'SUBNET'
+  SUBNET = 'SUBNET',
+  SorobanVM = 'SOROBANVM'
 }
 
 export interface Chain {
@@ -2247,6 +2248,48 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   blockExplorerUrls: ['https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com'],
   network_type: NetworkType.EVM,
   supported_by_bridge: false
+}
+
+export const SOROBAN = {
+  chain_id: 7566437, // CHANGE THIS
+  name: 'Soroban',
+  mainnet: true,
+  id: 'soroban',
+  pangolin_is_live: false,
+  rpc_uri: 'https://futurenet.sorobandev.com/soroban/rpc', // CHANGE THIS
+  tracked_by_debank: false,
+  supported_by_bridge: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  network_type: NetworkType.SorobanVM,
+  symbol: 'XLM',
+  nativeCurrency: {
+    decimals: 7,
+    name: 'Stellar',
+    symbol: 'XLM',
+  },
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg',
+}
+
+export const SOROBAN_TESTNET = {
+  chain_id: 7566437, // CHANGE THIS
+  name: 'Soroban',
+  mainnet: true,
+  id: 'soroban',
+  pangolin_is_live: false,
+  rpc_uri: 'https://futurenet.sorobandev.com/soroban/rpc', // CHANGE THIS
+  tracked_by_debank: false,
+  supported_by_bridge: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  network_type: NetworkType.SorobanVM,
+  symbol: 'XLM',
+  nativeCurrency: {
+    decimals: 7,
+    name: 'Stellar',
+    symbol: 'XLM',
+  },
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg',
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
