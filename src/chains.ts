@@ -2268,14 +2268,15 @@ export const SOROBAN = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
+  logo: 'https://cryptologos.cc/logos/stellar-xlm-logo.png' // change this before the merge
+  //'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const SOROBAN_TESTNET = {
-  chain_id: 7566437, // CHANGE THIS
+  chain_id: 7566438, // CHANGE THIS
   name: 'Soroban',
-  mainnet: true,
-  id: 'soroban',
+  mainnet: false,
+  id: 'soroban_testnet',
   pangolin_is_live: false,
   rpc_uri: 'https://futurenet.sorobandev.com/soroban/rpc', // CHANGE THIS
   tracked_by_debank: false,
@@ -2289,7 +2290,8 @@ export const SOROBAN_TESTNET = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
+  logo: 'https://cryptologos.cc/logos/stellar-xlm-logo.png' // change this before the merge
+  //'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
