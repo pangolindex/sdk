@@ -2268,8 +2268,7 @@ export const SOROBAN = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://cryptologos.cc/logos/stellar-xlm-logo.png' // change this before the merge
-  //'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
+  logo: 'https://raw.githubusercontent.com/prodesert22/sdk/feat/soroban/src/images/chains/stellar.svg' // change this before the merge
 }
 
 export const SOROBAN_TESTNET = {
@@ -2290,8 +2289,7 @@ export const SOROBAN_TESTNET = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://cryptologos.cc/logos/stellar-xlm-logo.png' // change this before the merge
-  //'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
+  logo: 'https://raw.githubusercontent.com/prodesert22/sdk/feat/soroban/src/images/chains/stellar.svg' // change this before the merge
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
