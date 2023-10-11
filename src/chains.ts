@@ -712,6 +712,9 @@ export const COSTON_TESTNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/coston/governorPango'
+  },
   contracts: {
     png: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
     factory: '0xa5D4D920cea39f0344A99b2a3c4597E10DA16D88',
@@ -2135,6 +2138,9 @@ export const COSTON2_TESTNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://coston2-api.flare.network/ext/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/coston2/governorPango'
+  },
   contracts: {
     png: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
     factory: '0x4a2ba0812a92c78b3975bA25509b08b49972dFFa',
