@@ -1638,6 +1638,9 @@ export const SONGBIRD_CANARY: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/songbird/governorPango'
+  },
   contracts: {
     png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
     factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
@@ -1704,6 +1707,9 @@ export const FLARE_MAINNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/flare/governorPango'
+  },
   contracts: {
     png: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
     factory: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
