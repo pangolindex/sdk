@@ -1410,7 +1410,8 @@ export const HEDERA_MAINNET: Chain = {
     exchange: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://graph-hedera-main.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin'
+    singleStaking: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
+    governance: 'https://graph-hedera-main.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
