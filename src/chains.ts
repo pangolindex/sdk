@@ -27,7 +27,9 @@ export enum ChainId {
   COSTON2 = 114,
   EVMOS_TESTNET = 9000,
   EVMOS_MAINNET = 9001,
-  SKALE_BELLATRIX_TESTNET = 1351057110
+  SKALE_BELLATRIX_TESTNET = 1351057110,
+  SOROBAN = 7566437,
+  SOROBAN_TESTNET = 7566438
 }
 
 export enum StakingType {
@@ -2281,7 +2283,7 @@ export const SOROBAN = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/prodesert22/sdk/feat/soroban/src/images/chains/stellar.svg' //change this before the merge
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const SOROBAN_TESTNET = {
@@ -2302,7 +2304,7 @@ export const SOROBAN_TESTNET = {
     name: 'Stellar',
     symbol: 'XLM'
   },
-  logo: 'https://raw.githubusercontent.com/prodesert22/sdk/feat/soroban/src/images/chains/stellar.svg' //change this before the merge
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/dev/src/images/chains/stellar.svg'
 }
 
 export const CHAINS: { [chainId in ChainId]: Chain } = {
@@ -2334,7 +2336,9 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.COSTON2]: COSTON2_TESTNET,
   [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
   [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET,
-  [ChainId.SKALE_BELLATRIX_TESTNET]: SKALE_BELLATRIX_TESTNET
+  [ChainId.SKALE_BELLATRIX_TESTNET]: SKALE_BELLATRIX_TESTNET,
+  [ChainId.SOROBAN]: SOROBAN,
+  [ChainId.SOROBAN_TESTNET]: SOROBAN_TESTNET
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -2400,5 +2404,7 @@ export const ALL_CHAINS: Chain[] = [
   GODWOKEN_MAINNET,
   GODWOKEN_TESTNET,
   COSTON2_TESTNET,
-  SKALE_BELLATRIX_TESTNET
+  SKALE_BELLATRIX_TESTNET,
+  SOROBAN,
+  SOROBAN_TESTNET
 ]

@@ -51,7 +51,9 @@ export const POOL_INIT_CODE_HASH_MAPPING: { [chainId in ChainId]: string } = {
   [ChainId.COSTON2]: '',
   [ChainId.EVMOS_TESTNET]: POOL_INIT_CODE_HASH,
   [ChainId.EVMOS_MAINNET]: POOL_INIT_CODE_HASH,
-  [ChainId.SKALE_BELLATRIX_TESTNET]: POOL_INIT_CODE_HASH
+  [ChainId.SKALE_BELLATRIX_TESTNET]: POOL_INIT_CODE_HASH,
+  [ChainId.SOROBAN]: '',
+  [ChainId.SOROBAN_TESTNET]: ''
 }
 
 export enum NumberType {

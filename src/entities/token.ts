@@ -175,5 +175,7 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     18,
     'WsFUEL',
     'Wrapped sFUEL'
-  )
+  ),
+  [ChainId.SOROBAN]: new Token(ChainId.SOROBAN, ZERO_ADDRESS, 7, '', ''),
+  [ChainId.SOROBAN_TESTNET]: new Token(ChainId.SOROBAN_TESTNET, ZERO_ADDRESS, 7, '', '')
 }
