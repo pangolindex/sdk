@@ -63,12 +63,12 @@ export class Currency {
     [ChainId.SOROBAN]: new Currency(
       7,
       CHAINS[ChainId.SOROBAN].nativeCurrency!.symbol,
-      CHAINS[ChainId.SOROBAN].nativeCurrency!.name,
+      CHAINS[ChainId.SOROBAN].nativeCurrency!.name
     ),
     [ChainId.SOROBAN_TESTNET]: new Currency(
       7,
       CHAINS[ChainId.SOROBAN_TESTNET].nativeCurrency!.symbol,
-      CHAINS[ChainId.SOROBAN_TESTNET].nativeCurrency!.name,
+      CHAINS[ChainId.SOROBAN_TESTNET].nativeCurrency!.name
     )
   }
 
