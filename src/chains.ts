@@ -713,6 +713,9 @@ export const COSTON_TESTNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://coston-api.flare.network/ext/bc/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/coston/governorPango'
+  },
   contracts: {
     png: '0x0A8744c2a48b0e09a3e4C3A381A8E0d8d900bAFe',
     factory: '0xa5D4D920cea39f0344A99b2a3c4597E10DA16D88',
@@ -1408,7 +1411,8 @@ export const HEDERA_MAINNET: Chain = {
     exchange: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
     blocks: 'https://graph-hedera-main.pangolin.network/subgraphs/name/blocks',
     pangochef: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
-    singleStaking: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin'
+    singleStaking: 'https://graph-hedera-main.pangolin.network/subgraphs/name/pangolin',
+    governance: 'https://graph-hedera-main.pangolin.network/subgraphs/name/governor'
   },
   contracts: {
     png: '0x00000000000000000000000000000000001a88b2',
@@ -1636,6 +1640,9 @@ export const SONGBIRD_CANARY: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://sgb.ftso.com.au/ext/bc/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/songbird/governorPango'
+  },
   contracts: {
     png: '0xb2987753D1561570f726Aa373F48E77e27aa5FF4',
     factory: '0xB66E62b25c42D55655a82F8ebf699f2266f329FB',
@@ -1702,6 +1709,9 @@ export const FLARE_MAINNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://flare-api.flare.network/ext/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/flare/governorPango'
+  },
   contracts: {
     png: '0xB5010D5Eb31AA8776b52C7394B76D6d627501C73',
     factory: '0xbfe13753156b9c6b2818FB45ff3D2392ea43d79A',
@@ -2136,6 +2146,9 @@ export const COSTON2_TESTNET: Chain = {
   supported_by_twap: false,
   supported_by_bridge: false,
   rpc_uri: 'https://coston2-api.flare.network/ext/C/rpc',
+  subgraph: {
+    governance: 'https://flare.pangolin.network/subgraphs/name/coston2/governorPango'
+  },
   contracts: {
     png: '0x6169CD307Be7E24152dF23a7A945A1ea3eC7b438',
     factory: '0x4a2ba0812a92c78b3975bA25509b08b49972dFFa',
