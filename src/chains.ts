@@ -1442,7 +1442,7 @@ export const HEDERA_MAINNET: Chain = {
     ],
     timelock: '0x00000000000000000000000000000000001a88ac',
     governor: {
-      address: '0x0000000000000000000000000000000000316e89',
+      address: '0x00000000000000000000000000000000003c73df',
       type: GovernanceType.SAR_NFT
     },
     migrator: '',
