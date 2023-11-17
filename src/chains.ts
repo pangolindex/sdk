@@ -1712,7 +1712,7 @@ export const FLARE_MAINNET: Chain = {
     mini_chef: {
       address: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
       active: true,
-      type: ChefType.PANGO_CHE,
+      type: ChefType.PANGO_CHEF,
       compoundPoolIdForNonPngFarm: 4
     },
     airdrop: {
