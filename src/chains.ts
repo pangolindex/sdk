@@ -1722,7 +1722,8 @@ export const FLARE_MAINNET: Chain = {
     mini_chef: {
       address: '0xe19a6a2253B40F884FcaE7945C3edbB5AAf8cb60',
       active: true,
-      type: ChefType.PANGO_CHEF
+      type: ChefType.PANGO_CHEF,
+      compoundPoolIdForNonPngFarm: 2
     },
     airdrop: {
       address: '0x290593624b60D5c8EBf329344343d2cD21c46Cf3',
