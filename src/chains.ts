@@ -343,11 +343,11 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_bridge: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/pangolin-v2',
-    blocks: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/blocks',
-    minichef: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/pangolin-v2',
-    governance: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/governorAlpha',
-    elixir: 'https://graph-avalanche.pangolin.network/subgraphs/name/avalanche/pangolin-elixir'
+    exchange: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-v2/version/latest',
+    blocks: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-blocks/version/latest',
+    minichef: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-v2/version/latest',
+    governance: 'https://api.studio.thegraph.com/query/59684/avalan-pangolin-governor-alpha/version/latest',
+    elixir: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-elixir/version/latest'
   },
   coingecko_id: 'avalanche',
   debank_pangolin_id: 'avax_pangolin',
