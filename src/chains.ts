@@ -343,9 +343,9 @@ export const AVALANCHE_MAINNET: Chain = {
   supported_by_bridge: true,
   rpc_uri: 'https://api.avax.network/ext/bc/C/rpc',
   subgraph: {
-    exchange: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-v2/version/latest',
+    exchange: 'https://gateway-arbitrum.network.thegraph.com/api/f2d0632512eab32ee18295ff38a272be/subgraphs/id/BoQbRerZRKwcvjGUXvq7s1MCHPenVtzonv1cVLhn1qe2',
     blocks: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-blocks/version/latest',
-    minichef: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-v2/version/latest',
+    minichef: 'https://gateway-arbitrum.network.thegraph.com/api/f2d0632512eab32ee18295ff38a272be/subgraphs/id/BoQbRerZRKwcvjGUXvq7s1MCHPenVtzonv1cVLhn1qe2',
     governance: 'https://api.studio.thegraph.com/query/59684/avalan-pangolin-governor-alpha/version/latest',
     elixir: 'https://api.studio.thegraph.com/query/59684/avalanche-pangolin-elixir/version/latest'
   },
