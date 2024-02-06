@@ -447,10 +447,10 @@ export const AVALANCHE_FUJI: Chain = {
     multicall: '0xb465Fd2d9C71d5D6e6c069aaC9b4E21c69aAA78f',
     staking: [
       {
-        address: '0x5610E572c9f2a10BFd15861061F8B1Fe75e05b23',
+        address: '0x43c27a9B2857C3AA5522EC2DF8d183F252DbCfE7',
         active: true,
         reward_token: '0xAF5D473b3f8F96A5B21c6bbB97e09b491335acb9',
-        type: StakingType.LEGACY
+        type: StakingType.SAR_POSITIONS
       }
     ],
     elixir: {
