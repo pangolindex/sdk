@@ -27,7 +27,8 @@ export enum ChainId {
   COSTON2 = 114,
   EVMOS_TESTNET = 9000,
   EVMOS_MAINNET = 9001,
-  SKALE_BELLATRIX_TESTNET = 1351057110
+  SKALE_BELLATRIX_TESTNET = 1351057110,
+  SATLY_L1 = 132008
 }
 
 export enum StakingType {
@@ -2263,6 +2264,63 @@ export const SKALE_BELLATRIX_TESTNET: Chain = {
   supported_by_bridge: false
 }
 
+export const SATLY_L1: Chain = {
+  id: 'satly_l1',
+  chain_id: ChainId.SATLY_L1,
+  name: 'SATLY L1',
+  symbol: 'BTC',
+  png_symbol: 'PNG',
+  mainnet: false,
+  logo: 'https://raw.githubusercontent.com/pangolindex/sdk/master/src/images/chains/satly.png',
+  pangolin_is_live: true,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  supported_by_twap: false,
+  supported_by_bridge: false,
+  rpc_uri: 'https://testnet.rpc.bitcoinl1.net',
+  contracts: {
+    png: '0x6973F7882f519C5DB4e09BB0DD33Fd92b7aACA45',
+    factory: '0x0CCADf3071516D4cD90C038885D429C473b18D76',
+    router: '',
+    wrapped_native_token: '0x21a352001166715294A54EDC637256Bc787B8a19',
+    local_multisig: '',
+    community_treasury: '',
+    treasury_vester: '',
+    mini_chef: {
+      address: '',
+      active: false,
+      type: ChefType.MINI_CHEF_V2
+    },
+    airdrop: {
+      address: '',
+      active: false,
+      type: AirdropType.LEGACY
+    },
+    timelock: '',
+    governor: {
+      address: '',
+      type: GovernanceType.STANDARD
+    },
+    migrator: '',
+    multicall: '',
+    staking: [
+      {
+        address: '',
+        active: false,
+        reward_token: '',
+        type: StakingType.LEGACY
+      }
+    ]
+  },
+  nativeCurrency: {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    decimals: 18
+  },
+  blockExplorerUrls: [],
+  network_type: NetworkType.EVM
+}
+
 export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.FUJI]: AVALANCHE_FUJI,
   [ChainId.AVALANCHE]: AVALANCHE_MAINNET,
@@ -2292,7 +2350,8 @@ export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.COSTON2]: COSTON2_TESTNET,
   [ChainId.EVMOS_TESTNET]: EVMOS_TESTNET,
   [ChainId.EVMOS_MAINNET]: EVMOS_MAINNET,
-  [ChainId.SKALE_BELLATRIX_TESTNET]: SKALE_BELLATRIX_TESTNET
+  [ChainId.SKALE_BELLATRIX_TESTNET]: SKALE_BELLATRIX_TESTNET,
+  [ChainId.SATLY_L1]: SATLY_L1
 }
 
 export const ALL_CHAINS: Chain[] = [
@@ -2358,5 +2417,6 @@ export const ALL_CHAINS: Chain[] = [
   GODWOKEN_MAINNET,
   GODWOKEN_TESTNET,
   COSTON2_TESTNET,
-  SKALE_BELLATRIX_TESTNET
+  SKALE_BELLATRIX_TESTNET,
+  SATLY_L1
 ]
