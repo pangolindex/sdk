@@ -15,7 +15,7 @@ export abstract class TickList {
   /**
    * Cannot be constructed
    */
-  private constructor() {}
+  private constructor() { }
 
   public static validateList(ticks: Tick[], tickSpacing: number) {
     invariant(tickSpacing > 0, 'TICK_SPACING_NONZERO')
@@ -24,7 +24,7 @@ export abstract class TickList {
       ticks.every(({ index }) => index % tickSpacing === 0),
       'TICK_SPACING'
     )
-
+    
     // ensure tick liquidity deltas sum to 0
     invariant(
       JSBI.equal(

@@ -1742,6 +1742,17 @@ export const FLARE_MAINNET: Chain = {
         type: StakingType.SAR_POSITIONS
       }
     ],
+    elixir: {
+      factory: '0x3C14fd29b34de3EB93345872Db06689c3C02969B',
+      nftDescriptorLibrary: '0xC7ecE0A741cc13F01f5Eb29e8196Cd5BB1a91384',
+      nftDescriptor: '0xd0f4D2461DEfAe0295bb20b1c3efc47989298D5F',
+      nftManager: '0x7C08481d01655dc88f2CD16B8f3042D4642D57a3',
+      swapRouter: '0x6602f53CE525b25Dc54b95cabE3243CCE818aB11',
+      migrator: '0x860ea6A503C9da5f29d7033B9e0a3f6f477FEd69',
+      pangolinInterfaceMulticall: '0xB860F14463D3426FaaBbF1302aD38689f31df88c',
+      quoterV2: '0xDe7E827B4cf2235063A20444408ECd1dD50E45Fc',
+      tickLens: '0x8D7e24dD40d7a23daAB4325A7AB55b2B348FceA4'
+    },
     governor: {
       address: '0x791aAE9F376159E4419D37142cd8e079a2beaf94',
       type: GovernanceType.SAR_NFT
