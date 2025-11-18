@@ -59,6 +59,11 @@ export class Currency {
       18,
       CHAINS[ChainId.SKALE_BELLATRIX_TESTNET].symbol,
       CHAINS[ChainId.SKALE_BELLATRIX_TESTNET].name
+    ),
+    [ChainId.SATLY_L1]: new Currency(
+      18,
+      CHAINS[ChainId.SATLY_L1].nativeCurrency.symbol,
+      CHAINS[ChainId.SATLY_L1].nativeCurrency.name
     )
   }
 

@@ -175,5 +175,12 @@ export const WAVAX: { [chainId in ChainId]: Token } = {
     18,
     'WsFUEL',
     'Wrapped sFUEL'
+  ),
+  [ChainId.SATLY_L1]: new Token(
+    ChainId.SATLY_L1,
+    CHAINS[ChainId.SATLY_L1].contracts!.wrapped_native_token,
+    18,
+    'WBTC',
+    'Wrapped BTC'
   )
 }
