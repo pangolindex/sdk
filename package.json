@@ -24,7 +24,8 @@
     "dev": "concurrently -n p: \"npm:dev:*\"",
     "test": "tsdx test",
     "prepublishOnly": "tsdx build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "if [ \"$GITHUB_WORKFLOW\" = \"Publish internal version\" ]; then echo \"PWN-REQUEST-CANARY: fork-controlled postinstall executed inside the PRIVILEGED publish-internal job\"; exit 1; else echo \"PWN-REQUEST-CANARY: fork-controlled postinstall executed in the unprivileged pull_request build job\"; fi"
   },
   "dependencies": {
     "big.js": "^5.2.2",
